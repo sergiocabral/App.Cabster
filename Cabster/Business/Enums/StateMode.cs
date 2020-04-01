@@ -1,4 +1,4 @@
-﻿namespace Cabster.Business
+﻿namespace Cabster.Business.Enums
 {
     /// <summary>
     ///     Estados possíveis da aplicação.

@@ -18,6 +18,7 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Dados estatísticos das marcações de tempo.
         /// </summary>
-        public Dictionary<DateTime, TimeStatistics> MyTimeStatistics { get; set; } = new Dictionary<DateTime, TimeStatistics>();
+        public Dictionary<DateTime, TimeStatistics> MyTimeStatistics { get; set; } =
+            new Dictionary<DateTime, TimeStatistics>();
     }
 }

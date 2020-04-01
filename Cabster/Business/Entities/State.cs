@@ -1,4 +1,5 @@
 ﻿using System;
+using Cabster.Business.Enums;
 
 namespace Cabster.Business.Entities
 {
