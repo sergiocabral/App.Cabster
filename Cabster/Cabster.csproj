@@ -44,7 +44,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
       <Private>True</Private>
@@ -105,22 +107,22 @@
     <Compile Include="Infrastructure\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Infrastructure\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\FormMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Infrastructure\FormInvisible.Designer.cs">
+    <Compile Include="Infrastructure\FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructure\MainForm.Designer.cs">
-      <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Infrastructure\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Infrastructure\MainForm.resx">
-      <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

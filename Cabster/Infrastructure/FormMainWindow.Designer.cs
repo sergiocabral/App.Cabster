@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-
-namespace Cabster.Infrastructure
+﻿namespace Cabster.Infrastructure
 {
     partial class FormMainWindow
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private IContainer components = null;
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -19,7 +17,6 @@ namespace Cabster.Infrastructure
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 
@@ -33,13 +30,13 @@ namespace Cabster.Infrastructure
         {
             this.SuspendLayout();
             // 
-            // FormInvisible
+            // FormMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 519);
-            this.Name = "FormInvisible";
-            this.Text = "FormInvisible";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "FormMainWindow";
+            this.Text = "FormMainWindow";
             this.ResumeLayout(false);
         }
 
