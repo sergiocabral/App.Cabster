@@ -49,6 +49,12 @@
     <Compile Include="Infrastructure\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Infrastructure\FormMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\FormInvisible.Designer.cs">
+      <DependentUpon>FormMainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\MainForm.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
