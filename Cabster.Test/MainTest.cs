@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabrones.Test;
@@ -19,7 +18,6 @@ namespace Cabster
 
             // Act, When
 
-            Exception falha = null;
             var thread = new Thread(() =>
             {
                 Task.Run(() =>

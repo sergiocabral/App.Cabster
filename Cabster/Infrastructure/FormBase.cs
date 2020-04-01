@@ -5,12 +5,12 @@ namespace Cabster.Infrastructure
     /// <summary>
     ///     Form base do sistema.
     /// </summary>
-    public abstract partial class FormBase : Form
+    public partial class FormBase : Form
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
-        protected FormBase()
+        public FormBase()
         {
             InitializeComponent();
         }

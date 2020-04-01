@@ -8,7 +8,7 @@ namespace Cabster.Business.Entities
     ///     Dados privados apenas neste computador.
     /// </summary>
     [Serializable]
-    public class Private: IEntity
+    public class Private : IEntity
     {
         /// <summary>
         ///     Tecla de atalho para o aplicativo.

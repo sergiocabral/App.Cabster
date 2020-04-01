@@ -6,7 +6,7 @@ namespace Cabster.Business.Entities
     ///     Dados estatísticos das marcações de tempo.
     /// </summary>
     [Serializable]
-    public class TimeStatistics: IEntity
+    public class TimeStatistics : IEntity
     {
         /// <summary>
         ///     Quando começou a contar essas estatísticas.

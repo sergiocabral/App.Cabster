@@ -6,7 +6,7 @@ namespace Cabster.Business.Entities
     ///     Sessão remota entre computadores.
     /// </summary>
     [Serializable]
-    public class Session: IEntity
+    public class Session : IEntity
     {
         /// <summary>
         ///     Identificador.

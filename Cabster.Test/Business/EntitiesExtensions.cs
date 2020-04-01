@@ -1,4 +1,5 @@
 ﻿using Cabster.Business.Entities;
+using FluentAssertions;
 using Xunit;
 
 namespace Cabster.Business
@@ -11,12 +12,14 @@ namespace Cabster.Business
             // Arrange, Given
 
             var sut = new State();
-            
+
             // Act, When
-            
+
+            var json = sut.ToJson();
+
             // Assert, Then
-            
-            Assert.True(true);
+
+            json.Should().NotBeNull();
         }
     }
 }

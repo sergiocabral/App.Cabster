@@ -7,7 +7,7 @@ namespace Cabster.Business.Entities
     ///     Dados compartilhados na sessão em rede.
     /// </summary>
     [Serializable]
-    public class Shared: IEntity
+    public class Shared : IEntity
     {
         /// <summary>
         ///     Parâmetros de tempo para o trabalho em grupo.
