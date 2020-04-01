@@ -13,7 +13,7 @@ namespace Cabster.Infrastructure
         public FormMainWindow()
         {
             InitializeComponent();
-            
+
             this.MakeInvisible();
         }
     }

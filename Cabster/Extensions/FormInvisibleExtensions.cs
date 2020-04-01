@@ -7,7 +7,7 @@ namespace Cabster.Extensions
     /// <summary>
     ///     Utilitários para forms e seus componentes.
     /// </summary>
-    public static class FormInvisibleExtensionsTest
+    public static class FormInvisibleExtensions
     {
         /// <summary>
         ///     Lista de forms que foram deixados invisíveis
@@ -117,7 +117,7 @@ namespace Cabster.Extensions
                     _form.Top = int.MaxValue;
                     _form.Shown += HideForm;
                 }
-                
+
                 Application.DoEvents();
             }
 

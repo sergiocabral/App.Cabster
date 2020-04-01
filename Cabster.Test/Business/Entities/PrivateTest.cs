@@ -45,7 +45,7 @@ namespace Cabster.Business.Entities
                 typeof(IEntity));
             sut.AssertMyOwnPublicPropertiesCount(4);
             sut.AssertPublicPropertyPresence("Shortcut Shortcut { get; set; }");
-            sut.AssertPublicPropertyPresence("Dictionary<DateTime, TimeStatistics> MyTimeStatistics { get; set; }");
+            sut.AssertPublicPropertyPresence("Dictionary<String, TimeStatistics> MyTimeStatistics { get; set; }");
             sut.AssertMyOwnPublicMethodsCount(0);
 
             sut.IsClass.Should().BeTrue();
