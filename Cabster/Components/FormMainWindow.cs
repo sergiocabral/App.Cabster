@@ -1,6 +1,6 @@
 ﻿using Cabster.Extensions;
 
-namespace Cabster.Infrastructure
+namespace Cabster.Components
 {
     /// <summary>
     ///     Janela invisível.

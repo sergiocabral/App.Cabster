@@ -1,6 +1,6 @@
-﻿namespace Cabster.Infrastructure
+﻿namespace Cabster.Components
 {
-    partial class FormLayout
+    partial class FormMainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // FormLayout
+            // FormMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormLayout";
-            this.Text = "FormLayout";
+            this.Name = "FormMainWindow";
+            this.Text = "FormMainWindow";
             this.ResumeLayout(false);
         }
 

@@ -3,7 +3,7 @@ using Cabster.Properties;
 
 // ReSharper disable VirtualMemberCallInConstructor
 
-namespace Cabster.Infrastructure
+namespace Cabster.Components
 {
     /// <summary>
     ///     Form base do sistema.

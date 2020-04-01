@@ -98,9 +98,9 @@
     <Compile Include="Business\IEntityTest.cs" />
     <Compile Include="Extensions\FormInvisibleExtensionsTest.cs" />
     <Compile Include="Extensions\TextExtensionsTest.cs" />
-    <Compile Include="Infrastructure\FormBaseTest.cs" />
-    <Compile Include="Infrastructure\FormLayoutTest.cs" />
-    <Compile Include="Infrastructure\FormMainWindowTest.cs" />
+    <Compile Include="Components\FormBaseTest.cs" />
+    <Compile Include="Components\FormLayoutTest.cs" />
+    <Compile Include="Components\FormMainWindowTest.cs" />
     <Compile Include="MainTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestExtensions.cs" />

@@ -3,9 +3,9 @@ using Cabrones.Test;
 using FluentAssertions;
 using Xunit;
 
-namespace Cabster.Infrastructure
+namespace Cabster.Components
 {
-    public class FormMainWindowTest
+    public class FormLayoutTest
     {
         [Fact]
         public void deve_ser_possível_criar_uma_instância_sem_falhar()
@@ -13,7 +13,7 @@ namespace Cabster.Infrastructure
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormMainWindow().CriarAbrirFecharDescartar();
+            Action criar = () => new FormLayout().CriarAbrirFecharDescartar();
 
             // Assert, Then
 
@@ -26,7 +26,7 @@ namespace Cabster.Infrastructure
             // Arrange, Given
             // Act, When
 
-            var sut = typeof(FormMainWindow);
+            var sut = typeof(FormLayout);
 
             // Assert, Then
 

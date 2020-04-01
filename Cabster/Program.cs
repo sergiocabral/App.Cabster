@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cabster.Infrastructure;
+using Cabster.Components;
 
 namespace Cabster
 {

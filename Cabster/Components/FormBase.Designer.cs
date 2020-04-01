@@ -1,4 +1,4 @@
-﻿namespace Cabster.Infrastructure
+﻿namespace Cabster.Components
 {
     partial class FormBase
     {

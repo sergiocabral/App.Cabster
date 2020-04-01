@@ -105,33 +105,33 @@
     <Compile Include="Business\Enums\StateMode.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
-    <Compile Include="Infrastructure\FormBase.cs">
+    <Compile Include="Components\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Infrastructure\FormBase.Designer.cs">
+    <Compile Include="Components\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\FormLayout.cs">
+    <Compile Include="Components\FormLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Infrastructure\FormLayout.Designer.cs">
+    <Compile Include="Components\FormLayout.Designer.cs">
       <DependentUpon>FormLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\FormMainWindow.cs">
+    <Compile Include="Components\FormMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Infrastructure\FormMainWindow.Designer.cs">
+    <Compile Include="Components\FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Infrastructure\FormBase.resx">
+    <EmbeddedResource Include="Components\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Infrastructure\FormLayout.resx">
+    <EmbeddedResource Include="Components\FormLayout.resx">
       <DependentUpon>FormLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Infrastructure\FormMainWindow.resx">
+    <EmbeddedResource Include="Components\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.pt.resx" />
@@ -159,6 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\Forms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormHeaderSapiensia.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
