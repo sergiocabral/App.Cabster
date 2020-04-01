@@ -14,7 +14,7 @@ namespace Cabster
         {
             // Arrange, Given
 
-            const int esperarUmTempoAtéAAplicaçãoIniciar = 5000;
+            const int esperarUmTempoAtéAAplicaçãoIniciar = 3000;
 
             // Act, When
 
