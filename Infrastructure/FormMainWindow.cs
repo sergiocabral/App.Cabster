@@ -1,15 +1,14 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Cabster.Infrastructure
 {
     /// <summary>
-    /// Janela invisível.
+    ///     Janela invisível.
     /// </summary>
     public partial class FormMainWindow : FormBase
     {
         /// <summary>
-        /// Construtor.
+        ///     Construtor.
         /// </summary>
         public FormMainWindow()
         {
@@ -19,7 +18,7 @@ namespace Cabster.Infrastructure
         }
 
         /// <summary>
-        /// Torna a janela invisível.
+        ///     Torna a janela invisível.
         /// </summary>
         private void TurnInvisible()
         {

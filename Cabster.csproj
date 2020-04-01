@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <Nullable>enable</Nullable>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Entities\Data.cs" />
+    <Compile Include="Business\Entities\Participant.cs" />
+    <Compile Include="Business\Entities\Private.cs" />
+    <Compile Include="Business\Entities\Session.cs" />
+    <Compile Include="Business\Entities\Shared.cs" />
+    <Compile Include="Business\Entities\State.cs" />
+    <Compile Include="Business\Entities\Temporary.cs" />
+    <Compile Include="Business\Entities\TimeParameters.cs" />
+    <Compile Include="Business\Entities\TimeStatistics.cs" />
+    <Compile Include="Business\StateMode.cs" />
     <Compile Include="Infrastructure\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Infrastructure\FormMainWindow.resx">
+      <DependentUpon>FormMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\MainForm.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,7 +100,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)\Properties

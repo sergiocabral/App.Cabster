@@ -5,12 +5,12 @@ using Cabster.Infrastructure;
 namespace Cabster
 {
     /// <summary>
-    /// Classe principal
+    ///     Classe principal
     /// </summary>
     internal static class Program
     {
         /// <summary>
-        /// Ponto de entrada do sistema operacional.
+        ///     Ponto de entrada do sistema operacional.
         /// </summary>
         [STAThread]
         private static void Main()
