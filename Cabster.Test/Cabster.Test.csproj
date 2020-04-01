@@ -101,7 +101,7 @@
     <Compile Include="Business\Enums\StateModeTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />
     <Compile Include="Extensions\FormInvisibleExtensionsTest.cs" />
-    <Compile Include="Extensions\EntitiesToJsonExtensionsTest.cs" />
+    <Compile Include="Extensions\TextExtensionsTest.cs" />
     <Compile Include="Infrastructure\FormBaseTest.cs" />
     <Compile Include="Infrastructure\FormMainWindowTest.cs" />
     <Compile Include="MainTest.cs" />

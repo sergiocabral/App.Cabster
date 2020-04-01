@@ -103,7 +103,7 @@
     <Compile Include="Business\Entities\TimeStatistics.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\StateMode.cs" />
-    <Compile Include="Extensions\EntitiesToJsonExtensions.cs" />
+    <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
     <Compile Include="Infrastructure\FormBase.cs">
       <SubType>Form</SubType>

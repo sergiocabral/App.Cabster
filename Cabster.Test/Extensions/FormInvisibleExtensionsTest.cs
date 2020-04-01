@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cabster.Business.Entities;
-using Cabster.Extensions;
 using FluentAssertions;
 using Xunit;
 
-namespace Cabster.Business
+namespace Cabster.Extensions
 {
     public class FormInvisibleExtensionsTest
     {
