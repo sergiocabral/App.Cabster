@@ -3,7 +3,7 @@
     /// <summary>
     ///     Extensões para as entidades.
     /// </summary>
-    public static class EntitiesExtensions
+    public static class EntitiesToJsonExtensions
     {
         /// <summary>
         ///     Converte a entidade para JSON.
@@ -12,7 +12,7 @@
         /// <returns>Serialização como texto JSON.</returns>
         public static string ToJson(this IEntity entity)
         {
-            return string.Empty;
+            return entity.ToString();
         }
     }
 }

@@ -92,7 +92,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\EntitiesExtensions.cs" />
     <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\Participant.cs" />
     <Compile Include="Business\Entities\Private.cs" />
@@ -104,6 +103,8 @@
     <Compile Include="Business\Entities\TimeStatistics.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\StateMode.cs" />
+    <Compile Include="Extensions\EntitiesToJsonExtensions.cs" />
+    <Compile Include="Extensions\FormInvisibleExtensions.cs" />
     <Compile Include="Infrastructure\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>

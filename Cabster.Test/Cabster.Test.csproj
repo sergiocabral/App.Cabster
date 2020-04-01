@@ -89,7 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\EntitiesExtensions.cs" />
     <Compile Include="Business\Entities\ContainerDataTest.cs" />
     <Compile Include="Business\Entities\ParticipantTest.cs" />
     <Compile Include="Business\Entities\PrivateTest.cs" />
@@ -101,6 +100,8 @@
     <Compile Include="Business\Entities\TimeStatisticsTest.cs" />
     <Compile Include="Business\Enums\StateModeTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />
+    <Compile Include="Extensions\FormInvisibleExtensionsTest.cs" />
+    <Compile Include="Extensions\EntitiesToJsonExtensionsTest.cs" />
     <Compile Include="Infrastructure\FormBaseTest.cs" />
     <Compile Include="Infrastructure\FormMainWindowTest.cs" />
     <Compile Include="MainTest.cs" />
