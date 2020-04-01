@@ -1,21 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cabster.Business.Entities
 {
     /// <summary>
     ///     Dados compartilhados na sessão em rede.
     /// </summary>
+    [Serializable]
     public class Shared
     {
         /// <summary>
         ///     Parâmetros de tempo para o trabalho em grupo.
         /// </summary>
         public TimeParameters TimeParameters { get; set; } = new TimeParameters();
-
-        /// <summary>
-        ///     Dados estatísticos das marcações de tempo.
-        /// </summary>
-        public TimeStatistics TimeStatistics { get; set; } = new TimeStatistics();
 
         /// <summary>
         ///     Participante do trabalho em grupo.

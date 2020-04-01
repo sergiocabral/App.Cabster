@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cabster.Business.Entities
 {
     /// <summary>
     ///     Dados temporários gravados apenas na memória.
     /// </summary>
+    [Serializable]
     public class Temporary
     {
         /// <summary>

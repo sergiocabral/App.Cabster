@@ -5,6 +5,7 @@ namespace Cabster.Business.Entities
     /// <summary>
     ///     Sessão remota entre computadores.
     /// </summary>
+    [Serializable]
     public class Session
     {
         /// <summary>
@@ -26,5 +27,10 @@ namespace Cabster.Business.Entities
         ///     Última atualização.
         /// </summary>
         public DateTimeOffset Updated { get; set; }
+
+        /// <summary>
+        ///     Dados estatísticos das marcações de tempo.
+        /// </summary>
+        public TimeStatistics TimeStatistics { get; set; } = new TimeStatistics();
     }
 }

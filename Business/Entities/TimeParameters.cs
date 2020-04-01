@@ -1,8 +1,11 @@
-﻿namespace Cabster.Business.Entities
+﻿using System;
+
+namespace Cabster.Business.Entities
 {
     /// <summary>
     ///     Parâmetros de tempo para o trabalho em grupo.
     /// </summary>
+    [Serializable]
     public class TimeParameters
     {
         /// <summary>

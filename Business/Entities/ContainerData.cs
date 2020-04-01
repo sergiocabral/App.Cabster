@@ -6,7 +6,7 @@ namespace Cabster.Business.Entities
     ///     Representa todas as configurações da aplicação.
     /// </summary>
     [Serializable]
-    public class Data
+    public class ContainerData
     {
         /// <summary>
         ///     Dados privados apenas neste computador.

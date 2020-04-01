@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Entities\Data.cs" />
+    <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\Participant.cs" />
     <Compile Include="Business\Entities\Private.cs" />
     <Compile Include="Business\Entities\Session.cs" />
