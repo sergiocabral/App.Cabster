@@ -1,4 +1,7 @@
 ﻿using System.Windows.Forms;
+using Cabster.Properties;
+
+// ReSharper disable VirtualMemberCallInConstructor
 
 namespace Cabster.Infrastructure
 {
@@ -13,6 +16,8 @@ namespace Cabster.Infrastructure
         public FormBase()
         {
             InitializeComponent();
+
+            Text = Resources.System_Name;
         }
 
         /// <summary>

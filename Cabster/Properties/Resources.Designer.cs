@@ -59,5 +59,14 @@ namespace Cabster.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cabster.
+        /// </summary>
+        public static string System_Name {
+            get {
+                return ResourceManager.GetString("System.Name", resourceCulture);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Cabrones.Test;
+using Cabster.Properties;
 using FluentAssertions;
 using Xunit;
 
@@ -18,6 +19,22 @@ namespace Cabster.Infrastructure
             // Assert, Then
 
             criar.Should().NotThrow();
+        }
+
+        [Fact]
+        public void o_título_da_janela_deve_ser_o_nome_do_aplicativo()
+        {
+            // Arrange, Given
+
+            var form = new FormBase();
+
+            // Act, When
+
+            var título = form.Text;
+
+            // Assert, Then
+
+            título.Should().Be(Resources.System_Name);
         }
 
         [Fact]
