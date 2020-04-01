@@ -7,7 +7,7 @@ namespace Cabster.Business.Entities
     ///     Dados temporários gravados apenas na memória.
     /// </summary>
     [Serializable]
-    public class Temporary
+    public class Temporary: IEntity
     {
         /// <summary>
         ///     Lista de sessões remotas.

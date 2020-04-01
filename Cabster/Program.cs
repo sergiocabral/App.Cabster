@@ -7,13 +7,13 @@ namespace Cabster
     /// <summary>
     ///     Classe principal
     /// </summary>
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         ///     Ponto de entrada do sistema operacional.
         /// </summary>
         [STAThread]
-        private static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

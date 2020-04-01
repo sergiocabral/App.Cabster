@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Cabster.Business.Entities;
+using Xunit;
 
 namespace Cabster.Business
 {
@@ -7,6 +8,14 @@ namespace Cabster.Business
         [Fact]
         public void método_ToJson_para_entidade_ContainerData_deve_retornar_um_json_válido()
         {
+            // Arrange, Given
+
+            var sut = new State();
+            
+            // Act, When
+            
+            // Assert, Then
+            
             Assert.True(true);
         }
     }

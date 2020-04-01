@@ -7,7 +7,7 @@ namespace Cabster.Business.Entities
     ///     Estado de funcionamento da aplicação.
     /// </summary>
     [Serializable]
-    public class State
+    public class State: IEntity
     {
         /// <summary>
         ///     Estado atual da aplicação.

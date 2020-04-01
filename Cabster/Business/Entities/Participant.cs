@@ -6,7 +6,7 @@ namespace Cabster.Business.Entities
     ///     Participante do trabalho em grupo.
     /// </summary>
     [Serializable]
-    public class Participant
+    public class Participant: IEntity
     {
         /// <summary>
         ///     Nome.

@@ -6,7 +6,7 @@ namespace Cabster.Business.Entities
     ///     Parâmetros de tempo para o trabalho em grupo.
     /// </summary>
     [Serializable]
-    public class TimeParameters
+    public class TimeParameters: IEntity
     {
         /// <summary>
         ///     Duração de cada rodada de trabalho.
