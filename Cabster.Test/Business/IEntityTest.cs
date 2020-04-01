@@ -4,6 +4,7 @@ using Xunit;
 
 namespace Cabster.Business
 {
+    // ReSharper disable once InconsistentNaming
     public class IEntityTest
     {
         [Fact]

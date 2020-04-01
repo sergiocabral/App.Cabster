@@ -111,6 +111,12 @@
     <Compile Include="Infrastructure\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\FormLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\FormLayout.Designer.cs">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\FormMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Infrastructure\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\FormLayout.resx">
+      <DependentUpon>FormLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
@@ -147,6 +156,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
