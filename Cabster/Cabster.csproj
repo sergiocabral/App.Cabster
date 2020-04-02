@@ -130,6 +130,7 @@
     <Compile Include="Components\FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\WindowsApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\FormBase.resx">

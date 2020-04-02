@@ -63,7 +63,14 @@ namespace Cabster.Components
             HandleCreated += (sender, args) =>
             {
                 if (!Images.ContainsKey(Name)) return;
+
                 Text = string.Empty;
+                BackColor = Color.Transparent;
+                FlatAppearance.CheckedBackColor = Color.Transparent;
+                FlatAppearance.MouseDownBackColor = Color.Transparent;
+                FlatAppearance.MouseOverBackColor = Color.Transparent;
+                FlatAppearance.BorderSize = 0;
+
                 var (bitmapLeave, bitmapEnter) = Images[Name];
                 this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
             };
