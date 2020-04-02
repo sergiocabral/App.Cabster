@@ -180,6 +180,12 @@
   <ItemGroup>
     <None Include="Resources\buttonCloseLeave.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonMinimizeEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonMinimizeLeave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)\Properties

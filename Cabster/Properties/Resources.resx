@@ -124,6 +124,12 @@
   <data name="buttonCloseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonCloseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buttonMinimizeEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonMinimizeEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonMinimizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonMinimizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FormBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FormBackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

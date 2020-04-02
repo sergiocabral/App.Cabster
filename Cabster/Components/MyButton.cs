@@ -16,7 +16,8 @@ namespace Cabster.Components
     public partial class MyButton : Button
     {
         /// <summary>
-        ///     Lista de imagens disponíveis.
+        ///     Lista de imagens disponíveis. A consulta é feita nas imagens nos recursos
+        ///     que finalizam com *Leave ou *Enter para os evento MouseEnter e MouseLeave. 
         /// </summary>
         private static readonly Dictionary<string, (Bitmap, Bitmap)> Images = typeof(Resources)
             .GetProperties(BindingFlags.Static | BindingFlags.Public)
@@ -59,20 +60,32 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             FlatStyle = FlatStyle.Flat;
+            Cursor = Cursors.Hand;
 
             HandleCreated += (sender, args) =>
             {
-                if (!Images.ContainsKey(Name)) return;
+                if (Images.ContainsKey(Name))
+                {
+                    if (!Images.ContainsKey(Name)) return;
+                    var (bitmapLeave, bitmapEnter) = Images[Name];
+                    this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
 
-                Text = string.Empty;
-                BackColor = Color.Transparent;
-                FlatAppearance.CheckedBackColor = Color.Transparent;
-                FlatAppearance.MouseDownBackColor = Color.Transparent;
-                FlatAppearance.MouseOverBackColor = Color.Transparent;
-                FlatAppearance.BorderSize = 0;
+                    Text = string.Empty;
 
-                var (bitmapLeave, bitmapEnter) = Images[Name];
-                this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
+                    FlatAppearance.BorderSize = 0;
+                    FlatAppearance.CheckedBackColor = Color.Transparent;
+                    FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    BackColor = Color.Transparent;
+                }
+                else
+                {
+                    FlatAppearance.BorderSize = 3;
+                    FlatAppearance.BorderColor = ControlPaint.Light(BackColor, (float) 0.8);
+                    FlatAppearance.MouseOverBackColor = ControlPaint.Dark(BackColor, (float) 0.2);
+                    FlatAppearance.MouseDownBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
+                    FlatAppearance.CheckedBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
+                }
             };
         }
     }

@@ -83,6 +83,26 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap FormBackground {
             get {
                 object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
