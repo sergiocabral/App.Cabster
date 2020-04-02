@@ -57,8 +57,8 @@ namespace Cabster.Extensions
                 Mode = this.Fixture<StateMode>(),
                 CurrentTime = this.Fixture<DateTimeOffset>()
             };
-            
-            var jsonEsperado = 
+
+            var jsonEsperado =
                 $"{{\"Mode\":{(int) instância.Mode},\"CurrentTime\":\"{instância.CurrentTime:O}\"}}";
             jsonEsperado = Regex.Replace(jsonEsperado, @"(?<=[0-9]{6})0(?=-[0-9]{2}:[0-9]{2})", string.Empty);
 

@@ -22,7 +22,7 @@ namespace Cabster
 
             return form;
         }
-        
+
         /// <summary>
         ///     Descartar controles com 100% de teste de cobertura.
         /// </summary>

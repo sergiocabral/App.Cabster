@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Extensions\ControlAbleToOperateFormExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
+    <Compile Include="Extensions\ControlsExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
     <Compile Include="Components\FormBase.cs">
@@ -158,6 +159,7 @@
     <Compile Include="Components\FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

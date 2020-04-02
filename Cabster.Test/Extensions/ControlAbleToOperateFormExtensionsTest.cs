@@ -31,7 +31,7 @@ namespace Cabster.Extensions
             desativar.Should().NotThrow();
             desativar.Should().NotThrow();
         }
-        
+
         [Fact]
         public void método_MakeAbleToResizeForm_deve_poder_ativar_e_desativar_sem_falhar()
         {

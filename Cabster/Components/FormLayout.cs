@@ -44,6 +44,8 @@ namespace Cabster.Components
                 if (Text == GetType().Name) Text = Resources.System_Name;
                 labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
+
+                toolTip.Translate();
             };
             Resize += (sender, args) =>
             {
@@ -72,7 +74,6 @@ namespace Cabster.Components
         [ExcludeFromCodeCoverage]
         private void buttonMinimize_Click(object sender, EventArgs e)
         {
-
             if (ButtonMinimizeClick == null) WindowState = FormWindowState.Minimized;
             else ButtonMinimizeClick();
         }

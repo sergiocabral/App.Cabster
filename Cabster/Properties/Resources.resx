@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actio.MinimizeWindow" xml:space="preserve">
+  <data name="Action.MinimizeWindow" xml:space="preserve">
     <value>Minimize window.</value>
   </data>
-  <data name="Actio.TerminateApplication" xml:space="preserve">
-    <value>Fechar a aplicação.</value>
+  <data name="Action.ResizeWindow" xml:space="preserve">
+    <value>Resize window.</value>
+  </data>
+  <data name="Action.TerminateApplication" xml:space="preserve">
+    <value>Close application.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonCloseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
