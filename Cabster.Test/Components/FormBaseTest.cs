@@ -14,7 +14,9 @@ namespace Cabster.Components
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormBase().CriarAbrirFecharDescartar();
+            Action criar = () => new FormBase()
+                .AbrirFecharDescartar()
+                .Descartar();
 
             // Assert, Then
 

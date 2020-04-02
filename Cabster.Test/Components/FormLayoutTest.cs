@@ -13,7 +13,9 @@ namespace Cabster.Components
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormLayout().CriarAbrirFecharDescartar();
+            Action criar = () => new FormLayout()
+                .AbrirFecharDescartar()
+                .Descartar();
 
             // Assert, Then
 
@@ -32,7 +34,9 @@ namespace Cabster.Components
 
             sut.AssertMyOwnImplementations(typeof(FormBase));
             sut.AssertMyOwnPublicPropertiesCount(0);
-            sut.AssertMyOwnPublicMethodsCount(0);
+            sut.AssertMyOwnPublicMethodsCount(2);
+            sut.AssertPublicMethodPresence("Void add_ButtonCloseClick(Action)");
+            sut.AssertPublicMethodPresence("Void remove_ButtonCloseClick(Action)");
 
             sut.IsClass.Should().BeTrue();
         }

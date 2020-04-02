@@ -118,7 +118,7 @@
     <Compile Include="Components\MyButton.Designer.cs">
       <DependentUpon>MyButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\ControlAbleToMoveFormExtensions.cs" />
+    <Compile Include="Extensions\ControlAbleToOperateFormExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
@@ -143,6 +143,9 @@
     <Compile Include="Helpers\WindowsApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +201,8 @@
     <None Include="Resources\buttonMinimizeLeave.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\buttonResizeEnter.png" />
+    <None Include="Resources\buttonResizeLeave.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

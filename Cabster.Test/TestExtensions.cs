@@ -12,23 +12,34 @@ namespace Cabster
     public static class TestExtensions
     {
         /// <summary>
-        ///     Criar, abrir, fechar e descartar um Form.
+        ///     Abrir e fechar um form.
         /// </summary>
         /// <param name="form">Form</param>
-        public static void CriarAbrirFecharDescartar<T>(this T form) where T : Form
+        public static T AbrirFecharDescartar<T>(this T form) where T : Form
         {
             form.Show();
             form.Close();
 
+            return form;
+        }
+        
+        /// <summary>
+        ///     Descartar controles com 100% de teste de cobertura.
+        /// </summary>
+        /// <param name="control">Controle</param>
+        public static T Descartar<T>(this T control) where T : Control
+        {
             // Necessário para teste de cobertura atingir 100%.
             // components é um atributo criado pelo Visual Studio e usado pelo modo Design.
             // https://stackoverflow.com/questions/5069391/whats-the-purpose-of-the-components-icontainer-generated-by-the-winforms-design
-            form
+            control
                 .GetType()
                 .GetField("components", BindingFlags.Instance | BindingFlags.NonPublic)
-                ?.SetValue(form, Substitute.For<IContainer>());
+                ?.SetValue(control, Substitute.For<IContainer>());
 
-            ((IDisposable) form).Dispose();
+            ((IDisposable) control).Dispose();
+
+            return control;
         }
 
         /// <summary>

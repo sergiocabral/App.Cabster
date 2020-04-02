@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Cabster.Extensions;
 using Cabster.Properties;
 
@@ -30,6 +31,7 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             labelTitle.MakeAbleToMoveForm();
+            buttonResize.MakeAbleToResizeForm();
             HandleCreated += (sender, args) =>
             {
                 if (Text == GetType().Name) Text = Resources.System_Name;
@@ -43,6 +45,7 @@ namespace Cabster.Components
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
+        [ExcludeFromCodeCoverage]
         private void buttonClose_Click(object sender, EventArgs args)
         {
             if (ButtonCloseClick == null) Hide();

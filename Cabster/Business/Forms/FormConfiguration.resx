@@ -117,37 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <!-- ReSharper disable NotOverriddenInSpecificCulture -->
-  <data name="buttonCloseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonCloseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonCloseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonCloseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonMinimizeEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonMinimizeEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonMinimizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonMinimizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonResizeEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonResizeEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonResizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonResizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormBackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormHeaderSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormHeaderSapiensia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <!-- ReSharper restore NotOverriddenInSpecificCulture -->
-  <data name="System.Name" xml:space="preserve">
-    <value>Cabster</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAADc3Nw4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAQDMzFFBPT9taWFj/TUtLxFVVVQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAENBQXJaWFj/WlhY/1pYWP9JSEinAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAABAQEBIWlhY/lpYWP9aWFj/WlhY/1NRUeRNTEzKVFJS6VJRUeM/Pz89AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEJCQmRJR0ehREJCdERBQXVRTk7aWlhY/1pYWP9aWFj/TktLyAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEn2yKxWi6ecXqvX4FIG5dVJQUOVaWFj/WlhY/01L
+        S8MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKLyZwXr/z/F6/8/xWf5uJKSUmzWlhY/05N
+        TdA8PDwiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgblfF6/8/hev/P8UkdC3Uk9P3lFO
+        TtoThsGDFaLp5xSR0bUAVaoDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJ8s0YTgLdqSUlKtlpY
+        WP9CSEuOFq35/Bev/P8Xr/z/EYC4WgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATUtLxFpY
+        WP9aWFj/SEhIoxak7OwXr/z/F636/Q57szYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhW
+        VvlaWFj/WlhY/1lXV/o0VWeNFInGlxlvmWdBPj5KMzMzBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABLSUm4WlhY/1pYWP9ZV1f8WlhY/1pYWP1aWFj/WlhY/1FPT9xVVVUDAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAEFBQUs+Pj4xAAAAAEBAQFdVVFTuWlhY/1pYWP9aWFj/QTw8Mw94pREAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQj4+RllXV/paWFj/VVJS6xOPzbgXrvr8EHy0UgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAOjowQkBAdDc3NxcSkdC0F676/BB8
+        tFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94
+        pREAAAAA3////wf///8D////AD///4A////AP///wD///8AP///gD///8A////AH///wA///+QH///+A
+        ////wP////3//w==
+</value>
   </data>
 </root>

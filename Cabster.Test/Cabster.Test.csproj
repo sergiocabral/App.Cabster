@@ -97,10 +97,11 @@
     <Compile Include="Business\Entities\TimeParametersTest.cs" />
     <Compile Include="Business\Entities\TimeStatisticsTest.cs" />
     <Compile Include="Business\Enums\StateModeTest.cs" />
+    <Compile Include="Business\Forms\FormConfigurationTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />
     <Compile Include="Components\MyButtonTest.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensionsTest.cs" />
-    <Compile Include="Extensions\ControlAbleToMoveFormExtensionsTest.cs" />
+    <Compile Include="Extensions\ControlAbleToOperateFormExtensionsTest.cs" />
     <Compile Include="Extensions\FormInvisibleExtensionsTest.cs" />
     <Compile Include="Extensions\TextExtensionsTest.cs" />
     <Compile Include="Components\FormBaseTest.cs" />

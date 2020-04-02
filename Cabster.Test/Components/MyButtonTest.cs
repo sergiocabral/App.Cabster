@@ -77,6 +77,8 @@ namespace Cabster.Components
 
             imagem.Should().NotBeNull();
             imagem.Size.Should().Be(imagemOriginal.Size);
+
+            button.Descartar();
         }
 
         [Fact]

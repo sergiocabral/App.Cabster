@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Cabrones.Test;
 using Cabster.Business.Entities;
 using Cabster.Business.Enums;
@@ -56,14 +57,18 @@ namespace Cabster.Extensions
                 Mode = this.Fixture<StateMode>(),
                 CurrentTime = this.Fixture<DateTimeOffset>()
             };
+            
+            var jsonEsperado = 
+                $"{{\"Mode\":{(int) instância.Mode},\"CurrentTime\":\"{instância.CurrentTime:O}\"}}";
+            jsonEsperado = Regex.Replace(jsonEsperado, @"(?<=[0-9]{6})0(?=-[0-9]{2}:[0-9]{2})", string.Empty);
 
             // Act, When
 
-            var json = instância.ToJson();
+            var jsonObtido = instância.ToJson();
 
             // Assert, Then
 
-            json.Should().Be($"{{\"Mode\":{(int) instância.Mode},\"CurrentTime\":\"{instância.CurrentTime:O}\"}}");
+            jsonObtido.Should().Be(jsonEsperado);
         }
 
         [Fact]
