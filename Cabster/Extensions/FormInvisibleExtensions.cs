@@ -5,7 +5,8 @@ using System.Windows.Forms;
 namespace Cabster.Extensions
 {
     /// <summary>
-    ///     Utilitários para forms esconde uma janela.
+    ///     Extensão para esconde totalmente uma janela.
+    ///     Usar com FormBase para melhor resultado.
     /// </summary>
     public static class FormInvisibleExtensions
     {
@@ -22,8 +23,14 @@ namespace Cabster.Extensions
         /// <param name="invisible">Modo.</param>
         public static void MakeInvisible(this Form form, bool invisible = true)
         {
-            if (!Forms.ContainsKey(form)) Forms.Add(form, new MakeInvisibleInfo(form));
+            var containsKey = Forms.ContainsKey(form);
+
+            if (!containsKey && !invisible) return;
+
+            if (!containsKey) Forms.Add(form, new MakeInvisibleInfo(form));
+
             Forms[form].Visible(!invisible);
+
             if (!invisible) Forms.Remove(form);
         }
 
@@ -125,8 +132,8 @@ namespace Cabster.Extensions
             ///     Evento usado para esconder o form.
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
-            /// <param name="event">~Informações do evento.</param>
-            private static void HideForm(object sender, EventArgs @event)
+            /// <param name="args">Informações do evento.</param>
+            private static void HideForm(object sender, EventArgs args)
             {
                 ((Form) sender).Hide();
             }

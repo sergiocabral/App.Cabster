@@ -7,7 +7,8 @@ using System.Windows.Forms;
 namespace Cabster.Extensions
 {
     /// <summary>
-    ///     Utilitários define uma propriedade de imagem com comportamento de hover
+    ///     Extensão que aplica em um control o comportamento de hover de imagem,
+    ///     quando a imagem troca ao passar o mouse por cima.
     /// </summary>
     public static class ControlImageHoverExtensions
     {
@@ -139,6 +140,7 @@ namespace Cabster.Extensions
             {
                 ControlOnMouseEnter(_control, null);
                 ControlOnMouseLeave(_control, null);
+                Application.DoEvents();
             }
 
             /// <summary>
@@ -147,14 +149,15 @@ namespace Cabster.Extensions
             public void Restore()
             {
                 _propertyInfo.SetValue(_control, _propertyValueOriginal);
+                Application.DoEvents();
             }
 
             /// <summary>
             ///     Evento para quando o mouse fica fora do controle
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
-            /// <param name="event">~Informações do evento.</param>
-            private void ControlOnMouseLeave(object sender, EventArgs? @event)
+            /// <param name="args">Informações do evento.</param>
+            private void ControlOnMouseLeave(object sender, EventArgs? args)
             {
                 _propertyInfo.SetValue(_control, ImageLeave);
             }
@@ -163,8 +166,8 @@ namespace Cabster.Extensions
             ///     Evento para quando o mouse fica em cima do controle.
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
-            /// <param name="event">~Informações do evento.</param>
-            private void ControlOnMouseEnter(object sender, EventArgs? @event)
+            /// <param name="args">Informações do evento.</param>
+            private void ControlOnMouseEnter(object sender, EventArgs? args)
             {
                 _propertyInfo.SetValue(_control, ImageEnter);
             }

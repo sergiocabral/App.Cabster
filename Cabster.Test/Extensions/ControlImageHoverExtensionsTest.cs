@@ -14,7 +14,7 @@ namespace Cabster.Extensions
         {
             // Arrange, Given
 
-            var button = new Button();
+            using var button = new Button();
             const string propriedade = "BackgroundImage";
             var imagemLeave = Resources.buttonCloseLeave;
             var imagemEnter = Resources.buttonCloseLeave;
@@ -35,7 +35,7 @@ namespace Cabster.Extensions
         {
             // Arrange, Given
 
-            var button = new Button {BackgroundImage = Resources.FormBackground};
+            using var button = new Button {BackgroundImage = Resources.FormBackground};
             var imagemOriginal = button.BackgroundImage;
             const string propriedade = "BackgroundImage";
             var imagem1 = Resources.buttonCloseLeave;
@@ -59,7 +59,7 @@ namespace Cabster.Extensions
         {
             // Arrange, Given
 
-            var button = new Button();
+            using var button = new Button();
             const string propriedade = "BackgroundImage";
             var imagem1 = Resources.buttonCloseLeave;
             var imagem2 = Resources.buttonCloseLeave;

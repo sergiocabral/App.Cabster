@@ -13,7 +13,7 @@ namespace Cabster.Extensions
         {
             // Arrange, Given
 
-            var form = new Form();
+            using var form = new Form();
 
             // Act, When
 
@@ -23,8 +23,10 @@ namespace Cabster.Extensions
             // Assert, Then
 
             invisível.Should().NotThrow();
+            invisível.Should().NotThrow();
             form.ShowInTaskbar.Should().BeFalse();
 
+            visível.Should().NotThrow();
             visível.Should().NotThrow();
             form.ShowInTaskbar.Should().BeTrue();
         }

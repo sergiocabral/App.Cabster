@@ -55,6 +55,7 @@
             // 
             // labelTitle
             // 
+            this.labelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(15, 0);

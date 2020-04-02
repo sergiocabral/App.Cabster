@@ -1,4 +1,6 @@
-﻿namespace Cabster.Components
+﻿using Cabster.Extensions;
+
+namespace Cabster.Components
 {
     /// <summary>
     ///     Janela invisível.
@@ -20,6 +22,7 @@
         private void InitializeComponent2()
         {
             labelTitle.Text = Text;
+            labelTitle.MakeAbleToMoveForm();
         }
     }
 }

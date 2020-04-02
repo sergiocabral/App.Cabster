@@ -109,6 +109,7 @@
     <Compile Include="Components\MyButton.Designer.cs">
       <DependentUpon>MyButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ControlAbleToMoveFormExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />

@@ -17,7 +17,7 @@ namespace Cabster.Components
     {
         /// <summary>
         ///     Lista de imagens disponíveis. A consulta é feita nas imagens nos recursos
-        ///     que finalizam com *Leave ou *Enter para os evento MouseEnter e MouseLeave. 
+        ///     que finalizam com *Leave ou *Enter para os evento MouseEnter e MouseLeave.
         /// </summary>
         private static readonly Dictionary<string, (Bitmap, Bitmap)> Images = typeof(Resources)
             .GetProperties(BindingFlags.Static | BindingFlags.Public)
@@ -66,7 +66,6 @@ namespace Cabster.Components
             {
                 if (Images.ContainsKey(Name))
                 {
-                    if (!Images.ContainsKey(Name)) return;
                     var (bitmapLeave, bitmapEnter) = Images[Name];
                     this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
 
