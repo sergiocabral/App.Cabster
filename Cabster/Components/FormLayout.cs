@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 using Cabster.Extensions;
 using Cabster.Properties;
 
@@ -24,6 +25,12 @@ namespace Cabster.Components
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
         public event Action? ButtonCloseClick;
+
+        /// <summary>
+        ///     Quando clica no botão minimizar.
+        ///     Retorna false para cancelar o fechamento.
+        /// </summary>
+        public event Action? ButtonMinimizeClick;
 
         /// <summary>
         ///     Inicializa os componentes da janela.
@@ -55,6 +62,19 @@ namespace Cabster.Components
         {
             if (ButtonCloseClick == null) Hide();
             else ButtonCloseClick();
+        }
+
+        /// <summary>
+        ///     Evento ao clicar no botão minimizar.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        [ExcludeFromCodeCoverage]
+        private void buttonMinimize_Click(object sender, EventArgs e)
+        {
+
+            if (ButtonMinimizeClick == null) WindowState = FormWindowState.Minimized;
+            else ButtonMinimizeClick();
         }
     }
 }
