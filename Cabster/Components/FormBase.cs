@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Cabster.Extensions;
 using Cabster.Properties;
 
 // ReSharper disable VirtualMemberCallInConstructor
@@ -16,10 +17,17 @@ namespace Cabster.Components
         public FormBase()
         {
             InitializeComponent();
-
-            Text = Resources.System_Name;
+            InitializeComponent2();
         }
 
+        /// <summary>
+        ///     Inicializa os componentes da janela.
+        /// </summary>
+        private void InitializeComponent2()
+        {
+            HandleCreated += (sender, args) => this.Translate();
+        }
+        
         /// <summary>
         ///     Atributos para criação da janela.
         ///     Necessário para esconder a janela da barra de tarefas quando ShowInTaskbar=False .

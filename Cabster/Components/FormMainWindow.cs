@@ -16,13 +16,25 @@ namespace Cabster.Components
         public FormMainWindow()
         {
             InitializeComponent();
+            InitializeComponent2();
+        }
 
+        /// <summary>
+        ///     Inicializa os componentes da janela.
+        /// </summary>
+        private void InitializeComponent2()
+        {
             this.MakeInvisible();
 
             new FormConfiguration().Show();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// Clock de funcionamento da aplicação.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void timer_Tick(object sender, EventArgs args)
         {
             timer.Enabled = false;
             try

@@ -27,6 +27,33 @@ namespace Cabster.Extensions
                 p => p);
 
         /// <summary>
+        /// Traduz todos os controles dentro de um controle.
+        /// </summary>
+        /// <param name="container">Controle.</param>
+        public static void Translate(this Control container)
+        {
+            var properties = new[] {"Text", "Caption", "Title"};
+            
+            foreach (Control control in container.Controls)
+            {
+                foreach (var property in properties)
+                {
+                    var propertyInfo = control.GetType()
+                        .GetProperty(property, BindingFlags.Instance | BindingFlags.Public);
+                    
+                    if (propertyInfo == null || propertyInfo.PropertyType != typeof(string)) continue;
+                    
+                    var value = FormatResourceKey((string) propertyInfo.GetValue(control));
+                    if (!Resources.ContainsKey(value)) continue;
+                    
+                    propertyInfo.SetValue(control, Resources[value].GetValue(null));
+                }
+                
+                Translate(control);
+            }
+        }
+        
+        /// <summary>
         ///     Localiza todos as mensagens e realiza a tradução quando possível.
         /// </summary>
         /// <param name="tooltip">ToolTip</param>
@@ -43,7 +70,7 @@ namespace Cabster.Extensions
                         ?? throw new Exception();
 
                 var control = (Control) entry.Key;
-                var resource = Regex.Replace((string) propertyInfo.GetValue(entry.Value), @"[^a-zA-Z0-9]{1}", "_");
+                var resource = FormatResourceKey((string) propertyInfo.GetValue(entry.Value));
 
                 if (!Resources.ContainsKey(resource)) continue;
 
@@ -56,6 +83,16 @@ namespace Cabster.Extensions
                 var text = (string) Resources[message.Value].GetValue(null);
                 tooltip.SetToolTip(message.Key, text);
             }
+        }
+
+        /// <summary>
+        /// Formata uma chave de recurso para correspondr a pesquisa. 
+        /// </summary>
+        /// <param name="resourceKey">Chave do recurso.</param>
+        /// <returns>Mesma chave, porém formatada.</returns>
+        private static string FormatResourceKey(string resourceKey)
+        {
+            return Regex.Replace(resourceKey, @"[^a-zA-Z0-9]{1}", "_");
         }
     }
 }

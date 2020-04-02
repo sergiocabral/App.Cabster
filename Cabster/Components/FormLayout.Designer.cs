@@ -87,7 +87,7 @@
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
             this.buttonMinimize.TabIndex = 12;
-            this.toolTip.SetToolTip(this.buttonMinimize, "Actio.MinimizeWindow");
+            this.toolTip.SetToolTip(this.buttonMinimize, "Action.MinimizeWindow");
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
@@ -108,7 +108,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
             this.buttonClose.TabIndex = 9;
-            this.toolTip.SetToolTip(this.buttonClose, "Actio.TerminateApplication");
+            this.toolTip.SetToolTip(this.buttonClose, "Action.TerminateApplication");
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
