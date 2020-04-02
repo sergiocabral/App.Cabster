@@ -15,6 +15,8 @@ namespace Cabster.Components
             InitializeComponent();
 
             this.MakeInvisible();
+
+            new FormLayout().Show();
         }
     }
 }

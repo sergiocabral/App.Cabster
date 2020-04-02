@@ -5,12 +5,12 @@ using System.Windows.Forms;
 namespace Cabster.Extensions
 {
     /// <summary>
-    ///     Utilitários para forms e seus componentes.
+    ///     Utilitários para forms esconde uma janela.
     /// </summary>
     public static class FormInvisibleExtensions
     {
         /// <summary>
-        ///     Lista de forms que foram deixados invisíveis
+        ///     Lista de forms que foram ajustados.
         /// </summary>
         private static readonly Dictionary<Form, MakeInvisibleInfo> Forms =
             new Dictionary<Form, MakeInvisibleInfo>();

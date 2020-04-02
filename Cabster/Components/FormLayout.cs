@@ -15,7 +15,7 @@
         }
 
         /// <summary>
-        /// Inicializa os componentes da janela.
+        ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
         {

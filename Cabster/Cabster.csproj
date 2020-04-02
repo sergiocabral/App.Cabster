@@ -103,6 +103,13 @@
     <Compile Include="Business\Entities\TimeStatistics.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\StateMode.cs" />
+    <Compile Include="Components\MyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyButton.Designer.cs">
+      <DependentUpon>MyButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
     <Compile Include="Components\FormBase.cs">
@@ -165,6 +172,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FormHeaderSapiensia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonCloseEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonCloseLeave.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
