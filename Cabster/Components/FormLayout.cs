@@ -38,6 +38,11 @@ namespace Cabster.Components
                 labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
             };
+            Resize += (sender, args) =>
+            {
+                buttonResize.Left = Width - buttonResize.Width;
+                buttonResize.Top = Height - buttonResize.Height + 1;
+            };
         }
 
         /// <summary>

@@ -50,7 +50,7 @@
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(593, 50);
+            this.panelTitle.Size = new System.Drawing.Size(831, 50);
             this.panelTitle.TabIndex = 0;
             // 
             // labelTitle
@@ -62,7 +62,7 @@
             this.labelTitle.Location = new System.Drawing.Point(15, 0);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(513, 50);
+            this.labelTitle.Size = new System.Drawing.Size(751, 50);
             this.labelTitle.TabIndex = 11;
             this.labelTitle.Text = "labelTitle";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -80,7 +80,7 @@
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = ((System.Drawing.Image) (resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(528, 0);
+            this.buttonClose.Location = new System.Drawing.Point(766, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
             this.buttonClose.TabIndex = 9;
@@ -90,7 +90,7 @@
             // panelTitleMarginRight
             // 
             this.panelTitleMarginRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelTitleMarginRight.Location = new System.Drawing.Point(578, 0);
+            this.panelTitleMarginRight.Location = new System.Drawing.Point(816, 0);
             this.panelTitleMarginRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleMarginRight.Name = "panelTitleMarginRight";
             this.panelTitleMarginRight.Size = new System.Drawing.Size(15, 50);
@@ -111,7 +111,7 @@
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.buttonResize.BackColor = System.Drawing.Color.Transparent;
-            this.buttonResize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.buttonResize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
                 ((int) (((byte) (140)))), ((int) (((byte) (140)))));
             this.buttonResize.FlatAppearance.BorderSize = 0;
@@ -120,7 +120,7 @@
             this.buttonResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResize.Image = ((System.Drawing.Image) (resources.GetObject("buttonResize.Image")));
-            this.buttonResize.Location = new System.Drawing.Point(569, 388);
+            this.buttonResize.Location = new System.Drawing.Point(807, 491);
             this.buttonResize.Name = "buttonResize";
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
             this.buttonResize.TabIndex = 1;
@@ -134,7 +134,7 @@
                 ((int) (((byte) (64)))));
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(593, 411);
+            this.ClientSize = new System.Drawing.Size(831, 514);
             this.Controls.Add(this.buttonResize);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular,
