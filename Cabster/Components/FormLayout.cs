@@ -1,4 +1,6 @@
-﻿using Cabster.Extensions;
+﻿using System;
+using Cabster.Extensions;
+using Cabster.Properties;
 
 namespace Cabster.Components
 {
@@ -17,12 +19,34 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Quando clica no botão fechar.
+        ///     Retorna false para cancelar o fechamento.
+        /// </summary>
+        public event Action? ButtonCloseClick;
+
+        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
         {
-            labelTitle.Text = Text;
             labelTitle.MakeAbleToMoveForm();
+            HandleCreated += (sender, args) =>
+            {
+                if (Text == GetType().Name) Text = Resources.System_Name;
+                labelTitle.Text = Text;
+                Icon = Resources.IconSapiensia;
+            };
+        }
+
+        /// <summary>
+        ///     Evento ao clicar no botão fechar.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void buttonClose_Click(object sender, EventArgs args)
+        {
+            if (ButtonCloseClick == null) Hide();
+            else ButtonCloseClick();
         }
     }
 }

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconSapiensia.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cabrones.Utils, Version=2.3.0.301, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Cabrones.Utils.2.3.0.301\lib\net472\Cabrones.Utils.dll</HintPath>
@@ -101,6 +104,12 @@
     <Compile Include="Business\Entities\Temporary.cs" />
     <Compile Include="Business\Entities\TimeParameters.cs" />
     <Compile Include="Business\Entities\TimeStatistics.cs" />
+    <Compile Include="Business\Forms\FormConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Forms\FormConfiguration.Designer.cs">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\StateMode.cs" />
     <Compile Include="Components\MyButton.cs">
@@ -143,6 +152,9 @@
     <EmbeddedResource Include="Components\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\MyButton.resx">
+      <DependentUpon>MyButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -166,9 +178,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\FormBackground.jpg" />
   </ItemGroup>
@@ -186,6 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buttonMinimizeLeave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\IconSapiensia.ico" />
+    <Content Include="IconSapiensia.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

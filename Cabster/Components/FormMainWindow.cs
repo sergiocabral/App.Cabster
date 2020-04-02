@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Windows.Forms;
+using Cabster.Business.Forms;
 using Cabster.Extensions;
 
 namespace Cabster.Components
@@ -18,7 +20,7 @@ namespace Cabster.Components
 
             this.MakeInvisible();
 
-            new FormLayout().Show();
+            new FormConfiguration().Show();
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -30,10 +32,8 @@ namespace Cabster.Components
             }
             finally
             {
-                if (Program.SignalToTerminate)
-                    Close();
-                else
-                    timer.Enabled = true;
+                if (Program.SignalToTerminate) Close();
+                else timer.Enabled = true;
             }
         }
     }
