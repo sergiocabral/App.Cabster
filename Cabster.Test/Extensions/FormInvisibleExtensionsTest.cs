@@ -9,24 +9,24 @@ namespace Cabster.Extensions
     public class FormInvisibleExtensionsTest
     {
         [Fact]
-        public void método_ToJson_para_entidade_ContainerData_deve_retornar_um_json_válido()
+        public void método_MakeInvisible_deve_tornar_uma_janela_invisível()
         {
             // Arrange, Given
 
-            var sut = new Form();
+            var form = new Form();
 
             // Act, When
 
-            Action invisível = () => sut.MakeInvisible();
-            Action visível = () => sut.MakeInvisible(false);
+            Action invisível = () => form.MakeInvisible();
+            Action visível = () => form.MakeInvisible(false);
 
             // Assert, Then
 
             invisível.Should().NotThrow();
-            sut.ShowInTaskbar.Should().BeFalse();
+            form.ShowInTaskbar.Should().BeFalse();
 
             visível.Should().NotThrow();
-            sut.ShowInTaskbar.Should().BeTrue();
+            form.ShowInTaskbar.Should().BeTrue();
         }
 
         [Fact]

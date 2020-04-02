@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Cabrones.Test;
 using FluentAssertions;
 using Xunit;
@@ -22,8 +21,8 @@ namespace Cabster
             {
                 Task.Run(() =>
                 {
-                    Thread.Sleep(esperarUmTempoAtéAAplicaçãoIniciar - 1000);
-                    Application.OpenForms[0].Close();
+                    Thread.Sleep((int) (esperarUmTempoAtéAAplicaçãoIniciar * 0.9));
+                    Program.SignalToTerminate = true;
                 });
                 Program.Main();
             });
@@ -47,7 +46,8 @@ namespace Cabster
 
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
-            sut.AssertMyOwnPublicPropertiesCount(0);
+            sut.AssertMyOwnPublicPropertiesCount(2);
+            sut.AssertPublicPropertyPresence("static Boolean SignalToTerminate { get; set; }");
             sut.AssertMyOwnPublicMethodsCount(1);
             sut.AssertPublicMethodPresence("static Void Main()");
 

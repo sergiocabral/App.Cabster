@@ -14,8 +14,8 @@ namespace Cabster.Extensions
         /// <summary>
         ///     Lista de controles que foram ajustados.
         /// </summary>
-        private static readonly Dictionary<Control, MakeImageHoverInfo> Controls =
-            new Dictionary<Control, MakeImageHoverInfo>();
+        private static readonly Dictionary<int, MakeImageHoverInfo> Controls =
+            new Dictionary<int, MakeImageHoverInfo>();
 
         /// <summary>
         ///     Cria o comportamento de mouse hover para imagem em um controle.
@@ -24,32 +24,55 @@ namespace Cabster.Extensions
         /// <param name="propertyName">Nome da propriedade que será definida com a imagem.</param>
         /// <param name="mouseLeave">Imagem quando o mouse está fora.</param>
         /// <param name="mouseEnter">Imagem quando o mouse está em cima.</param>
-        public static void MakeImageHover(this Control control, string propertyName, Bitmap mouseLeave,
-            Bitmap mouseEnter)
+        public static void MakeImageHover(
+            this Control control,
+            string propertyName,
+            Image? mouseLeave = null,
+            Image? mouseEnter = null)
         {
-            var containsKey = Controls.ContainsKey(control);
+            var key = GetKey(control, propertyName);
+            var containsKey = Controls.ContainsKey(key);
 
             if (mouseLeave != null || mouseEnter != null)
             {
                 mouseLeave ??= mouseEnter;
                 mouseEnter ??= mouseLeave;
 
-                if (!containsKey)
+                MakeImageHoverInfo info;
+                if (containsKey)
                 {
-                    Controls.Add(control, new MakeImageHoverInfo(control, propertyName, mouseLeave, mouseEnter));
+                    info = Controls[key];
                 }
                 else
                 {
-                    var info = Controls[control];
-                    info.PropertyName = propertyName;
-                    info.ImageLeave = mouseLeave;
-                    info.ImageEnter = mouseEnter;
+                    info = new MakeImageHoverInfo(
+                        control,
+                        propertyName,
+                        mouseLeave!,
+                        mouseEnter!);
+                    Controls.Add(key, info);
                 }
+
+                info.ImageLeave = mouseLeave!;
+                info.ImageEnter = mouseEnter!;
+                info.Update();
             }
             else if (containsKey)
             {
-                Controls.Remove(control);
+                Controls[key].Restore();
+                Controls.Remove(key);
             }
+        }
+
+        /// <summary>
+        ///     Gera uma chave única.
+        /// </summary>
+        /// <param name="control">Controle</param>
+        /// <param name="propertyName">Nome da propriedade.</param>
+        /// <returns>Valor para chave.</returns>
+        private static int GetKey(object control, string propertyName)
+        {
+            return $"{control.GetHashCode()}{propertyName}".GetHashCode();
         }
 
         /// <summary>
@@ -65,7 +88,12 @@ namespace Cabster.Extensions
             /// <summary>
             ///     Propriedade que será definida.
             /// </summary>
-            private PropertyInfo? _propertyInfo;
+            private readonly PropertyInfo _propertyInfo;
+
+            /// <summary>
+            ///     Valor original da propriedade.
+            /// </summary>
+            private readonly object? _propertyValueOriginal;
 
             /// <summary>
             ///     Construtor.
@@ -74,49 +102,61 @@ namespace Cabster.Extensions
             /// <param name="propertyName">Nome da propriedade que será definida com a imagem.</param>
             /// <param name="imageLeave">Imagem quando mouse está fora.</param>
             /// <param name="imageEnter">Imagem quando mouse está em cima.</param>
-            public MakeImageHoverInfo(Control control, string propertyName, Bitmap imageLeave, Bitmap imageEnter)
+            public MakeImageHoverInfo(Control control, string propertyName, Image imageLeave, Image imageEnter)
             {
                 _control = control;
-                PropertyName = propertyName;
+
+                _propertyInfo =
+                    _control
+                        .GetType()
+                        .GetProperty(propertyName, BindingFlags.Instance | BindingFlags.Public)
+                    ?? throw new ArgumentException(propertyName);
+
+                _propertyValueOriginal = _propertyInfo.GetValue(control);
+
                 ImageLeave = imageLeave;
                 ImageEnter = imageEnter;
                 _control.MouseLeave += ControlOnMouseLeave;
                 _control.MouseEnter += ControlOnMouseEnter;
+
+                Update();
             }
-
-            /// <summary>
-            ///     Nome da propriedade que será definida com a imagem.
-            /// </summary>
-            public string PropertyName { get; set; }
-
-            /// <summary>
-            ///     Propriedade que será definida.
-            /// </summary>
-            private PropertyInfo PropertyInfo =>
-                _propertyInfo?.Name == PropertyName
-                    ? _propertyInfo
-                    : _propertyInfo = _control
-                        .GetType()
-                        .GetProperty(PropertyName, BindingFlags.Instance | BindingFlags.Public);
 
             /// <summary>
             ///     Imagem quando mouse está fora.
             /// </summary>
-            public Bitmap ImageLeave { get; set; }
+            public Image ImageLeave { get; set; }
 
             /// <summary>
             ///     Imagem quando mouse está em cima.
             /// </summary>
-            public Bitmap ImageEnter { get; set; }
+            public Image ImageEnter { get; set; }
+
+            /// <summary>
+            ///     Atualiza a exibição.
+            /// </summary>
+            public void Update()
+            {
+                ControlOnMouseEnter(_control, null);
+                ControlOnMouseLeave(_control, null);
+            }
+
+            /// <summary>
+            ///     Restaura o valor original.
+            /// </summary>
+            public void Restore()
+            {
+                _propertyInfo.SetValue(_control, _propertyValueOriginal);
+            }
 
             /// <summary>
             ///     Evento para quando o mouse fica fora do controle
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
             /// <param name="event">~Informações do evento.</param>
-            private void ControlOnMouseLeave(object sender, EventArgs @event)
+            private void ControlOnMouseLeave(object sender, EventArgs? @event)
             {
-                PropertyInfo.SetValue(_control, ImageLeave);
+                _propertyInfo.SetValue(_control, ImageLeave);
             }
 
             /// <summary>
@@ -124,9 +164,9 @@ namespace Cabster.Extensions
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
             /// <param name="event">~Informações do evento.</param>
-            private void ControlOnMouseEnter(object sender, EventArgs @event)
+            private void ControlOnMouseEnter(object sender, EventArgs? @event)
             {
-                PropertyInfo.SetValue(_control, ImageEnter);
+                _propertyInfo.SetValue(_control, ImageEnter);
             }
         }
     }
