@@ -36,5 +36,27 @@ namespace Cabster.Helpers
                 .GetField("hand", BindingFlags.Static | BindingFlags.NonPublic)?
                 .SetValue(null, SystemHandCursor));
         }
+
+        /// <summary>
+        ///     Envia mensagens via API do Windows.
+        /// </summary>
+        /// <param name="hWnd">HandleRef</param>
+        /// <param name="msg">int</param>
+        /// <param name="wParam">IntPtr</param>
+        /// <param name="lParam">IntPtr</param>
+        /// <returns>IntPtr</returns>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        private static extern IntPtr SendMessage(HandleRef hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        /// <summary>
+        ///     Ativa ou desativa o desenho do componente.
+        /// </summary>
+        /// <param name="handle">HandleRef</param>
+        /// <param name="enable">Ativa ou desativa.</param>
+        public static void EnableRepaint(HandleRef handle, bool enable)
+        {
+            SendMessage(
+                handle, 0x000B /* WM_SETREDRAW */, new IntPtr(enable ? 1 : 0), IntPtr.Zero);
+        }
     }
 }

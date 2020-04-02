@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Extensions\ControlAbleToOperateFormExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
+    <Compile Include="Extensions\ControlSetRedrawExtensions.cs" />
     <Compile Include="Extensions\ControlsExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />

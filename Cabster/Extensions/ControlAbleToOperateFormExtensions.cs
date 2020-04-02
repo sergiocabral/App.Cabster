@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
@@ -21,9 +22,9 @@ namespace Cabster.Extensions
         /// </summary>
         /// <param name="control">Form.</param>
         /// <param name="enable">Modo.</param>
-        public static void MakeAbleToResizeForm(this Control control, bool enable = true)
+        public static T MakeAbleToResizeForm<T>(this T control, bool enable = true) where T : Control
         {
-            MakeAbleToOperateForm(control, Operations.Resize, enable);
+            return MakeAbleToOperateForm(control, Operations.Resize, enable);
         }
 
         /// <summary>
@@ -31,9 +32,9 @@ namespace Cabster.Extensions
         /// </summary>
         /// <param name="control">Form.</param>
         /// <param name="enable">Modo.</param>
-        public static void MakeAbleToMoveForm(this Control control, bool enable = true)
+        public static T MakeAbleToMoveForm<T>(this T control, bool enable = true) where T : Control
         {
-            MakeAbleToOperateForm(control, Operations.Move, enable);
+            return MakeAbleToOperateForm(control, Operations.Move, enable);
         }
 
         /// <summary>
@@ -42,18 +43,20 @@ namespace Cabster.Extensions
         /// <param name="control">Form.</param>
         /// <param name="operation">Operação.</param>
         /// <param name="enable">Modo.</param>
-        private static void MakeAbleToOperateForm(Control control, Operations operation, bool enable = true)
+        private static T MakeAbleToOperateForm<T>(T control, Operations operation, bool enable = true) where T : Control
         {
             var key = GetKey(control, nameof(MakeAbleToMoveForm));
             var containsKey = Forms.ContainsKey(key);
 
-            if (!containsKey && !enable) return;
+            if (!containsKey && !enable) return control;
 
             if (!containsKey) Forms.Add(key, new MakeAbleToOperateFormInfo(control, operation));
 
             Forms[key].Enable(enable);
 
             if (!enable) Forms.Remove(key);
+
+            return control;
         }
 
         /// <summary>
@@ -99,9 +102,19 @@ namespace Cabster.Extensions
             private readonly Control _form;
 
             /// <summary>
+            ///     Tempo entre desenhar de tela.
+            /// </summary>
+            private readonly int _millisecondsBetweenRedraw;
+
+            /// <summary>
             ///     Operação.
             /// </summary>
             private readonly Operations _operation;
+
+            /// <summary>
+            ///     Cronômetro para determinar o tempo do Redraw.
+            /// </summary>
+            private readonly Stopwatch _stopwatch;
 
             /// <summary>
             ///     Posição inicial do mouse ao clicar.
@@ -114,15 +127,23 @@ namespace Cabster.Extensions
             private bool _isPressing;
 
             /// <summary>
+            ///     Indica que o controle está redesenhando.
+            /// </summary>
+            private bool _isRedrawing;
+
+            /// <summary>
             ///     Construtor.
             /// </summary>
             /// <param name="control">Control.</param>
             /// <param name="operation">Operação.</param>
             public MakeAbleToOperateFormInfo(Control control, Operations operation)
             {
+                _millisecondsBetweenRedraw = operation == Operations.Resize ? 100 : int.MaxValue;
                 _operation = operation;
                 _form = _control = control;
                 while (_form != null && !(_form is Form)) _form = _form.Parent;
+                _stopwatch = new Stopwatch();
+                _stopwatch.Start();
             }
 
             /// <summary>
@@ -155,6 +176,7 @@ namespace Cabster.Extensions
             {
                 _isPressing = true;
                 _initialPositionOfMouse = new Point(args.X, args.Y);
+                _form.SetRedraw(false);
             }
 
             /// <summary>
@@ -165,7 +187,7 @@ namespace Cabster.Extensions
             [ExcludeFromCodeCoverage]
             private void ControlOnMouseMove(object sender, MouseEventArgs args)
             {
-                if (!_isPressing) return;
+                if (!_isPressing || _isRedrawing) return;
 
                 var moveLeft = args.X - _initialPositionOfMouse.X;
                 var moveTop = args.Y - _initialPositionOfMouse.Y;
@@ -182,6 +204,15 @@ namespace Cabster.Extensions
                         _form.Height += moveTop;
                         break;
                 }
+
+                if (_stopwatch.ElapsedMilliseconds < _millisecondsBetweenRedraw) return;
+                _isRedrawing = true;
+                _form.SetRedraw(true);
+                _form.InvalidadeAll();
+                Application.DoEvents();
+                _form.SetRedraw(false);
+                _stopwatch.Restart();
+                _isRedrawing = false;
             }
 
             /// <summary>
@@ -193,6 +224,8 @@ namespace Cabster.Extensions
             private void ControlOnMouseUp(object sender, MouseEventArgs args)
             {
                 _isPressing = false;
+                _form.SetRedraw(true);
+                _form.InvalidadeAll();
             }
         }
     }

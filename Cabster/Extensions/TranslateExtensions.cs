@@ -14,8 +14,6 @@ namespace Cabster.Extensions
     /// </summary>
     public static class TranslateExtensions
     {
-        //TODO: Teste
-        
         /// <summary>
         ///     Lista de recursos de mensagens para tradução.
         /// </summary>
@@ -27,37 +25,37 @@ namespace Cabster.Extensions
                 p => p);
 
         /// <summary>
-        /// Traduz todos os controles dentro de um controle.
+        ///     Traduz todos os controles dentro de um controle.
         /// </summary>
         /// <param name="container">Controle.</param>
         public static void Translate(this Control container)
         {
             var properties = new[] {"Text", "Caption", "Title"};
-            
+
             foreach (Control control in container.Controls)
             {
                 foreach (var property in properties)
                 {
                     var propertyInfo = control.GetType()
                         .GetProperty(property, BindingFlags.Instance | BindingFlags.Public);
-                    
+
                     if (propertyInfo == null || propertyInfo.PropertyType != typeof(string)) continue;
-                    
+
                     var value = FormatResourceKey((string) propertyInfo.GetValue(control));
                     if (!Resources.ContainsKey(value)) continue;
-                    
+
                     propertyInfo.SetValue(control, Resources[value].GetValue(null));
                 }
-                
+
                 Translate(control);
             }
         }
-        
+
         /// <summary>
         ///     Localiza todos as mensagens e realiza a tradução quando possível.
         /// </summary>
         /// <param name="tooltip">ToolTip</param>
-        public static void Translate(this ToolTip tooltip)
+        public static ToolTip Translate(this ToolTip tooltip)
         {
             var controlsIntoTooltip = tooltip.Hashtable();
             var messagesNotTranslated = new Dictionary<Control, string>();
@@ -83,10 +81,12 @@ namespace Cabster.Extensions
                 var text = (string) Resources[message.Value].GetValue(null);
                 tooltip.SetToolTip(message.Key, text);
             }
+
+            return tooltip;
         }
 
         /// <summary>
-        /// Formata uma chave de recurso para correspondr a pesquisa. 
+        ///     Formata uma chave de recurso para correspondr a pesquisa.
         /// </summary>
         /// <param name="resourceKey">Chave do recurso.</param>
         /// <returns>Mesma chave, porém formatada.</returns>

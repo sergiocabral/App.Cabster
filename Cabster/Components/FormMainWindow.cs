@@ -30,7 +30,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Clock de funcionamento da aplicação.
+        ///     Clock de funcionamento da aplicação.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>

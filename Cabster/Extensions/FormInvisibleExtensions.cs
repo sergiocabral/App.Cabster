@@ -21,17 +21,19 @@ namespace Cabster.Extensions
         /// </summary>
         /// <param name="form">Form.</param>
         /// <param name="invisible">Modo.</param>
-        public static void MakeInvisible(this Form form, bool invisible = true)
+        public static Form MakeInvisible(this Form form, bool invisible = true)
         {
             var containsKey = Forms.ContainsKey(form);
 
-            if (!containsKey && !invisible) return;
+            if (!containsKey && !invisible) return form;
 
             if (!containsKey) Forms.Add(form, new MakeInvisibleInfo(form));
 
             Forms[form].Visible(!invisible);
 
             if (!invisible) Forms.Remove(form);
+
+            return form;
         }
 
         /// <summary>

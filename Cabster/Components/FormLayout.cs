@@ -72,7 +72,7 @@ namespace Cabster.Components
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
         [ExcludeFromCodeCoverage]
-        private void buttonMinimize_Click(object sender, EventArgs e)
+        private void buttonMinimize_Click(object sender, EventArgs args)
         {
             if (ButtonMinimizeClick == null) WindowState = FormWindowState.Minimized;
             else ButtonMinimizeClick();

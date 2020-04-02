@@ -10,8 +10,6 @@ namespace Cabster.Extensions
     /// </summary>
     public static class ControlsExtensions
     {
-        //TODO: Testar
-
         /// <summary>
         ///     PropertyInfo para acessar a propriedade ToolTip.tools
         /// </summary>
@@ -31,6 +29,19 @@ namespace Cabster.Extensions
                         .GetField("tools", BindingFlags.Instance | BindingFlags.NonPublic);
             return (Hashtable) (_fieldInfoFroToolTipHashtable?.GetValue(tooltip)
                                 ?? throw new NullReferenceException());
+        }
+
+        /// <summary>
+        ///     Chama um determinado método para todos o controle e todos os seus filhos.
+        /// </summary>
+        /// <param name="control">Controle.</param>
+        /// <typeparam name="T">Control</typeparam>
+        /// <returns>Control</returns>
+        public static T InvalidadeAll<T>(this T control) where T : Control
+        {
+            control.Invalidate();
+            foreach (Control child in control.Controls) InvalidadeAll(child);
+            return control;
         }
     }
 }

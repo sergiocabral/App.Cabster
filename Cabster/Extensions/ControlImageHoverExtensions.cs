@@ -25,11 +25,11 @@ namespace Cabster.Extensions
         /// <param name="propertyName">Nome da propriedade que será definida com a imagem.</param>
         /// <param name="mouseLeave">Imagem quando o mouse está fora.</param>
         /// <param name="mouseEnter">Imagem quando o mouse está em cima.</param>
-        public static void MakeImageHover(
-            this Control control,
+        public static T MakeImageHover<T>(
+            this T control,
             string propertyName,
             Image? mouseLeave = null,
-            Image? mouseEnter = null)
+            Image? mouseEnter = null) where T : Control
         {
             var key = GetKey(control, propertyName);
             var containsKey = Controls.ContainsKey(key);
@@ -63,6 +63,8 @@ namespace Cabster.Extensions
                 Controls[key].Restore();
                 Controls.Remove(key);
             }
+
+            return control;
         }
 
         /// <summary>
