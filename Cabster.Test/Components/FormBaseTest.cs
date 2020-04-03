@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Cabrones.Test;
 using Cabster.Properties;
 using FluentAssertions;
@@ -28,7 +29,8 @@ namespace Cabster.Components
         {
             // Arrange, Given
 
-            var form = new FormBase();
+            using var form = new FormBase();
+            form.Show();
 
             // Act, When
 

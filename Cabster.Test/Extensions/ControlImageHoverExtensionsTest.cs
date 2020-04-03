@@ -93,7 +93,7 @@ namespace Cabster.Extensions
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(1);
             sut.AssertPublicMethodPresence(
-                "static Void MakeImageHover(Control, String, Image = null, Image = null)");
+                "static T MakeImageHover<T>(T, String, Image = null, Image = null)");
 
             sut.IsClass.Should().BeTrue();
         }

@@ -45,7 +45,7 @@ namespace Cabster.Extensions
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(1);
-            sut.AssertPublicMethodPresence("static Void MakeInvisible(Form, Boolean = 'True')");
+            sut.AssertPublicMethodPresence("static Form MakeInvisible(Form, Boolean = 'True')");
 
             sut.IsClass.Should().BeTrue();
         }

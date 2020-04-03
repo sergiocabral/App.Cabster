@@ -34,7 +34,9 @@ namespace Cabster.Components
 
             sut.AssertMyOwnImplementations(typeof(FormBase));
             sut.AssertMyOwnPublicPropertiesCount(0);
-            sut.AssertMyOwnPublicMethodsCount(2);
+            sut.AssertMyOwnPublicMethodsCount(4);
+            sut.AssertPublicMethodPresence("Void add_ButtonMinimizeClick(Action)");
+            sut.AssertPublicMethodPresence("Void remove_ButtonMinimizeClick(Action)");
             sut.AssertPublicMethodPresence("Void add_ButtonCloseClick(Action)");
             sut.AssertPublicMethodPresence("Void remove_ButtonCloseClick(Action)");
 

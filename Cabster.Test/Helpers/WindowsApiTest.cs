@@ -33,8 +33,9 @@ namespace Cabster.Helpers
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(0);
-            sut.AssertMyOwnPublicMethodsCount(1);
+            sut.AssertMyOwnPublicMethodsCount(2);
             sut.AssertPublicMethodPresence("static Void FixCursorHand()");
+            sut.AssertPublicMethodPresence("static Void EnableRepaint(HandleRef, Boolean)");
 
             sut.IsClass.Should().BeTrue();
         }

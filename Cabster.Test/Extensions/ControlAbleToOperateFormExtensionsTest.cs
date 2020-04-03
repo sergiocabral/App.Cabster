@@ -68,8 +68,8 @@ namespace Cabster.Extensions
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(2);
-            sut.AssertPublicMethodPresence("static Void MakeAbleToMoveForm(Control, Boolean = 'True')");
-            sut.AssertPublicMethodPresence("static Void MakeAbleToResizeForm(Control, Boolean = 'True')");
+            sut.AssertPublicMethodPresence("static T MakeAbleToResizeForm<T>(T, Boolean = 'True')");
+            sut.AssertPublicMethodPresence("static T MakeAbleToMoveForm<T>(T, Boolean = 'True')");
 
             sut.IsClass.Should().BeTrue();
         }
