@@ -36,7 +36,7 @@ namespace Cabster.Helpers
             Log.Logger = loggerConfiguration.CreateLogger();
 
             Log.Verbose("Logger configured for {Destinations} and initialized.",
-                destinations.Select(a => 
+                destinations.Select(a =>
                     a.Method.Name.Replace("WriteTo", string.Empty)));
         }
 

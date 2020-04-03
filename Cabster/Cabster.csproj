@@ -64,6 +64,14 @@
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0-preview.2.20160.3\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0-preview.2.20160.3\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
       <HintPath>..\packages\Serilog.2.9.1-dev-01154\lib\net46\Serilog.dll</HintPath>
@@ -133,6 +141,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Engine.cs" />
     <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\WorkGroupParticipantSet.cs" />
     <Compile Include="Business\Entities\WorkGroupSet.cs" />
@@ -143,14 +152,22 @@
     <Compile Include="Business\Forms\FormWorkGroup.Designer.cs">
       <DependentUpon>FormWorkGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\IEngine.cs" />
     <Compile Include="Business\IEntity.cs" />
-    <Compile Include="Business\Enums\StateMode.cs" />
+    <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Components\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\MyButton.Designer.cs">
       <DependentUpon>MyButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\DomainException.cs" />
+    <Compile Include="Exceptions\ExpectedSingleOperationException.cs" />
+    <Compile Include="Exceptions\IsNotNullOrEmptyException.cs" />
+    <Compile Include="Exceptions\IsNullOrEmptyException.cs" />
+    <Compile Include="Exceptions\WillNeverOccurException.cs" />
+    <Compile Include="Exceptions\WrongArgumentException.cs" />
+    <Compile Include="Exceptions\WrongOperationException.cs" />
     <Compile Include="Extensions\ControlAbleToOperateFormExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
     <Compile Include="Extensions\ControlSetRedrawExtensions.cs" />
@@ -176,8 +193,12 @@
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
-    <Compile Include="Helpers\LoggerConfiguration.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
+    <Compile Include="Infrastructure\DependencyInjectionConfiguration.cs" />
+    <Compile Include="Infrastructure\DependencyResolver.cs" />
+    <Compile Include="Infrastructure\IDependencyResolver.cs" />
+    <Compile Include="Infrastructure\DependencyResolverLifeTime.cs" />
+    <Compile Include="Infrastructure\LoggerConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">

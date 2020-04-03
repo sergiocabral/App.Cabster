@@ -1,8 +1,5 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Cabrones.Test;
+﻿using Cabrones.Test;
 using Cabster.Business.Entities;
-using Cabster.Business.Enums;
 using FluentAssertions;
 using Xunit;
 

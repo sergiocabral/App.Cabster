@@ -33,7 +33,8 @@ namespace Cabster.Components
             // Assert, Then
 
             sut.AssertMyOwnImplementations(typeof(FormBase));
-            sut.AssertMyOwnPublicPropertiesCount(0);
+            sut.AssertMyOwnPublicPropertiesCount(2);
+            sut.AssertPublicPropertyPresence("Boolean ShowLogo { get; set; }");
             sut.AssertMyOwnPublicMethodsCount(4);
             sut.AssertPublicMethodPresence("Void add_ButtonMinimizeClick(Action)");
             sut.AssertPublicMethodPresence("Void remove_ButtonMinimizeClick(Action)");

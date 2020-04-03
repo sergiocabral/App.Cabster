@@ -126,6 +126,28 @@
   <data name="Action.TerminateApplication" xml:space="preserve">
     <value>Fechar a aplicação.</value>
   </data>
+  <data name="Exception.Common.ExpectedSingleOperation">
+    <value>Era esperado uma operação única para: {Operation}</value>
+  </data>
+  <data name="Exception.Common.IsNotNullOrEmpty">
+    <value>Já havia um valor ou instância definida para {Property}.</value>
+  </data>
+  <data name="Exception.Common.IsNullOrEmpty">
+    <value>Nenhum valor ou instância definida para {Property}.</value>
+  </data>
+  <data name="Exception.Common.ThisWillNeverOccur">
+    <value>Ops! Achei que esse erro nunca ocorreria.</value>
+  </data>
+  <data name="Exception.Common.WrongArgument">
+    <value>Para a operação {Class}.{Method} um ou mais argumentos não são válidos: {Argument}</value>
+  </data>
+  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally">
+    <value>A configuração {Configuration} é gerenciada externamente e não suporta algumas operações pela aplicação de negócio.</value>
+  </data>
+  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally">
+    <value>A configuração {Configuration} é gerenciada internamente e não suporta algumas operações pelo escopo fora da aplicação de negócio.</value>
+  </data>
+  <!-- ReSharper disable once OverriddenWithSameValue -->
   <data name="Names.System" xml:space="preserve">
     <value>Cabster</value>
   </data>

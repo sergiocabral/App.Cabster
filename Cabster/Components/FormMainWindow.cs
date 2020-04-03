@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
-using Cabster.Business.Entities;
-using Cabster.Business.Enums;
-using Cabster.Business.Forms;
+using Cabster.Business;
 using Cabster.Extensions;
 
 namespace Cabster.Components
@@ -12,6 +9,11 @@ namespace Cabster.Components
     /// </summary>
     public partial class FormMainWindow : FormBase
     {
+        /// <summary>
+        ///     Agrupa toda a lógica de funcionamento da aplicação.
+        /// </summary>
+        private readonly Engine _engine = Engine.Instance;
+
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -28,7 +30,7 @@ namespace Cabster.Components
         {
             this.MakeInvisible();
         }
-        
+
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
@@ -39,28 +41,13 @@ namespace Cabster.Components
             timer.Enabled = false;
             try
             {
-                switch (Program.Data.State)
-                {
-                    case StateMode.ApplicationStarted:
-                        break;
-                }
+                _engine.Clock();
             }
             finally
             {
                 if (Program.SignalToTerminate) Close();
                 else timer.Enabled = true;
             }
-        }
-
-        /// <summary>
-        /// Recarrega o conjunto de informações que configura o aplicativo.
-        /// </summary>
-        /// <returns>Conjunto de informações resultantes.</returns>
-        public ContainerData ReloadData()
-        {
-            var data = Program.Data;
-
-            return Program.Data;
         }
     }
 }

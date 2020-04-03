@@ -154,6 +154,27 @@
   <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Exception.Common.ExpectedSingleOperation">
+    <value>A single operation was expected for: {Operation}</value>
+  </data>
+  <data name="Exception.Common.IsNotNullOrEmpty">
+    <value>There was already a defined value or instance for {Property}.</value>
+  </data>
+  <data name="Exception.Common.IsNullOrEmpty">
+    <value>No value or instance defined for {Property}.</value>
+  </data>
+  <data name="Exception.Common.ThisWillNeverOccur">
+    <value>Oops! I thought that this error would never occur.</value>
+  </data>
+  <data name="Exception.Common.WrongArgument">
+    <value>For the operation {Class}.{Method} one or more arguments are not valid: {Argument}</value>
+  </data>
+  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally">
+    <value>The {Configuration} configuration is managed externally and does not support some operations by the business application.</value>
+  </data>
+  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally">
+    <value>The {Configuration} configuration is managed internally and does not support some operations by the scope outside the business application.</value>
+  </data>
   <data name="Names.System" xml:space="preserve">
     <value>Cabster</value>
   </data>

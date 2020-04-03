@@ -10,12 +10,12 @@ namespace Cabster.Business.Entities
     public class ContainerData : IEntity
     {
         /// <summary>
-        /// Estado da aplicação 
+        ///     Estado da aplicação
         /// </summary>
-        public StateMode State { get; set; } = StateMode.ApplicationStarted;
-        
+        public ApplicationState ApplicationState { get; set; } = ApplicationState.ApplicationStarted;
+
         /// <summary>
-        /// Trabalho em grupo do aplicativo.
+        ///     Trabalho em grupo do aplicativo.
         /// </summary>
         public WorkGroupSet WorkGroup { get; set; } = new WorkGroupSet();
     }

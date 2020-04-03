@@ -34,7 +34,7 @@ namespace Cabster.Extensions
             static void TranslateControl(Control control)
             {
                 var properties = new[] {"Text", "Caption", "Title"};
-                
+
                 foreach (var property in properties)
                 {
                     var propertyInfo = control.GetType()
@@ -48,13 +48,13 @@ namespace Cabster.Extensions
                     propertyInfo.SetValue(control, Resources[value].GetValue(null));
                 }
             }
-            
+
             foreach (Control control in container.Controls)
             {
                 TranslateControl(control);
                 Translate(control);
             }
-            
+
             TranslateControl(container);
 
             return container;

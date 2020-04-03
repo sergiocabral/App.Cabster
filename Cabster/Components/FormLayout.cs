@@ -21,7 +21,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Exibe o logotipo.
+        ///     Exibe o logotipo.
         /// </summary>
         public bool ShowLogo
         {
@@ -87,13 +87,13 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Ajusta o posicionamento do logotipo.
+        ///     Ajusta o posicionamento do logotipo.
         /// </summary>
         private void AdjustLogo()
         {
             panelLogo.Top = panelTitle.Top + panelTitle.Height;
             panelLogo.Left = 0;
-            panelLogo.Width = (panelLogo.BackgroundImage.Width * panelLogo.Height) / panelLogo.BackgroundImage.Height;
+            panelLogo.Width = panelLogo.BackgroundImage.Width * panelLogo.Height / panelLogo.BackgroundImage.Height;
         }
     }
 }

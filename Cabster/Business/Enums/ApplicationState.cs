@@ -3,7 +3,7 @@
     /// <summary>
     ///     Estados possíveis da aplicação.
     /// </summary>
-    public enum StateMode
+    public enum ApplicationState
     {
         /// <summary>
         ///     A aplicação acabou de abrir.
