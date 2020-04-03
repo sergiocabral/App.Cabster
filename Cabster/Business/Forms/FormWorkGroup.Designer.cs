@@ -1,6 +1,6 @@
 ﻿namespace Cabster.Business.Forms
 {
-    partial class FormConfiguration
+    partial class FormWorkGroup
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
+                new System.ComponentModel.ComponentResourceManager(typeof(FormWorkGroup));
             this.buttonMinimize = new Cabster.Components.MyButton(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormConfiguration";
+            this.ShowLogo = true;
             this.Text = "FormConfiguration";
             this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);

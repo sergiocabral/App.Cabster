@@ -20,7 +20,7 @@ namespace Cabster.Business.Enums
             sut.AssertEnumValuesContains(
                 "ConfigurationWindow");
 
-            0.Should().Be((int) StateMode.ConfigurationWindow);
+            0.Should().Be((int) StateMode.ApplicationStarted);
 
             sut.IsEnum.Should().BeTrue();
         }

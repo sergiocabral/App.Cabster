@@ -3,6 +3,9 @@ using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Components;
 using Cabster.Helpers;
+using Cabster.Properties;
+using Serilog;
+using Serilog.Core;
 
 namespace Cabster
 {
@@ -15,20 +18,20 @@ namespace Cabster
         ///     Sinaliza que a aplicação deve ser encerrada.
         /// </summary>
         public static bool SignalToTerminate { get; set; }
-        
+
         /// <summary>
-        /// Conjunto de informações que configura o aplicativo.
+        ///     Conjunto de informações que configura o aplicativo.
         /// </summary>
         public static ContainerData Data { get; set; } = new ContainerData();
 
         /// <summary>
-        /// Recarrega o conjunto de informações que configura o aplicativo. 
+        ///     Recarrega o conjunto de informações que configura o aplicativo.
         /// </summary>
         /// <returns></returns>
         public static ContainerData ReloadData()
         {
             return ((FormMainWindow) Application.OpenForms[0]).ReloadData();
-        } 
+        }
 
         /// <summary>
         ///     Ponto de entrada do sistema operacional.
@@ -36,10 +39,19 @@ namespace Cabster
         [STAThread]
         public static void Main()
         {
+            ConfigureLogger();
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMainWindow());
+        }
+
+        /// <summary>
+        /// Configura o logger.
+        /// </summary>
+        private static void ConfigureLogger()
+        {
+            var logger = new LoggerConfiguration();
         }
     }
 }

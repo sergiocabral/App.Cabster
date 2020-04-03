@@ -14,7 +14,7 @@ namespace Cabster.Business.Forms
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormConfiguration()
+            Action criar = () => new FormWorkGroup()
                 .AbrirFecharDescartar()
                 .Descartar();
 
@@ -29,7 +29,7 @@ namespace Cabster.Business.Forms
             // Arrange, Given
             // Act, When
 
-            var sut = typeof(FormConfiguration);
+            var sut = typeof(FormWorkGroup);
 
             // Assert, Then
 

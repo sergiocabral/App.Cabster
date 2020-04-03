@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -180,9 +180,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cabster.
         /// </summary>
-        public static string System_Name {
+        public static string Name_System {
             get {
-                return ResourceManager.GetString("System.Name", resourceCulture);
+                return ResourceManager.GetString("Name.System", resourceCulture);
             }
         }
     }

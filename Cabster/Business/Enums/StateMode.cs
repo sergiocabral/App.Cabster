@@ -6,8 +6,8 @@
     public enum StateMode
     {
         /// <summary>
-        ///     Janela de configuração aberta.
+        ///     A aplicação acabou de abrir.
         /// </summary>
-        ConfigurationWindow = 0
+        ApplicationStarted = 0
     }
 }

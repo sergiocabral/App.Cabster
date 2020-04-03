@@ -51,7 +51,7 @@ namespace Cabster.Components
             buttonResize.MakeAbleToResizeForm();
             HandleCreated += (sender, args) =>
             {
-                if (Text == GetType().Name) Text = Resources.System_Name;
+                if (Text == GetType().Name) Text = Resources.Name_System;
                 labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
 

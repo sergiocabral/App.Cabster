@@ -4,14 +4,14 @@ using Cabster.Components;
 namespace Cabster.Business.Forms
 {
     /// <summary>
-    ///     Janela de configuração.
+    ///     Janela de trabalho em grupo.
     /// </summary>
-    public partial class FormConfiguration : FormLayout
+    public partial class FormWorkGroup : FormLayout
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormConfiguration()
+        public FormWorkGroup()
         {
             InitializeComponent();
             InitializeComponent2();

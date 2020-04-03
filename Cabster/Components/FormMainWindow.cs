@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Cabster.Business.Entities;
+using Cabster.Business.Enums;
 using Cabster.Business.Forms;
 using Cabster.Extensions;
 
@@ -18,7 +19,6 @@ namespace Cabster.Components
         {
             InitializeComponent();
             InitializeComponent2();
-            new FormConfiguration().Show();
         }
 
         /// <summary>
@@ -39,7 +39,11 @@ namespace Cabster.Components
             timer.Enabled = false;
             try
             {
-                // Aqui fica qualquer código que deva se basear em clock, ciclos, verificações, etc.
+                switch (Program.Data.State)
+                {
+                    case StateMode.ApplicationStarted:
+                        break;
+                }
             }
             finally
             {

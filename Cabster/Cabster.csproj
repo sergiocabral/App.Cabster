@@ -65,6 +65,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.9.1-dev-01154\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.Sinks.Console.4.0.0-dev-00839\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -114,11 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entities\ContainerData.cs" />
-    <Compile Include="Business\Forms\FormConfiguration.cs">
+    <Compile Include="Business\Entities\WorkGroupParticipantSet.cs" />
+    <Compile Include="Business\Entities\WorkGroupSet.cs" />
+    <Compile Include="Business\Entities\WorkGroupStatisticsSet.cs" />
+    <Compile Include="Business\Forms\FormWorkGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Business\Forms\FormConfiguration.Designer.cs">
-      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    <Compile Include="Business\Forms\FormWorkGroup.Designer.cs">
+      <DependentUpon>FormWorkGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\StateMode.cs" />
@@ -156,8 +167,8 @@
     <Compile Include="Helpers\WindowsApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
-      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">
+      <DependentUpon>FormWorkGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
