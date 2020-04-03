@@ -180,9 +180,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cabster.
         /// </summary>
-        public static string Name_System {
+        public static string Names_System {
             get {
-                return ResourceManager.GetString("Name.System", resourceCulture);
+                return ResourceManager.GetString("Names.System", resourceCulture);
             }
         }
     }

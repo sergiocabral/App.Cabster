@@ -126,7 +126,7 @@
   <data name="Action.TerminateApplication" xml:space="preserve">
     <value>Fechar a aplicação.</value>
   </data>
-  <data name="Name.System" xml:space="preserve">
+  <data name="Names.System" xml:space="preserve">
     <value>Cabster</value>
   </data>
 </root>

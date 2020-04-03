@@ -47,7 +47,7 @@ namespace Cabster.Helpers
         {
             return new Serilog.LoggerConfiguration()
                 .MinimumLevel.Verbose()
-                .Enrich.WithProperty("Application", Resources.Name_System)
+                .Enrich.WithProperty("Application", Resources.Names_System)
                 .Enrich.WithProperty("Id", Guid.NewGuid())
                 .Enrich.With<MachineNameEnricher>()
                 .Enrich.With<EnvironmentUserNameEnricher>()
