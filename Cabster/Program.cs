@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Components;
@@ -6,6 +7,10 @@ using Cabster.Helpers;
 using Cabster.Properties;
 using Serilog;
 using Serilog.Core;
+using Serilog.Enrichers;
+using Serilog.Events;
+using Serilog.Exceptions.Core;
+using LoggerConfiguration = Cabster.Helpers.LoggerConfiguration;
 
 namespace Cabster
 {
@@ -39,19 +44,14 @@ namespace Cabster
         [STAThread]
         public static void Main()
         {
-            ConfigureLogger();
+#if DEBUG
+            WindowsApi.AllocConsole();
+#endif
+            LoggerConfiguration.Initialize();
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMainWindow());
-        }
-
-        /// <summary>
-        /// Configura o logger.
-        /// </summary>
-        private static void ConfigureLogger()
-        {
-            var logger = new LoggerConfiguration();
         }
     }
 }

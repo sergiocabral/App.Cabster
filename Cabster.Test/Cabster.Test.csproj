@@ -89,7 +89,7 @@
   <ItemGroup>
     <Compile Include="Business\Entities\ContainerDataTest.cs" />
     <Compile Include="Business\Enums\StateModeTest.cs" />
-    <Compile Include="Business\Forms\FormConfigurationTest.cs" />
+    <Compile Include="Business\Forms\FormWorkGroupTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />
     <Compile Include="Components\MyButtonTest.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensionsTest.cs" />

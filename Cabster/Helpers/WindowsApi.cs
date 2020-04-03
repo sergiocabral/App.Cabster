@@ -58,5 +58,13 @@ namespace Cabster.Helpers
             SendMessage(
                 handle, 0x000B /* WM_SETREDRAW */, new IntPtr(enable ? 1 : 0), IntPtr.Zero);
         }
+        
+        /// <summary>
+        /// Aloca um console para a aplicação.
+        /// </summary>
+        /// <returns></returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool AllocConsole();
     }
 }

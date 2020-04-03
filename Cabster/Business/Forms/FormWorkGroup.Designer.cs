@@ -64,16 +64,16 @@
             this.button1.Text = "Action.ResizeWindow";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // FormConfiguration
+            // FormWorkGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 475);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
-            this.Name = "FormConfiguration";
+            this.Name = "FormWorkGroup";
             this.ShowLogo = true;
-            this.Text = "FormConfiguration";
+            this.Text = "FormWorkGroup";
             this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
         }

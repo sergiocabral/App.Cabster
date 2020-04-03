@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Cabster.Business.Forms
 {
-    public class FormConfigurationTest
+    public class FormWorkGroupTest
     {
         [Fact]
         public void deve_ser_possível_criar_uma_instância_sem_falhar()
