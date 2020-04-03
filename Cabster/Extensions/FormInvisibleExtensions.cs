@@ -105,6 +105,7 @@ namespace Cabster.Extensions
             {
                 if (visible)
                 {
+                    _form.SetRedraw(true);
                     _form.ShowInTaskbar = _backupShowInTaskbar;
                     _form.Visible = _backupVisible;
                     _form.StartPosition = _backupStartPosition;
@@ -125,6 +126,7 @@ namespace Cabster.Extensions
                     _form.Left = int.MaxValue;
                     _form.Top = int.MaxValue;
                     _form.Shown += HideForm;
+                    _form.SetRedraw(false);
                 }
 
                 Application.DoEvents();

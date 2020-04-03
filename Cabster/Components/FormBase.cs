@@ -28,7 +28,7 @@ namespace Cabster.Components
             get
             {
                 var createParams = base.CreateParams;
-                if (!ShowInTaskbar) createParams.ExStyle |= 0x80; // Ativa o atributo WS_EX_TOOLWINDOW
+                if (!ShowInTaskbar) createParams.ExStyle |= 0x80 /* WS_EX_TOOLWINDOW */; 
                 return createParams;
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Cabster.Business.Entities;
 using Cabster.Business.Forms;
 using Cabster.Extensions;
 
@@ -25,10 +26,8 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             this.MakeInvisible();
-
-            new FormConfiguration().Show();
         }
-
+        
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
@@ -39,13 +38,25 @@ namespace Cabster.Components
             timer.Enabled = false;
             try
             {
-                Trace.WriteLine($"Tick {DateTime.Now.Ticks}");
+                // Aqui fica qualquer código que deva se basear em clock, ciclos, verificações, etc.
             }
             finally
             {
                 if (Program.SignalToTerminate) Close();
                 else timer.Enabled = true;
             }
+        }
+
+        /// <summary>
+        /// Recarrega o conjunto de informações que configura o aplicativo.
+        /// </summary>
+        /// <returns>Conjunto de informações resultantes.</returns>
+        public ContainerData ReloadData()
+        {
+            var data = Program.Data;
+            
+            
+            return Program.Data;
         }
     }
 }

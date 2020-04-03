@@ -88,14 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entities\ContainerDataTest.cs" />
-    <Compile Include="Business\Entities\ParticipantTest.cs" />
-    <Compile Include="Business\Entities\PrivateTest.cs" />
-    <Compile Include="Business\Entities\SessionTest.cs" />
-    <Compile Include="Business\Entities\SharedTest.cs" />
-    <Compile Include="Business\Entities\StateTest.cs" />
-    <Compile Include="Business\Entities\TemporaryTest.cs" />
-    <Compile Include="Business\Entities\TimeParametersTest.cs" />
-    <Compile Include="Business\Entities\TimeStatisticsTest.cs" />
     <Compile Include="Business\Enums\StateModeTest.cs" />
     <Compile Include="Business\Forms\FormConfigurationTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />

@@ -7,27 +7,6 @@ namespace Cabster.Business.Entities
 {
     public class ContainerDataTest
     {
-        [Fact]
-        public void ao_criar_uma_instancia_as_propriedades_devem_ter_sue_valor_padrão()
-        {
-            // Arrange, Given
-            // Act, When
-
-            ContainerData entidade = null;
-            Func<IEntity> criarEntidade = () => entidade = new ContainerData();
-            Action lerEEscreverNaPropriedades = () => entidade.LerEEscreverEmTodasAsPropriedades();
-
-            // Assert, Then
-
-            criarEntidade.Should().NotThrow();
-            entidade.Should().NotBeNull();
-
-            entidade.Private.Should().NotBeNull();
-            entidade.Shared.Should().NotBeNull();
-            entidade.Temporary.Should().NotBeNull();
-
-            lerEEscreverNaPropriedades.Should().NotThrow();
-        }
 
         [Fact]
         public void verificações_declarativa()

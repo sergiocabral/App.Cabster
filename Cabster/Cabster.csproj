@@ -114,14 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entities\ContainerData.cs" />
-    <Compile Include="Business\Entities\Participant.cs" />
-    <Compile Include="Business\Entities\Private.cs" />
-    <Compile Include="Business\Entities\Session.cs" />
-    <Compile Include="Business\Entities\Shared.cs" />
-    <Compile Include="Business\Entities\State.cs" />
-    <Compile Include="Business\Entities\Temporary.cs" />
-    <Compile Include="Business\Entities\TimeParameters.cs" />
-    <Compile Include="Business\Entities\TimeStatistics.cs" />
     <Compile Include="Business\Forms\FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>

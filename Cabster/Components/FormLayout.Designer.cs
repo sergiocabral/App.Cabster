@@ -152,6 +152,10 @@
             this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");
             this.buttonResize.UseVisualStyleBackColor = false;
             // 
+            // toolTip
+            // 
+            this.toolTip.IsBalloon = true;
+            // 
             // FormLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
