@@ -25,12 +25,14 @@ namespace Cabster
 #if DEBUG
             WindowsApi.AllocConsole();
 #endif
-            LoggerConfiguration.Initialize();
-            DependencyInjectionConfiguration.Initialize();
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMainWindow());
+
+            using var logger = LoggerConfiguration.Initialize();
+            using var dependencyResolver = DependencyResolverConfiguration.Initialize();
+
+            Application.Run(DependencyResolver.Default.GetInstanceRequired<FormMainWindow>());
         }
     }
 }

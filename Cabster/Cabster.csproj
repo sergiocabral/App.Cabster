@@ -194,7 +194,7 @@
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
-    <Compile Include="Infrastructure\DependencyInjectionConfiguration.cs" />
+    <Compile Include="Infrastructure\DependencyResolverConfiguration.cs" />
     <Compile Include="Infrastructure\DependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\DependencyResolverLifeTime.cs" />

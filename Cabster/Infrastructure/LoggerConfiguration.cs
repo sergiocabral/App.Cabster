@@ -19,7 +19,7 @@ namespace Cabster.Helpers
         ///     Inicializa o Logger do Drake.
         /// </summary>
         /// <param name="minimumLevel">Nível mínimo para captura do log.</param>
-        public static void Initialize(LogEventLevel minimumLevel = LogEventLevel.Verbose)
+        public static IDisposable Initialize(LogEventLevel minimumLevel = LogEventLevel.Verbose)
         {
             var destinations = new List<Func<Serilog.LoggerConfiguration, Serilog.LoggerConfiguration>>
             {
@@ -33,11 +33,13 @@ namespace Cabster.Helpers
                 writeTo(loggerConfiguration)
                     .MinimumLevel.Is(minimumLevel);
 
-            Log.Logger = loggerConfiguration.CreateLogger();
+            var logger = loggerConfiguration.CreateLogger();
 
-            Log.Verbose("Logger configured for {Destinations} and initialized.",
+            (Log.Logger = logger).Verbose("Logger configured for {Destinations} and initialized.",
                 destinations.Select(a =>
                     a.Method.Name.Replace("WriteTo", string.Empty)));
+
+            return logger;
         }
 
         /// <summary>
