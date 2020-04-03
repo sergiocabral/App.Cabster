@@ -21,6 +21,15 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        /// Exibe o logotipo.
+        /// </summary>
+        public bool ShowLogo
+        {
+            get => panelLogo.Visible;
+            set => panelLogo.Visible = value;
+        }
+
+        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
@@ -37,6 +46,7 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
+            AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
             HandleCreated += (sender, args) =>
@@ -76,6 +86,16 @@ namespace Cabster.Components
         {
             if (ButtonMinimizeClick == null) WindowState = FormWindowState.Minimized;
             else ButtonMinimizeClick();
+        }
+
+        /// <summary>
+        /// Ajusta o posicionamento do logotipo.
+        /// </summary>
+        private void AdjustLogo()
+        {
+            panelLogo.Top = panelTitle.Top + panelTitle.Height;
+            panelLogo.Left = 0;
+            panelLogo.Width = (panelLogo.BackgroundImage.Width * panelLogo.Height) / panelLogo.BackgroundImage.Height;
         }
     }
 }

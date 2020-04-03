@@ -18,6 +18,7 @@ namespace Cabster.Components
         {
             InitializeComponent();
             InitializeComponent2();
+            new FormConfiguration().Show();
         }
 
         /// <summary>
@@ -54,8 +55,7 @@ namespace Cabster.Components
         public ContainerData ReloadData()
         {
             var data = Program.Data;
-            
-            
+
             return Program.Data;
         }
     }

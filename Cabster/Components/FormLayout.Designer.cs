@@ -39,6 +39,7 @@
             this.panelTitleMarginLeft = new System.Windows.Forms.Panel();
             this.buttonResize = new Cabster.Components.MyButton(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,6 +157,17 @@
             // 
             this.toolTip.IsBalloon = true;
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.Transparent;
+            this.panelLogo.BackgroundImage = global::Cabster.Properties.Resources.FormHeaderSapiensia;
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLogo.Location = new System.Drawing.Point(0, 50);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(225, 100);
+            this.panelLogo.TabIndex = 2;
+            this.panelLogo.Visible = false;
+            // 
             // FormLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -165,6 +177,7 @@
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(831, 514);
+            this.Controls.Add(this.panelLogo);
             this.Controls.Add(this.buttonResize);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular,
@@ -190,5 +203,6 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ToolTip toolTip;
         private Cabster.Components.MyButton buttonMinimize;
+        private System.Windows.Forms.Panel panelLogo;
     }
 }
