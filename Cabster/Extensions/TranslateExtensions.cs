@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Cabster.Exceptions;
 using Cabster.Properties;
 
 namespace Cabster.Extensions
@@ -74,7 +75,7 @@ namespace Cabster.Extensions
                 if (propertyInfo == null)
                     propertyInfo =
                         entry.Value.GetType().GetProperty("Caption", BindingFlags.Instance | BindingFlags.Public)
-                        ?? throw new Exception();
+                        ?? throw new ThisWillNeverOccurException();
 
                 var control = (Control) entry.Key;
                 var resource = FormatResourceKey((string) propertyInfo.GetValue(entry.Value));

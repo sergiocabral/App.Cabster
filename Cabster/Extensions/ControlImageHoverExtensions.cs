@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using Cabster.Exceptions;
 
 namespace Cabster.Extensions
 {
@@ -113,7 +114,10 @@ namespace Cabster.Extensions
                     _control
                         .GetType()
                         .GetProperty(propertyName, BindingFlags.Instance | BindingFlags.Public)
-                    ?? throw new ArgumentException(propertyName);
+                    ?? throw new WrongArgumentException(
+                        nameof(MakeImageHoverInfo),
+                        "constructor",
+                        nameof(propertyName));
 
                 _propertyValueOriginal = _propertyInfo.GetValue(control);
 

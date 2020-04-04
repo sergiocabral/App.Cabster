@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Reflection;
 using System.Windows.Forms;
+using Cabster.Exceptions;
 
 namespace Cabster.Extensions
 {
@@ -22,13 +23,14 @@ namespace Cabster.Extensions
         /// <returns>Hashtable.</returns>
         public static Hashtable Hashtable(this ToolTip tooltip)
         {
+            const string field = "tools";
             if (_fieldInfoFroToolTipHashtable == null)
                 _fieldInfoFroToolTipHashtable =
                     tooltip
                         .GetType()
-                        .GetField("tools", BindingFlags.Instance | BindingFlags.NonPublic);
+                        .GetField(field, BindingFlags.Instance | BindingFlags.NonPublic);
             return (Hashtable) (_fieldInfoFroToolTipHashtable?.GetValue(tooltip)
-                                ?? throw new NullReferenceException());
+                                ?? throw new IsNullOrEmptyException($"{nameof(ToolTip)}.{field}"));
         }
 
         /// <summary>
