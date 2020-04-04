@@ -4,11 +4,12 @@ using System.Linq;
 using System.Reflection;
 using Cabster.Properties;
 using Serilog;
+using Serilog.Core;
 using Serilog.Enrichers;
 using Serilog.Events;
 using Serilog.Exceptions.Core;
 
-namespace Cabster.Helpers
+namespace Cabster.Infrastructure
 {
     /// <summary>
     ///     Inicializa o Logger
@@ -19,7 +20,7 @@ namespace Cabster.Helpers
         ///     Inicializa o Logger do Drake.
         /// </summary>
         /// <param name="minimumLevel">Nível mínimo para captura do log.</param>
-        public static IDisposable Initialize(LogEventLevel minimumLevel = LogEventLevel.Verbose)
+        public static Logger Initialize(LogEventLevel minimumLevel = LogEventLevel.Verbose)
         {
             var destinations = new List<Func<Serilog.LoggerConfiguration, Serilog.LoggerConfiguration>>
             {
@@ -35,7 +36,7 @@ namespace Cabster.Helpers
 
             var logger = loggerConfiguration.CreateLogger();
 
-            (Log.Logger = logger).Verbose("Logger configured for {Destinations} and initialized.",
+            logger.Verbose("Logger configured for {Destinations} and initialized.",
                 destinations.Select(a =>
                     a.Method.Name.Replace("WriteTo", string.Empty)));
 

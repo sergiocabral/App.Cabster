@@ -2,6 +2,7 @@
 using Cabrones.Test;
 using Cabrones.Utils.Text;
 using Cabster.Business;
+using Cabster.Business.Entities;
 using Cabster.Exceptions;
 using Cabster.Properties;
 using FluentAssertions;
@@ -40,20 +41,6 @@ namespace Cabster.Infrastructure
                 registrar.Should().Throw<WrongArgumentException>()
                     .WithMessage(Resources.Exception_Common_WrongArgument
                         .QueryString("DependencyResolver", "Register", "lifetime"));
-        }
-
-        [Fact]
-        public void a_instância_padrão_pode_ser_substituida()
-        {
-            // Arrange, Given
-            // Act, When
-
-            var novaInstância = Substitute.For<IDependencyResolver>();
-            DependencyResolver.Default = novaInstância;
-
-            // Assert, Then
-
-            DependencyResolver.Default.Should().BeSameAs(novaInstância);
         }
 
         [Fact]
@@ -418,17 +405,17 @@ namespace Cabster.Infrastructure
             var serviceCollection = Substitute.For<IServiceCollection>();
 
             using var dependencyResolver = new DependencyResolver(serviceCollection);
-            dependencyResolver.Register<IEngine, Engine>();
+            dependencyResolver.Register<IEntity, ContainerData>();
 
             // Act, When
 
             Action nãoInformandoServiceProvider = () =>
-                dependencyResolver.GetInstance<IEngine>();
+                dependencyResolver.GetInstance<IEntity>();
 
             Action informandoServiceProvider = () =>
             {
                 dependencyResolver.SetServiceProvider(Substitute.For<IServiceProvider>());
-                dependencyResolver.GetInstance<IEngine>();
+                dependencyResolver.GetInstance<IEntity>();
             };
 
             // Assert, Then
@@ -453,9 +440,9 @@ namespace Cabster.Infrastructure
 
             Action adicionarServiçoEInicializar = () =>
             {
-                dependencyResolver.Register<IEngine, Engine>();
+                dependencyResolver.Register<IEntity, ContainerData>();
                 dependencyResolver.SetServiceProvider(serviceProvider);
-                dependencyResolver.GetInstance<IEngine>();
+                dependencyResolver.GetInstance<IEntity>();
             };
 
             // Assert, Then

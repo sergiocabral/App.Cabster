@@ -60,6 +60,14 @@
       <HintPath>..\packages\Cabrones.Utils.2.3.0.301\lib\net472\Cabrones.Utils.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Merq, Version=1.1.1.0, Culture=neutral, PublicKeyToken=d1595740b67248ed">
+      <HintPath>..\packages\Merq.1.1.1\lib\netstandard1.3\Merq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Merq.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=d1595740b67248ed">
+      <HintPath>..\packages\Merq.Core.1.2.0\lib\netstandard1.3\Merq.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>True</Private>
@@ -141,7 +149,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Engine.cs" />
     <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\WorkGroupParticipantSet.cs" />
     <Compile Include="Business\Entities\WorkGroupSet.cs" />
@@ -152,9 +159,12 @@
     <Compile Include="Business\Forms\FormWorkGroup.Designer.cs">
       <DependentUpon>FormWorkGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\IEngine.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
+    <Compile Include="Business\Messenger\CommandHandlers\Application.cs" />
+    <Compile Include="Business\Messenger\Command\InitializeApplication.cs" />
+    <Compile Include="Business\Messenger\Command\SinalizeApplicationClock.cs" />
+    <Compile Include="Business\Messenger\Event\ApplicationClockSignaled.cs" />
     <Compile Include="Components\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,11 +204,14 @@
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
+    <Compile Include="Infrastructure\MessengerCommand.cs" />
     <Compile Include="Infrastructure\DependencyResolverConfiguration.cs" />
     <Compile Include="Infrastructure\DependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\DependencyResolverLifeTime.cs" />
     <Compile Include="Infrastructure\LoggerConfiguration.cs" />
+    <Compile Include="Infrastructure\MessengerConfiguration.cs" />
+    <Compile Include="Infrastructure\MessengerEvent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">
@@ -281,4 +294,11 @@
 ..\..\IncrementBuildVersion.exe
 ..\..\SortResourceKeys.exe</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets" Condition="Exists('..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets'))" />
+  </Target>
 </Project>

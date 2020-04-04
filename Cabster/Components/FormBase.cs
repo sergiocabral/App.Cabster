@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Cabster.Extensions;
+using Merq;
 
 // ReSharper disable VirtualMemberCallInConstructor
 
@@ -11,6 +12,16 @@ namespace Cabster.Components
     public partial class FormBase : Form
     {
         /// <summary>
+        ///     ICommandBus.
+        /// </summary>
+        private ICommandBus? _commandBus;
+
+        /// <summary>
+        ///     IEventStream.
+        /// </summary>
+        private IEventStream? _eventStream;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormBase()
@@ -18,6 +29,18 @@ namespace Cabster.Components
             InitializeComponent();
             InitializeComponent2();
         }
+
+        /// <summary>
+        ///     ICommandBus.
+        /// </summary>
+        protected ICommandBus CommandBus =>
+            _commandBus ??= Program.DependencyResolver.GetInstanceRequired<ICommandBus>();
+
+        /// <summary>
+        ///     IEventStream.
+        /// </summary>
+        protected IEventStream EventStream =>
+            _eventStream ??= Program.DependencyResolver.GetInstanceRequired<IEventStream>();
 
         /// <summary>
         ///     Atributos para criação da janela.

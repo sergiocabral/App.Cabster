@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 using Cabster.Components;
+using Cabster.Exceptions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
+using Serilog;
+using LoggerConfiguration = Cabster.Infrastructure.LoggerConfiguration;
 
 namespace Cabster
 {
@@ -11,6 +14,21 @@ namespace Cabster
     /// </summary>
     public static class Program
     {
+        /// <summary>
+        ///     Local para definir a instância DependencyResolver de uso comum.
+        /// </summary>
+        private static IDependencyResolver? _dependencyResolver;
+
+        /// <summary>
+        ///     DependencyResolver de uso comum.
+        /// </summary>
+        public static IDependencyResolver DependencyResolver
+        {
+            get => _dependencyResolver ??
+                   throw new IsNullOrEmptyException($"{nameof(DependencyResolver)}.{nameof(DependencyResolver)}");
+            private set => _dependencyResolver = value;
+        }
+
         /// <summary>
         ///     Sinaliza que a aplicação deve ser encerrada.
         /// </summary>
@@ -30,9 +48,14 @@ namespace Cabster
             Application.SetCompatibleTextRenderingDefault(false);
 
             using var logger = LoggerConfiguration.Initialize();
-            using var dependencyResolver = DependencyResolverConfiguration.Initialize();
+            Log.Logger = logger;
 
-            Application.Run(DependencyResolver.Default.GetInstanceRequired<FormMainWindow>());
+            using var dependencyResolver = DependencyResolverConfiguration.Initialize();
+            DependencyResolver = dependencyResolver;
+
+            MessengerConfiguration.Initialize(dependencyResolver);
+
+            Application.Run(DependencyResolver.GetInstanceRequired<FormMainWindow>());
         }
     }
 }

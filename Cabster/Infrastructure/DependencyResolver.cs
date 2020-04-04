@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Cabrones.Utils.Text;
 using Cabster.Exceptions;
 using Cabster.Properties;
@@ -14,14 +15,14 @@ namespace Cabster.Infrastructure
     public class DependencyResolver : IDependencyResolver
     {
         /// <summary>
-        ///     Local para definir a instância DependencyResolver de uso comum.
-        /// </summary>
-        private static IDependencyResolver? _default;
-
-        /// <summary>
         ///     Container de trabalho do Injetor de Dependência para este projeto.
         /// </summary>
         private readonly Container _container;
+
+        /// <summary>
+        ///     Lista de hashes dos serviços já registrados para evitar duplicações.
+        /// </summary>
+        private readonly List<int> _registeredHashes = new List<int>();
 
         /// <summary>
         ///     Lista de escopos abertos.
@@ -35,15 +36,6 @@ namespace Cabster.Infrastructure
         public DependencyResolver(IServiceCollection? services = null)
         {
             _container = new Container(services);
-        }
-
-        /// <summary>
-        ///     Local para definir a instância DependencyResolver de uso comum.
-        /// </summary>
-        public static IDependencyResolver Default
-        {
-            get => _default ?? throw new IsNullOrEmptyException($"{nameof(DependencyResolver)}.{nameof(Default)}");
-            set => _default = value;
         }
 
         /// <summary>
@@ -169,6 +161,8 @@ namespace Cabster.Infrastructure
         /// <param name="lifetime">Tempo de vida.</param>
         public void Register(Type service, Type implementation, DependencyResolverLifeTime lifetime)
         {
+            if (IsAlreadyRegistered(service, implementation, lifetime)) return;
+
             switch (lifetime)
             {
                 case DependencyResolverLifeTime.PerContainer:
@@ -207,7 +201,38 @@ namespace Cabster.Infrastructure
         /// <param name="instance">Instância existente.</param>
         public void AddInstance(Type service, object instance)
         {
+            if (IsAlreadyRegistered(service, instance)) return;
+
             _container.ServiceCollection.AddSingleton(service, instance);
+
+            _container.DisposeServiceProvider();
+        }
+
+        /// <summary>
+        ///     Gera um hash para um dado conjunto de argumentos.
+        /// </summary>
+        /// <param name="args">Argumentos.</param>
+        /// <returns>Hash.</returns>
+        private static int GetHash(params object[] args)
+        {
+            var hashes = new StringBuilder();
+
+            foreach (var arg in args) hashes.Append(arg?.GetHashCode() ?? string.Empty.GetHashCode());
+
+            return hashes.ToString().GetHashCode();
+        }
+
+        /// <summary>
+        ///     Verifica se um conjunto de informações já foi registrado.
+        /// </summary>
+        /// <param name="args">Argumentos.</param>
+        /// <returns>Resultado.</returns>
+        private bool IsAlreadyRegistered(params object[] args)
+        {
+            var hash = GetHash(args);
+            if (_registeredHashes.Contains(hash)) return true;
+            _registeredHashes.Add(hash);
+            return false;
         }
 
         /// <summary>

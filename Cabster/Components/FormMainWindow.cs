@@ -1,19 +1,17 @@
 ﻿using System;
-using Cabster.Business;
+using System.Threading;
+using Cabster.Business.Messenger.Command;
+using Cabster.Business.Messenger.Event;
 using Cabster.Extensions;
+using Merq;
 
 namespace Cabster.Components
 {
     /// <summary>
     ///     Janela invisível.
     /// </summary>
-    public partial class FormMainWindow : FormBase
+    public partial class FormMainWindow : FormBase, ICommandHandler<SinalizeApplicationClock>
     {
-        /// <summary>
-        ///     Agrupa toda a lógica de funcionamento da aplicação.
-        /// </summary>
-        private readonly Engine _engine = Engine.Instance;
-
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -24,13 +22,34 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Determina se o comando pode ser executado.
+        /// </summary>
+        /// <param name="command">Comando.</param>
+        /// <returns>Resposta.</returns>
+        public bool CanExecute(SinalizeApplicationClock command)
+        {
+            return true;
+        }
+
+        /// <summary>
+        ///     Execução do comando.
+        /// </summary>
+        /// <param name="command">Comando.</param>
+        public void Execute(SinalizeApplicationClock command)
+        {
+            if (command.Count == 1) CommandBus.Execute(new InitializeApplication());
+
+            EventStream.Push(new ApplicationClockSignaled(command));
+        }
+
+        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
         {
             this.MakeInvisible();
         }
-
+        
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
@@ -41,7 +60,7 @@ namespace Cabster.Components
             timer.Enabled = false;
             try
             {
-                _engine.Clock();
+                CommandBus.Execute(new SinalizeApplicationClock());
             }
             finally
             {
