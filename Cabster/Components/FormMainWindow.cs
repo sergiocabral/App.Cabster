@@ -1,11 +1,15 @@
 ﻿using System;
-using System.Windows.Forms;
-using Cabster.Business.Messenger.Command;
-using Cabster.Business.Messenger.Event;
+using System.Threading;
+using System.Threading.Tasks;
+using Cabster.Business.Messenger.Notification;
+using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Extensions;
-using Merq;
+using MediatR;
 using Serilog;
+using Timer = System.Windows.Forms.Timer;
+
+#pragma warning disable 109
 
 namespace Cabster.Components
 {
@@ -14,13 +18,19 @@ namespace Cabster.Components
     /// </summary>
     public partial class FormMainWindow :
         FormBase,
-        ICommandHandler<SinalizeApplicationClock>,
-        IObserver<ApplicationInitialized>
+        IRequestHandler<SinalizeApplicationClock>,
+        IRequestHandler<FinalizeApplication>,
+        INotificationHandler<ApplicationInitialized>
     {
         /// <summary>
-        ///     Timer para clock da aplicação.
+        ///     Sinaliza que a aplicação foi finalizada.
         /// </summary>
-        private Timer? _timerClock;
+        private bool _applicationFinalized;
+
+        /// <summary>
+        ///     Sinaliza que a aplicação foi inicializada.
+        /// </summary>
+        private bool _applicationInitialized;
 
         /// <summary>
         ///     Construtor.
@@ -31,59 +41,44 @@ namespace Cabster.Components
             InitializeComponent2();
         }
 
-        /// <summary>
-        ///     Determina se o comando pode ser executado.
-        /// </summary>
-        /// <param name="command">Comando.</param>
-        /// <returns>Resposta.</returns>
-        public bool CanExecute(SinalizeApplicationClock command)
+        public new Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
-            return true;
-        }
-
-        /// <summary>
-        ///     Execução do comando.
-        /// </summary>
-        /// <param name="command">Comando.</param>
-        public void Execute(SinalizeApplicationClock command)
-        {
-            EventStream.Push(new ApplicationClockSignaled(command));
-        }
-
-        /// <summary>
-        ///     Processamento do evento.
-        /// </summary>
-        /// <param name="value">Evento.</param>
-        public void OnNext(ApplicationInitialized value)
-        {
-            if (_timerClock != null)
-                throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
-
-            _timerClock = new Timer
+            return Task.Run(() =>
             {
-                Interval = 100,
-                Enabled = true
-            };
-            _timerClock.Tick += OnTimerTick;
+                if (_applicationInitialized)
+                    throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
 
-            Log.Verbose("Clock started with {Interval} milliseconds interval.", _timerClock.Interval);
+                _applicationInitialized = true;
+
+                Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
+            }, cancellationToken);
         }
 
         /// <summary>
-        ///     Erro ao processar evento.
+        ///     Processa o comando: FinalizeApplication
         /// </summary>
-        /// <param name="error">Exception</param>
-        public void OnError(Exception error)
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public new Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
         {
-            //throw new ThisWillNeverOccurException();
+            _applicationFinalized = true;
+            return Unit.Task;
         }
 
         /// <summary>
-        ///     Processamento completo.
+        ///     Processa o comando: SinalizeApplicationClock
         /// </summary>
-        public void OnCompleted()
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public new Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
         {
-            //throw new ThisWillNeverOccurException();
+            Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
+
+            if (request.TickCount == 10) Mediator.Send(new FinalizeApplication(), cancellationToken);
+
+            return Unit.Task;
         }
 
         /// <summary>
@@ -92,7 +87,6 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             this.MakeInvisible();
-            EventStream.Of<ApplicationInitialized>().Subscribe(this);
         }
 
         /// <summary>
@@ -102,13 +96,22 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void OnTimerTick(object sender, EventArgs args)
         {
+            if (!_applicationInitialized) return;
+
             ((Timer) sender).Enabled = false;
+
+            if (_applicationFinalized)
+            {
+                Close();
+                return;
+            }
+
             try
             {
-                var commandSinalizeApplicationClock = new SinalizeApplicationClock();
-                CommandBus.Execute(commandSinalizeApplicationClock);
+                var requestSinalizeApplicationClock = new SinalizeApplicationClock();
+                Mediator.Send(requestSinalizeApplicationClock);
 
-                Log.Verbose("Clock: {ClockTickCount}", commandSinalizeApplicationClock.TickCount);
+                Log.Verbose("Clock: {ClockTickCount}", requestSinalizeApplicationClock.TickCount);
             }
             finally
             {

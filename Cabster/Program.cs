@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cabster.Business.Messenger.Command;
+using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Exceptions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
-using Merq;
+using MediatR;
 using Serilog;
 using LoggerConfiguration = Cabster.Infrastructure.LoggerConfiguration;
 
@@ -37,9 +37,6 @@ namespace Cabster
         [STAThread]
         public static void Main()
         {
-#if DEBUG
-            WindowsApi.AllocConsole();
-#endif
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -50,14 +47,9 @@ namespace Cabster
             using var dependencyResolver = DependencyResolverConfiguration.Initialize();
             DependencyResolver = dependencyResolver;
 
-            MessengerConfiguration.Initialize(dependencyResolver);
-            var commandBus = DependencyResolver.GetInstanceRequired<ICommandBus>();
+            DependencyResolver.GetInstanceRequired<IMediator>().Send(new InitializeApplication());
 
-            var mainForm = DependencyResolver.GetInstanceRequired<FormMainWindow>();
-
-            commandBus.Execute(new InitializeApplication());
-            
-            Application.Run(mainForm);
+            Application.Run(DependencyResolver.GetInstanceRequired<FormMainWindow>());
         }
     }
 }

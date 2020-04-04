@@ -1,4 +1,6 @@
-﻿namespace Cabster.Components
+﻿using Cabster.Infrastructure;
+
+namespace Cabster.Components
 {
     partial class FormBase
     {
@@ -18,6 +20,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            
+            this.LogVerboseDispose();
         }
 
         #region Windows Form Designer generated code

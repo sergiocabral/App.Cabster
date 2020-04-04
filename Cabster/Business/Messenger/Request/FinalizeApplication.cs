@@ -1,11 +1,11 @@
 ﻿using Cabster.Infrastructure;
 
-namespace Cabster.Business.Messenger.Command
+namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Finaliza a aplicação.
     /// </summary>
-    public class FinalizeApplication : MessengerCommand
+    public class FinalizeApplication : MessengerRequest
     {
     }
 }

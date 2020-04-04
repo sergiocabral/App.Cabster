@@ -1,11 +1,11 @@
 ﻿using Cabster.Infrastructure;
 
-namespace Cabster.Business.Messenger.Command
+namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Sinalização do click do sistema.
     /// </summary>
-    public class SinalizeApplicationClock : MessengerCommand
+    public class SinalizeApplicationClock : MessengerRequest
     {
         /// <summary>
         ///     Contagem de clocks executados.

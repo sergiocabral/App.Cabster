@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Cabster.Exceptions;
 using Cabster.Properties;
 using Serilog;
 using Serilog.Core;
@@ -16,6 +17,53 @@ namespace Cabster.Infrastructure
     /// </summary>
     public static class LoggerConfiguration
     {
+        /// <summary>
+        ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
+        /// </summary>
+        /// <param name="instance">Instância.</param>
+        public static void LogVerboseInstantiate<T>(this T instance) where T : notnull
+        {
+            var type = instance.GetType();
+            var typeDisposable = typeof(IDisposable);
+            
+            if (typeDisposable.IsAssignableFrom(type))
+            {
+                Log.Verbose(
+                    "New instance of {Type} : {Interface}.", 
+                    type.FullName, typeDisposable.Name);
+            }
+            else
+            {
+                Log.Verbose(
+                    "New instance of {Type}.", 
+                    type.FullName);
+            }
+        }
+
+        /// <summary>
+        ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
+        /// </summary>
+        /// <param name="instance">Instância.</param>
+        public static void LogVerboseDispose<T>(this T instance) where T : notnull
+        {
+            var type = instance.GetType();
+            var typeDisposable = typeof(IDisposable);
+            
+            if (typeDisposable.IsAssignableFrom(type))
+            {
+                Log.Verbose(
+                    "Dispose instance of {Type} : {Interface}.", 
+                    type.FullName, typeDisposable.Name);
+            }
+            else
+            {
+                throw new WrongArgumentException(
+                    nameof(LoggerConfiguration), 
+                    nameof(LogVerboseDispose),
+                    nameof(instance));
+            }
+        }
+        
         /// <summary>
         ///     Inicializa o Logger do Drake.
         /// </summary>

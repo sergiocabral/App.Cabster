@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FA64E1EA-88ED-45E0-82CB-73B0CBD1090C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Cabster</RootNamespace>
     <AssemblyName>Cabster</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -60,12 +60,12 @@
       <HintPath>..\packages\Cabrones.Utils.2.3.0.301\lib\net472\Cabrones.Utils.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Merq, Version=1.1.1.0, Culture=neutral, PublicKeyToken=d1595740b67248ed">
-      <HintPath>..\packages\Merq.1.1.1\lib\netstandard1.3\Merq.dll</HintPath>
+    <Reference Include="MediatR, Version=8.0.1.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2">
+      <HintPath>..\packages\MediatR.8.0.1\lib\net461\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Merq.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=d1595740b67248ed">
-      <HintPath>..\packages\Merq.Core.1.2.0\lib\netstandard1.3\Merq.Core.dll</HintPath>
+    <Reference Include="MediatR.Extensions.Microsoft.DependencyInjection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2">
+      <HintPath>..\packages\MediatR.Extensions.Microsoft.DependencyInjection.8.0.0\lib\netstandard2.0\MediatR.Extensions.Microsoft.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
@@ -161,12 +161,12 @@
     </Compile>
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
-    <Compile Include="Business\Messenger\CommandHandlers\Application.cs" />
-    <Compile Include="Business\Messenger\Command\FinalizeApplication.cs" />
-    <Compile Include="Business\Messenger\Command\InitializeApplication.cs" />
-    <Compile Include="Business\Messenger\Command\SinalizeApplicationClock.cs" />
-    <Compile Include="Business\Messenger\Event\ApplicationClockSignaled.cs" />
-    <Compile Include="Business\Messenger\Event\ApplicationInitialized.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
+    <Compile Include="Business\Messenger\Request\FinalizeApplication.cs" />
+    <Compile Include="Business\Messenger\Request\InitializeApplication.cs" />
+    <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
+    <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
+    <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
     <Compile Include="Components\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,14 +206,14 @@
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
-    <Compile Include="Infrastructure\MessengerCommand.cs" />
+    <Compile Include="Infrastructure\MessengerHandler.cs" />
+    <Compile Include="Infrastructure\MessengerRequest.cs" />
     <Compile Include="Infrastructure\DependencyResolverConfiguration.cs" />
     <Compile Include="Infrastructure\DependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\DependencyResolverLifeTime.cs" />
     <Compile Include="Infrastructure\LoggerConfiguration.cs" />
-    <Compile Include="Infrastructure\MessengerConfiguration.cs" />
-    <Compile Include="Infrastructure\MessengerEvent.cs" />
+    <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">
@@ -296,11 +296,4 @@
 ..\..\IncrementBuildVersion.exe
 ..\..\SortResourceKeys.exe</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets" Condition="Exists('..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Merq.1.1.1\build\netstandard1.3\Merq.targets'))" />
-  </Target>
 </Project>
