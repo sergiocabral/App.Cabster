@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
@@ -84,7 +85,7 @@ namespace Cabster.Components
         /// <returns>Task</returns>
         public new Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
         {
-            Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
+            MessengerBus.Publish(new ApplicationClockSignaled(request), cancellationToken);
             return Unit.Task;
         }
 
@@ -117,7 +118,7 @@ namespace Cabster.Components
             try
             {
                 var requestSinalizeApplicationClock = new SinalizeApplicationClock();
-                Mediator.Send(requestSinalizeApplicationClock);
+                MessengerBus.Send(requestSinalizeApplicationClock);
 
                 const int clocksToShow = 5;
                 const int clocksToShowInterval = 60000;

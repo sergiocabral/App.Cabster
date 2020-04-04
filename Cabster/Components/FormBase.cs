@@ -32,7 +32,7 @@ namespace Cabster.Components
         /// <summary>
         ///     IMediator.
         /// </summary>
-        protected IMediator Mediator =>
+        protected IMediator MessengerBus =>
             _mediator ??= Program.DependencyResolver.GetInstanceRequired<IMediator>();
 
         /// <summary>

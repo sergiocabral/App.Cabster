@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Cabster.Business.Messenger.Notification;
+using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using MediatR;
 
@@ -44,14 +46,6 @@ namespace Cabster.Business.Forms
         private void InitializeComponent2()
         {
             ButtonCloseClick += OnButtonCloseClick;
-            ButtonMinimizeClick += OnButtonMinimizeClick;
-        }
-
-        /// <summary>
-        ///     Quando clica o botão de minimzar a janela.
-        /// </summary>
-        private void OnButtonMinimizeClick()
-        {
         }
 
         /// <summary>
@@ -59,6 +53,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void OnButtonCloseClick()
         {
+            MessengerBus.Send(new FinalizeApplication());
         }
     }
 }
