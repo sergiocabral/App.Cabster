@@ -46,6 +46,12 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
+            SetStyle(
+                ControlStyles.AllPaintingInWmPaint | 
+                ControlStyles.UserPaint | 
+                ControlStyles.DoubleBuffer, 
+                true);
+
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();

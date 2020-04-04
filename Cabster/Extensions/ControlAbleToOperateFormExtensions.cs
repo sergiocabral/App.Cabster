@@ -139,7 +139,7 @@ namespace Cabster.Extensions
             /// <param name="operation">Operação.</param>
             public MakeAbleToOperateFormInfo(Control control, Operations operation)
             {
-                _millisecondsBetweenRedraw = operation == Operations.Resize ? 100 : int.MaxValue;
+                _millisecondsBetweenRedraw = operation == Operations.Resize ? 10 : int.MaxValue;
                 _operation = operation;
                 _form = _control = control;
                 while (_form != null && !(_form is Form)) _form = _form.Parent;
@@ -159,6 +159,7 @@ namespace Cabster.Extensions
                     _control.MouseMove += ControlOnMouseMove;
                     _control.MouseUp += ControlOnMouseUp;
                     _control.MouseLeave += ControlOnMouseUp;
+                    _form.MouseLeave += ControlOnMouseUp;
                 }
                 else
                 {
@@ -166,6 +167,7 @@ namespace Cabster.Extensions
                     _control.MouseMove -= ControlOnMouseMove;
                     _control.MouseUp -= ControlOnMouseUp;
                     _control.MouseLeave -= ControlOnMouseUp;
+                    _form.MouseLeave -= ControlOnMouseUp;
                 }
             }
 
@@ -227,6 +229,7 @@ namespace Cabster.Extensions
             private void ControlOnMouseUp(object sender, EventArgs args)
             {
                 _isPressing = false;
+                Application.DoEvents();
                 _form.SetRedraw(true);
                 _form.InvalidadeAll();
             }
