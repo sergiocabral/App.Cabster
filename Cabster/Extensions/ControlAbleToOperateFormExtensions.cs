@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
@@ -157,12 +158,14 @@ namespace Cabster.Extensions
                     _control.MouseDown += ControlOnMouseDown;
                     _control.MouseMove += ControlOnMouseMove;
                     _control.MouseUp += ControlOnMouseUp;
+                    _control.MouseLeave += ControlOnMouseUp;
                 }
                 else
                 {
                     _control.MouseDown -= ControlOnMouseDown;
                     _control.MouseMove -= ControlOnMouseMove;
                     _control.MouseUp -= ControlOnMouseUp;
+                    _control.MouseLeave -= ControlOnMouseUp;
                 }
             }
 
@@ -221,7 +224,7 @@ namespace Cabster.Extensions
             /// <param name="sender">Fonte do evento.</param>
             /// <param name="args">Informações do evento.</param>
             [ExcludeFromCodeCoverage]
-            private void ControlOnMouseUp(object sender, MouseEventArgs args)
+            private void ControlOnMouseUp(object sender, EventArgs args)
             {
                 _isPressing = false;
                 _form.SetRedraw(true);
