@@ -126,29 +126,46 @@
   <data name="Action.TerminateApplication" xml:space="preserve">
     <value>Fechar a aplicação.</value>
   </data>
-  <data name="Exception.Common.ExpectedSingleOperation">
+  <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>Era esperado uma operação única para: {Operation}</value>
   </data>
-  <data name="Exception.Common.IsNotNullOrEmpty">
+  <data name="Exception.Common.IsNotNullOrEmpty" xml:space="preserve">
     <value>Já havia um valor ou instância definida para {Property}.</value>
   </data>
-  <data name="Exception.Common.IsNullOrEmpty">
+  <data name="Exception.Common.IsNullOrEmpty" xml:space="preserve">
     <value>Nenhum valor ou instância definida para {Property}.</value>
   </data>
-  <data name="Exception.Common.ThisWillNeverOccur">
+  <data name="Exception.Common.ThisWillNeverOccur" xml:space="preserve">
     <value>Ops! Achei que esse erro nunca ocorreria.</value>
   </data>
-  <data name="Exception.Common.WrongArgument">
+  <data name="Exception.Common.WrongArgument" xml:space="preserve">
     <value>Para a operação {Class}.{Method} um ou mais argumentos não são válidos: {Argument}</value>
   </data>
-  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally">
+  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally" xml:space="preserve">
     <value>A configuração {Configuration} é gerenciada externamente e não suporta algumas operações pela aplicação de negócio.</value>
   </data>
-  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally">
+  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally" xml:space="preserve">
     <value>A configuração {Configuration} é gerenciada internamente e não suporta algumas operações pelo escopo fora da aplicação de negócio.</value>
   </data>
-  <!-- ReSharper disable once OverriddenWithSameValue -->
-  <data name="Names.System" xml:space="preserve">
+  <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
+  </data>
+  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+    <value>O intervalo inicia após quantas rodadas:</value>
+  </data>
+  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+    <value>rodadas. A cada {minutes} minuto(s).</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachBreak_Part1" xml:space="preserve">
+    <value>Duração de cada intervalo:</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachBreak_Part2" xml:space="preserve">
+    <value>minuto(s).</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachRound_Part1" xml:space="preserve">
+    <value>Duração de cada rodada:</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
+    <value>minuto(s).</value>
   </data>
 </root>

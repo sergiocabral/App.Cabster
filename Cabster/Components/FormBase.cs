@@ -59,7 +59,7 @@ namespace Cabster.Components
             {
                 if (Text == GetType().Name ||
                     Text == typeof(FormLayout).Name ||
-                    Text == typeof(FormBase).Name) Text = Resources.Names_System;
+                    Text == typeof(FormBase).Name) Text = Resources.Name_System;
             };
         }
     }

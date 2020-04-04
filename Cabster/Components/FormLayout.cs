@@ -56,6 +56,7 @@ namespace Cabster.Components
                 Icon = Resources.IconSapiensia;
             };
             Resize += (sender, args) =>
+            Resize += (sender, args) =>
             {
                 buttonResize.Left = Width - buttonResize.Width;
                 buttonResize.Top = Height - buttonResize.Height + 1;

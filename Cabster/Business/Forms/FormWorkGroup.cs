@@ -2,9 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
+using Cabster.Exceptions;
 using MediatR;
 
 #pragma warning disable 109
@@ -45,6 +47,7 @@ namespace Cabster.Business.Forms
         [ExcludeFromCodeCoverage]
         private void InitializeComponent2()
         {
+            Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
         }
 
@@ -54,6 +57,25 @@ namespace Cabster.Business.Forms
         private void OnButtonCloseClick()
         {
             MessengerBus.Send(new FinalizeApplication());
+        }
+
+        /// <summary>
+        /// Evento para atualiza a exibição dos controles.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void UpdateControls(object sender, System.EventArgs args)
+        {
+            if (labelBreakStartsAfterHowManyRounds_Part2.Tag == null)
+            {
+                labelBreakStartsAfterHowManyRounds_Part2.Tag = labelBreakStartsAfterHowManyRounds_Part2.Text;
+            }
+
+            var textTemplate = (string) labelBreakStartsAfterHowManyRounds_Part2.Tag;
+            var minutes = (int) 
+                (numericUpDownBreakStartsAfterHowManyRounds.Value * numericUpDownDurationOfEachRound.Value);
+
+            labelBreakStartsAfterHowManyRounds_Part2.Text = textTemplate.QueryString(minutes);
         }
     }
 }

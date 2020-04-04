@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
@@ -50,6 +51,8 @@ namespace Cabster
         [STAThread]
         public static void Main(params string[] args)
         {
+            CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = new CultureInfo("pt");
+
             var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             WindowsApi.ShowWindow(mainWindowHandle, IsDebug);
             WindowsApi.FixCursorHand();

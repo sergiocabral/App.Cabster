@@ -154,28 +154,46 @@
   <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Exception.Common.ExpectedSingleOperation">
+  <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>A single operation was expected for: {Operation}</value>
   </data>
-  <data name="Exception.Common.IsNotNullOrEmpty">
+  <data name="Exception.Common.IsNotNullOrEmpty" xml:space="preserve">
     <value>There was already a defined value or instance for {Property}.</value>
   </data>
-  <data name="Exception.Common.IsNullOrEmpty">
+  <data name="Exception.Common.IsNullOrEmpty" xml:space="preserve">
     <value>No value or instance defined for {Property}.</value>
   </data>
-  <data name="Exception.Common.ThisWillNeverOccur">
+  <data name="Exception.Common.ThisWillNeverOccur" xml:space="preserve">
     <value>Oops! I thought that this error would never occur.</value>
   </data>
-  <data name="Exception.Common.WrongArgument">
+  <data name="Exception.Common.WrongArgument" xml:space="preserve">
     <value>For the operation {Class}.{Method} one or more arguments are not valid: {Argument}</value>
   </data>
-  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally">
+  <data name="Exception.Infrastructure.ConfigurationIsManagedExternally" xml:space="preserve">
     <value>The {Configuration} configuration is managed externally and does not support some operations by the business application.</value>
   </data>
-  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally">
+  <data name="Exception.Infrastructure.ConfigurationIsManagedInternally" xml:space="preserve">
     <value>The {Configuration} configuration is managed internally and does not support some operations by the scope outside the business application.</value>
   </data>
-  <data name="Names.System" xml:space="preserve">
+  <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
+  </data>
+  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+    <value>The interval starts after how many rounds</value>
+  </data>
+  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+    <value>rounds. Every {minutes} minute(s).</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachBreak_Part1" xml:space="preserve">
+    <value>Duration of each break</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachBreak_Part2" xml:space="preserve">
+    <value>minute(s).</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachRound_Part1" xml:space="preserve">
+    <value>Duration of each round</value>
+  </data>
+  <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
+    <value>minute(s).</value>
   </data>
 </root>
