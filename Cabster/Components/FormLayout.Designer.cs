@@ -189,6 +189,7 @@
             this.Name = "FormLayout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLayout";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLayout_FormClosing);
             this.panelTitle.ResumeLayout(false);
             this.ResumeLayout(false);
         }

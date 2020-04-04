@@ -95,5 +95,16 @@ namespace Cabster.Components
             panelLogo.Left = 0;
             panelLogo.Width = panelLogo.BackgroundImage.Width * panelLogo.Height / panelLogo.BackgroundImage.Height;
         }
+
+        /// <summary>
+        ///     Evento ao tentar fechar o form.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void FormLayout_FormClosing(object sender, FormClosingEventArgs args)
+        {
+            args.Cancel = true;
+            buttonClose.PerformClick();
+        }
     }
 }
