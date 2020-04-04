@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Threading;
+using System.Windows.Forms;
 using Cabster.Business.Messenger.Command;
 using Cabster.Business.Messenger.Event;
+using Cabster.Exceptions;
 using Cabster.Extensions;
 using Merq;
+using Serilog;
 
 namespace Cabster.Components
 {
     /// <summary>
-    ///     Janela invisível.
+    ///     Janela principal da aplicação.
     /// </summary>
-    public partial class FormMainWindow : FormBase, ICommandHandler<SinalizeApplicationClock>
+    public partial class FormMainWindow :
+        FormBase,
+        ICommandHandler<SinalizeApplicationClock>,
+        IObserver<ApplicationInitialized>
     {
+        /// <summary>
+        ///     Timer para clock da aplicação.
+        /// </summary>
+        private Timer? _timerClock;
+
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -37,9 +47,43 @@ namespace Cabster.Components
         /// <param name="command">Comando.</param>
         public void Execute(SinalizeApplicationClock command)
         {
-            if (command.Count == 1) CommandBus.Execute(new InitializeApplication());
-
             EventStream.Push(new ApplicationClockSignaled(command));
+        }
+
+        /// <summary>
+        ///     Processamento do evento.
+        /// </summary>
+        /// <param name="value">Evento.</param>
+        public void OnNext(ApplicationInitialized value)
+        {
+            if (_timerClock != null)
+                throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
+
+            _timerClock = new Timer
+            {
+                Interval = 100,
+                Enabled = true
+            };
+            _timerClock.Tick += OnTimerTick;
+
+            Log.Verbose("Clock started with {Interval} milliseconds interval.", _timerClock.Interval);
+        }
+
+        /// <summary>
+        ///     Erro ao processar evento.
+        /// </summary>
+        /// <param name="error">Exception</param>
+        public void OnError(Exception error)
+        {
+            //throw new ThisWillNeverOccurException();
+        }
+
+        /// <summary>
+        ///     Processamento completo.
+        /// </summary>
+        public void OnCompleted()
+        {
+            //throw new ThisWillNeverOccurException();
         }
 
         /// <summary>
@@ -48,24 +92,27 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             this.MakeInvisible();
+            EventStream.Of<ApplicationInitialized>().Subscribe(this);
         }
-        
+
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
-        private void timer_Tick(object sender, EventArgs args)
+        private void OnTimerTick(object sender, EventArgs args)
         {
-            timer.Enabled = false;
+            ((Timer) sender).Enabled = false;
             try
             {
-                CommandBus.Execute(new SinalizeApplicationClock());
+                var commandSinalizeApplicationClock = new SinalizeApplicationClock();
+                CommandBus.Execute(commandSinalizeApplicationClock);
+
+                Log.Verbose("Clock: {ClockTickCount}", commandSinalizeApplicationClock.TickCount);
             }
             finally
             {
-                if (Program.SignalToTerminate) Close();
-                else timer.Enabled = true;
+                ((Timer) sender).Enabled = true;
             }
         }
     }

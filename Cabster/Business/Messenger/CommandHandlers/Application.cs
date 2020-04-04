@@ -1,4 +1,6 @@
 ﻿using Cabster.Business.Messenger.Command;
+using Cabster.Business.Messenger.Event;
+using Cabster.Components;
 using Merq;
 using Serilog;
 
@@ -9,6 +11,20 @@ namespace Cabster.Business.Messenger.CommandHandlers
     /// </summary>
     public class Application : ICommandHandler<InitializeApplication>
     {
+        /// <summary>
+        /// IEventStream
+        /// </summary>
+        private readonly IEventStream _eventStream;
+
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        /// <param name="eventStream">IEventStream</param>
+        public Application(IEventStream eventStream)
+        {
+            _eventStream = eventStream;
+        }
+        
         /// <summary>
         ///     Determina se o comando pode ser executado.
         /// </summary>
@@ -26,6 +42,7 @@ namespace Cabster.Business.Messenger.CommandHandlers
         public void Execute(InitializeApplication command)
         {
             Log.Verbose("Aplicação inicializada.");
+            _eventStream.Push(new ApplicationInitialized(command));
         }
     }
 }

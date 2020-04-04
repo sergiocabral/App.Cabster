@@ -23,7 +23,6 @@ namespace Cabster.Business.Forms
         [ExcludeFromCodeCoverage]
         private void InitializeComponent2()
         {
-            ButtonCloseClick += () => Program.SignalToTerminate = true;
         }
     }
 }

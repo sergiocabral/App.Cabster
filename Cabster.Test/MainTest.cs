@@ -1,7 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Cabrones.Test;
+using Cabster.Business.Messenger.Command;
 using FluentAssertions;
+using Merq;
 using Xunit;
 
 namespace Cabster
@@ -22,7 +24,8 @@ namespace Cabster
                 Task.Run(() =>
                 {
                     Thread.Sleep((int) (esperarUmTempoAtéAAplicaçãoIniciar * 0.9));
-                    Program.SignalToTerminate = true;
+                    Program.DependencyResolver.GetInstanceRequired<ICommandBus>()
+                        .Execute(new FinalizeApplication());
                 });
                 Program.Main();
             });

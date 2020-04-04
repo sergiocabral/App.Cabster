@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
+using Cabster.Business.Messenger.Command;
 using Cabster.Components;
 using Cabster.Exceptions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
+using Merq;
 using Serilog;
 using LoggerConfiguration = Cabster.Infrastructure.LoggerConfiguration;
 
@@ -30,11 +32,6 @@ namespace Cabster
         }
 
         /// <summary>
-        ///     Sinaliza que a aplicação deve ser encerrada.
-        /// </summary>
-        public static bool SignalToTerminate { get; set; }
-
-        /// <summary>
         ///     Ponto de entrada do sistema operacional.
         /// </summary>
         [STAThread]
@@ -54,8 +51,13 @@ namespace Cabster
             DependencyResolver = dependencyResolver;
 
             MessengerConfiguration.Initialize(dependencyResolver);
+            var commandBus = DependencyResolver.GetInstanceRequired<ICommandBus>();
 
-            Application.Run(DependencyResolver.GetInstanceRequired<FormMainWindow>());
+            var mainForm = DependencyResolver.GetInstanceRequired<FormMainWindow>();
+
+            commandBus.Execute(new InitializeApplication());
+            
+            Application.Run(mainForm);
         }
     }
 }

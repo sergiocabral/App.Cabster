@@ -162,9 +162,11 @@
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\Messenger\CommandHandlers\Application.cs" />
+    <Compile Include="Business\Messenger\Command\FinalizeApplication.cs" />
     <Compile Include="Business\Messenger\Command\InitializeApplication.cs" />
     <Compile Include="Business\Messenger\Command\SinalizeApplicationClock.cs" />
     <Compile Include="Business\Messenger\Event\ApplicationClockSignaled.cs" />
+    <Compile Include="Business\Messenger\Event\ApplicationInitialized.cs" />
     <Compile Include="Components\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>

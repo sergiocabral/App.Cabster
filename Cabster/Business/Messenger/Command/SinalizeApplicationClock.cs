@@ -15,6 +15,6 @@ namespace Cabster.Business.Messenger.Command
         /// <summary>
         ///     Contagem de clocks executados.
         /// </summary>
-        public int Count { get; } = ++_count;
+        public int TickCount { get; } = ++_count;
     }
 }
