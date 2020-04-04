@@ -20,7 +20,7 @@ namespace Cabster
     public static class Program
     {
         /// <summary>
-        /// Indica se a aplicação está executando em modo Debug.
+        ///     Indica se a aplicação está executando em modo Debug.
         /// </summary>
         public static bool IsDebug =
 #if DEBUG
@@ -28,7 +28,7 @@ namespace Cabster
 #else
             false;
 #endif
-        
+
         /// <summary>
         ///     Local para definir a instância DependencyResolver de uso comum.
         /// </summary>

@@ -24,6 +24,11 @@ namespace Cabster.Components
         INotificationHandler<ApplicationInitialized>
     {
         /// <summary>
+        ///     Cronômetro para exibição do clock.
+        /// </summary>
+        private readonly Stopwatch _stopwatchClocksToShow = new Stopwatch();
+
+        /// <summary>
         ///     Sinaliza que a aplicação foi finalizada.
         /// </summary>
         private bool _applicationFinalized;
@@ -63,11 +68,11 @@ namespace Cabster.Components
         public new Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
         {
             _applicationFinalized = true;
-            
+
             Thread.Sleep(timer.Interval);
-            
+
             Log.Information("Application finalized.");
-            
+
             return Unit.Task;
         }
 
@@ -91,11 +96,6 @@ namespace Cabster.Components
             this.MakeInvisible();
             _stopwatchClocksToShow.Start();
         }
-        
-        /// <summary>
-        /// Cronômetro para exibição do clock.
-        /// </summary>
-        private readonly Stopwatch _stopwatchClocksToShow = new Stopwatch();
 
         /// <summary>
         ///     Clock de funcionamento da aplicação.

@@ -25,19 +25,15 @@ namespace Cabster.Infrastructure
         {
             var type = instance.GetType();
             var typeDisposable = typeof(IDisposable);
-            
+
             if (typeDisposable.IsAssignableFrom(type))
-            {
                 Log.Verbose(
-                    "New instance of {Type} : {Interface}.", 
+                    "New instance of {Type} : {Interface}.",
                     type.FullName, typeDisposable.Name);
-            }
             else
-            {
                 Log.Verbose(
-                    "New instance of {Type}.", 
+                    "New instance of {Type}.",
                     type.FullName);
-            }
         }
 
         /// <summary>
@@ -48,22 +44,18 @@ namespace Cabster.Infrastructure
         {
             var type = instance.GetType();
             var typeDisposable = typeof(IDisposable);
-            
+
             if (typeDisposable.IsAssignableFrom(type))
-            {
                 Log.Verbose(
-                    "Dispose instance of {Type} : {Interface}.", 
+                    "Dispose instance of {Type} : {Interface}.",
                     type.FullName, typeDisposable.Name);
-            }
             else
-            {
                 throw new WrongArgumentException(
-                    nameof(LoggerConfiguration), 
+                    nameof(LoggerConfiguration),
                     nameof(LogVerboseDispose),
                     nameof(instance));
-            }
         }
-        
+
         /// <summary>
         ///     Inicializa o Logger do Drake.
         /// </summary>
@@ -126,7 +118,7 @@ namespace Cabster.Infrastructure
         {
             return loggerConfiguration
                 .WriteTo.File(
-                    $"{Assembly.GetEntryAssembly()?.Location}-log-.txt", 
+                    $"{Assembly.GetEntryAssembly()?.Location}-log-.txt",
                     rollingInterval: RollingInterval.Day);
         }
     }

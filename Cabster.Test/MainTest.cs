@@ -52,7 +52,7 @@ namespace Cabster
             sut.AssertMyOwnPublicPropertiesCount(1);
             sut.AssertPublicPropertyPresence("static IDependencyResolver DependencyResolver { get; set; }");
             sut.AssertMyOwnPublicMethodsCount(1);
-            sut.AssertPublicMethodPresence("static Void Main()");
+            sut.AssertPublicMethodPresence("static Void Main(String[])");
 
             sut.IsClass.Should().BeTrue();
         }

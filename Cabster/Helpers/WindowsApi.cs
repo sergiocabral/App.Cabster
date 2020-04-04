@@ -58,7 +58,7 @@ namespace Cabster.Helpers
             SendMessage(
                 handle, 0x000B /* WM_SETREDRAW */, new IntPtr(enable ? 1 : 0), IntPtr.Zero);
         }
-        
+
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, bool nCmdShow);
     }
