@@ -40,7 +40,7 @@ namespace Cabster.Components
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Name = "FormBase";
-            this.Text = "Names_System";
+            this.Text = "Names.System";
             this.ResumeLayout(false);
         }
 

@@ -46,12 +46,12 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            labelTitle.Text = Text;
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
-            HandleCreated += (sender, args) =>
+            Load += (sender, args) =>
             {
+                labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
                 toolTip.Translate();
             };
