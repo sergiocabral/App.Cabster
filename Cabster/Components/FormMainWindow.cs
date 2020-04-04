@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Cabster.Business.Messenger.Notification;
@@ -43,15 +44,14 @@ namespace Cabster.Components
 
         public new Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
-            {
-                if (_applicationInitialized)
-                    throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
+            if (_applicationInitialized)
+                throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
 
-                _applicationInitialized = true;
+            _applicationInitialized = true;
 
-                Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
-            }, cancellationToken);
+            Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
+
+            return Unit.Task;
         }
 
         /// <summary>
@@ -62,16 +62,13 @@ namespace Cabster.Components
         /// <returns>Task</returns>
         public new Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
         {
-            return (Task<Unit>) Task.Run(() =>
-            {
-                _applicationFinalized = true;
-                
-                Thread.Sleep(timer.Interval);
-                
-                Log.Information("Application finalized.");
-                
-                return Unit.Task;
-            }, cancellationToken);
+            _applicationFinalized = true;
+            
+            Thread.Sleep(timer.Interval);
+            
+            Log.Information("Application finalized.");
+            
+            return Unit.Task;
         }
 
         /// <summary>
@@ -82,14 +79,8 @@ namespace Cabster.Components
         /// <returns>Task</returns>
         public new Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
-            {
-                Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
-
-                if (request.TickCount == 100) Mediator.Send(new FinalizeApplication(), cancellationToken);
-                
-                return Unit.Task;
-            }, cancellationToken);
+            Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
+            return Unit.Task;
         }
 
         /// <summary>
@@ -98,7 +89,13 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             this.MakeInvisible();
+            _stopwatchClocksToShow.Start();
         }
+        
+        /// <summary>
+        /// Cronômetro para exibição do clock.
+        /// </summary>
+        private readonly Stopwatch _stopwatchClocksToShow = new Stopwatch();
 
         /// <summary>
         ///     Clock de funcionamento da aplicação.
@@ -122,13 +119,18 @@ namespace Cabster.Components
                 var requestSinalizeApplicationClock = new SinalizeApplicationClock();
                 Mediator.Send(requestSinalizeApplicationClock);
 
-                const int maxClocksToShow = 10;
-                if (requestSinalizeApplicationClock.TickCount <= maxClocksToShow)
+                const int clocksToShow = 5;
+                const int clocksToShowInterval = 60000;
+                // ReSharper disable once InvertIf
+                if (requestSinalizeApplicationClock.TickCount <= clocksToShow ||
+                    _stopwatchClocksToShow.ElapsedMilliseconds >= clocksToShowInterval)
                 {
                     Log.Verbose("Clock: {ClockTickCount}",
-                        requestSinalizeApplicationClock.TickCount < maxClocksToShow
+                        requestSinalizeApplicationClock.TickCount != clocksToShow
                             ? requestSinalizeApplicationClock.TickCount.ToString()
-                            : "...");
+                            : "And go on ..."
+                    );
+                    _stopwatchClocksToShow.Restart();
                 }
             }
             finally
