@@ -49,11 +49,11 @@ namespace Cabster.Components
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
+            HandleCreated += (sender, args) => toolTip.Translate(); 
             Load += (sender, args) =>
             {
                 labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
-                toolTip.Translate();
             };
             Resize += (sender, args) =>
             {

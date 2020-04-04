@@ -54,9 +54,9 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
+            HandleCreated += (sender, args) => this.Translate(); 
             Load += (sender, args) =>
             {
-                this.Translate();
                 if (Text == GetType().Name ||
                     Text == typeof(FormLayout).Name ||
                     Text == typeof(FormBase).Name) Text = Resources.Names_System;
