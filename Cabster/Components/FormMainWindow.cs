@@ -62,8 +62,16 @@ namespace Cabster.Components
         /// <returns>Task</returns>
         public new Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
         {
-            _applicationFinalized = true;
-            return Unit.Task;
+            return (Task<Unit>) Task.Run(() =>
+            {
+                _applicationFinalized = true;
+                
+                Thread.Sleep(timer.Interval);
+                
+                Log.Information("Application finalized.");
+                
+                return Unit.Task;
+            }, cancellationToken);
         }
 
         /// <summary>
@@ -74,11 +82,14 @@ namespace Cabster.Components
         /// <returns>Task</returns>
         public new Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
         {
-            Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
+            return Task.Run(() =>
+            {
+                Mediator.Publish(new ApplicationClockSignaled(request), cancellationToken);
 
-            if (request.TickCount == 10) Mediator.Send(new FinalizeApplication(), cancellationToken);
-
-            return Unit.Task;
+                if (request.TickCount == 100) Mediator.Send(new FinalizeApplication(), cancellationToken);
+                
+                return Unit.Task;
+            }, cancellationToken);
         }
 
         /// <summary>
@@ -111,7 +122,14 @@ namespace Cabster.Components
                 var requestSinalizeApplicationClock = new SinalizeApplicationClock();
                 Mediator.Send(requestSinalizeApplicationClock);
 
-                Log.Verbose("Clock: {ClockTickCount}", requestSinalizeApplicationClock.TickCount);
+                const int maxClocksToShow = 10;
+                if (requestSinalizeApplicationClock.TickCount <= maxClocksToShow)
+                {
+                    Log.Verbose("Clock: {ClockTickCount}",
+                        requestSinalizeApplicationClock.TickCount < maxClocksToShow
+                            ? requestSinalizeApplicationClock.TickCount.ToString()
+                            : "...");
+                }
             }
             finally
             {

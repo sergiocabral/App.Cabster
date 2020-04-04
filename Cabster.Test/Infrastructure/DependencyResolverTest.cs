@@ -436,19 +436,17 @@ namespace Cabster.Infrastructure
             using var dependencyResolver = new DependencyResolver(serviceCollection);
             var serviceProvider = Substitute.For<IServiceProvider>();
 
+            dependencyResolver.Register<IEntity, ContainerData>();
+            dependencyResolver.SetServiceProvider(serviceProvider);
+            dependencyResolver.GetInstance<IEntity>();
+
             // Act, When
 
-            Action adicionarServiçoEInicializar = () =>
-            {
-                dependencyResolver.Register<IEntity, ContainerData>();
-                dependencyResolver.SetServiceProvider(serviceProvider);
-                dependencyResolver.GetInstance<IEntity>();
-            };
+            Action adicionarServiçoNovamente = () => dependencyResolver.Register<ContainerData, ContainerData>();
 
             // Assert, Then
 
-            adicionarServiçoEInicializar.Should().NotThrow();
-            adicionarServiçoEInicializar.Should().Throw<WrongOperationException>()
+            adicionarServiçoNovamente.Should().Throw<WrongOperationException>()
                 .WithMessage(Resources.Exception_Infrastructure_ConfigurationIsManagedExternally
                     .QueryString(nameof(DependencyResolver)));
         }
@@ -747,7 +745,8 @@ namespace Cabster.Infrastructure
             sut.AssertMyOwnImplementations(
                 typeof(IDependencyResolver));
             sut.AssertMyOwnPublicPropertiesCount(2);
-            sut.AssertPublicPropertyPresence("static IDependencyResolver Default { get; set; }");
+            sut.AssertPublicPropertyPresence("IServiceCollection ServiceCollection { get; }");
+            sut.AssertPublicPropertyPresence("IServiceProvider ServiceProvider { get; }");
             sut.AssertMyOwnPublicMethodsCount(1);
             sut.AssertPublicMethodPresence("Void SetServiceProvider(IServiceProvider)");
 

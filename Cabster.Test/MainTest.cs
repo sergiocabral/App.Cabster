@@ -49,8 +49,8 @@ namespace Cabster
 
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
-            sut.AssertMyOwnPublicPropertiesCount(2);
-            sut.AssertPublicPropertyPresence("static Boolean SignalToTerminate { get; set; }");
+            sut.AssertMyOwnPublicPropertiesCount(1);
+            sut.AssertPublicPropertyPresence("static IDependencyResolver DependencyResolver { get; set; }");
             sut.AssertMyOwnPublicMethodsCount(1);
             sut.AssertPublicMethodPresence("static Void Main()");
 

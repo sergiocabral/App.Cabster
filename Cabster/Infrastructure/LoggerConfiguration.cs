@@ -113,7 +113,8 @@ namespace Cabster.Infrastructure
         /// <returns>Mesma instância de entrada.</returns>
         private static Serilog.LoggerConfiguration WriteToConsole(Serilog.LoggerConfiguration loggerConfiguration)
         {
-            return loggerConfiguration.WriteTo.Console();
+            return loggerConfiguration
+                .WriteTo.Console();
         }
 
         /// <summary>
@@ -123,7 +124,10 @@ namespace Cabster.Infrastructure
         /// <returns>Mesma instância de entrada.</returns>
         private static Serilog.LoggerConfiguration WriteToFile(Serilog.LoggerConfiguration loggerConfiguration)
         {
-            return loggerConfiguration.WriteTo.File($"{Assembly.GetEntryAssembly()?.Location}-log.txt");
+            return loggerConfiguration
+                .WriteTo.File(
+                    $"{Assembly.GetEntryAssembly()?.Location}-log-.txt", 
+                    rollingInterval: RollingInterval.Day);
         }
     }
 }

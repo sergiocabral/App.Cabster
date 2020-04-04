@@ -35,7 +35,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(InitializeApplication request, CancellationToken cancellationToken)
         {
-            Log.Verbose("Aplicação inicializada.");
+            Log.Information("Application started.");
             _mediator.Publish(new ApplicationInitialized(request), cancellationToken);
             return Unit.Task;
         }
