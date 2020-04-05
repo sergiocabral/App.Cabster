@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,6 +8,7 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Exceptions;
+using Cabster.Extensions;
 using MediatR;
 
 #pragma warning disable 109
@@ -49,6 +51,12 @@ namespace Cabster.Business.Forms
         {
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
+
+            labelBreakStartsAfterHowManyRounds_Part2.MakeAbleToMoveWithMouse();
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                control.MakeAbleToMoveWithMouse();
+            }
         }
 
         /// <summary>

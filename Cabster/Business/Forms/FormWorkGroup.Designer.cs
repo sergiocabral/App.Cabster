@@ -36,9 +36,16 @@
             this.labelBreakStartsAfterHowManyRounds_Part2 = new System.Windows.Forms.Label();
             this.numericUpDownBreakStartsAfterHowManyRounds = new System.Windows.Forms.NumericUpDown();
             this.labelBreakStartsAfterHowManyRounds_Part1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.myButton1 = new Cabster.Components.MyButton(this.components);
+            this.myButton2 = new Cabster.Components.MyButton(this.components);
+            this.myButton3 = new Cabster.Components.MyButton(this.components);
+            this.myButton4 = new Cabster.Components.MyButton(this.components);
+            this.myButton5 = new Cabster.Components.MyButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonMinimize
@@ -193,11 +200,107 @@
             this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.myButton1);
+            this.flowLayoutPanel1.Controls.Add(this.myButton2);
+            this.flowLayoutPanel1.Controls.Add(this.myButton3);
+            this.flowLayoutPanel1.Controls.Add(this.myButton4);
+            this.flowLayoutPanel1.Controls.Add(this.myButton5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(63, 286);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 136);
+            this.flowLayoutPanel1.TabIndex = 12;
+            // 
+            // myButton1
+            // 
+            this.myButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton1.FlatAppearance.BorderSize = 3;
+            this.myButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton1.Location = new System.Drawing.Point(3, 3);
+            this.myButton1.Name = "myButton1";
+            this.myButton1.Size = new System.Drawing.Size(120, 43);
+            this.myButton1.TabIndex = 0;
+            this.myButton1.Text = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            // 
+            // myButton2
+            // 
+            this.myButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton2.FlatAppearance.BorderSize = 3;
+            this.myButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton2.Location = new System.Drawing.Point(129, 3);
+            this.myButton2.Name = "myButton2";
+            this.myButton2.Size = new System.Drawing.Size(120, 43);
+            this.myButton2.TabIndex = 1;
+            this.myButton2.Text = "myButton2";
+            this.myButton2.UseVisualStyleBackColor = true;
+            // 
+            // myButton3
+            // 
+            this.myButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton3.FlatAppearance.BorderSize = 3;
+            this.myButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton3.Location = new System.Drawing.Point(255, 3);
+            this.myButton3.Name = "myButton3";
+            this.myButton3.Size = new System.Drawing.Size(120, 43);
+            this.myButton3.TabIndex = 2;
+            this.myButton3.Text = "myButton3";
+            this.myButton3.UseVisualStyleBackColor = true;
+            // 
+            // myButton4
+            // 
+            this.myButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton4.FlatAppearance.BorderSize = 3;
+            this.myButton4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton4.Location = new System.Drawing.Point(381, 3);
+            this.myButton4.Name = "myButton4";
+            this.myButton4.Size = new System.Drawing.Size(120, 43);
+            this.myButton4.TabIndex = 3;
+            this.myButton4.Text = "myButton4";
+            this.myButton4.UseVisualStyleBackColor = true;
+            // 
+            // myButton5
+            // 
+            this.myButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton5.FlatAppearance.BorderSize = 3;
+            this.myButton5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton5.Location = new System.Drawing.Point(3, 52);
+            this.myButton5.Name = "myButton5";
+            this.myButton5.Size = new System.Drawing.Size(120, 43);
+            this.myButton5.TabIndex = 4;
+            this.myButton5.Text = "myButton5";
+            this.myButton5.UseVisualStyleBackColor = true;
+            // 
             // FormWorkGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 475);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.labelBreakStartsAfterHowManyRounds_Part2);
             this.Controls.Add(this.numericUpDownBreakStartsAfterHowManyRounds);
             this.Controls.Add(this.labelBreakStartsAfterHowManyRounds_Part1);
@@ -220,9 +323,11 @@
             this.Controls.SetChildIndex(this.labelBreakStartsAfterHowManyRounds_Part1, 0);
             this.Controls.SetChildIndex(this.numericUpDownBreakStartsAfterHowManyRounds, 0);
             this.Controls.SetChildIndex(this.labelBreakStartsAfterHowManyRounds_Part2, 0);
+            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
 }
@@ -238,5 +343,11 @@
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part2;
         private System.Windows.Forms.NumericUpDown numericUpDownBreakStartsAfterHowManyRounds;
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Components.MyButton myButton1;
+        private Components.MyButton myButton2;
+        private Components.MyButton myButton3;
+        private Components.MyButton myButton4;
+        private Components.MyButton myButton5;
     }
 }
