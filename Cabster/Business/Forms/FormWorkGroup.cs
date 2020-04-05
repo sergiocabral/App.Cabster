@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
@@ -53,12 +54,15 @@ namespace Cabster.Business.Forms
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
 
+            var random = new Random();
             foreach (Control control in flowLayoutPanel1.Controls)
             {
                 control.MakeAbleToMoveWithMouse();
                 control.MouseUp += ControlOnMouseUp;
+                control.Text = Guid.NewGuid().ToString().Substring(0, random.Next(30) + 6);
             }
-            myButton.Click += (sender, args) => flowLayoutPanel1.OrganizeChildren();  
+            myButton.Click += (sender, args) => flowLayoutPanel1.OrganizeChildren();
+            myButton.UpdateSizeToText();  
         }
 
         private void ControlOnMouseUp(object sender, MouseEventArgs e)

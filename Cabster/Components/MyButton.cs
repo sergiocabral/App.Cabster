@@ -55,6 +55,40 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Texto do controle.
+        /// </summary>
+        public override string Text
+        {
+            get => base.Text;
+            set
+            {
+                UpdateSizeToText(value);
+                base.Text = value;
+            }
+        }
+
+        /// <summary>
+        ///     Atualiza o tamanho do controle com base no texto.
+        /// </summary>
+        public void UpdateSizeToText()
+        {
+            UpdateSizeToText(Text);
+        }
+
+        /// <summary>
+        ///     Atualiza o tamanho do controle com base no texto.
+        /// </summary>
+        private void UpdateSizeToText(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return;
+            const int padding = 20;
+            var measureText = TextRenderer.MeasureText(text, Font);
+            Size = new Size(
+                measureText.Width + padding,
+                measureText.Height + padding);
+        }
+
+        /// <summary>
         ///     Inicializa o componente.
         /// </summary>
         private void InitializeComponent2()
