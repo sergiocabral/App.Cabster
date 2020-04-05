@@ -52,7 +52,6 @@ namespace Cabster.Business.Forms
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
 
-            labelBreakStartsAfterHowManyRounds_Part2.MakeAbleToMoveWithMouse();
             foreach (Control control in flowLayoutPanel1.Controls)
             {
                 control.MakeAbleToMoveWithMouse();

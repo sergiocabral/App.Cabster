@@ -36,7 +36,7 @@
             this.labelBreakStartsAfterHowManyRounds_Part2 = new System.Windows.Forms.Label();
             this.numericUpDownBreakStartsAfterHowManyRounds = new System.Windows.Forms.NumericUpDown();
             this.labelBreakStartsAfterHowManyRounds_Part1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.Panel();
             this.myButton1 = new Cabster.Components.MyButton(this.components);
             this.myButton2 = new Cabster.Components.MyButton(this.components);
             this.myButton3 = new Cabster.Components.MyButton(this.components);
@@ -343,7 +343,7 @@
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part2;
         private System.Windows.Forms.NumericUpDown numericUpDownBreakStartsAfterHowManyRounds;
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel flowLayoutPanel1;
         private Components.MyButton myButton1;
         private Components.MyButton myButton2;
         private Components.MyButton myButton3;

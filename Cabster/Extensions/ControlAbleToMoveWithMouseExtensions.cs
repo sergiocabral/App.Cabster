@@ -97,6 +97,7 @@ namespace Cabster.Extensions
             {
                 _isPressing = true;
                 _initialPositionOfMouse = new Point(args.X, args.Y);
+                _control.BringToFront();
             }
 
             /// <summary>
