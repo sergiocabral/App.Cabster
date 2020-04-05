@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Cabster.Exceptions;
@@ -42,6 +44,70 @@ namespace Cabster.Extensions
         {
             control.Invalidate();
             foreach (Control child in control.Controls) InvalidadeAll(child);
+            return control;
+        }
+
+        /// <summary>
+        ///     Organiza os controle filhos em flow.
+        /// </summary>
+        /// <param name="control">Controle.</param>
+        /// <param name="order">Função para determinar a ordem de exibição.</param>
+        /// <param name="padding">Espaçamento entre controles.</param>
+        /// <typeparam name="T">Control</typeparam>
+        /// <returns>Control</returns>
+        public static T OrganizeChildren<T>(this T control, Func<Control, int>? order = null, int padding = 5) 
+            where T : Control
+        {
+            var containerWidth = control.Width;
+            var currentLeft = 0;
+            var currentTop = 0;
+            var currentHeightOfLine = 0;
+            foreach (var child in control
+                .Controls
+                .OfType<Control>()
+                .OrderBy(child => order?.Invoke(child) ?? child.Left * child.Left + child.Top * child.Top))
+            {
+                int childLeft;
+                int childTop;
+                int childRight;
+
+                do
+                {
+                    // Dimensões do controle.
+                    childLeft = padding + currentLeft;
+                    childTop = padding + currentTop;
+                    childRight = childLeft + child.Width;
+
+                    // Não é o primeiro controle e passou do limite do container.
+                    if (currentLeft > 0 && childRight > containerWidth)
+                    {
+                        // Pula para próxima linha.
+                        currentTop += padding + currentHeightOfLine;
+
+                        // Volta para o início da linha.
+                        currentLeft = 0;
+
+                        // Redefine a altura da linha.
+                        currentHeightOfLine = 0;
+
+                        // Refaz os cálculos
+                        continue;
+                    }
+
+                    // Ajusta o tamanho da linha de acordo com a altura do maior controle nela.
+                    if (currentHeightOfLine < child.Height) currentHeightOfLine = child.Height;
+
+                    // Finaliza os cálculos.
+                    break;
+                } while (true);
+
+                // Avança a próxima posição do controle.
+                currentLeft = childRight;
+
+                child.Left = childLeft;
+                child.Top = childTop;
+            }
+
             return control;
         }
     }

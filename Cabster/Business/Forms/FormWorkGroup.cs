@@ -10,6 +10,7 @@ using Cabster.Components;
 using Cabster.Exceptions;
 using Cabster.Extensions;
 using MediatR;
+using Serilog;
 
 #pragma warning disable 109
 
@@ -55,7 +56,19 @@ namespace Cabster.Business.Forms
             foreach (Control control in flowLayoutPanel1.Controls)
             {
                 control.MakeAbleToMoveWithMouse();
+                control.MouseUp += ControlOnMouseUp;
             }
+            myButton.Click += (sender, args) => flowLayoutPanel1.OrganizeChildren();  
+        }
+
+        private void ControlOnMouseUp(object sender, MouseEventArgs e)
+        {
+            ((Control)sender).SendToBack();
+            var i = 0;
+            flowLayoutPanel1.OrganizeChildren(control =>
+            {
+                return i++;
+            });
         }
 
         /// <summary>
