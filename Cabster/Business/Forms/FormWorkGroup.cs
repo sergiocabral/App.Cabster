@@ -129,6 +129,7 @@ namespace Cabster.Business.Forms
             }
 
             flowLayoutPanel1.OrganizeChildren(control => controls.IndexOf(control));
+            target.MakeHighlight();
         }
 
         /// <summary>

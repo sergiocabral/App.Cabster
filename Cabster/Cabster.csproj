@@ -181,6 +181,7 @@
     <Compile Include="Exceptions\WrongArgumentException.cs" />
     <Compile Include="Exceptions\WrongOperationException.cs" />
     <Compile Include="Extensions\ControlAbleToOperateFormExtensions.cs" />
+    <Compile Include="Extensions\ControlHighlightExtensions.cs" />
     <Compile Include="Extensions\ControlImageHoverExtensions.cs" />
     <Compile Include="Extensions\ControlAbleToMoveWithMouseExtensions.cs" />
     <Compile Include="Extensions\ControlSetRedrawExtensions.cs" />
