@@ -23,12 +23,7 @@ namespace Cabster
         /// <summary>
         ///     Indica se a aplicação está executando em modo Debug.
         /// </summary>
-        public static bool IsDebug =
-#if DEBUG
-            true;
-#else
-            false;
-#endif
+        public static bool? IsDebug;
 
         /// <summary>
         ///     Local para definir a instância DependencyResolver de uso comum.
@@ -52,15 +47,21 @@ namespace Cabster
         public static void Main(params string[] args)
         {
             CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = new CultureInfo("pt");
+            
+#if DEBUG
+            IsDebug = true;
+#else
+            IsDebug = false;
+#endif
 
             var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
-            WindowsApi.ShowWindow(mainWindowHandle, IsDebug);
+            WindowsApi.ShowWindow(mainWindowHandle, IsDebug == true);
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             using (var logger = LoggerConfiguration.Initialize(
-                IsDebug || args.Contains("-vv") ? LogEventLevel.Verbose :
+                IsDebug == true || args.Contains("-vv") ? LogEventLevel.Verbose :
                 args.Contains("-v") ? LogEventLevel.Debug :
                 LogEventLevel.Information))
             {
@@ -74,7 +75,7 @@ namespace Cabster
                 Application.Run(DependencyResolver.GetInstanceRequired<FormMainWindow>());
             }
 
-            if (IsDebug && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
+            if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }
     }
 }

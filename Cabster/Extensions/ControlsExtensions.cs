@@ -55,7 +55,7 @@ namespace Cabster.Extensions
         /// <param name="padding">Espaçamento entre controles.</param>
         /// <typeparam name="T">Control</typeparam>
         /// <returns>Control</returns>
-        public static T OrganizeChildren<T>(this T control, Func<Control, int>? order = null, int padding = 5) 
+        public static T MakeChildrenOrganized<T>(this T control, Func<Control, int>? order = null, int padding = 5) 
             where T : Control
         {
             var containerWidth = control.Width;
@@ -79,7 +79,7 @@ namespace Cabster.Extensions
                     childRight = childLeft + child.Width;
 
                     // Não é o primeiro controle e passou do limite do container.
-                    if (currentLeft > 0 && childRight > containerWidth)
+                    if (currentLeft > 0 && childRight > containerWidth + padding)
                     {
                         // Pula para próxima linha.
                         currentTop += padding + currentHeightOfLine;

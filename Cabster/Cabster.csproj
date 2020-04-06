@@ -167,6 +167,12 @@
     <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
+    <Compile Include="Components\MyFlowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyFlowPanel.Designer.cs">
+      <DependentUpon>MyFlowPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MyFlowPanel.resx">
+      <DependentUpon>MyFlowPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MyButton.resx">
       <DependentUpon>MyButton.cs</DependentUpon>

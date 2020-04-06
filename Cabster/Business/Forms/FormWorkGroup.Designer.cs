@@ -40,29 +40,30 @@
             this.labelBreakStartsAfterHowManyRounds_Part2 = new System.Windows.Forms.Label();
             this.numericUpDownBreakStartsAfterHowManyRounds = new System.Windows.Forms.NumericUpDown();
             this.labelBreakStartsAfterHowManyRounds_Part1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.Panel();
-            this.myButton17 = new Cabster.Components.MyButton(this.components);
-            this.myButton16 = new Cabster.Components.MyButton(this.components);
-            this.myButton15 = new Cabster.Components.MyButton(this.components);
-            this.myButton14 = new Cabster.Components.MyButton(this.components);
-            this.myButton13 = new Cabster.Components.MyButton(this.components);
-            this.myButton12 = new Cabster.Components.MyButton(this.components);
-            this.myButton11 = new Cabster.Components.MyButton(this.components);
-            this.myButton10 = new Cabster.Components.MyButton(this.components);
-            this.myButton9 = new Cabster.Components.MyButton(this.components);
-            this.myButton8 = new Cabster.Components.MyButton(this.components);
-            this.myButton7 = new Cabster.Components.MyButton(this.components);
-            this.myButton6 = new Cabster.Components.MyButton(this.components);
+            this.myFlowPanel1 = new Cabster.Components.MyFlowPanel(this.components);
             this.myButton1 = new Cabster.Components.MyButton(this.components);
             this.myButton2 = new Cabster.Components.MyButton(this.components);
             this.myButton3 = new Cabster.Components.MyButton(this.components);
             this.myButton4 = new Cabster.Components.MyButton(this.components);
             this.myButton5 = new Cabster.Components.MyButton(this.components);
-            this.myButton = new Cabster.Components.MyButton(this.components);
+            this.myButton6 = new Cabster.Components.MyButton(this.components);
+            this.myButton7 = new Cabster.Components.MyButton(this.components);
+            this.myButton8 = new Cabster.Components.MyButton(this.components);
+            this.myButton9 = new Cabster.Components.MyButton(this.components);
+            this.myButton10 = new Cabster.Components.MyButton(this.components);
+            this.myButton11 = new Cabster.Components.MyButton(this.components);
+            this.myButton12 = new Cabster.Components.MyButton(this.components);
+            this.myButton13 = new Cabster.Components.MyButton(this.components);
+            this.myButton14 = new Cabster.Components.MyButton(this.components);
+            this.myButton15 = new Cabster.Components.MyButton(this.components);
+            this.myButton16 = new Cabster.Components.MyButton(this.components);
+            this.myButton17 = new Cabster.Components.MyButton(this.components);
+            this.myButton18 = new Cabster.Components.MyButton(this.components);
+            this.myButton19 = new Cabster.Components.MyButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.myFlowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonMinimize
@@ -217,224 +218,34 @@
             this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // flowLayoutPanel1
+            // myFlowPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.myFlowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.myButton17);
-            this.flowLayoutPanel1.Controls.Add(this.myButton16);
-            this.flowLayoutPanel1.Controls.Add(this.myButton15);
-            this.flowLayoutPanel1.Controls.Add(this.myButton14);
-            this.flowLayoutPanel1.Controls.Add(this.myButton13);
-            this.flowLayoutPanel1.Controls.Add(this.myButton12);
-            this.flowLayoutPanel1.Controls.Add(this.myButton11);
-            this.flowLayoutPanel1.Controls.Add(this.myButton10);
-            this.flowLayoutPanel1.Controls.Add(this.myButton9);
-            this.flowLayoutPanel1.Controls.Add(this.myButton8);
-            this.flowLayoutPanel1.Controls.Add(this.myButton7);
-            this.flowLayoutPanel1.Controls.Add(this.myButton6);
-            this.flowLayoutPanel1.Controls.Add(this.myButton1);
-            this.flowLayoutPanel1.Controls.Add(this.myButton2);
-            this.flowLayoutPanel1.Controls.Add(this.myButton3);
-            this.flowLayoutPanel1.Controls.Add(this.myButton4);
-            this.flowLayoutPanel1.Controls.Add(this.myButton5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(63, 286);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 136);
-            this.flowLayoutPanel1.TabIndex = 12;
-            // 
-            // myButton17
-            // 
-            this.myButton17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton17.FlatAppearance.BorderSize = 3;
-            this.myButton17.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton17.Location = new System.Drawing.Point(312, 110);
-            this.myButton17.Name = "myButton17";
-            this.myButton17.Size = new System.Drawing.Size(111, 44);
-            this.myButton17.TabIndex = 24;
-            this.myButton17.Text = "myButton17";
-            this.myButton17.UseVisualStyleBackColor = true;
-            // 
-            // myButton16
-            // 
-            this.myButton16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton16.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton16.FlatAppearance.BorderSize = 3;
-            this.myButton16.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton16.Location = new System.Drawing.Point(304, 102);
-            this.myButton16.Name = "myButton16";
-            this.myButton16.Size = new System.Drawing.Size(111, 44);
-            this.myButton16.TabIndex = 23;
-            this.myButton16.Text = "myButton16";
-            this.myButton16.UseVisualStyleBackColor = true;
-            // 
-            // myButton15
-            // 
-            this.myButton15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton15.FlatAppearance.BorderSize = 3;
-            this.myButton15.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton15.Location = new System.Drawing.Point(296, 94);
-            this.myButton15.Name = "myButton15";
-            this.myButton15.Size = new System.Drawing.Size(111, 44);
-            this.myButton15.TabIndex = 22;
-            this.myButton15.Text = "myButton15";
-            this.myButton15.UseVisualStyleBackColor = true;
-            // 
-            // myButton14
-            // 
-            this.myButton14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton14.FlatAppearance.BorderSize = 3;
-            this.myButton14.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton14.Location = new System.Drawing.Point(288, 86);
-            this.myButton14.Name = "myButton14";
-            this.myButton14.Size = new System.Drawing.Size(111, 44);
-            this.myButton14.TabIndex = 21;
-            this.myButton14.Text = "myButton14";
-            this.myButton14.UseVisualStyleBackColor = true;
-            // 
-            // myButton13
-            // 
-            this.myButton13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton13.FlatAppearance.BorderSize = 3;
-            this.myButton13.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton13.Location = new System.Drawing.Point(280, 78);
-            this.myButton13.Name = "myButton13";
-            this.myButton13.Size = new System.Drawing.Size(111, 44);
-            this.myButton13.TabIndex = 20;
-            this.myButton13.Text = "myButton13";
-            this.myButton13.UseVisualStyleBackColor = true;
-            // 
-            // myButton12
-            // 
-            this.myButton12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton12.FlatAppearance.BorderSize = 3;
-            this.myButton12.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton12.Location = new System.Drawing.Point(272, 70);
-            this.myButton12.Name = "myButton12";
-            this.myButton12.Size = new System.Drawing.Size(111, 44);
-            this.myButton12.TabIndex = 19;
-            this.myButton12.Text = "myButton12";
-            this.myButton12.UseVisualStyleBackColor = true;
-            // 
-            // myButton11
-            // 
-            this.myButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton11.FlatAppearance.BorderSize = 3;
-            this.myButton11.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton11.Location = new System.Drawing.Point(264, 62);
-            this.myButton11.Name = "myButton11";
-            this.myButton11.Size = new System.Drawing.Size(111, 44);
-            this.myButton11.TabIndex = 18;
-            this.myButton11.Text = "myButton11";
-            this.myButton11.UseVisualStyleBackColor = true;
-            // 
-            // myButton10
-            // 
-            this.myButton10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton10.FlatAppearance.BorderSize = 3;
-            this.myButton10.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton10.Location = new System.Drawing.Point(256, 54);
-            this.myButton10.Name = "myButton10";
-            this.myButton10.Size = new System.Drawing.Size(111, 44);
-            this.myButton10.TabIndex = 17;
-            this.myButton10.Text = "myButton10";
-            this.myButton10.UseVisualStyleBackColor = true;
-            // 
-            // myButton9
-            // 
-            this.myButton9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton9.FlatAppearance.BorderSize = 3;
-            this.myButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton9.Location = new System.Drawing.Point(248, 46);
-            this.myButton9.Name = "myButton9";
-            this.myButton9.Size = new System.Drawing.Size(111, 44);
-            this.myButton9.TabIndex = 16;
-            this.myButton9.Text = "myButton9";
-            this.myButton9.UseVisualStyleBackColor = true;
-            // 
-            // myButton8
-            // 
-            this.myButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton8.FlatAppearance.BorderSize = 3;
-            this.myButton8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton8.Location = new System.Drawing.Point(390, 67);
-            this.myButton8.Name = "myButton8";
-            this.myButton8.Size = new System.Drawing.Size(111, 44);
-            this.myButton8.TabIndex = 15;
-            this.myButton8.Text = "myButton8";
-            this.myButton8.UseVisualStyleBackColor = true;
-            // 
-            // myButton7
-            // 
-            this.myButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton7.FlatAppearance.BorderSize = 3;
-            this.myButton7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton7.Location = new System.Drawing.Point(264, 67);
-            this.myButton7.Name = "myButton7";
-            this.myButton7.Size = new System.Drawing.Size(111, 44);
-            this.myButton7.TabIndex = 14;
-            this.myButton7.Text = "myButton7";
-            this.myButton7.UseVisualStyleBackColor = true;
-            // 
-            // myButton6
-            // 
-            this.myButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton6.FlatAppearance.BorderSize = 3;
-            this.myButton6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton6.Location = new System.Drawing.Point(129, 52);
-            this.myButton6.Name = "myButton6";
-            this.myButton6.Size = new System.Drawing.Size(111, 44);
-            this.myButton6.TabIndex = 13;
-            this.myButton6.Text = "myButton6";
-            this.myButton6.UseVisualStyleBackColor = true;
+            this.myFlowPanel1.Controls.Add(this.myButton19);
+            this.myFlowPanel1.Controls.Add(this.myButton18);
+            this.myFlowPanel1.Controls.Add(this.myButton17);
+            this.myFlowPanel1.Controls.Add(this.myButton16);
+            this.myFlowPanel1.Controls.Add(this.myButton15);
+            this.myFlowPanel1.Controls.Add(this.myButton14);
+            this.myFlowPanel1.Controls.Add(this.myButton13);
+            this.myFlowPanel1.Controls.Add(this.myButton12);
+            this.myFlowPanel1.Controls.Add(this.myButton11);
+            this.myFlowPanel1.Controls.Add(this.myButton10);
+            this.myFlowPanel1.Controls.Add(this.myButton9);
+            this.myFlowPanel1.Controls.Add(this.myButton8);
+            this.myFlowPanel1.Controls.Add(this.myButton7);
+            this.myFlowPanel1.Controls.Add(this.myButton6);
+            this.myFlowPanel1.Controls.Add(this.myButton5);
+            this.myFlowPanel1.Controls.Add(this.myButton4);
+            this.myFlowPanel1.Controls.Add(this.myButton3);
+            this.myFlowPanel1.Controls.Add(this.myButton2);
+            this.myFlowPanel1.Controls.Add(this.myButton1);
+            this.myFlowPanel1.Location = new System.Drawing.Point(19, 297);
+            this.myFlowPanel1.Name = "myFlowPanel1";
+            this.myFlowPanel1.Size = new System.Drawing.Size(667, 166);
+            this.myFlowPanel1.TabIndex = 12;
             // 
             // myButton1
             // 
@@ -445,10 +256,10 @@
             this.myButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.myButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.myButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton1.Location = new System.Drawing.Point(3, 3);
+            this.myButton1.Location = new System.Drawing.Point(295, 67);
             this.myButton1.Name = "myButton1";
-            this.myButton1.Size = new System.Drawing.Size(120, 43);
-            this.myButton1.TabIndex = 0;
+            this.myButton1.Size = new System.Drawing.Size(77, 33);
+            this.myButton1.TabIndex = 1;
             this.myButton1.Text = "myButton1";
             this.myButton1.UseVisualStyleBackColor = true;
             // 
@@ -461,10 +272,10 @@
             this.myButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.myButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.myButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton2.Location = new System.Drawing.Point(129, 3);
+            this.myButton2.Location = new System.Drawing.Point(280, 64);
             this.myButton2.Name = "myButton2";
-            this.myButton2.Size = new System.Drawing.Size(120, 43);
-            this.myButton2.TabIndex = 1;
+            this.myButton2.Size = new System.Drawing.Size(106, 39);
+            this.myButton2.TabIndex = 2;
             this.myButton2.Text = "myButton2";
             this.myButton2.UseVisualStyleBackColor = true;
             // 
@@ -477,10 +288,10 @@
             this.myButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.myButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.myButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton3.Location = new System.Drawing.Point(255, 3);
+            this.myButton3.Location = new System.Drawing.Point(288, 72);
             this.myButton3.Name = "myButton3";
-            this.myButton3.Size = new System.Drawing.Size(120, 43);
-            this.myButton3.TabIndex = 2;
+            this.myButton3.Size = new System.Drawing.Size(106, 39);
+            this.myButton3.TabIndex = 3;
             this.myButton3.Text = "myButton3";
             this.myButton3.UseVisualStyleBackColor = true;
             // 
@@ -493,10 +304,10 @@
             this.myButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.myButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.myButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton4.Location = new System.Drawing.Point(381, 3);
+            this.myButton4.Location = new System.Drawing.Point(296, 80);
             this.myButton4.Name = "myButton4";
-            this.myButton4.Size = new System.Drawing.Size(120, 43);
-            this.myButton4.TabIndex = 3;
+            this.myButton4.Size = new System.Drawing.Size(106, 39);
+            this.myButton4.TabIndex = 4;
             this.myButton4.Text = "myButton4";
             this.myButton4.UseVisualStyleBackColor = true;
             // 
@@ -509,36 +320,243 @@
             this.myButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.myButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.myButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton5.Location = new System.Drawing.Point(3, 52);
+            this.myButton5.Location = new System.Drawing.Point(304, 88);
             this.myButton5.Name = "myButton5";
-            this.myButton5.Size = new System.Drawing.Size(120, 43);
-            this.myButton5.TabIndex = 4;
+            this.myButton5.Size = new System.Drawing.Size(106, 39);
+            this.myButton5.TabIndex = 5;
             this.myButton5.Text = "myButton5";
             this.myButton5.UseVisualStyleBackColor = true;
             // 
-            // myButton
+            // myButton6
             // 
-            this.myButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.myButton.FlatAppearance.BorderSize = 3;
-            this.myButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.myButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.myButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton.Location = new System.Drawing.Point(231, 57);
-            this.myButton.Name = "myButton";
-            this.myButton.Size = new System.Drawing.Size(128, 48);
-            this.myButton.TabIndex = 13;
-            this.myButton.Text = "myButton";
-            this.myButton.UseVisualStyleBackColor = true;
+            this.myButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton6.FlatAppearance.BorderSize = 3;
+            this.myButton6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton6.Location = new System.Drawing.Point(312, 96);
+            this.myButton6.Name = "myButton6";
+            this.myButton6.Size = new System.Drawing.Size(106, 39);
+            this.myButton6.TabIndex = 6;
+            this.myButton6.Text = "myButton6";
+            this.myButton6.UseVisualStyleBackColor = true;
+            // 
+            // myButton7
+            // 
+            this.myButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton7.FlatAppearance.BorderSize = 3;
+            this.myButton7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton7.Location = new System.Drawing.Point(320, 104);
+            this.myButton7.Name = "myButton7";
+            this.myButton7.Size = new System.Drawing.Size(106, 39);
+            this.myButton7.TabIndex = 7;
+            this.myButton7.Text = "myButton7";
+            this.myButton7.UseVisualStyleBackColor = true;
+            // 
+            // myButton8
+            // 
+            this.myButton8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton8.FlatAppearance.BorderSize = 3;
+            this.myButton8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton8.Location = new System.Drawing.Point(328, 112);
+            this.myButton8.Name = "myButton8";
+            this.myButton8.Size = new System.Drawing.Size(106, 39);
+            this.myButton8.TabIndex = 8;
+            this.myButton8.Text = "myButton8";
+            this.myButton8.UseVisualStyleBackColor = true;
+            // 
+            // myButton9
+            // 
+            this.myButton9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton9.FlatAppearance.BorderSize = 3;
+            this.myButton9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton9.Location = new System.Drawing.Point(336, 120);
+            this.myButton9.Name = "myButton9";
+            this.myButton9.Size = new System.Drawing.Size(106, 39);
+            this.myButton9.TabIndex = 9;
+            this.myButton9.Text = "myButton9";
+            this.myButton9.UseVisualStyleBackColor = true;
+            // 
+            // myButton10
+            // 
+            this.myButton10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton10.FlatAppearance.BorderSize = 3;
+            this.myButton10.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton10.Location = new System.Drawing.Point(276, 64);
+            this.myButton10.Name = "myButton10";
+            this.myButton10.Size = new System.Drawing.Size(115, 39);
+            this.myButton10.TabIndex = 10;
+            this.myButton10.Text = "myButton10";
+            this.myButton10.UseVisualStyleBackColor = true;
+            // 
+            // myButton11
+            // 
+            this.myButton11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton11.FlatAppearance.BorderSize = 3;
+            this.myButton11.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton11.Location = new System.Drawing.Point(284, 72);
+            this.myButton11.Name = "myButton11";
+            this.myButton11.Size = new System.Drawing.Size(115, 39);
+            this.myButton11.TabIndex = 11;
+            this.myButton11.Text = "myButton11";
+            this.myButton11.UseVisualStyleBackColor = true;
+            // 
+            // myButton12
+            // 
+            this.myButton12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton12.FlatAppearance.BorderSize = 3;
+            this.myButton12.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton12.Location = new System.Drawing.Point(292, 80);
+            this.myButton12.Name = "myButton12";
+            this.myButton12.Size = new System.Drawing.Size(115, 39);
+            this.myButton12.TabIndex = 12;
+            this.myButton12.Text = "myButton12";
+            this.myButton12.UseVisualStyleBackColor = true;
+            // 
+            // myButton13
+            // 
+            this.myButton13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton13.FlatAppearance.BorderSize = 3;
+            this.myButton13.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton13.Location = new System.Drawing.Point(300, 88);
+            this.myButton13.Name = "myButton13";
+            this.myButton13.Size = new System.Drawing.Size(115, 39);
+            this.myButton13.TabIndex = 13;
+            this.myButton13.Text = "myButton13";
+            this.myButton13.UseVisualStyleBackColor = true;
+            // 
+            // myButton14
+            // 
+            this.myButton14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton14.FlatAppearance.BorderSize = 3;
+            this.myButton14.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton14.Location = new System.Drawing.Point(308, 96);
+            this.myButton14.Name = "myButton14";
+            this.myButton14.Size = new System.Drawing.Size(115, 39);
+            this.myButton14.TabIndex = 14;
+            this.myButton14.Text = "myButton14";
+            this.myButton14.UseVisualStyleBackColor = true;
+            // 
+            // myButton15
+            // 
+            this.myButton15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton15.FlatAppearance.BorderSize = 3;
+            this.myButton15.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton15.Location = new System.Drawing.Point(316, 104);
+            this.myButton15.Name = "myButton15";
+            this.myButton15.Size = new System.Drawing.Size(115, 39);
+            this.myButton15.TabIndex = 15;
+            this.myButton15.Text = "myButton15";
+            this.myButton15.UseVisualStyleBackColor = true;
+            // 
+            // myButton16
+            // 
+            this.myButton16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton16.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton16.FlatAppearance.BorderSize = 3;
+            this.myButton16.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton16.Location = new System.Drawing.Point(324, 112);
+            this.myButton16.Name = "myButton16";
+            this.myButton16.Size = new System.Drawing.Size(115, 39);
+            this.myButton16.TabIndex = 16;
+            this.myButton16.Text = "myButton16";
+            this.myButton16.UseVisualStyleBackColor = true;
+            // 
+            // myButton17
+            // 
+            this.myButton17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton17.FlatAppearance.BorderSize = 3;
+            this.myButton17.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton17.Location = new System.Drawing.Point(332, 120);
+            this.myButton17.Name = "myButton17";
+            this.myButton17.Size = new System.Drawing.Size(115, 39);
+            this.myButton17.TabIndex = 17;
+            this.myButton17.Text = "myButton17";
+            this.myButton17.UseVisualStyleBackColor = true;
+            // 
+            // myButton18
+            // 
+            this.myButton18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton18.FlatAppearance.BorderSize = 3;
+            this.myButton18.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton18.Location = new System.Drawing.Point(340, 128);
+            this.myButton18.Name = "myButton18";
+            this.myButton18.Size = new System.Drawing.Size(115, 39);
+            this.myButton18.TabIndex = 18;
+            this.myButton18.Text = "myButton18";
+            this.myButton18.UseVisualStyleBackColor = true;
+            // 
+            // myButton19
+            // 
+            this.myButton19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.myButton19.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.myButton19.FlatAppearance.BorderSize = 3;
+            this.myButton19.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.myButton19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.myButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myButton19.Location = new System.Drawing.Point(348, 136);
+            this.myButton19.Name = "myButton19";
+            this.myButton19.Size = new System.Drawing.Size(115, 39);
+            this.myButton19.TabIndex = 19;
+            this.myButton19.Text = "myButton19";
+            this.myButton19.UseVisualStyleBackColor = true;
             // 
             // FormWorkGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 475);
-            this.Controls.Add(this.myButton);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.myFlowPanel1);
             this.Controls.Add(this.labelBreakStartsAfterHowManyRounds_Part2);
             this.Controls.Add(this.numericUpDownBreakStartsAfterHowManyRounds);
             this.Controls.Add(this.labelBreakStartsAfterHowManyRounds_Part1);
@@ -561,12 +579,11 @@
             this.Controls.SetChildIndex(this.labelBreakStartsAfterHowManyRounds_Part1, 0);
             this.Controls.SetChildIndex(this.numericUpDownBreakStartsAfterHowManyRounds, 0);
             this.Controls.SetChildIndex(this.labelBreakStartsAfterHowManyRounds_Part2, 0);
-            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
-            this.Controls.SetChildIndex(this.myButton, 0);
+            this.Controls.SetChildIndex(this.myFlowPanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.myFlowPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -582,13 +599,9 @@
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part2;
         private System.Windows.Forms.NumericUpDown numericUpDownBreakStartsAfterHowManyRounds;
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part1;
-        private System.Windows.Forms.Panel flowLayoutPanel1;
-        private Cabster.Components.MyButton myButton6;
-        private Cabster.Components.MyButton myButton5;
-        private Cabster.Components.MyButton myButton4;
-        private Cabster.Components.MyButton myButton3;
-        private Cabster.Components.MyButton myButton2;
-        private Cabster.Components.MyButton myButton1;
+        private Components.MyFlowPanel myFlowPanel1;
+        private Components.MyButton myButton19;
+        private Components.MyButton myButton18;
         private Components.MyButton myButton17;
         private Components.MyButton myButton16;
         private Components.MyButton myButton15;
@@ -600,6 +613,11 @@
         private Components.MyButton myButton9;
         private Components.MyButton myButton8;
         private Components.MyButton myButton7;
-        private Components.MyButton myButton;
+        private Components.MyButton myButton6;
+        private Components.MyButton myButton5;
+        private Components.MyButton myButton4;
+        private Components.MyButton myButton3;
+        private Components.MyButton myButton2;
+        private Components.MyButton myButton1;
     }
 }
