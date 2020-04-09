@@ -53,9 +53,13 @@ namespace Cabster.Extensions
 
             if (!containsKey) Forms.Add(key, new MakeAbleToOperateFormInfo(control, operation));
 
-            Forms[key].Enable(enable);
+            var info = Forms[key];
+            info.Enable(enable);
 
-            if (!enable) Forms.Remove(key);
+            if (enable) return control;
+            
+            info.Dispose();
+            Forms.Remove(key);
 
             return control;
         }
@@ -90,7 +94,7 @@ namespace Cabster.Extensions
         /// <summary>
         ///     Informações dos controles que movem o form.
         /// </summary>
-        private class MakeAbleToOperateFormInfo
+        private class MakeAbleToOperateFormInfo: IDisposable
         {
             /// <summary>
             ///     Controle.
@@ -133,6 +137,11 @@ namespace Cabster.Extensions
             private bool _isRedrawing;
 
             /// <summary>
+            ///     Temporizador para restabelecer os controles.
+            /// </summary>
+            private readonly Timer _timerToRestore;
+
+            /// <summary>
             ///     Construtor.
             /// </summary>
             /// <param name="control">Control.</param>
@@ -145,6 +154,12 @@ namespace Cabster.Extensions
                 while (_form != null && !(_form is Form)) _form = _form.Parent;
                 _stopwatch = new Stopwatch();
                 _stopwatch.Start();
+                _timerToRestore = new Timer
+                {
+                    Interval = 200,
+                    Enabled = false
+                };
+                _timerToRestore.Tick += TimerToRestoreOnTick;
             }
 
             /// <summary>
@@ -216,6 +231,8 @@ namespace Cabster.Extensions
                 _form.SetRedraw(false);
                 _stopwatch.Restart();
                 _isRedrawing = false;
+                _timerToRestore.Enabled = false;
+                _timerToRestore.Enabled = true;
             }
 
             /// <summary>
@@ -229,6 +246,26 @@ namespace Cabster.Extensions
                 _isPressing = false;
                 _form.SetRedraw(true);
                 _form.InvalidadeAll();
+            }
+
+            /// <summary>
+            /// Temporizador para restabelecer estado dos controles.
+            /// </summary>
+            /// <param name="sender">Fonte do evento.</param>
+            /// <param name="args">Informações do evento.</param>
+            private void TimerToRestoreOnTick(object sender, EventArgs args)
+            {
+                _timerToRestore.Enabled = false;
+                _form.SetRedraw(true);
+                _form.InvalidadeAll();
+            }
+
+            /// <summary>
+            /// Liberar recursos.
+            /// </summary>
+            public void Dispose()
+            {
+                _timerToRestore.Dispose();
             }
         }
     }
