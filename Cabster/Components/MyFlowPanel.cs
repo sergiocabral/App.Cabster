@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cabster.Extensions;
-using Cabster.Properties;
 
 namespace Cabster.Components
 {
@@ -16,6 +12,11 @@ namespace Cabster.Components
     /// </summary>
     public partial class MyFlowPanel : Panel
     {
+        /// <summary>
+        ///     Index de cada controle no container.
+        /// </summary>
+        private readonly Dictionary<Control, int> _positions = new Dictionary<Control, int>();
+
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -36,11 +37,6 @@ namespace Cabster.Components
             InitializeComponent();
             InitializeComponent2();
         }
-        
-        /// <summary>
-        /// Index de cada controle no container.
-        /// </summary>
-        private readonly Dictionary<Control, int> _positions = new Dictionary<Control, int>();
 
         /// <summary>
         ///     Inicializa o componente.
@@ -67,7 +63,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Ao mudar o tamanho do container.
+        ///     Ao mudar o tamanho do container.
         /// </summary>
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
@@ -78,15 +74,14 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando um controle no container é solto pelo mouse.
+        ///     Quando um controle no container é solto pelo mouse.
         /// </summary>
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
         private void ControlOnMouseUp(object sender, MouseEventArgs args)
         {
-
             // Controle sendo arrastado.
-            var target = (Control)sender;
+            var target = (Control) sender;
 
             // Control que contem todos os outros. 
             var container = target.Parent;
@@ -95,7 +90,7 @@ namespace Cabster.Components
             var controls = container
                 .Controls
                 .OfType<Control>()
-                .Except(new[] { target })
+                .Except(new[] {target})
                 .GroupBy(control => control.Top)
                 .OrderBy(line => line.Key)
                 .SelectMany(line => line
@@ -132,7 +127,7 @@ namespace Cabster.Components
 
                     // Seleciona a primeira linha que é a mais próxima do controle alvo.
                     .First();
-                
+
                 var next = sameLineControls
                     // Seleciona o primeiro control depois do control alvo.
                     .FirstOrDefault(control => control.Left > target.Left);

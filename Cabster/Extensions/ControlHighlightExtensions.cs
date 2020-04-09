@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
-using Cabster.Exceptions;
 
 namespace Cabster.Extensions
 {
@@ -26,10 +24,7 @@ namespace Cabster.Extensions
         {
             var containsKey = Controls.ContainsKey(control);
 
-            if (!containsKey)
-            {
-                Controls.Add(control, new MakeHighlightInfo(control));
-            }
+            if (!containsKey) Controls.Add(control, new MakeHighlightInfo(control));
             Controls[control].Highlight();
 
             return control;
@@ -41,34 +36,34 @@ namespace Cabster.Extensions
         private class MakeHighlightInfo
         {
             /// <summary>
-            ///     Controle.
-            /// </summary>
-            private readonly Control _control;
-            
-            /// <summary>
-            /// Temporizador.
-            /// </summary>
-            private readonly Timer _timer;
-
-            /// <summary>
-            /// Valor original: BackColor
+            ///     Valor original: BackColor
             /// </summary>
             private readonly Color _backupBackColor;
 
             /// <summary>
-            /// Valor original: BackColor
+            ///     Valor original: BackColor
             /// </summary>
             private readonly Color? _backupBorderColor;
 
             /// <summary>
-            /// Valor original: MouseDownBackColor
+            ///     Valor original: MouseDownBackColor
             /// </summary>
             private readonly Color? _backupMouseDownBackColor;
 
             /// <summary>
-            /// Valor original: MouseOverBackColor
+            ///     Valor original: MouseOverBackColor
             /// </summary>
             private readonly Color? _backupMouseOverBackColor;
+
+            /// <summary>
+            ///     Controle.
+            /// </summary>
+            private readonly Control _control;
+
+            /// <summary>
+            ///     Temporizador.
+            /// </summary>
+            private readonly Timer _timer;
 
             /// <summary>
             ///     Construtor.
@@ -77,22 +72,22 @@ namespace Cabster.Extensions
             public MakeHighlightInfo(Control control)
             {
                 _control = control;
-                
+
                 _backupBackColor = control.BackColor;
                 _control.BackColor = ControlPaint.LightLight(_control.BackColor);
 
                 if (control is Button button)
                 {
                     _backupBorderColor = button.FlatAppearance.BorderColor;
-                    button.FlatAppearance.BorderColor = 
+                    button.FlatAppearance.BorderColor =
                         ControlPaint.LightLight(button.FlatAppearance.BorderColor);
-                    
+
                     _backupMouseDownBackColor = button.FlatAppearance.MouseDownBackColor;
-                    button.FlatAppearance.MouseDownBackColor = 
+                    button.FlatAppearance.MouseDownBackColor =
                         ControlPaint.LightLight(button.FlatAppearance.MouseDownBackColor);
-                    
+
                     _backupMouseOverBackColor = button.FlatAppearance.MouseOverBackColor;
-                    button.FlatAppearance.MouseOverBackColor = 
+                    button.FlatAppearance.MouseOverBackColor =
                         ControlPaint.LightLight(button.FlatAppearance.MouseOverBackColor);
                 }
 
@@ -105,7 +100,7 @@ namespace Cabster.Extensions
             }
 
             /// <summary>
-            /// Temporizador ativado para retornar o controle para seu estado original.
+            ///     Temporizador ativado para retornar o controle para seu estado original.
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
             /// <param name="args">Informações do evento.</param>
@@ -113,7 +108,7 @@ namespace Cabster.Extensions
             {
                 _timer.Enabled = false;
                 _timer.Dispose();
-                
+
                 _control.BackColor = _backupBackColor;
                 if (_control is Button button)
                 {
@@ -129,7 +124,7 @@ namespace Cabster.Extensions
             }
 
             /// <summary>
-            /// Destacar cor.
+            ///     Destacar cor.
             /// </summary>
             public void Highlight()
             {

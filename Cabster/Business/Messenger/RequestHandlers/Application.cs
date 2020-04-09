@@ -12,21 +12,21 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// <summary>
     ///     Tarefas gerais sobre a aplicação.
     /// </summary>
-    public class Application : 
-        MessengerHandler, 
+    public class Application :
+        MessengerHandler,
         IRequestHandler<InitializeApplication>,
         IRequestHandler<SinalizeApplicationClock>,
         IRequestHandler<FinalizeApplication>
     {
         /// <summary>
-        ///     Barramento de mensagens.
-        /// </summary>
-        private readonly IMediator _messageBus;
-
-        /// <summary>
         ///     Janela principal do sistema.
         /// </summary>
         private readonly FormMainWindow _formMainWindow;
+
+        /// <summary>
+        ///     Barramento de mensagens.
+        /// </summary>
+        private readonly IMediator _messageBus;
 
         /// <summary>
         ///     Construtor.
@@ -37,6 +37,19 @@ namespace Cabster.Business.Messenger.RequestHandlers
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
+        }
+
+        /// <summary>
+        ///     Processa o comando: FinalizeApplication
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
+        {
+            Log.Information("Application finalized.");
+            _formMainWindow.Close();
+            return Unit.Task;
         }
 
         /// <summary>
@@ -62,19 +75,6 @@ namespace Cabster.Business.Messenger.RequestHandlers
         public Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
         {
             _messageBus.Publish(new ApplicationClockSignaled(request), cancellationToken);
-            return Unit.Task;
-        }
-
-        /// <summary>
-        ///     Processa o comando: FinalizeApplication
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
-        {
-            Log.Information("Application finalized.");
-            _formMainWindow.Close();
             return Unit.Task;
         }
     }

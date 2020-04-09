@@ -5,10 +5,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using Cabster.Business.Forms;
 using Cabster.Components;
-using Cabster.Exceptions;
 using MediatR;
 using MediatR.Registration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Cabster.Infrastructure
 {
@@ -65,7 +63,7 @@ namespace Cabster.Infrastructure
         private static void AddMediatR(this DependencyResolver dependencyResolver)
         {
             var mediatRServiceConfiguration = new MediatRServiceConfiguration();
-            
+
             // // Define o ServiceLifetime do IMediator como Singleton. Por padrão é Transient.
             // var methodLifetimeSet =
             //     mediatRServiceConfiguration
@@ -100,8 +98,8 @@ namespace Cabster.Infrastructure
 
                 foreach (var interfaceType in type
                     .GetInterfaces()
-                    .Where(type => type.IsGenericType &&
-                                   TypesOfInterfaces.Contains(type.GetGenericTypeDefinition())))
+                    .Where(t => t.IsGenericType &&
+                                   TypesOfInterfaces.Contains(t.GetGenericTypeDefinition())))
                     if (instance != null) dependencyResolver.AddInstance(interfaceType, instance);
                     else dependencyResolver.Register(interfaceType, type);
             }

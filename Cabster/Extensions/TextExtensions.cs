@@ -25,7 +25,7 @@ namespace Cabster.Extensions
         /// <returns>Instância.</returns>
         public static TEntity FromJson<TEntity>(this string json)
         {
-            return JsonSerializer.Deserialize<TEntity>(json) 
+            return JsonSerializer.Deserialize<TEntity>(json)
                    ?? throw new IsNullOrEmptyException(typeof(TEntity).Name);
         }
     }

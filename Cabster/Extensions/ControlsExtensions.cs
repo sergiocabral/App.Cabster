@@ -55,7 +55,7 @@ namespace Cabster.Extensions
         /// <param name="padding">Espaçamento entre controles.</param>
         /// <typeparam name="T">Control</typeparam>
         /// <returns>Control</returns>
-        public static T MakeChildrenOrganized<T>(this T control, Func<Control, int>? order = null, int padding = 5) 
+        public static T MakeChildrenOrganized<T>(this T control, Func<Control, int>? order = null, int padding = 5)
             where T : Control
         {
             var containerWidth = control.Width;

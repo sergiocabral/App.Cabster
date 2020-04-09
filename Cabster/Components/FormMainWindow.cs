@@ -38,7 +38,7 @@ namespace Cabster.Components
             InitializeComponent2();
         }
 
-        public new Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
+        public Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
             if (_applicationInitialized)
                 throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));

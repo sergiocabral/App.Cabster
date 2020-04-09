@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
-using Cabster.Extensions;
 using MediatR;
 
 #pragma warning disable 109
@@ -52,7 +49,7 @@ namespace Cabster.Business.Forms
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
         }
-        
+
         /// <summary>
         ///     Quando clica o botão de fechar a janela.
         /// </summary>

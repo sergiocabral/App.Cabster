@@ -47,24 +47,21 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             if (Program.IsDebug != null)
-            {
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |
                     ControlStyles.DoubleBuffer,
                     true);
-            }
 
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
-            HandleCreated += (sender, args) => toolTip.Translate(); 
+            HandleCreated += (sender, args) => toolTip.Translate();
             Load += (sender, args) =>
             {
                 labelTitle.Text = Text;
                 Icon = Resources.IconSapiensia;
             };
-            Resize += (sender, args) =>
             Resize += (sender, args) =>
             {
                 buttonResize.Left = Width - buttonResize.Width;

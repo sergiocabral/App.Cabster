@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
-using Cabster.Components;
 using Cabster.Exceptions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
@@ -47,7 +46,7 @@ namespace Cabster
         public static void Main(params string[] args)
         {
             CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = new CultureInfo("pt");
-            
+
 #if DEBUG
             IsDebug = true;
 #else
@@ -69,7 +68,7 @@ namespace Cabster
 
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
-                
+
                 DependencyResolver.GetInstanceRequired<IMediator>().Send(new InitializeApplication());
             }
 
