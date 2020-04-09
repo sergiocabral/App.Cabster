@@ -14,26 +14,26 @@ namespace Cabster.Components
     public partial class FormBase : Form
     {
         /// <summary>
-        ///     IMediator.
+        ///     Barramento de mensagens.
         /// </summary>
-        private IMediator? _mediator;
+        private IMediator? _messageBus;
 
         /// <summary>
         ///     Construtor.
         /// </summary>
         public FormBase()
         {
-            this.LogVerboseInstantiate();
+            this.LogClassInstantiate();
 
             InitializeComponent();
             InitializeComponent2();
         }
 
         /// <summary>
-        ///     IMediator.
+        ///     Barramento de mensagens.
         /// </summary>
-        protected IMediator MessengerBus =>
-            _mediator ??= Program.DependencyResolver.GetInstanceRequired<IMediator>();
+        protected IMediator MessageBus =>
+            _messageBus ??= Program.DependencyResolver.GetInstanceRequired<IMediator>();
 
         /// <summary>
         ///     Atributos para criação da janela.

@@ -21,7 +21,7 @@ namespace Cabster.Infrastructure
         ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
         /// </summary>
         /// <param name="instance">Instância.</param>
-        public static void LogVerboseInstantiate<T>(this T instance) where T : notnull
+        public static void LogClassInstantiate<T>(this T instance) where T : notnull
         {
             var type = instance.GetType();
             var typeDisposable = typeof(IDisposable);
@@ -40,7 +40,7 @@ namespace Cabster.Infrastructure
         ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
         /// </summary>
         /// <param name="instance">Instância.</param>
-        public static void LogVerboseDispose<T>(this T instance) where T : notnull
+        public static void LogClassDispose<T>(this T instance) where T : notnull
         {
             var type = instance.GetType();
             var typeDisposable = typeof(IDisposable);
@@ -52,7 +52,7 @@ namespace Cabster.Infrastructure
             else
                 throw new WrongArgumentException(
                     nameof(LoggerConfiguration),
-                    nameof(LogVerboseDispose),
+                    nameof(LogClassDispose),
                     nameof(instance));
         }
 

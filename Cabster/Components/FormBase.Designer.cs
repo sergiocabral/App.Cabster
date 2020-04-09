@@ -21,7 +21,7 @@ namespace Cabster.Components
             }
             base.Dispose(disposing);
             
-            this.LogVerboseDispose();
+            this.LogClassDispose();
         }
 
         #region Windows Form Designer generated code

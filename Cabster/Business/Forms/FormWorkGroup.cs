@@ -58,7 +58,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void OnButtonCloseClick()
         {
-            MessengerBus.Send(new FinalizeApplication());
+            MessageBus.Send(new FinalizeApplication());
         }
 
         /// <summary>

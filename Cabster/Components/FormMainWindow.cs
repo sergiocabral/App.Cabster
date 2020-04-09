@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
@@ -11,8 +10,6 @@ using MediatR;
 using Serilog;
 using Timer = System.Windows.Forms.Timer;
 
-#pragma warning disable 109
-
 namespace Cabster.Components
 {
     /// <summary>
@@ -20,19 +17,12 @@ namespace Cabster.Components
     /// </summary>
     public partial class FormMainWindow :
         FormBase,
-        IRequestHandler<SinalizeApplicationClock>,
-        IRequestHandler<FinalizeApplication>,
         INotificationHandler<ApplicationInitialized>
     {
         /// <summary>
         ///     Cronômetro para exibição do clock.
         /// </summary>
         private readonly Stopwatch _stopwatchClocksToShow = new Stopwatch();
-
-        /// <summary>
-        ///     Sinaliza que a aplicação foi finalizada.
-        /// </summary>
-        private bool _applicationFinalized;
 
         /// <summary>
         ///     Sinaliza que a aplicação foi inicializada.
@@ -61,35 +51,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        ///     Processa o comando: FinalizeApplication
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public new Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
-        {
-            _applicationFinalized = true;
-
-            Thread.Sleep(timer.Interval);
-
-            Log.Information("Application finalized.");
-
-            return Unit.Task;
-        }
-
-        /// <summary>
-        ///     Processa o comando: SinalizeApplicationClock
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public new Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
-        {
-            MessengerBus.Publish(new ApplicationClockSignaled(request), cancellationToken);
-            return Unit.Task;
-        }
-
-        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
@@ -109,16 +70,10 @@ namespace Cabster.Components
 
             ((Timer) sender).Enabled = false;
 
-            if (_applicationFinalized)
-            {
-                Close();
-                return;
-            }
-
             try
             {
                 var requestSinalizeApplicationClock = new SinalizeApplicationClock();
-                MessengerBus.Send(requestSinalizeApplicationClock);
+                MessageBus.Send(requestSinalizeApplicationClock);
 
                 const int clocksToShow = 5;
                 const int clocksToShowInterval = 60000;

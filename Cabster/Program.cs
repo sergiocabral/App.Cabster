@@ -69,10 +69,8 @@ namespace Cabster
 
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
-
+                
                 DependencyResolver.GetInstanceRequired<IMediator>().Send(new InitializeApplication());
-
-                Application.Run(DependencyResolver.GetInstanceRequired<FormMainWindow>());
             }
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();

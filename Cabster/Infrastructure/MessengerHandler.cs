@@ -7,7 +7,7 @@
     {
         public MessengerHandler()
         {
-            this.LogVerboseInstantiate();
+            this.LogClassInstantiate();
         }
     }
 }

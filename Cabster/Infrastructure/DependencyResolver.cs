@@ -35,7 +35,7 @@ namespace Cabster.Infrastructure
         /// <param name="services">DependencyResolver pré-existente.</param>
         public DependencyResolver(IServiceCollection? services = null)
         {
-            this.LogVerboseInstantiate();
+            this.LogClassInstantiate();
 
             _container = new Container(services);
         }
@@ -59,7 +59,7 @@ namespace Cabster.Infrastructure
         {
             _container.Dispose();
 
-            this.LogVerboseDispose();
+            this.LogClassDispose();
         }
 
         /// <summary>
@@ -318,7 +318,7 @@ namespace Cabster.Infrastructure
             /// <param name="services">DependencyResolver pré-existente.</param>
             public Container(IServiceCollection? services)
             {
-                this.LogVerboseInstantiate();
+                this.LogClassInstantiate();
 
                 _isManagedExternally = services != null;
                 ServiceCollection = services ?? new ServiceCollection();
@@ -357,7 +357,7 @@ namespace Cabster.Infrastructure
             {
                 if (!_isManagedExternally) DisposeServiceProvider();
 
-                this.LogVerboseDispose();
+                this.LogClassDispose();
             }
 
             /// <summary>

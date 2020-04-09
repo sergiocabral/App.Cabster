@@ -65,16 +65,17 @@ namespace Cabster.Infrastructure
         private static void AddMediatR(this DependencyResolver dependencyResolver)
         {
             var mediatRServiceConfiguration = new MediatRServiceConfiguration();
-
-            var methodLifetimeSet =
-                mediatRServiceConfiguration
-                    .GetType()
-                    .GetMethod(
-                        $"set_{nameof(mediatRServiceConfiguration.Lifetime)}",
-                        BindingFlags.Instance | BindingFlags.NonPublic)
-                ?? throw new ThisWillNeverOccurException();
-
-            methodLifetimeSet.Invoke(mediatRServiceConfiguration, new object[] {ServiceLifetime.Singleton});
+            
+            // // Define o ServiceLifetime do IMediator como Singleton. Por padrão é Transient.
+            // var methodLifetimeSet =
+            //     mediatRServiceConfiguration
+            //         .GetType()
+            //         .GetMethod(
+            //             $"set_{nameof(mediatRServiceConfiguration.Lifetime)}",
+            //             BindingFlags.Instance | BindingFlags.NonPublic)
+            //     ?? throw new ThisWillNeverOccurException();
+            //
+            // methodLifetimeSet.Invoke(mediatRServiceConfiguration, new object[] {ServiceLifetime.Singleton});
 
             ServiceRegistrar.AddRequiredServices(dependencyResolver.ServiceCollection, mediatRServiceConfiguration);
 
