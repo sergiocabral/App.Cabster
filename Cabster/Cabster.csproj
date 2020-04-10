@@ -307,8 +307,12 @@
   <ItemGroup>
     <None Include="Resources\buttonResizeEnter.png" />
     <None Include="Resources\buttonResizeLeave.png" />
-    <None Include="Resources\buttonAddParticipantEnter.png" />
-    <None Include="Resources\buttonAddParticipantLeave.png" />
+    <None Include="Resources\buttonParticipantAddEnter.png" />
+    <None Include="Resources\buttonParticipantAddLeave.png" />
+    <None Include="Resources\buttonParticipantSortEnter.png" />
+    <None Include="Resources\buttonParticipantSortLeave.png" />
+    <None Include="Resources\buttonParticipantAddEnter.png" />
+    <None Include="Resources\buttonParticipantAddLeave.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

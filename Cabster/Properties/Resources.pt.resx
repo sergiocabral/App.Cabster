@@ -189,4 +189,7 @@
 Para ativar ou desativar: botão direito.
 Para remover: botão esquerdo.</value>
   </data>
+  <data name="Text.WorkGroup.ParticipantSortHint" xml:space="preserve">
+    <value>Ordenar aleatóriamente os participantes.</value>
+  </data>
 </root>

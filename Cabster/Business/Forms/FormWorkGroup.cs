@@ -84,7 +84,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
-        private void buttonAddParticipant_Click(object sender, EventArgs args)
+        private void buttonParticipantAdd_Click(object sender, EventArgs args)
         {
             try
             {
@@ -126,8 +126,8 @@ namespace Cabster.Business.Forms
         private void textBoxAddParticipant_KeyUp(object sender, KeyEventArgs args)
         {
             if (args.KeyCode != Keys.Enter) return;
-            buttonAddParticipant.Focus();
-            buttonAddParticipant.PerformClick();
+            buttonParticipantAdd.Focus();
+            buttonParticipantAdd.PerformClick();
             ((Control) sender).Focus();
         }
 

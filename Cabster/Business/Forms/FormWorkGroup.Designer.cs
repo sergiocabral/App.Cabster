@@ -42,7 +42,8 @@
             this.labelBreakStartsAfterHowManyRounds_Part1 = new System.Windows.Forms.Label();
             this.panelParticipants = new Cabster.Components.MyFlowPanel(this.components);
             this.textBoxAddParticipant = new Cabster.Components.MyTextBox(this.components);
-            this.buttonAddParticipant = new Cabster.Components.MyButton(this.components);
+            this.buttonParticipantAdd = new Cabster.Components.MyButton(this.components);
+            this.buttonParticipantSort = new Cabster.Components.MyButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
@@ -235,39 +236,58 @@
             this.textBoxAddParticipant.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxAddParticipant.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxAddParticipant.ForeColor = System.Drawing.Color.Black;
-            this.textBoxAddParticipant.Location = new System.Drawing.Point(293, 127);
+            this.textBoxAddParticipant.Location = new System.Drawing.Point(331, 127);
             this.textBoxAddParticipant.Name = "textBoxAddParticipant";
             this.textBoxAddParticipant.Placeholder = "Text.WorkGroup.ParticipantAdd";
-            this.textBoxAddParticipant.Size = new System.Drawing.Size(267, 23);
+            this.textBoxAddParticipant.Size = new System.Drawing.Size(229, 23);
             this.textBoxAddParticipant.TabIndex = 13;
             this.textBoxAddParticipant.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxAddParticipant_KeyUp);
             // 
-            // buttonAddParticipant
+            // buttonParticipantAdd
             // 
-            this.buttonAddParticipant.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddParticipant.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddParticipant.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.buttonAddParticipant.FlatAppearance.BorderSize = 0;
-            this.buttonAddParticipant.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonAddParticipant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonAddParticipant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonAddParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddParticipant.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddParticipant.Image")));
-            this.buttonAddParticipant.Location = new System.Drawing.Point(264, 127);
-            this.buttonAddParticipant.Name = "buttonAddParticipant";
-            this.buttonAddParticipant.Size = new System.Drawing.Size(23, 23);
-            this.buttonAddParticipant.TabIndex = 14;
-            this.toolTip.SetToolTip(this.buttonAddParticipant, "Text.WorkGroup.ParticipantAddHint");
-            this.buttonAddParticipant.UseVisualStyleBackColor = false;
-            this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
+            this.buttonParticipantAdd.BackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonParticipantAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonParticipantAdd.FlatAppearance.BorderSize = 0;
+            this.buttonParticipantAdd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonParticipantAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantAdd.Image")));
+            this.buttonParticipantAdd.Location = new System.Drawing.Point(302, 127);
+            this.buttonParticipantAdd.Name = "buttonParticipantAdd";
+            this.buttonParticipantAdd.Size = new System.Drawing.Size(23, 23);
+            this.buttonParticipantAdd.TabIndex = 14;
+            this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.WorkGroup.ParticipantAddHint");
+            this.buttonParticipantAdd.UseVisualStyleBackColor = false;
+            this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
+            // 
+            // buttonParticipantSort
+            // 
+            this.buttonParticipantSort.BackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantSort.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonParticipantSort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonParticipantSort.FlatAppearance.BorderSize = 0;
+            this.buttonParticipantSort.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantSort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantSort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonParticipantSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonParticipantSort.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantSort.Image")));
+            this.buttonParticipantSort.Location = new System.Drawing.Point(268, 127);
+            this.buttonParticipantSort.Name = "buttonParticipantSort";
+            this.buttonParticipantSort.Size = new System.Drawing.Size(31, 23);
+            this.buttonParticipantSort.TabIndex = 15;
+            this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.WorkGroup.ParticipantSortHint");
+            this.buttonParticipantSort.UseVisualStyleBackColor = false;
             // 
             // FormWorkGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 475);
+            this.Controls.Add(this.buttonParticipantSort);
             this.Controls.Add(this.textBoxAddParticipant);
-            this.Controls.Add(this.buttonAddParticipant);
+            this.Controls.Add(this.buttonParticipantAdd);
             this.Controls.Add(this.panelParticipants);
             this.Controls.Add(this.labelBreakStartsAfterHowManyRounds_Part2);
             this.Controls.Add(this.numericUpDownBreakStartsAfterHowManyRounds);
@@ -292,8 +312,9 @@
             this.Controls.SetChildIndex(this.numericUpDownBreakStartsAfterHowManyRounds, 0);
             this.Controls.SetChildIndex(this.labelBreakStartsAfterHowManyRounds_Part2, 0);
             this.Controls.SetChildIndex(this.panelParticipants, 0);
-            this.Controls.SetChildIndex(this.buttonAddParticipant, 0);
+            this.Controls.SetChildIndex(this.buttonParticipantAdd, 0);
             this.Controls.SetChildIndex(this.textBoxAddParticipant, 0);
+            this.Controls.SetChildIndex(this.buttonParticipantSort, 0);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
@@ -313,8 +334,9 @@
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part2;
         private System.Windows.Forms.NumericUpDown numericUpDownBreakStartsAfterHowManyRounds;
         private System.Windows.Forms.Label labelBreakStartsAfterHowManyRounds_Part1;
-        private Cabster.Components.MyButton buttonAddParticipant;
+        private Cabster.Components.MyButton buttonParticipantAdd;
         private Cabster.Components.MyTextBox textBoxAddParticipant;
         private Cabster.Components.MyFlowPanel panelParticipants;
+        private Components.MyButton buttonParticipantSort;
     }
 }

@@ -73,9 +73,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeLeave {
+        public static System.Drawing.Bitmap buttonParticipantSortEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeEnter {
+        public static System.Drawing.Bitmap buttonParticipantAddLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonResizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,29 +133,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonCloseLeave {
+        public static System.Drawing.Bitmap buttonParticipantAddEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonAddParticipantEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonAddParticipantEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonResizeEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +153,39 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonAddParticipantLeave {
+        public static System.Drawing.Bitmap buttonParticipantSortLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonAddParticipantLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonCloseLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -377,6 +397,15 @@ namespace Cabster.Properties {
         public static string Text_WorkGroup_ParticipantRemoveHint {
             get {
                 return ResourceManager.GetString("Text.WorkGroup.ParticipantRemoveHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomly sort the participants..
+        /// </summary>
+        public static string Text_WorkGroup_ParticipantSortHint {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.ParticipantSortHint", resourceCulture);
             }
         }
     }
