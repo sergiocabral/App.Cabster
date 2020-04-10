@@ -13,6 +13,11 @@ namespace Cabster.Extensions
     public static class ControlAbleToOperateFormExtensions
     {
         /// <summary>
+        /// Sinaliza que ao mover ou redimensionar deve desativar o redraw.
+        /// </summary>
+        public static bool SetRedrawFalse = false; 
+            
+        /// <summary>
         ///     Lista de controles que movem o form.
         /// </summary>
         private static readonly Dictionary<int, MakeAbleToOperateFormInfo> Forms =
@@ -202,6 +207,7 @@ namespace Cabster.Extensions
             {
                 _isPressing = true;
                 _initialPositionOfMouse = new Point(args.X, args.Y);
+                if (!SetRedrawFalse) return;
                 _form.SetRedraw(false);
             }
 
@@ -231,6 +237,7 @@ namespace Cabster.Extensions
                         break;
                 }
 
+                if (!SetRedrawFalse) return;
                 if (_stopwatch.ElapsedMilliseconds < _millisecondsBetweenRedraw) return;
                 _isRedrawing = true;
                 _form.SetRedraw(true);
@@ -252,6 +259,7 @@ namespace Cabster.Extensions
             private void ControlOnMouseUp(object sender, EventArgs args)
             {
                 _isPressing = false;
+                if (!SetRedrawFalse) return;
                 _form.SetRedraw(true);
                 _form.InvalidadeAll();
             }
