@@ -233,7 +233,7 @@ To remove: left button.</value>
     <value>Randomly sort the participants.</value>
   </data>
   <data name="Text.WorkGroup.Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Start Mob</value>
   </data>
   <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
     <value>Loading another tip ...</value>

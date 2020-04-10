@@ -410,7 +410,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start.
+        ///   Looks up a localized string similar to Start Mob.
         /// </summary>
         public static string Text_WorkGroup_Start {
             get {

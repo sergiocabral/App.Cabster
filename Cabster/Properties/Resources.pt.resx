@@ -193,7 +193,7 @@ Para remover: botão esquerdo.</value>
     <value>Ordenar aleatóriamente os participantes.</value>
   </data>
   <data name="Text.WorkGroup.Start" xml:space="preserve">
-    <value>Começar</value>
+    <value>Começar Mob</value>
   </data>
   <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
     <value>Carregando outra dica...</value>
