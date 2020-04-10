@@ -56,11 +56,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Sinaliza se o tamanho deve ser recalculado automaticamente.
-        /// </summary>
-        public bool AutoSize { get; set; }
-
-        /// <summary>
         ///     Texto do controle.
         /// </summary>
         public override string Text
