@@ -88,20 +88,23 @@ namespace Cabster.Business.Forms
         {
             try
             {
-                var newParticipant = textBoxAddParticipant.Text;
-                if (string.IsNullOrWhiteSpace(newParticipant)) return;
+                var participantName = textBoxAddParticipant.Text;
+                if (string.IsNullOrWhiteSpace(participantName)) return;
 
                 var currentParticipants = panelParticipants.Controls.OfType<MyButton>();
 
                 var participant = currentParticipants.SingleOrDefault(c =>
-                    string.Equals(c.Text.Trim(), newParticipant.Trim(), StringComparison.CurrentCultureIgnoreCase));
+                    string.Equals(c.Text.Trim(), participantName.Trim(), StringComparison.CurrentCultureIgnoreCase));
 
                 if (participant != null)
                 {
+                    var info = (ParticipantInfo) participant.Tag;
+                    info.Name = participantName;
+                    info.Active = true;
                 }
                 else
                 {
-                    participant = ParticipantInfo.CreateControl(this, newParticipant);
+                    participant = ParticipantInfo.CreateControl(this, participantName);
                     panelParticipants.Controls.Add(participant);
                 }
             }
@@ -189,9 +192,22 @@ namespace Cabster.Business.Forms
             }
 
             /// <summary>
+            /// Nome do participante.
+            /// </summary>
+            public string Name
+            {
+                get => _control.Text;
+                set
+                {
+                    _control.Text = value.Trim(); 
+                    _control.UpdateSizeToText();
+                }
+            }
+
+            /// <summary>
             ///     Sinaliza ativo ou desativo.
             /// </summary>
-            private bool Active
+            public bool Active
             {
                 get => _active;
                 set
