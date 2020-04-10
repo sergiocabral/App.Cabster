@@ -9,6 +9,7 @@ using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
+using Cabster.Properties;
 using MediatR;
 
 #pragma warning disable 109
@@ -100,7 +101,7 @@ namespace Cabster.Business.Forms
                 }
                 else
                 {
-                    participant = ParticipantInfo.CreateControl(newParticipant);
+                    participant = ParticipantInfo.CreateControl(this, newParticipant);
                     panelParticipants.Controls.Add(participant);
                 }
             }
@@ -139,6 +140,11 @@ namespace Cabster.Business.Forms
             private static readonly Color ColorForInactive = Color.FromArgb(127, 127, 127);
 
             /// <summary>
+            /// Esta janela.
+            /// </summary>
+            private readonly FormWorkGroup _form;
+
+            /// <summary>
             ///     Controle.
             /// </summary>
             private readonly MyButton _control;
@@ -156,13 +162,30 @@ namespace Cabster.Business.Forms
             /// <summary>
             ///     Construtor.
             /// </summary>
+            /// <param name="form">Esta janela.</param>
             /// <param name="control">Controle.</param>
-            private ParticipantInfo(MyButton control)
+            private ParticipantInfo(FormWorkGroup form, MyButton control)
             {
+                _form = form;
                 _control = control;
                 control.Click += ControlOnClick;
                 control.MouseDown += ControlOnMouseDown;
                 control.MouseUp += ControlOnMouseUp;
+                UpdateToolTip();
+            }
+
+            /// <summary>
+            /// Atualiza o ToolTip do controle.
+            /// </summary>
+            private void UpdateToolTip()
+            {
+                _form.toolTip.SetToolTip(
+                    _control,
+                    Resources.Text_WorkGroup_ParticipantRemoveHint
+                        .QueryString(
+                            Active
+                                ? Resources.Text_Common_Active.ToUpper()
+                                : Resources.Text_Common_Inactive.ToUpper()));
             }
 
             /// <summary>
@@ -176,6 +199,7 @@ namespace Cabster.Business.Forms
                     _active = value;
                     _control.BackColor = _active ? ColorForActive : ColorForInactive;
                     _control.UpdateLayout();
+                    UpdateToolTip();
                 }
             }
 
@@ -192,17 +216,19 @@ namespace Cabster.Business.Forms
             /// <summary>
             ///     Cria um botão para um novo participante.
             /// </summary>
+            /// <param name="form">Esta janela.</param>
+            /// <param name="name">Nome do participante.</param>
             /// <returns>Controle</returns>
-            public static MyButton CreateControl(string name)
+            public static MyButton CreateControl(FormWorkGroup form, string name)
             {
-                var participant = new MyButton
+                var control = new MyButton
                 {
                     Text = name.Trim(),
                     ForeColor = Color.Black,
                     BackColor = ColorForActive
                 };
-                participant.Tag = new ParticipantInfo(participant);
-                return participant;
+                control.Tag = new ParticipantInfo(form, control);;
+                return control;
             }
 
             /// <summary>

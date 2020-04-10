@@ -150,8 +150,11 @@
   <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Text.WorkGroup.AddParticipant" xml:space="preserve">
-    <value>Digite o nome do participante</value>
+  <data name="Text.Common.Active" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
+  <data name="Text.Common.Inactive" xml:space="preserve">
+    <value>Inativo</value>
   </data>
   <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>O intervalo inicia após quantas rodadas:</value>
@@ -170,5 +173,14 @@
   </data>
   <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minuto(s).</value>
+  </data>
+  <data name="Text.WorkGroup.ParticipantAdd" xml:space="preserve">
+    <value>Digite o nome do participante</value>
+  </data>
+  <data name="Text.WorkGroup.ParticipantRemoveHint" xml:space="preserve">
+    <value>Participante: {Participant}
+
+Para ativar ou desativar: botão direito.
+Para remover: botão esquerdo.</value>
   </data>
 </root>

@@ -270,11 +270,20 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter the participant&apos;s name.
+        ///   Looks up a localized string similar to Active.
         /// </summary>
-        public static string Text_WorkGroup_AddParticipant {
+        public static string Text_Common_Active {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.AddParticipant", resourceCulture);
+                return ResourceManager.GetString("Text.Common.Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string Text_Common_Inactive {
+            get {
+                return ResourceManager.GetString("Text.Common.Inactive", resourceCulture);
             }
         }
         
@@ -329,6 +338,27 @@ namespace Cabster.Properties {
         public static string Text_WorkGroup_DurationOfEachRound_Part2 {
             get {
                 return ResourceManager.GetString("Text.WorkGroup.DurationOfEachRound_Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the participant&apos;s name.
+        /// </summary>
+        public static string Text_WorkGroup_ParticipantAdd {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.ParticipantAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Participant: {Participant}
+        ///
+        ///To activate or deactivate: right button.
+        ///To remove: left button..
+        /// </summary>
+        public static string Text_WorkGroup_ParticipantRemoveHint {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.ParticipantRemoveHint", resourceCulture);
             }
         }
     }

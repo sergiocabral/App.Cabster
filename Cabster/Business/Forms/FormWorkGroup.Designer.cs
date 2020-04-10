@@ -228,7 +228,7 @@
             this.textBoxAddParticipant.ForeColor = System.Drawing.Color.Black;
             this.textBoxAddParticipant.Location = new System.Drawing.Point(293, 114);
             this.textBoxAddParticipant.Name = "textBoxAddParticipant";
-            this.textBoxAddParticipant.Placeholder = "Text.WorkGroup.AddParticipant";
+            this.textBoxAddParticipant.Placeholder = "Text.WorkGroup.ParticipantAdd";
             this.textBoxAddParticipant.Size = new System.Drawing.Size(214, 23);
             this.textBoxAddParticipant.TabIndex = 13;
             this.textBoxAddParticipant.KeyUp +=
@@ -248,9 +248,9 @@
             this.buttonAddParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddParticipant.Image =
                 ((System.Drawing.Image) (resources.GetObject("buttonAddParticipant.Image")));
-            this.buttonAddParticipant.Location = new System.Drawing.Point(248, 100);
+            this.buttonAddParticipant.Location = new System.Drawing.Point(264, 114);
             this.buttonAddParticipant.Name = "buttonAddParticipant";
-            this.buttonAddParticipant.Size = new System.Drawing.Size(50, 50);
+            this.buttonAddParticipant.Size = new System.Drawing.Size(23, 23);
             this.buttonAddParticipant.TabIndex = 14;
             this.buttonAddParticipant.UseVisualStyleBackColor = false;
             this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
