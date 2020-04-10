@@ -57,7 +57,7 @@ namespace Cabster.Extensions
             info.Enable(enable);
 
             if (enable) return control;
-            
+
             info.Dispose();
             Forms.Remove(key);
 
@@ -94,7 +94,7 @@ namespace Cabster.Extensions
         /// <summary>
         ///     Informações dos controles que movem o form.
         /// </summary>
-        private class MakeAbleToOperateFormInfo: IDisposable
+        private class MakeAbleToOperateFormInfo : IDisposable
         {
             /// <summary>
             ///     Controle.
@@ -122,6 +122,11 @@ namespace Cabster.Extensions
             private readonly Stopwatch _stopwatch;
 
             /// <summary>
+            ///     Temporizador para restabelecer os controles.
+            /// </summary>
+            private readonly Timer _timerToRestore;
+
+            /// <summary>
             ///     Posição inicial do mouse ao clicar.
             /// </summary>
             private Point _initialPositionOfMouse;
@@ -135,11 +140,6 @@ namespace Cabster.Extensions
             ///     Indica que o controle está redesenhando.
             /// </summary>
             private bool _isRedrawing;
-
-            /// <summary>
-            ///     Temporizador para restabelecer os controles.
-            /// </summary>
-            private readonly Timer _timerToRestore;
 
             /// <summary>
             ///     Construtor.
@@ -160,6 +160,14 @@ namespace Cabster.Extensions
                     Enabled = false
                 };
                 _timerToRestore.Tick += TimerToRestoreOnTick;
+            }
+
+            /// <summary>
+            ///     Liberar recursos.
+            /// </summary>
+            public void Dispose()
+            {
+                _timerToRestore.Dispose();
             }
 
             /// <summary>
@@ -249,7 +257,7 @@ namespace Cabster.Extensions
             }
 
             /// <summary>
-            /// Temporizador para restabelecer estado dos controles.
+            ///     Temporizador para restabelecer estado dos controles.
             /// </summary>
             /// <param name="sender">Fonte do evento.</param>
             /// <param name="args">Informações do evento.</param>
@@ -258,14 +266,6 @@ namespace Cabster.Extensions
                 _timerToRestore.Enabled = false;
                 _form.SetRedraw(true);
                 _form.InvalidadeAll();
-            }
-
-            /// <summary>
-            /// Liberar recursos.
-            /// </summary>
-            public void Dispose()
-            {
-                _timerToRestore.Dispose();
             }
         }
     }

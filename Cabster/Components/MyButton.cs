@@ -99,7 +99,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Atualiza a exibição do controle.
+        ///     Atualiza a exibição do controle.
         /// </summary>
         public void UpdateLayout()
         {

@@ -99,7 +99,7 @@ namespace Cabster.Infrastructure
                 foreach (var interfaceType in type
                     .GetInterfaces()
                     .Where(t => t.IsGenericType &&
-                                   TypesOfInterfaces.Contains(t.GetGenericTypeDefinition())))
+                                TypesOfInterfaces.Contains(t.GetGenericTypeDefinition())))
                     if (instance != null) dependencyResolver.AddInstance(interfaceType, instance);
                     else dependencyResolver.Register(interfaceType, type);
             }

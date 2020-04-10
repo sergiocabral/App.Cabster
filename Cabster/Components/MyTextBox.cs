@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Cabster.Extensions;
-using Cabster.Properties;
 
 namespace Cabster.Components
 {
@@ -16,6 +10,26 @@ namespace Cabster.Components
     /// </summary>
     public partial class MyTextBox : TextBox
     {
+        /// <summary>
+        ///     Texto no controle.
+        /// </summary>
+        private Color _foreColor;
+
+        /// <summary>
+        ///     Texto de exibição quando vazio.
+        /// </summary>
+        private string? _placeholder;
+
+        /// <summary>
+        ///     Texto no controle.
+        /// </summary>
+        private string _text = string.Empty;
+
+        /// <summary>
+        ///     Sinaliza atualização de texto.
+        /// </summary>
+        private bool _textUpdating;
+
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -40,24 +54,14 @@ namespace Cabster.Components
         /// <summary>
         ///     Texto de exibição quando vazio.
         /// </summary>
-        private string? _placeholder;
-
-        /// <summary>
-        ///     Texto de exibição quando vazio.
-        /// </summary>
         public string Placeholder
         {
-            get => _placeholder ?? string.Empty; 
+            get => _placeholder ?? string.Empty;
             set => _placeholder = value;
         }
 
         /// <summary>
-        /// Texto no controle.
-        /// </summary>
-        private Color _foreColor;
-
-        /// <summary>
-        /// Texto no controle.
+        ///     Texto no controle.
         /// </summary>
         public new Color ForeColor
         {
@@ -70,16 +74,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Texto no controle.
-        /// </summary>
-        private string _text = string.Empty;
-
-        /// <summary>
-        /// Sinaliza atualização de texto.
-        /// </summary>
-        private bool _textUpdating;
-
-        /// <summary>
         ///     Texto de exibição quando vazio.
         /// </summary>
         public new string Text
@@ -88,9 +82,9 @@ namespace Cabster.Components
             set
             {
                 _text = value;
-                
+
                 _textUpdating = true;
-                
+
                 if (!string.IsNullOrWhiteSpace(value) || Program.IsDebug == null)
                 {
                     base.Text = value;
@@ -112,17 +106,14 @@ namespace Cabster.Components
         private void InitializeComponent2()
         {
             _foreColor = base.ForeColor;
-            HandleCreated += (sender, args) =>
-            {
-                Text = base.Text;
-            };
+            HandleCreated += (sender, args) => { Text = base.Text; };
             Enter += OnEnter;
             Leave += OnLeave;
             TextChanged += OnTextChanged;
         }
 
         /// <summary>
-        /// Quando recebe o foco.
+        ///     Quando recebe o foco.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -133,7 +124,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando recebe o foco.
+        ///     Quando recebe o foco.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -143,7 +134,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando recebe o foco.
+        ///     Quando recebe o foco.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>

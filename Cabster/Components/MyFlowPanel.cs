@@ -55,7 +55,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando um controle é adicionado.
+        ///     Quando um controle é adicionado.
         /// </summary>
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
@@ -70,7 +70,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando um controle é removido.
+        ///     Quando um controle é removido.
         /// </summary>
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
@@ -100,7 +100,7 @@ namespace Cabster.Components
         private void ControlOnMouseUp(object sender, MouseEventArgs args)
         {
             if (args.Button != MouseButtons.Left) return;
-            
+
             // Controle sendo arrastado.
             var target = (Control) sender;
 
