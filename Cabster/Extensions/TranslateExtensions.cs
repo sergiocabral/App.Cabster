@@ -33,7 +33,7 @@ namespace Cabster.Extensions
             // ReSharper disable once SuggestBaseTypeForParameter
             static void TranslateControl(Control control)
             {
-                var properties = new[] {"Text", "Caption", "Title"};
+                var properties = new[] {"Text", "Caption", "Title", "Placeholder" };
 
                 foreach (var property in properties)
                 {

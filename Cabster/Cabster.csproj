@@ -167,6 +167,12 @@
     <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
+    <Compile Include="Components\MyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MyTextBox.Designer.cs">
+      <DependentUpon>MyTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MyFlowPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     <EmbeddedResource Include="Components\FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\MyTextBox.resx">
+      <DependentUpon>MyTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\MyFlowPanel.resx">
       <DependentUpon>MyFlowPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,19 +254,19 @@
     <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.pt.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -298,6 +307,8 @@
   <ItemGroup>
     <None Include="Resources\buttonResizeEnter.png" />
     <None Include="Resources\buttonResizeLeave.png" />
+    <None Include="Resources\buttonAddParticipantEnter.png" />
+    <None Include="Resources\buttonAddParticipantLeave.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

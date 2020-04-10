@@ -196,4 +196,13 @@
   <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
+  <data name="buttonAddParticipantEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonAddParticipantEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonAddParticipantLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonAddParticipantLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Text.WorkGroup.AddParticipant" xml:space="preserve">
+    <value>Enter the participant's name</value>
+  </data>
 </root>
