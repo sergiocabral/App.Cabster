@@ -362,7 +362,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter the participant&apos;s name.
+        ///   Looks up a localized string similar to Enter the participant&apos;s name..
         /// </summary>
         public static string Text_WorkGroup_ParticipantAdd {
             get {
@@ -380,7 +380,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To add a participant enter a name.
+        ///   Looks up a localized string similar to To add a participant enter a name..
         /// </summary>
         public static string Text_WorkGroup_ParticipantNameEmpty {
             get {

@@ -197,7 +197,7 @@
     <value>minute(s).</value>
   </data>
   <data name="Text.WorkGroup.ParticipantAdd" xml:space="preserve">
-    <value>Enter the participant's name</value>
+    <value>Enter the participant's name.</value>
   </data>
   <data name="Text.WorkGroup.ParticipantRemoveHint" xml:space="preserve">
     <value>Participant: {Participant}
@@ -212,7 +212,7 @@ To remove: left button.</value>
     <value>Inactive</value>
   </data>
   <data name="Text.WorkGroup.ParticipantNameEmpty" xml:space="preserve">
-    <value>To add a participant enter a name</value>
+    <value>To add a participant enter a name.</value>
   </data>
   <data name="Text.WorkGroup.ParticipantAddHint" xml:space="preserve">
     <value>Click here to add a participant.</value>
