@@ -195,4 +195,7 @@ Para remover: botão esquerdo.</value>
   <data name="Text.WorkGroup.Start" xml:space="preserve">
     <value>Começar</value>
   </data>
+  <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
+    <value>Carregando outra dica...</value>
+  </data>
 </root>

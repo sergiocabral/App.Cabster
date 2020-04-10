@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
@@ -11,6 +12,7 @@ using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
 using MediatR;
+using Timer = System.Windows.Forms.Timer;
 
 #pragma warning disable 109
 
@@ -55,6 +57,17 @@ namespace Cabster.Business.Forms
             panelParticipants.ControlAdded += PanelParticipantsOnControlAddedOrRemoved;
             panelParticipants.ControlRemoved += PanelParticipantsOnControlAddedOrRemoved;
             PanelParticipantsOnControlAddedOrRemoved(panelParticipants, null);
+            VisibleChanged += OnVisibleChanged;
+        }
+
+        /// <summary>
+        /// Quando a janela é exibida ou escondida.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void OnVisibleChanged(object sender, EventArgs args)
+        {
+            if (Visible) LoadTip();
         }
 
         /// <summary>
@@ -309,6 +322,26 @@ namespace Cabster.Business.Forms
         private void buttonParticipantSort_Click(object sender, EventArgs args)
         {
             panelParticipants.Sort();
+        }
+
+        /// <summary>
+        /// Evento ao clicar duas vezes na frase de dica.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void labelTips_DoubleClick(object sender, EventArgs args)
+        {
+            SetStatusMessage(Resources.Text_WorkGroup_TipsLoading);
+            LoadTip();
+        }
+
+        /// <summary>
+        /// Carrega uma frase de dicas.
+        /// </summary>
+        private async void LoadTip()
+        {
+            var tip = await Tips.Get();
+            labelTips.Invoke(new Action(() => labelTips.Text = tip));
         }
     }
 }

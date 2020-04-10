@@ -235,4 +235,7 @@ To remove: left button.</value>
   <data name="Text.WorkGroup.Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
+    <value>Loading another tip ...</value>
+  </data>
 </root>
