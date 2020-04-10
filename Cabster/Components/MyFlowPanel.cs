@@ -15,7 +15,7 @@ namespace Cabster.Components
         /// <summary>
         ///     Index de cada controle no container.
         /// </summary>
-        private readonly Dictionary<Control, int> _positions = new Dictionary<Control, int>();
+        private Dictionary<Control, int> _positions = new Dictionary<Control, int>();
 
         /// <summary>
         ///     Construtor.
@@ -167,6 +167,18 @@ namespace Cabster.Components
             _positions.Clear();
             this.MakeChildrenOrganized(control => _positions[control] = controls.IndexOf(control));
             target.MakeHighlight();
+        }
+
+        /// <summary>
+        /// Sortear aleatoriamente a ordem dos participantes.
+        /// </summary>
+        public void Sort()
+        {
+            var index = 0;
+            _positions = _positions
+                .OrderBy(a => Guid.NewGuid())
+                .ToDictionary(a => a.Key, a => index++);
+            this.MakeChildrenOrganized(control => _positions[control]);
         }
     }
 }

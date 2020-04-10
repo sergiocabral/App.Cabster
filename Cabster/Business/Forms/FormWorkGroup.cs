@@ -52,6 +52,19 @@ namespace Cabster.Business.Forms
         {
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
+            panelParticipants.ControlAdded += PanelParticipantsOnControlAddedOrRemoved;
+            panelParticipants.ControlRemoved += PanelParticipantsOnControlAddedOrRemoved;
+            PanelParticipantsOnControlAddedOrRemoved(panelParticipants, null);
+        }
+
+        /// <summary>
+        /// Evento ao atualizar controles dos participantes.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void PanelParticipantsOnControlAddedOrRemoved(object sender, ControlEventArgs? args)
+        {
+            buttonParticipantSort.Visible = panelParticipants.Controls.Count > 1;
         }
 
         /// <summary>
@@ -285,6 +298,16 @@ namespace Cabster.Business.Forms
                 if (_lastPosition != currentPosition) return;
                 Active = !Active;
             }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão de sortear participantes.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonParticipantSort_Click(object sender, EventArgs args)
+        {
+            panelParticipants.Sort();
         }
     }
 }

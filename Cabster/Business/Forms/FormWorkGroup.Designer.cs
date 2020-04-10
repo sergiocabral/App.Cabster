@@ -279,6 +279,7 @@
             this.buttonParticipantSort.TabIndex = 15;
             this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.WorkGroup.ParticipantSortHint");
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
+            this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
             // 
             // FormWorkGroup
             // 
