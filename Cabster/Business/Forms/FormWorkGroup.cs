@@ -285,6 +285,7 @@ namespace Cabster.Business.Forms
                     BackColor = ColorForActive,
                     AutoSize = true
                 };
+                control.Font = new Font(control.Font.FontFamily, 20);
                 control.Tag = new ParticipantInfo(form, control);;
                 return control;
             }
