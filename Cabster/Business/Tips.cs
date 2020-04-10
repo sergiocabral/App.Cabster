@@ -236,12 +236,22 @@ namespace Cabster.Business
         };
 
         /// <summary>
+        /// Última dica obtida.
+        /// </summary>
+        private static int _lastIndex = -1;
+
+        /// <summary>
         ///     Obtem uma dica aleatória.
         /// </summary>
         /// <returns></returns>
         public static async Task<string> Get()
         {
-            var tip = List[Random.Next(0, List.Count)];
+            int index;
+            do
+            {
+                index = Random.Next(0, List.Count);
+            } while (index == _lastIndex);
+            var tip = List[_lastIndex = index];
 
             if (tip.ContainsKey("_translated")) return Format(tip);
 
