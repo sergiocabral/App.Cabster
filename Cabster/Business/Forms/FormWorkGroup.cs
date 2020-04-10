@@ -58,6 +58,17 @@ namespace Cabster.Business.Forms
             panelParticipants.ControlRemoved += PanelParticipantsOnControlAddedOrRemoved;
             PanelParticipantsOnControlAddedOrRemoved(panelParticipants, null);
             VisibleChanged += OnVisibleChanged;
+
+            var minScreen = Screen.AllScreens.First(a => 
+                a.Bounds.Width == Screen.AllScreens.Min(b => b.Bounds.Width));
+            Width = (int) (minScreen.Bounds.Width * 0.8);
+            Height = (int) (minScreen.Bounds.Height * 0.8);
+
+            var currentScreen = Screen.FromControl(this);
+            Left = currentScreen.Bounds.Left + (currentScreen.Bounds.Width - Width) / 2;
+            Top = currentScreen.Bounds.Top + (currentScreen.Bounds.Height - Height) / 2;
+            
+            labelTips.Text = string.Empty;
         }
 
         /// <summary>
