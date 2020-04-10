@@ -114,7 +114,11 @@ namespace Cabster.Components
                 FlatAppearance.CheckedBackColor = Color.Transparent;
                 FlatAppearance.MouseDownBackColor = Color.Transparent;
                 FlatAppearance.MouseOverBackColor = Color.Transparent;
-                BackColor = Color.Transparent;
+                try
+                {
+                    BackColor = Color.Transparent;
+                }
+                catch { /* Ignora em caso de erro. */ }
             }
             else
             {

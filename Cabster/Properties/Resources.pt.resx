@@ -177,6 +177,12 @@
   <data name="Text.WorkGroup.ParticipantAdd" xml:space="preserve">
     <value>Digite o nome do participante</value>
   </data>
+  <data name="Text.WorkGroup.ParticipantAddHint" xml:space="preserve">
+    <value>Clique aqui para adicionar um participante.</value>
+  </data>
+  <data name="Text.WorkGroup.ParticipantNameEmpty" xml:space="preserve">
+    <value>Para adicionar um participante informe um nome</value>
+  </data>
   <data name="Text.WorkGroup.ParticipantRemoveHint" xml:space="preserve">
     <value>Participante: {Participant}
 

@@ -39,6 +39,8 @@
             this.buttonResize = new Cabster.Components.MyButton(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,6 +163,23 @@
             this.panelLogo.TabIndex = 2;
             this.panelLogo.Visible = false;
             // 
+            // labelStatus
+            // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.BackColor = System.Drawing.Color.Transparent;
+            this.labelStatus.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Location = new System.Drawing.Point(12, 480);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(789, 25);
+            this.labelStatus.TabIndex = 3;
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timerStatus
+            // 
+            this.timerStatus.Interval = 3000;
+            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
+            // 
             // FormLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -169,6 +188,7 @@
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(831, 514);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.panelLogo);
             this.Controls.Add(this.buttonResize);
             this.Controls.Add(this.panelTitle);
@@ -195,6 +215,8 @@
         private System.Windows.Forms.Label labelTitle;
         private Cabster.Components.MyButton buttonMinimize;
         private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Timer timerStatus;
         protected System.Windows.Forms.ToolTip toolTip;
     }
 }

@@ -89,7 +89,11 @@ namespace Cabster.Business.Forms
             try
             {
                 var participantName = textBoxAddParticipant.Text;
-                if (string.IsNullOrWhiteSpace(participantName)) return;
+                if (string.IsNullOrWhiteSpace(participantName))
+                {
+                    SetStatusMessage(Resources.Text_WorkGroup_ParticipantNameEmpty, false);
+                    return;
+                }
 
                 var currentParticipants = panelParticipants.Controls.OfType<MyButton>();
 

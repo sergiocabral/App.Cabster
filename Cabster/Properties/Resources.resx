@@ -217,4 +217,10 @@ To remove: left button.</value>
   <data name="Text.Common.Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
+  <data name="Text.WorkGroup.ParticipantNameEmpty" xml:space="preserve">
+    <value>To add a participant enter a name</value>
+  </data>
+  <data name="Text.WorkGroup.ParticipantAddHint" xml:space="preserve">
+    <value>Click here to add a participant.</value>
+  </data>
 </root>

@@ -63,9 +63,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonResizeEnter {
+        public static System.Drawing.Bitmap FormBackground {
             get {
-                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormBackground {
+        public static System.Drawing.Bitmap buttonMinimizeLeave {
             get {
-                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeLeave {
+        public static System.Drawing.Bitmap buttonResizeEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -347,6 +347,24 @@ namespace Cabster.Properties {
         public static string Text_WorkGroup_ParticipantAdd {
             get {
                 return ResourceManager.GetString("Text.WorkGroup.ParticipantAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click here to add a participant..
+        /// </summary>
+        public static string Text_WorkGroup_ParticipantAddHint {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.ParticipantAddHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To add a participant enter a name.
+        /// </summary>
+        public static string Text_WorkGroup_ParticipantNameEmpty {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.ParticipantNameEmpty", resourceCulture);
             }
         }
         

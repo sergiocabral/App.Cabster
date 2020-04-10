@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Windows.Forms;
 using Cabster.Extensions;
 using Cabster.Properties;
@@ -66,6 +67,10 @@ namespace Cabster.Components
             {
                 buttonResize.Left = Width - buttonResize.Width;
                 buttonResize.Top = Height - buttonResize.Height + 1;
+
+                labelStatus.Left = 10;
+                labelStatus.Top = Height - labelStatus.Height - labelStatus.Left;
+                labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
         }
 
@@ -112,6 +117,39 @@ namespace Cabster.Components
         {
             args.Cancel = true;
             buttonClose.PerformClick();
+        }
+
+        /// <summary>
+        /// Mensagem de status.
+        /// </summary>
+        public string StatusMessage
+        {
+            get => labelStatus.Text;
+            set => SetStatusMessage(value);
+        }
+
+        /// <summary>
+        /// Define uma mensagem de status.
+        /// </summary>
+        /// <param name="message">Mensagem.</param>
+        /// <param name="information">Quando true, azul. Se false, vermelho.</param>
+        public void SetStatusMessage(string message, bool information = true)
+        {
+            timerStatus.Enabled = false;
+            timerStatus.Enabled = true;
+            labelStatus.Text = message;
+            labelStatus.ForeColor = information ? Color.RoyalBlue : Color.Brown;
+        }
+
+        /// <summary>
+        /// Timer para remover mensagem de status.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void timerStatus_Tick(object sender, EventArgs args)
+        {
+            timerStatus.Enabled = false;
+            labelStatus.Text = string.Empty;
         }
     }
 }

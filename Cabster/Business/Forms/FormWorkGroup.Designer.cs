@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormWorkGroup));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWorkGroup));
             this.buttonMinimize = new Cabster.Components.MyButton(this.components);
             this.labelDurationOfEachRound_Part1 = new System.Windows.Forms.Label();
             this.numericUpDownDurationOfEachRound = new System.Windows.Forms.NumericUpDown();
@@ -44,9 +43,9 @@
             this.panelParticipants = new Cabster.Components.MyFlowPanel(this.components);
             this.textBoxAddParticipant = new Cabster.Components.MyTextBox(this.components);
             this.buttonAddParticipant = new Cabster.Components.MyButton(this.components);
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachRound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachBreak)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonMinimize
@@ -54,14 +53,13 @@
             this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Image = ((System.Drawing.Image) (resources.GetObject("buttonMinimize.Image")));
+            this.buttonMinimize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.Image")));
             this.buttonMinimize.Location = new System.Drawing.Point(620, 0);
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
@@ -70,12 +68,10 @@
             // 
             // labelDurationOfEachRound_Part1
             // 
-            this.labelDurationOfEachRound_Part1.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelDurationOfEachRound_Part1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachRound_Part1.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachRound_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachRound_Part1.Location = new System.Drawing.Point(12, 370);
+            this.labelDurationOfEachRound_Part1.Location = new System.Drawing.Point(12, 338);
             this.labelDurationOfEachRound_Part1.Name = "labelDurationOfEachRound_Part1";
             this.labelDurationOfEachRound_Part1.Size = new System.Drawing.Size(194, 21);
             this.labelDurationOfEachRound_Part1.TabIndex = 3;
@@ -84,77 +80,89 @@
             // 
             // numericUpDownDurationOfEachRound
             // 
-            this.numericUpDownDurationOfEachRound.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownDurationOfEachRound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDownDurationOfEachRound.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numericUpDownDurationOfEachRound.Font = new System.Drawing.Font("Tahoma", 12F,
-                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.numericUpDownDurationOfEachRound.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDurationOfEachRound.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownDurationOfEachRound.Location = new System.Drawing.Point(213, 370);
-            this.numericUpDownDurationOfEachRound.Maximum = new decimal(new int[] {999, 0, 0, 0});
-            this.numericUpDownDurationOfEachRound.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.numericUpDownDurationOfEachRound.Location = new System.Drawing.Point(213, 338);
+            this.numericUpDownDurationOfEachRound.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDownDurationOfEachRound.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownDurationOfEachRound.Name = "numericUpDownDurationOfEachRound";
             this.numericUpDownDurationOfEachRound.Size = new System.Drawing.Size(70, 27);
             this.numericUpDownDurationOfEachRound.TabIndex = 4;
             this.numericUpDownDurationOfEachRound.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDownDurationOfEachRound.Value = new decimal(new int[] {1, 0, 0, 0});
+            this.numericUpDownDurationOfEachRound.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownDurationOfEachRound.ValueChanged += new System.EventHandler(this.UpdateControls);
             // 
             // labelDurationOfEachRound_Part2
             // 
-            this.labelDurationOfEachRound_Part2.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelDurationOfEachRound_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachRound_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachRound_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachRound_Part2.Location = new System.Drawing.Point(289, 370);
+            this.labelDurationOfEachRound_Part2.Location = new System.Drawing.Point(289, 338);
             this.labelDurationOfEachRound_Part2.Name = "labelDurationOfEachRound_Part2";
-            this.labelDurationOfEachRound_Part2.Size = new System.Drawing.Size(218, 21);
+            this.labelDurationOfEachRound_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachRound_Part2.TabIndex = 5;
             this.labelDurationOfEachRound_Part2.Text = "Text.WorkGroup.DurationOfEachRound_Part2";
             this.labelDurationOfEachRound_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelDurationOfEachBreak_Part2
             // 
-            this.labelDurationOfEachBreak_Part2.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelDurationOfEachBreak_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachBreak_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachBreak_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachBreak_Part2.Location = new System.Drawing.Point(289, 403);
+            this.labelDurationOfEachBreak_Part2.Location = new System.Drawing.Point(289, 371);
             this.labelDurationOfEachBreak_Part2.Name = "labelDurationOfEachBreak_Part2";
-            this.labelDurationOfEachBreak_Part2.Size = new System.Drawing.Size(218, 21);
+            this.labelDurationOfEachBreak_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachBreak_Part2.TabIndex = 8;
             this.labelDurationOfEachBreak_Part2.Text = "Text.WorkGroup.DurationOfEachBreak_Part2";
             this.labelDurationOfEachBreak_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericUpDownDurationOfEachBreak
             // 
-            this.numericUpDownDurationOfEachBreak.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownDurationOfEachBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDownDurationOfEachBreak.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numericUpDownDurationOfEachBreak.Font = new System.Drawing.Font("Tahoma", 12F,
-                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.numericUpDownDurationOfEachBreak.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDurationOfEachBreak.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownDurationOfEachBreak.Location = new System.Drawing.Point(213, 403);
-            this.numericUpDownDurationOfEachBreak.Maximum = new decimal(new int[] {999, 0, 0, 0});
-            this.numericUpDownDurationOfEachBreak.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.numericUpDownDurationOfEachBreak.Location = new System.Drawing.Point(213, 371);
+            this.numericUpDownDurationOfEachBreak.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDownDurationOfEachBreak.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownDurationOfEachBreak.Name = "numericUpDownDurationOfEachBreak";
             this.numericUpDownDurationOfEachBreak.Size = new System.Drawing.Size(70, 27);
             this.numericUpDownDurationOfEachBreak.TabIndex = 7;
             this.numericUpDownDurationOfEachBreak.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDownDurationOfEachBreak.Value = new decimal(new int[] {1, 0, 0, 0});
+            this.numericUpDownDurationOfEachBreak.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelDurationOfEachBreak_Part1
             // 
-            this.labelDurationOfEachBreak_Part1.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelDurationOfEachBreak_Part1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachBreak_Part1.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachBreak_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachBreak_Part1.Location = new System.Drawing.Point(12, 403);
+            this.labelDurationOfEachBreak_Part1.Location = new System.Drawing.Point(12, 371);
             this.labelDurationOfEachBreak_Part1.Name = "labelDurationOfEachBreak_Part1";
             this.labelDurationOfEachBreak_Part1.Size = new System.Drawing.Size(194, 21);
             this.labelDurationOfEachBreak_Part1.TabIndex = 6;
@@ -163,46 +171,50 @@
             // 
             // labelBreakStartsAfterHowManyRounds_Part2
             // 
-            this.labelBreakStartsAfterHowManyRounds_Part2.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBreakStartsAfterHowManyRounds_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBreakStartsAfterHowManyRounds_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelBreakStartsAfterHowManyRounds_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelBreakStartsAfterHowManyRounds_Part2.Location = new System.Drawing.Point(289, 438);
+            this.labelBreakStartsAfterHowManyRounds_Part2.Location = new System.Drawing.Point(289, 406);
             this.labelBreakStartsAfterHowManyRounds_Part2.Name = "labelBreakStartsAfterHowManyRounds_Part2";
-            this.labelBreakStartsAfterHowManyRounds_Part2.Size = new System.Drawing.Size(218, 21);
+            this.labelBreakStartsAfterHowManyRounds_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelBreakStartsAfterHowManyRounds_Part2.TabIndex = 11;
             this.labelBreakStartsAfterHowManyRounds_Part2.Text = "Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2";
             this.labelBreakStartsAfterHowManyRounds_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericUpDownBreakStartsAfterHowManyRounds
             // 
-            this.numericUpDownBreakStartsAfterHowManyRounds.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownBreakStartsAfterHowManyRounds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDownBreakStartsAfterHowManyRounds.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numericUpDownBreakStartsAfterHowManyRounds.Font = new System.Drawing.Font("Tahoma", 12F,
-                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.numericUpDownBreakStartsAfterHowManyRounds.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownBreakStartsAfterHowManyRounds.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownBreakStartsAfterHowManyRounds.Location = new System.Drawing.Point(213, 436);
-            this.numericUpDownBreakStartsAfterHowManyRounds.Maximum = new decimal(new int[] {999, 0, 0, 0});
-            this.numericUpDownBreakStartsAfterHowManyRounds.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.numericUpDownBreakStartsAfterHowManyRounds.Location = new System.Drawing.Point(213, 404);
+            this.numericUpDownBreakStartsAfterHowManyRounds.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDownBreakStartsAfterHowManyRounds.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownBreakStartsAfterHowManyRounds.Name = "numericUpDownBreakStartsAfterHowManyRounds";
             this.numericUpDownBreakStartsAfterHowManyRounds.Size = new System.Drawing.Size(70, 27);
             this.numericUpDownBreakStartsAfterHowManyRounds.TabIndex = 10;
             this.numericUpDownBreakStartsAfterHowManyRounds.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDownBreakStartsAfterHowManyRounds.Value = new decimal(new int[] {1, 0, 0, 0});
-            this.numericUpDownBreakStartsAfterHowManyRounds.ValueChanged +=
-                new System.EventHandler(this.UpdateControls);
+            this.numericUpDownBreakStartsAfterHowManyRounds.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownBreakStartsAfterHowManyRounds.ValueChanged += new System.EventHandler(this.UpdateControls);
             // 
             // labelBreakStartsAfterHowManyRounds_Part1
             // 
-            this.labelBreakStartsAfterHowManyRounds_Part1.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBreakStartsAfterHowManyRounds_Part1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBreakStartsAfterHowManyRounds_Part1.BackColor = System.Drawing.Color.Transparent;
             this.labelBreakStartsAfterHowManyRounds_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelBreakStartsAfterHowManyRounds_Part1.Location = new System.Drawing.Point(12, 438);
+            this.labelBreakStartsAfterHowManyRounds_Part1.Location = new System.Drawing.Point(12, 406);
             this.labelBreakStartsAfterHowManyRounds_Part1.Name = "labelBreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.Size = new System.Drawing.Size(194, 21);
             this.labelBreakStartsAfterHowManyRounds_Part1.TabIndex = 9;
@@ -211,47 +223,41 @@
             // 
             // panelParticipants
             // 
-            this.panelParticipants.Anchor =
-                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
-                                                        System.Windows.Forms.AnchorStyles.Bottom) |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.panelParticipants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelParticipants.Location = new System.Drawing.Point(12, 156);
             this.panelParticipants.Name = "panelParticipants";
-            this.panelParticipants.Size = new System.Drawing.Size(495, 200);
+            this.panelParticipants.Size = new System.Drawing.Size(548, 169);
             this.panelParticipants.TabIndex = 12;
             // 
             // textBoxAddParticipant
             // 
             this.textBoxAddParticipant.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxAddParticipant.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxAddParticipant.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxAddParticipant.ForeColor = System.Drawing.Color.Black;
-            this.textBoxAddParticipant.Location = new System.Drawing.Point(293, 114);
+            this.textBoxAddParticipant.Location = new System.Drawing.Point(293, 127);
             this.textBoxAddParticipant.Name = "textBoxAddParticipant";
             this.textBoxAddParticipant.Placeholder = "Text.WorkGroup.ParticipantAdd";
-            this.textBoxAddParticipant.Size = new System.Drawing.Size(214, 23);
+            this.textBoxAddParticipant.Size = new System.Drawing.Size(267, 23);
             this.textBoxAddParticipant.TabIndex = 13;
-            this.textBoxAddParticipant.KeyUp +=
-                new System.Windows.Forms.KeyEventHandler(this.textBoxAddParticipant_KeyUp);
+            this.textBoxAddParticipant.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxAddParticipant_KeyUp);
             // 
             // buttonAddParticipant
             // 
             this.buttonAddParticipant.BackColor = System.Drawing.Color.Transparent;
             this.buttonAddParticipant.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddParticipant.FlatAppearance.BorderColor =
-                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
-                    ((int) (((byte) (255)))));
+            this.buttonAddParticipant.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonAddParticipant.FlatAppearance.BorderSize = 0;
             this.buttonAddParticipant.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonAddParticipant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonAddParticipant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonAddParticipant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddParticipant.Image =
-                ((System.Drawing.Image) (resources.GetObject("buttonAddParticipant.Image")));
-            this.buttonAddParticipant.Location = new System.Drawing.Point(264, 114);
+            this.buttonAddParticipant.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddParticipant.Image")));
+            this.buttonAddParticipant.Location = new System.Drawing.Point(264, 127);
             this.buttonAddParticipant.Name = "buttonAddParticipant";
             this.buttonAddParticipant.Size = new System.Drawing.Size(23, 23);
             this.buttonAddParticipant.TabIndex = 14;
+            this.toolTip.SetToolTip(this.buttonAddParticipant, "Text.WorkGroup.ParticipantAddHint");
             this.buttonAddParticipant.UseVisualStyleBackColor = false;
             this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
             // 
@@ -272,7 +278,7 @@
             this.Controls.Add(this.labelDurationOfEachRound_Part2);
             this.Controls.Add(this.numericUpDownDurationOfEachRound);
             this.Controls.Add(this.labelDurationOfEachRound_Part1);
-            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormWorkGroup";
             this.ShowLogo = true;
             this.Text = "FormWorkGroup";
@@ -288,11 +294,12 @@
             this.Controls.SetChildIndex(this.panelParticipants, 0);
             this.Controls.SetChildIndex(this.buttonAddParticipant, 0);
             this.Controls.SetChildIndex(this.textBoxAddParticipant, 0);
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachRound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachBreak)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
