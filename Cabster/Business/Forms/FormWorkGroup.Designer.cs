@@ -236,7 +236,7 @@
             this.textBoxAddParticipant.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxAddParticipant.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxAddParticipant.ForeColor = System.Drawing.Color.Black;
-            this.textBoxAddParticipant.Location = new System.Drawing.Point(331, 127);
+            this.textBoxAddParticipant.Location = new System.Drawing.Point(331, 126);
             this.textBoxAddParticipant.Name = "textBoxAddParticipant";
             this.textBoxAddParticipant.Placeholder = "Text.WorkGroup.ParticipantAdd";
             this.textBoxAddParticipant.Size = new System.Drawing.Size(229, 23);
@@ -254,9 +254,9 @@
             this.buttonParticipantAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonParticipantAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantAdd.Image")));
-            this.buttonParticipantAdd.Location = new System.Drawing.Point(302, 127);
+            this.buttonParticipantAdd.Location = new System.Drawing.Point(298, 122);
             this.buttonParticipantAdd.Name = "buttonParticipantAdd";
-            this.buttonParticipantAdd.Size = new System.Drawing.Size(23, 23);
+            this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
             this.buttonParticipantAdd.TabIndex = 14;
             this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.WorkGroup.ParticipantAddHint");
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
@@ -273,9 +273,9 @@
             this.buttonParticipantSort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonParticipantSort.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantSort.Image")));
-            this.buttonParticipantSort.Location = new System.Drawing.Point(268, 127);
+            this.buttonParticipantSort.Location = new System.Drawing.Point(263, 122);
             this.buttonParticipantSort.Name = "buttonParticipantSort";
-            this.buttonParticipantSort.Size = new System.Drawing.Size(31, 23);
+            this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
             this.buttonParticipantSort.TabIndex = 15;
             this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.WorkGroup.ParticipantSortHint");
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
