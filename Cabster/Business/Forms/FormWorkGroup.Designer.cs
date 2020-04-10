@@ -45,6 +45,7 @@
             this.buttonParticipantAdd = new Cabster.Components.MyButton(this.components);
             this.buttonParticipantSort = new Cabster.Components.MyButton(this.components);
             this.buttonStart = new Cabster.Components.MyButton(this.components);
+            this.labelTips = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
@@ -307,11 +308,25 @@
             this.buttonStart.Text = "Text.WorkGroup.Start";
             this.buttonStart.UseVisualStyleBackColor = false;
             // 
+            // labelTips
+            // 
+            this.labelTips.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTips.BackColor = System.Drawing.Color.Transparent;
+            this.labelTips.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTips.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.labelTips.Location = new System.Drawing.Point(231, 54);
+            this.labelTips.Name = "labelTips";
+            this.labelTips.Size = new System.Drawing.Size(457, 59);
+            this.labelTips.TabIndex = 17;
+            this.labelTips.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormWorkGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 400);
+            this.Controls.Add(this.labelTips);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonParticipantSort);
             this.Controls.Add(this.textBoxAddParticipant);
@@ -345,6 +360,7 @@
             this.Controls.SetChildIndex(this.textBoxAddParticipant, 0);
             this.Controls.SetChildIndex(this.buttonParticipantSort, 0);
             this.Controls.SetChildIndex(this.buttonStart, 0);
+            this.Controls.SetChildIndex(this.labelTips, 0);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDurationOfEachBreak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBreakStartsAfterHowManyRounds)).EndInit();
@@ -369,5 +385,6 @@
         private Cabster.Components.MyFlowPanel panelParticipants;
         private Components.MyButton buttonParticipantSort;
         private Components.MyButton buttonStart;
+        private System.Windows.Forms.Label labelTips;
     }
 }
