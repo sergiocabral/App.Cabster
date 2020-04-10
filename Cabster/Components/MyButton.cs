@@ -95,31 +95,35 @@ namespace Cabster.Components
         {
             FlatStyle = FlatStyle.Flat;
             Cursor = Cursors.Hand;
+            HandleCreated += (sender, args) => UpdateLayout();
+        }
 
-            HandleCreated += (sender, args) =>
+        /// <summary>
+        /// Atualiza a exibição do controle.
+        /// </summary>
+        public void UpdateLayout()
+        {
+            if (Images.ContainsKey(Name))
             {
-                if (Images.ContainsKey(Name))
-                {
-                    var (bitmapLeave, bitmapEnter) = Images[Name];
-                    this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
+                var (bitmapLeave, bitmapEnter) = Images[Name];
+                this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
 
-                    Text = string.Empty;
+                Text = string.Empty;
 
-                    FlatAppearance.BorderSize = 0;
-                    FlatAppearance.CheckedBackColor = Color.Transparent;
-                    FlatAppearance.MouseDownBackColor = Color.Transparent;
-                    FlatAppearance.MouseOverBackColor = Color.Transparent;
-                    BackColor = Color.Transparent;
-                }
-                else
-                {
-                    FlatAppearance.BorderSize = 3;
-                    FlatAppearance.BorderColor = ControlPaint.Light(BackColor, (float) 0.8);
-                    FlatAppearance.MouseOverBackColor = ControlPaint.Dark(BackColor, (float) 0.2);
-                    FlatAppearance.MouseDownBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
-                    FlatAppearance.CheckedBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
-                }
-            };
+                FlatAppearance.BorderSize = 0;
+                FlatAppearance.CheckedBackColor = Color.Transparent;
+                FlatAppearance.MouseDownBackColor = Color.Transparent;
+                FlatAppearance.MouseOverBackColor = Color.Transparent;
+                BackColor = Color.Transparent;
+            }
+            else
+            {
+                FlatAppearance.BorderSize = 3;
+                FlatAppearance.BorderColor = ControlPaint.Light(BackColor, (float) 0.8);
+                FlatAppearance.MouseOverBackColor = ControlPaint.Dark(BackColor, (float) 0.2);
+                FlatAppearance.MouseDownBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
+                FlatAppearance.CheckedBackColor = ControlPaint.Dark(BackColor, (float) 0.3);
+            }
         }
     }
 }

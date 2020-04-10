@@ -51,15 +51,33 @@ namespace Cabster.Components
             };
             Resize += OnResize;
             ControlAdded += OnControlAdded;
+            ControlRemoved += OnControlRemoved;
         }
 
-        private void OnControlAdded(object sender, ControlEventArgs e)
+        /// <summary>
+        /// Quando um controle é adicionado.
+        /// </summary>
+        /// <param name="sender">Origem do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void OnControlAdded(object sender, ControlEventArgs args)
         {
-            var control = e.Control;
+            var control = args.Control;
             control.MakeAbleToMoveWithMouse();
             control.MouseUp += ControlOnMouseUp;
             if (control is MyButton myButton) myButton.UpdateSizeToText();
             _positions[control] = _positions.Count;
+            OnResize(this, null);
+        }
+
+        /// <summary>
+        /// Quando um controle é removido.
+        /// </summary>
+        /// <param name="sender">Origem do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void OnControlRemoved(object sender, ControlEventArgs args)
+        {
+            var control = args.Control;
+            _positions.Remove(control);
             OnResize(this, null);
         }
 
@@ -81,6 +99,8 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void ControlOnMouseUp(object sender, MouseEventArgs args)
         {
+            if (args.Button != MouseButtons.Left) return;
+            
             // Controle sendo arrastado.
             var target = (Control) sender;
 

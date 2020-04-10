@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -78,7 +79,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Ao adicionar participante.
+        ///     Ao adicionar participante.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -96,14 +97,10 @@ namespace Cabster.Business.Forms
 
                 if (participant != null)
                 {
-
                 }
                 else
                 {
-                    participant = new MyButton
-                    {
-                        Text = newParticipant.Trim(),
-                    };
+                    participant = ParticipantInfo.CreateControl(newParticipant);
                     panelParticipants.Controls.Add(participant);
                 }
             }
@@ -114,7 +111,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Evento ao pressionar uma tecla.
+        ///     Evento ao pressionar uma tecla.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -124,6 +121,124 @@ namespace Cabster.Business.Forms
             buttonAddParticipant.Focus();
             buttonAddParticipant.PerformClick();
             ((Control) sender).Focus();
+        }
+
+        /// <summary>
+        ///     Informações sobre o participant.
+        /// </summary>
+        private class ParticipantInfo
+        {
+            /// <summary>
+            ///     Cor para para participante ativo.
+            /// </summary>
+            private static readonly Color ColorForActive = Color.FromArgb(250, 180, 20);
+
+            /// <summary>
+            ///     Cor para para participante inativo.
+            /// </summary>
+            private static readonly Color ColorForInactive = Color.FromArgb(127, 127, 127);
+
+            /// <summary>
+            ///     Controle.
+            /// </summary>
+            private readonly MyButton _control;
+
+            /// <summary>
+            ///     Sinaliza ativo ou desativo.
+            /// </summary>
+            private bool _active = true;
+
+            /// <summary>
+            ///     Última posição do controle;
+            /// </summary>
+            private Point _lastPosition;
+
+            /// <summary>
+            ///     Construtor.
+            /// </summary>
+            /// <param name="control">Controle.</param>
+            private ParticipantInfo(MyButton control)
+            {
+                _control = control;
+                control.Click += ControlOnClick;
+                control.MouseDown += ControlOnMouseDown;
+                control.MouseUp += ControlOnMouseUp;
+            }
+
+            /// <summary>
+            ///     Sinaliza ativo ou desativo.
+            /// </summary>
+            private bool Active
+            {
+                get => _active;
+                set
+                {
+                    _active = value;
+                    _control.BackColor = _active ? ColorForActive : ColorForInactive;
+                    _control.UpdateLayout();
+                }
+            }
+
+            /// <summary>
+            ///     Remove o participant.
+            /// </summary>
+            private void Remove()
+            {
+                _control.Parent.Controls.Remove(_control);
+                _control.Tag = null;
+                _control.Dispose();
+            }
+
+            /// <summary>
+            ///     Cria um botão para um novo participante.
+            /// </summary>
+            /// <returns>Controle</returns>
+            public static MyButton CreateControl(string name)
+            {
+                var participant = new MyButton
+                {
+                    Text = name.Trim(),
+                    ForeColor = Color.Black,
+                    BackColor = ColorForActive
+                };
+                participant.Tag = new ParticipantInfo(participant);
+                return participant;
+            }
+
+            /// <summary>
+            ///     Quando pressiona o botão do mouse.
+            /// </summary>
+            /// <param name="sender">Fonte do evento.</param>
+            /// <param name="args">Dados do evento.</param>
+            private void ControlOnMouseDown(object sender, MouseEventArgs args)
+            {
+                _lastPosition = new Point(_control.Left, _control.Top);
+            }
+
+            /// <summary>
+            ///     Quando solta o botão do mouse.
+            /// </summary>
+            /// <param name="sender">Fonte do evento.</param>
+            /// <param name="args">Dados do evento.</param>
+            private void ControlOnMouseUp(object sender, MouseEventArgs args)
+            {
+                if (args.Button != MouseButtons.Right) return;
+                var currentPosition = new Point(_control.Left, _control.Top);
+                if (_lastPosition != currentPosition) return;
+                Remove();
+            }
+
+            /// <summary>
+            ///     Quando clica em um botão de participante.
+            /// </summary>
+            /// <param name="sender">Fonte do evento.</param>
+            /// <param name="args">Dados do evento.</param>
+            private void ControlOnClick(object sender, EventArgs args)
+            {
+                var currentPosition = new Point(_control.Left, _control.Top);
+                if (_lastPosition != currentPosition) return;
+                Active = !Active;
+            }
         }
     }
 }

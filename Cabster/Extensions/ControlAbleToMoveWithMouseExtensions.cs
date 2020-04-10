@@ -94,6 +94,7 @@ namespace Cabster.Extensions
             [ExcludeFromCodeCoverage]
             private void ControlOnMouseDown(object sender, MouseEventArgs args)
             {
+                if (args.Button != MouseButtons.Left) return;
                 _isPressing = true;
                 _initialPositionOfMouse = new Point(args.X, args.Y);
                 _control.BringToFront();
