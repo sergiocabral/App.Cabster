@@ -408,5 +408,14 @@ namespace Cabster.Properties {
                 return ResourceManager.GetString("Text.WorkGroup.ParticipantSortHint", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string Text_WorkGroup_Start {
+            get {
+                return ResourceManager.GetString("Text.WorkGroup.Start", resourceCulture);
+            }
+        }
     }
 }

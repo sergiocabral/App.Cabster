@@ -258,7 +258,8 @@ namespace Cabster.Business.Forms
                 {
                     Text = name.Trim(),
                     ForeColor = Color.Black,
-                    BackColor = ColorForActive
+                    BackColor = ColorForActive,
+                    AutoSize = true
                 };
                 control.Tag = new ParticipantInfo(form, control);;
                 return control;

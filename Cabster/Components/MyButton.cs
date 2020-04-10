@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -55,6 +56,11 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        /// Sinaliza se o tamanho deve ser recalculado automaticamente.
+        /// </summary>
+        public bool AutoSize { get; set; }
+
+        /// <summary>
         ///     Texto do controle.
         /// </summary>
         public override string Text
@@ -80,7 +86,7 @@ namespace Cabster.Components
         /// </summary>
         private void UpdateSizeToText(string text)
         {
-            if (string.IsNullOrWhiteSpace(text)) return;
+            if (!AutoSize || string.IsNullOrWhiteSpace(text)) return;
             const int padding = 20;
             var measureText = TextRenderer.MeasureText(text, Font);
             Size = new Size(

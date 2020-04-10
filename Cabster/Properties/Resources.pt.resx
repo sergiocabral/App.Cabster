@@ -192,4 +192,7 @@ Para remover: botão esquerdo.</value>
   <data name="Text.WorkGroup.ParticipantSortHint" xml:space="preserve">
     <value>Ordenar aleatóriamente os participantes.</value>
   </data>
+  <data name="Text.WorkGroup.Start" xml:space="preserve">
+    <value>Começar</value>
+  </data>
 </root>

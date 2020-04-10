@@ -151,5 +151,25 @@ namespace Cabster.Components
             timerStatus.Enabled = false;
             labelStatus.Text = string.Empty;
         }
+
+        /// <summary>
+        /// Ao minimizar, restaurar, maximizar.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void FormLayout_SizeChanged(object sender, EventArgs args)
+        {
+            var timer = new Timer
+            {
+                Interval = 1,
+                Enabled = true
+            };
+            timer.Tick += (sender2, args2) =>
+            {
+                ((Timer) sender2).Enabled = false;
+                ((Timer) sender2).Dispose();
+                this.InvalidadeAll();
+            };
+        }
     }
 }
