@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
@@ -73,6 +75,55 @@ namespace Cabster.Business.Forms
                 (numericUpDownBreakStartsAfterHowManyRounds.Value * numericUpDownDurationOfEachRound.Value);
 
             labelBreakStartsAfterHowManyRounds_Part2.Text = textTemplate.QueryString(minutes);
+        }
+
+        /// <summary>
+        /// Ao adicionar participante.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonAddParticipant_Click(object sender, EventArgs args)
+        {
+            try
+            {
+                var newParticipant = textBoxAddParticipant.Text;
+                if (string.IsNullOrWhiteSpace(newParticipant)) return;
+
+                var currentParticipants = panelParticipants.Controls.OfType<MyButton>();
+
+                var participant = currentParticipants.SingleOrDefault(c =>
+                    string.Equals(c.Text.Trim(), newParticipant.Trim(), StringComparison.CurrentCultureIgnoreCase));
+
+                if (participant != null)
+                {
+
+                }
+                else
+                {
+                    participant = new MyButton
+                    {
+                        Text = newParticipant.Trim(),
+                    };
+                    panelParticipants.Controls.Add(participant);
+                }
+            }
+            finally
+            {
+                textBoxAddParticipant.Text = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Evento ao pressionar uma tecla.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void textBoxAddParticipant_KeyUp(object sender, KeyEventArgs args)
+        {
+            if (args.KeyCode != Keys.Enter) return;
+            buttonAddParticipant.Focus();
+            buttonAddParticipant.PerformClick();
+            ((Control) sender).Focus();
         }
     }
 }

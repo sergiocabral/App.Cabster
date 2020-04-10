@@ -45,7 +45,7 @@ namespace Cabster.Components
         {
             HandleCreated += (sender, args) =>
             {
-                foreach (Control control in Controls) OnControlAdded(control, null);
+                foreach (Control control in Controls) OnControlAdded(this, new ControlEventArgs(control));
                 var index = 0;
                 this.MakeChildrenOrganized(control => _positions[control] = index++);
             };
@@ -53,13 +53,14 @@ namespace Cabster.Components
             ControlAdded += OnControlAdded;
         }
 
-        private void OnControlAdded(object sender, ControlEventArgs? e)
+        private void OnControlAdded(object sender, ControlEventArgs e)
         {
-            var control = (Control) sender;
+            var control = e.Control;
             control.MakeAbleToMoveWithMouse();
             control.MouseUp += ControlOnMouseUp;
             if (control is MyButton myButton) myButton.UpdateSizeToText();
-            if (_positions.Count > 0) _positions[control] = _positions.Count;
+            _positions[control] = _positions.Count;
+            OnResize(this, null);
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace Cabster.Components
         /// </summary>
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
-        private void OnResize(object sender, EventArgs args)
+        private void OnResize(object sender, EventArgs? args)
         {
             if (_positions.Count == 0) return;
             this.MakeChildrenOrganized(control => _positions[control]);
