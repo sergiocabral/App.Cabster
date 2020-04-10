@@ -17,6 +17,31 @@ namespace Cabster.Business
         private const string DefaultLanguage = "en";
 
         /// <summary>
+        ///     Chave: Url
+        /// </summary>
+        private const string KeyUrl = "url";
+
+        /// <summary>
+        ///     Chave: Título
+        /// </summary>
+        private const string KeyTitle = "title";
+
+        /// <summary>
+        ///     Chave: Corpo do texto
+        /// </summary>
+        private const string KeyBody = "body";
+
+        /// <summary>
+        ///     Chave: Autor.
+        /// </summary>
+        private const string KeyAuthor = "author";
+
+        /// <summary>
+        ///     Chave: Texto traduzido.
+        /// </summary>
+        private const string KeyTranslated = "translated";
+
+        /// <summary>
         ///     Random.
         /// </summary>
         private static readonly Random Random = new Random(DateTime.Now.Millisecond);
@@ -28,215 +53,215 @@ namespace Cabster.Business
         {
             new Dictionary<string, string>
             {
-                {"url", "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
-                {"title", "Driver/Navigator Pattern"},
-                {"body", "For an idea to go from your head into the computer it MUST go through someone else's hands"},
-                {"author", "Llewellyn Falco"}
+                {KeyUrl, "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
+                {KeyTitle, "Driver/Navigator Pattern"},
+                {KeyBody, "For an idea to go from your head into the computer it MUST go through someone else's hands"},
+                {KeyAuthor, "Llewellyn Falco"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
-                {"title", "Trust your navigator"},
+                {KeyUrl, "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
+                {KeyTitle, "Trust your navigator"},
                 {
-                    "body",
+                    KeyBody,
                     "The right time to discuss and challenge design decisions is after the solution is out of the navigator's head."
                 },
-                {"author", "Llewellyn Falco"}
+                {KeyAuthor, "Llewellyn Falco"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
-                {"title", "Driving With An Idea"},
-                {"body", "What if I have an idea I want to implement? Great! Switch places and become the navigator."},
-                {"author", "Llewellyn Falco"}
+                {KeyUrl, "http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html"},
+                {KeyTitle, "Driving With An Idea"},
+                {KeyBody, "What if I have an idea I want to implement? Great! Switch places and become the navigator."},
+                {KeyAuthor, "Llewellyn Falco"}
             },
             new Dictionary<string, string>
             {
-                {"url", "https://github.com/MobProgramming/MobTimer.Python/blob/master/Tips/MobProgramming"},
-                {"title", "Mob Decision-Making"},
+                {KeyUrl, "https://github.com/MobProgramming/MobTimer.Python/blob/master/Tips/MobProgramming"},
+                {KeyTitle, "Mob Decision-Making"},
                 {
-                    "body",
+                    KeyBody,
                     "Arguing about solutions? Try going with the least experienced navigator and have the more experienced team members course correct only as needed."
                 },
-                {"author", "The Hunter Mob"}
+                {KeyAuthor, "The Hunter Mob"}
             },
             new Dictionary<string, string>
             {
-                {"url", "https://www.infoq.com/news/2016/06/mob-programming-zuill"},
-                {"title", "Lean Thinking"},
+                {KeyUrl, "https://www.infoq.com/news/2016/06/mob-programming-zuill"},
+                {KeyTitle, "Lean Thinking"},
                 {
-                    "body",
+                    KeyBody,
                     "The goal is not to be productive but effective. To draw a line with Lean Practices, being productive and not effective is usually a good way to produce waste quickly."
                 },
-                {"author", "Woody Zuill"}
+                {KeyAuthor, "Woody Zuill"}
             },
             new Dictionary<string, string>
             {
-                {"url", "https://www.infoq.com/news/2016/06/mob-programming-zuill"},
-                {"title", "Mob Programming"},
+                {KeyUrl, "https://www.infoq.com/news/2016/06/mob-programming-zuill"},
+                {KeyTitle, "Mob Programming"},
                 {
-                    "body",
+                    KeyBody,
                     "It's not about Mob Programming. It’s about discovering the principles and practices that are important in the context of the work you are doing, and the people you are working with."
                 },
-                {"author", "Woody Zuill"}
+                {KeyAuthor, "Woody Zuill"}
             },
             new Dictionary<string, string>
             {
-                {"url", "https://agilein3minut.es/32"},
-                {"title", "Shared Attention"},
+                {KeyUrl, "https://agilein3minut.es/32"},
+                {KeyTitle, "Shared Attention"},
                 {
-                    "body",
+                    KeyBody,
                     "With everyone paying attention pretty often, we stay focused, never stay stuck for long, and make better choices."
                 },
-                {"author", "Amitai Schleier"}
+                {KeyAuthor, "Amitai Schleier"}
             },
             new Dictionary<string, string>
             {
-                {"url", "https://agilein3minut.es/32"},
-                {"title", "Limit WIP"},
+                {KeyUrl, "https://agilein3minut.es/32"},
+                {KeyTitle, "Limit WIP"},
                 {
-                    "body",
+                    KeyBody,
                     "Since there's no \"my bugfix\" or \"your feature\", we naturally limit our Work In Progress."
                 },
-                {"author", "Amitai Schleier"}
+                {KeyAuthor, "Amitai Schleier"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/"},
-                {"title", "Agile Manifesto Value"},
-                {"body", "We have come to value individuals and interactions over processes and tools."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/"},
+                {KeyTitle, "Agile Manifesto Value"},
+                {KeyBody, "We have come to value individuals and interactions over processes and tools."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/"},
-                {"title", "Agile Manifesto Value"},
-                {"body", "We have come to value working software over comprehensive documentation."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/"},
+                {KeyTitle, "Agile Manifesto Value"},
+                {KeyBody, "We have come to value working software over comprehensive documentation."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/"},
-                {"title", "Agile Manifesto Value"},
-                {"body", "We have come to value customer collaboration over contract negotiation."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/"},
+                {KeyTitle, "Agile Manifesto Value"},
+                {KeyBody, "We have come to value customer collaboration over contract negotiation."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/"},
-                {"title", "Agile Manifesto Value"},
-                {"body", "We have come to value responding to change over following a plan."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/"},
+                {KeyTitle, "Agile Manifesto Value"},
+                {KeyBody, "We have come to value responding to change over following a plan."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "Our highest priority is to satisfy the customer through early and continuous delivery of valuable software."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
-                {"body", "Business people and developers must work together daily throughout the project."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
+                {KeyBody, "Business people and developers must work together daily throughout the project."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "The most efficient and effective method of conveying information to and within a development team is face-to-face conversation."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
-                {"body", "Working software is the primary measure of progress."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
+                {KeyBody, "Working software is the primary measure of progress."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
-                {"body", "Continuous attention to technical excellence and good design enhances agility."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
+                {KeyBody, "Continuous attention to technical excellence and good design enhances agility."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
-                {"body", "Simplicity--the art of maximizing the amount of work not done--is essential."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
+                {KeyBody, "Simplicity--the art of maximizing the amount of work not done--is essential."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
-                {"body", "The best architectures, requirements, and designs emerge from self-organizing teams."},
-                {"author", "Agile Manifesto Signatories"}
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
+                {KeyBody, "The best architectures, requirements, and designs emerge from self-organizing teams."},
+                {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>
             {
-                {"url", "http://agilemanifesto.org/principles.html"},
-                {"title", "Agile Manifesto Principle"},
+                {KeyUrl, "http://agilemanifesto.org/principles.html"},
+                {KeyTitle, "Agile Manifesto Principle"},
                 {
-                    "body",
+                    KeyBody,
                     "At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly."
                 },
-                {"author", "Agile Manifesto Signatories"}
+                {KeyAuthor, "Agile Manifesto Signatories"}
             }
         };
 
         /// <summary>
-        /// Última dica obtida.
+        ///     Última dica obtida.
         /// </summary>
         private static int _lastIndex = -1;
 
@@ -251,30 +276,17 @@ namespace Cabster.Business
             {
                 index = Random.Next(0, List.Count);
             } while (index == _lastIndex);
+
             var tip = List[_lastIndex = index];
 
-            if (tip.ContainsKey("_translated")) return Format(tip);
+            if (tip.ContainsKey(KeyTranslated)) return tip[KeyTranslated];
 
-            var title = await tip["title"]
-                .GoogleTranslate(DefaultLanguage, CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
-            var body = await tip["body"]
+            var translated = await $"{tip[KeyTitle]}: {tip[KeyBody]}"
                 .GoogleTranslate(DefaultLanguage, CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
 
-            tip["_translated"] = "OK";
-            tip["title"] = title;
-            tip["body"] = body;
+            tip[KeyTranslated] = $"{translated} — {tip[KeyAuthor]}";
 
-            return Format(tip);
-        }
-
-        /// <summary>
-        ///     Formata a exibição de uma dicas.
-        /// </summary>
-        /// <param name="tip">Dica.</param>
-        /// <returns>Texto formatado.</returns>
-        private static string Format(IDictionary<string, string> tip)
-        {
-            return $"{tip["title"]}: {tip["body"]} — {tip["author"]}";
+            return tip[KeyTranslated];
         }
     }
 }

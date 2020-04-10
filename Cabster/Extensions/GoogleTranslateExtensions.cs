@@ -1,9 +1,12 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Cabster.Exceptions;
 using Newtonsoft.Json;
+using Serilog;
 
 namespace Cabster.Extensions
 {
@@ -35,21 +38,30 @@ namespace Cabster.Extensions
         {
             var url = string.Format(
                 UrlMask,
-                text,
+                HttpUtility.UrlEncode(text),
                 fromLanguage,
                 toLanguage ?? CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
 
-            var response = await Task.Run(() => WebClient.DownloadString(url));
+            try
+            {
+                Log.Verbose("Requesting Google Translate: {Url}", url);
+                var response = await Task.Run(() => WebClient.DownloadString(url));
 
-            var responseJson = (dynamic)
-                (JsonConvert.DeserializeObject(response)
-                 ?? throw new IsNullOrEmptyException($"{nameof(WebClient)}.{nameof(WebClient.DownloadString)}()"));
+                var responseJson = (dynamic)
+                    (JsonConvert.DeserializeObject(response)
+                     ?? throw new IsNullOrEmptyException($"{nameof(WebClient)}.{nameof(WebClient.DownloadString)}()"));
 
-            var result = new StringBuilder();
+                var result = new StringBuilder();
 
-            foreach (var json in responseJson[0]) result.Append(json[0].ToString());
+                foreach (var json in responseJson[0]) result.Append(json[0].ToString());
 
-            return result.ToString();
+                return result.ToString();
+            }
+            catch (Exception exception)
+            {
+                Log.Error(exception, "Error on requesting Google Translate: {Url}", url);
+                return text;
+            }
         }
     }
 }
