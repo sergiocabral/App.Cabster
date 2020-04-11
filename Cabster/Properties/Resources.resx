@@ -238,4 +238,7 @@ To remove: left button.</value>
   <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
     <value>Loading another tip ...</value>
   </data>
+  <data name="Text.DialogShow.ButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

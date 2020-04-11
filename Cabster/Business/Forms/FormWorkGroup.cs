@@ -357,5 +357,10 @@ namespace Cabster.Business.Forms
             var tip = await Tips.Get();
             labelTips.Invoke(new Action(() => labelTips.Text = tip));
         }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            FormDialogAlert.Show("Teste de mensagem.");
+        }
     }
 }

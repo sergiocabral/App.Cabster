@@ -173,6 +173,18 @@
     <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
     <Compile Include="Business\Tips.cs" />
+    <Compile Include="Components\FormDialogAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\FormDialogAlert.Designer.cs">
+      <DependentUpon>FormDialogAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FormDialogBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\FormDialogBase.Designer.cs">
+      <DependentUpon>FormDialogBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -242,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FormDialogAlert.resx">
+      <DependentUpon>FormDialogAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FormDialogBase.resx">
+      <DependentUpon>FormDialogBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\FormLayout.resx">
       <DependentUpon>FormLayout.cs</DependentUpon>

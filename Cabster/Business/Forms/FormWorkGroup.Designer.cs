@@ -313,6 +313,7 @@
             this.buttonStart.TabIndex = 22;
             this.buttonStart.Text = "Text.WorkGroup.Start";
             this.buttonStart.UseVisualStyleBackColor = false;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // labelTips
             // 

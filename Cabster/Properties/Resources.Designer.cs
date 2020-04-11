@@ -308,6 +308,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Text_DialogShow_ButtonClose {
+            get {
+                return ResourceManager.GetString("Text.DialogShow.ButtonClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The interval starts after how many rounds.
         /// </summary>
         public static string Text_WorkGroup_BreakStartsAfterHowManyRounds_Part1 {
