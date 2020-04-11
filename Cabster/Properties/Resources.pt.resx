@@ -156,6 +156,18 @@
   <data name="Text.Common.Inactive" xml:space="preserve">
     <value>Inativo</value>
   </data>
+  <data name="Text.Configuration.LanguageChangeConfirm" xml:space="preserve">
+    <value>Para trocar o idioma a aplicação deve ser reiniciada.</value>
+  </data>
+  <data name="Text.Configuration.LanguageEnglish" xml:space="preserve">
+    <value>Inglês americano</value>
+  </data>
+  <data name="Text.Configuration.LanguagePortuguese" xml:space="preserve">
+    <value>Português brasileiro</value>
+  </data>
+  <data name="Text.Configuration.LanguageSelect" xml:space="preserve">
+    <value>Selecione o idioma de exibição</value>
+  </data>
   <data name="Text.Configuration.WindowTitle" xml:space="preserve">
     <value>Configurações</value>
   </data>

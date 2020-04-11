@@ -42,10 +42,18 @@ namespace Cabster.Extensions
 
                     if (propertyInfo == null || propertyInfo.PropertyType != typeof(string)) continue;
 
-                    var value = FormatResourceKey((string) propertyInfo.GetValue(control));
-                    if (!Resources.ContainsKey(value)) continue;
+                    var value = (string) propertyInfo.GetValue(control);
+                    
+                    var valuePaddingLeft = Regex.Match(value, @"^\s*").Value;
+                    var valuePaddingRight = Regex.Match(value, @"\s*$").Value;
+                    
+                    value = FormatResourceKey(value.Trim());
+                    if (string.IsNullOrWhiteSpace(value) || !Resources.ContainsKey(value)) continue;
 
-                    propertyInfo.SetValue(control, Resources[value].GetValue(null));
+                    propertyInfo.SetValue(control, 
+                        valuePaddingLeft + 
+                        Resources[value].GetValue(null) + 
+                        valuePaddingRight);
                 }
             }
 

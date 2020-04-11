@@ -353,6 +353,10 @@
     <None Include="Resources\buttonParticipantAddLeave.png" />
     <None Include="Resources\buttonConfigurationEnter.png" />
     <None Include="Resources\buttonConfigurationLeave.png" />
+    <None Include="Resources\buttonLanguagePortugueseLeave.png" />
+    <None Include="Resources\buttonLanguageEnglishEnter.png" />
+    <None Include="Resources\buttonLanguageEnglishLeave.png" />
+    <None Include="Resources\buttonLanguagePortugueseEnter.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

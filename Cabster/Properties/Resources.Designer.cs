@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -63,9 +63,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddLeave {
+        public static System.Drawing.Bitmap buttonParticipantAddEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortEnter {
+        public static System.Drawing.Bitmap buttonParticipantAddLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,19 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddEnter {
+        public static System.Drawing.Bitmap buttonLanguagePortugueseLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonLanguagePortugueseLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,16 +133,6 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap buttonResizeEnter {
             get {
                 object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
@@ -143,29 +143,29 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonCloseEnter {
+        public static System.Drawing.Bitmap buttonParticipantSortEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
+        public static System.Drawing.Bitmap buttonParticipantSortLeave {
             get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonCloseEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +183,56 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon IconSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonConfigurationEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguagePortugueseEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguagePortugueseEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguageEnglishLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguageEnglishLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap buttonConfigurationLeave {
             get {
                 object obj = ResourceManager.GetObject("buttonConfigurationLeave", resourceCulture);
@@ -193,19 +243,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeEnter {
+        public static System.Drawing.Bitmap buttonLanguageEnglishEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonLanguageEnglishEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -324,6 +364,42 @@ namespace Cabster.Properties {
         public static string Text_Common_Inactive {
             get {
                 return ResourceManager.GetString("Text.Common.Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To change the language, the application must be restarted..
+        /// </summary>
+        public static string Text_Configuration_LanguageChangeConfirm {
+            get {
+                return ResourceManager.GetString("Text.Configuration.LanguageChangeConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to American english.
+        /// </summary>
+        public static string Text_Configuration_LanguageEnglish {
+            get {
+                return ResourceManager.GetString("Text.Configuration.LanguageEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brazilian portuguese.
+        /// </summary>
+        public static string Text_Configuration_LanguagePortuguese {
+            get {
+                return ResourceManager.GetString("Text.Configuration.LanguagePortuguese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the display language.
+        /// </summary>
+        public static string Text_Configuration_LanguageSelect {
+            get {
+                return ResourceManager.GetString("Text.Configuration.LanguageSelect", resourceCulture);
             }
         }
         

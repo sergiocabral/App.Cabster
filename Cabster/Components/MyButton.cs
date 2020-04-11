@@ -60,6 +60,11 @@ namespace Cabster.Components
         public bool NotTransparent { get; set; }
 
         /// <summary>
+        ///     Não apaga o texto do botão.
+        /// </summary>
+        public bool UseText { get; set; }
+
+        /// <summary>
         ///     Texto do controle.
         /// </summary>
         public override string Text
@@ -85,7 +90,7 @@ namespace Cabster.Components
         /// </summary>
         private void UpdateSizeToText(string text)
         {
-            if (!AutoSize || string.IsNullOrWhiteSpace(text)) return;
+            if (!AutoSize || _buttonIcon) return;
             const int padding = 20;
             var measureText = TextRenderer.MeasureText(text, Font);
             Size = new Size(
@@ -104,16 +109,21 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        /// Sinaliza que é um botão de ícone.
+        /// </summary>
+        private bool _buttonIcon;
+
+        /// <summary>
         ///     Atualiza a exibição do controle.
         /// </summary>
         public void UpdateLayout()
         {
-            if (Images.ContainsKey(Name))
+            if (_buttonIcon = Images.ContainsKey(Name))
             {
                 var (bitmapLeave, bitmapEnter) = Images[Name];
                 this.MakeImageHover("Image", bitmapLeave, bitmapEnter);
 
-                Text = string.Empty;
+                if (!UseText) Text = string.Empty;
 
                 FlatAppearance.BorderSize = 0;
 
