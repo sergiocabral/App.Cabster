@@ -67,7 +67,7 @@
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(701, 50);
-            this.labelTitle.TabIndex = 13;
+            this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "labelTitle";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -86,7 +86,7 @@
             this.buttonMinimize.Location = new System.Drawing.Point(716, 0);
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
-            this.buttonMinimize.TabIndex = 12;
+            this.buttonMinimize.TabIndex = 5;
             this.toolTip.SetToolTip(this.buttonMinimize, "Action.MinimizeWindow");
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
@@ -106,7 +106,7 @@
             this.buttonClose.Location = new System.Drawing.Point(766, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
-            this.buttonClose.TabIndex = 9;
+            this.buttonClose.TabIndex = 4;
             this.toolTip.SetToolTip(this.buttonClose, "Action.TerminateApplication");
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -118,7 +118,7 @@
             this.panelTitleMarginRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleMarginRight.Name = "panelTitleMarginRight";
             this.panelTitleMarginRight.Size = new System.Drawing.Size(15, 50);
-            this.panelTitleMarginRight.TabIndex = 6;
+            this.panelTitleMarginRight.TabIndex = 2;
             // 
             // panelTitleMarginLeft
             // 
@@ -127,7 +127,7 @@
             this.panelTitleMarginLeft.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleMarginLeft.Name = "panelTitleMarginLeft";
             this.panelTitleMarginLeft.Size = new System.Drawing.Size(15, 50);
-            this.panelTitleMarginLeft.TabIndex = 4;
+            this.panelTitleMarginLeft.TabIndex = 1;
             // 
             // buttonResize
             // 
@@ -144,7 +144,7 @@
             this.buttonResize.Location = new System.Drawing.Point(807, 491);
             this.buttonResize.Name = "buttonResize";
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
-            this.buttonResize.TabIndex = 1;
+            this.buttonResize.TabIndex = 8;
             this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");
             this.buttonResize.UseVisualStyleBackColor = false;
             // 
@@ -160,7 +160,7 @@
             this.panelLogo.Location = new System.Drawing.Point(0, 50);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(225, 100);
-            this.panelLogo.TabIndex = 2;
+            this.panelLogo.TabIndex = 6;
             this.panelLogo.Visible = false;
             // 
             // labelStatus
@@ -172,7 +172,7 @@
             this.labelStatus.Location = new System.Drawing.Point(12, 480);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(789, 25);
-            this.labelStatus.TabIndex = 3;
+            this.labelStatus.TabIndex = 7;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timerStatus

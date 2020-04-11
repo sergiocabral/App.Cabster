@@ -67,6 +67,8 @@ namespace Cabster.Business.Forms
             var currentScreen = Screen.FromControl(this);
             Left = currentScreen.Bounds.Left + (currentScreen.Bounds.Width - Width) / 2;
             Top = currentScreen.Bounds.Top + (currentScreen.Bounds.Height - Height) / 2;
+
+            Shown += (sender, args) => buttonStart.Focus(); 
             
             labelTips.Text = string.Empty;
         }
@@ -341,7 +343,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
-        private void labelTips_DoubleClick(object sender, EventArgs args)
+        private void labelTips_Click(object sender, EventArgs args)
         {
             SetStatusMessage(Resources.Text_WorkGroup_TipsLoading);
             LoadTip();

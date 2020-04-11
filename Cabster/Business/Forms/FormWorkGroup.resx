@@ -153,35 +153,31 @@
   <data name="buttonParticipantAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAH
-        EwAABxMBziAPCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEYSURBVDhPzZXL
-        aoNAFIZNyTqQnQqCL5Fue0kTiKJ4Q8F2275AKbj0gbMPgZDJ+YJTEjFdJEOo8DOHc/k8M+OMllJq1Lbt
-        pGma6S2CAcvC8H1/7Xne5hbBgGVBx+E4zt627d01ohYGrF8ggTAMv/M8f0vT9BUlSTKXcVFV1TvC7nzH
-        OLnUUDsIpEDaHoseOo3F9ySxLcIeiC8uAouimJNodQ+2dPRMDGH349TcHXg2pSzLXjQQux//ExhF0UoW
-        f6ZV1/VjHMdfGoiN7zSHmotAWeBPGdmAI0DLdV2F+n4RG0XNnYDGp2x8UzrgP/4OOUaS1D9a1x+9IAh+
-        SOCtWtLVsizLD4R9GiOXmkGgsetL2jZ7wZr9BajRAfNpCRsC516YAAAAAElFTkSuQmCC
+        EwAABxMBziAPCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEZSURBVDhPzZVP
+        ToNAGMWpLk08iO7823gC4073dQuDoYthgAkr9tyEy3gCFy6KCZfA76dTQyZoYjpp2uSXvpn3vUegQKNx
+        HBdt255kWXa6C3TQFSFUnL6qJH3bCemgK6KdjSRJB6EXNv+EzEAHXdPCPs/zVVmWN8IVyPqadVHYe0C7
+        vS/frVdk5wo3xpjbruuOm6Y5AnRd1xdxrN4B7ftkyM4WckQGI/dBW2sv8QDt+2T2W+ifkl/o+38Wrtf6
+        Ti7y2Zaqqs7l+0m8D0C7vZ8ZMr8WGmMfufjoCb1SLwOgpx6zZND7KQx+ysF/FEwG3V1xgPdh6Eev17p4
+        ZoCjbtFaL2X/4Ru9nHrMkiE7Vxjm9RX8BRv2L2BcfAJObrYRpRxQrQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="buttonParticipantSort.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAG
-        7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALcSURBVEhLvZY/
-        T5NRFMZBm1IZKukfKgVFytSQFiIDSWNSSkgEOzQMtIGYJm6GCEmTDm2JCXFoOtWE2UUcTPoBXPwMaIDE
-        QUWNC5OpiDs+v3qLL+UtFAef5Ay995z7vPec55zbrlZsbGxcWV1ddVerVU+5XPa2WqVSuY6PcT8D9nK5
-        3LVarXbVLJ0PyMLh8KvR0dHtUCj0zmpaeyt7o0P7jPspQFYsFv3RaLScSqVim5ubPVru/rPbBtxiZGRk
-        x+fz/fR6vYeyHxarBwKBrxxq3E8Amax/cnLyucfjqQ8NDX1aXl6evZBUQT4R7orwcGpqaiuRSKzJVrB4
-        PL4Si8UeyMdl3BuArFQqBSYmJl7yYX6//5fsSKT7kBp/e9ImIYEzMzOPSbGsp2nadx4fH58EtyFrmD76
-        KBgMflF677e9qZVwenr6ESRmyxbyd6tmL/AnK6r1Z4iGh4cPRHZAaQYHB/cXFhbuytdhwv7iMoTcNJvN
-        3tKBe9RtbGzs9fz8/BNiJa73S0tLDwcGBr5p77syoKNPl6KByxCCxcVFZyaTuROJRJ4VCoXb1JpYnbG3
-        vr5+c25u7t74+PhT2kxnn22nyxICek5xvfQfMYZwFzVr3SFz2ZKBfyFsAl8rIWeZrfb4L4RcV8a1HaTB
-        SkiatN7byajqiBAyCkphKTCFlvMeQQgAISAIhIFATJgtOiV0IVmki4SRMpImCIkjdSSP9GkBa9O3olNC
-        B01Jc9KkNCtNS/OaJm7MU5pbvm4TZotOa9jN2NHN4pp9HyG1jieCldKagm/ITqTNTfXbCYnF3IzDiwgb
-        gDSdTs8ycEV01CRjRraSAf12McgZ6M3hLltj4JOVCwkF600/UDcJaYvB3EoGUDNPlT6qzodZ7JAsiXCH
-        p864t4fk70wmkzHdrJzP5/vtyIDW+3iMeZStjzSmtW0ecVJs3M8HPWf6z34cCezxd8P696NptBlkZ+O7
-        un4D8GKylYct+v4AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="labelTips.Text" xml:space="preserve">
-    <value>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+        7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALYSURBVEhLvVbL
+        btNAFE0hSkMXoeJRWIDEF7CrumBBF3wBUnYIlUrUHo/HTpx3ooquoqwiEWDDB4CUXygPsamACqlLBFIB
+        kZCWnwjnJOPgOk6TsOBIV7Fn7p3j+5zEwtjZ2TmjlEo1m80L9Xr9YlgajcZ56mj1MXAvm82ea7fbZ/XS
+        6SCZUs5Ty1K7UqrXQcHaKynslzh0WaufAMkqlcplKWUplyuvtlqtRSwvDHcngF4IU741TatrGNZP/H73
+        xTDEN9OQ+zxUq49AMsiK67jNrS1xKIT8CL3bU0lhdMky5TuSuW72mavchwWvsEHxMt6GUpm70Elq9QFI
+        Vq1WrziIDD7qBz7uN6RnmnK/XC6va/1oUp+QHnmetzkMsVr0BfuJfr8/Mh6RORlNJo/gHQmPIb/w/imf
+        z9+Z6GmI8D5J9FYkoI8Pch9TH9JBjg/w2xPC/mIJ+RnP3WF4t9egG9dmfzEPIT0tFovXhGG9YX5t232R
+        zxcL9BRn7JVKpXt4PkBOvzqO4+HsE6kYYF4P0+l0AiG7aVv2I+TrBlriAW15Rq1Wu469dUQgxzbD2ePt
+        NC8hwZ6D3RL7jzY+IasZ63FIMpKM+BdCH9QNEvIsvTUZ/4WQ7kLodpxhCBIyTFhfmmVUzURIMiaUiWWC
+        mWifkAXAQmBBsDBYINosErMSJlmyLF2WMEsZynssbZY4S50lz9JnCwSbPoxZCRHG7TU2JxQ7bFY2LZ57
+        uok7JGdzQzelzSIxaw4XOHaQu1sYQx9wOMaRdTwcT/KIZPDyOYyvQkalTU/xniBJQFIg3JxGOABJmUMO
+        XHpHQpJxIIfJCLwnOcg50P3hzkHPgc/BP5UQGHkqhPUeRoe2rZ5wMIfJCFYzryrmlx75oq+0Lq84XnVa
+        fTJQ/gnXza0iPCV4vBJFRmB9mZfx4FIev6h3eYkzxFr9dLDndP9FjyOAe/y7Efz74cuwzVRq3D4W+wMF
+        GUMTWL9iDgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
