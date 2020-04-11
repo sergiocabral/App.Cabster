@@ -1,11 +1,12 @@
 ﻿using MediatR;
+using Serilog;
 
 namespace Cabster.Infrastructure
 {
     /// <summary>
     ///     Classe base para qualquer evento
     /// </summary>
-    public abstract class MessengerNotification : INotification
+    public abstract class MessengerNotification : MessengerBase, INotification
     {
     }
 

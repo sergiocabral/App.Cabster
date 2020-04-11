@@ -8,6 +8,11 @@ namespace Cabster.Business.Messenger.Request
     public class SinalizeApplicationClock : MessengerRequest
     {
         /// <summary>
+        /// Ignora o log desse Request.
+        /// </summary>
+        protected override bool IgnoreLog { get; } = true;
+
+        /// <summary>
         ///     Contagem de clocks executados.
         /// </summary>
         private static int _count;

@@ -15,13 +15,14 @@ namespace Cabster.Business.Messenger.RequestHandlers
     public class Application :
         MessengerHandler,
         IRequestHandler<InitializeApplication>,
-        IRequestHandler<SinalizeApplicationClock>,
         IRequestHandler<FinalizeApplication>
     {
         /// <summary>
         ///     Janela principal do sistema.
         /// </summary>
         private readonly FormMainWindow _formMainWindow;
+
+        private readonly IDependencyResolver _dependencyResolver;
 
         /// <summary>
         ///     Barramento de mensagens.
@@ -33,10 +34,11 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// </summary>
         /// <param name="messageBus">IMediator</param>
         /// <param name="formMainWindow">Janela principal do sistema.</param>
-        public Application(IMediator messageBus, FormMainWindow formMainWindow)
+        public Application(IMediator messageBus, FormMainWindow formMainWindow, IDependencyResolver dependencyResolver)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
+            _dependencyResolver = dependencyResolver;
         }
 
         /// <summary>
@@ -61,20 +63,8 @@ namespace Cabster.Business.Messenger.RequestHandlers
         public Task<Unit> Handle(InitializeApplication request, CancellationToken cancellationToken)
         {
             Log.Information("Application started.");
-            _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
+            _messageBus.Send(new OpenFormWorkGroup(), cancellationToken);
             System.Windows.Forms.Application.Run(_formMainWindow);
-            return Unit.Task;
-        }
-
-        /// <summary>
-        ///     Processa o comando: SinalizeApplicationClock
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
-        {
-            _messageBus.Publish(new ApplicationClockSignaled(request), cancellationToken);
             return Unit.Task;
         }
     }

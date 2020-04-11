@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Cabster.Exceptions;
 using Cabster.Properties;
+using MediatR;
 using Serilog;
 using Serilog.Core;
 using Serilog.Enrichers;
@@ -24,16 +25,30 @@ namespace Cabster.Infrastructure
         public static void LogClassInstantiate<T>(this T instance) where T : notnull
         {
             var type = instance.GetType();
-            var typeDisposable = typeof(IDisposable);
 
-            if (typeDisposable.IsAssignableFrom(type))
-                Log.Verbose(
-                    "New instance of {Type} : {Interface}.",
-                    type.FullName, typeDisposable.Name);
-            else
-                Log.Verbose(
-                    "New instance of {Type}.",
-                    type.FullName);
+            switch (instance)
+            {
+                case IDisposable _:
+                    Log.Verbose(
+                        "New instance of {Type} : {Interface}.",
+                        type.FullName, nameof(IDisposable));
+                    break;
+                case MessengerHandler _:
+                    Log.Verbose("New instance of message handler: {Type}",
+                        type.Name);
+                    break;
+                case IRequest _:
+                case INotification _:
+                    Log.Verbose("New instance of message {MessageType}: {Type}",
+                        instance is IRequest ? nameof(IRequest) : nameof(INotification),
+                        type.Name);
+                    break;
+                default:
+                    Log.Verbose(
+                        "New instance of {Type}.",
+                        type.FullName);
+                    break;
+            }
         }
 
         /// <summary>

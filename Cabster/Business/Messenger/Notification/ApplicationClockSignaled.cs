@@ -9,6 +9,11 @@ namespace Cabster.Business.Messenger.Notification
     public class ApplicationClockSignaled : MessengerNotification<SinalizeApplicationClock>
     {
         /// <summary>
+        /// Ignora o log desse Request.
+        /// </summary>
+        protected override bool IgnoreLog { get; } = true;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="request">Comando.</param>

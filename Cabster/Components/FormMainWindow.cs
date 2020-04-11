@@ -15,15 +15,8 @@ namespace Cabster.Components
     /// <summary>
     ///     Janela principal da aplicação.
     /// </summary>
-    public partial class FormMainWindow :
-        FormBase,
-        INotificationHandler<ApplicationInitialized>
+    public partial class FormMainWindow : FormBase
     {
-        /// <summary>
-        ///     Cronômetro para exibição do clock.
-        /// </summary>
-        private readonly Stopwatch _stopwatchClocksToShow = new Stopwatch();
-
         /// <summary>
         ///     Sinaliza que a aplicação foi inicializada.
         /// </summary>
@@ -38,27 +31,19 @@ namespace Cabster.Components
             InitializeComponent2();
         }
 
-        public new Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
-        {
-            if (_applicationInitialized)
-                throw new ExpectedSingleOperationException(nameof(ApplicationInitialized));
-
-            _applicationInitialized = true;
-
-            Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
-
-            return Unit.Task;
-        }
-
         /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
         {
             this.MakeInvisible();
-            _stopwatchClocksToShow.Start();
+            Task.Run(() =>
+            {
+                _applicationInitialized = true;
+                Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
+            });
         }
-
+        
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
@@ -67,7 +52,7 @@ namespace Cabster.Components
         private void OnTimerTick(object sender, EventArgs args)
         {
             if (!_applicationInitialized) return;
-
+            
             ((Timer) sender).Enabled = false;
 
             try
@@ -75,19 +60,10 @@ namespace Cabster.Components
                 var requestSinalizeApplicationClock = new SinalizeApplicationClock();
                 MessageBus.Send(requestSinalizeApplicationClock);
 
-                const int clocksToShow = 5;
-                const int clocksToShowInterval = 60000;
-                // ReSharper disable once InvertIf
-                if (requestSinalizeApplicationClock.TickCount <= clocksToShow ||
-                    _stopwatchClocksToShow.ElapsedMilliseconds >= clocksToShowInterval)
-                {
+                if (requestSinalizeApplicationClock.TickCount % 1000 == 0 ||
+                    requestSinalizeApplicationClock.TickCount == 1)
                     Log.Verbose("Clock: {ClockTickCount}",
-                        requestSinalizeApplicationClock.TickCount != clocksToShow
-                            ? requestSinalizeApplicationClock.TickCount.ToString()
-                            : "And go on ..."
-                    );
-                    _stopwatchClocksToShow.Restart();
-                }
+                            requestSinalizeApplicationClock.TickCount);
             }
             finally
             {

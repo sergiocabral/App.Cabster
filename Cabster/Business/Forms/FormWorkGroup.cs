@@ -22,9 +22,7 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela de trabalho em grupo.
     /// </summary>
-    public partial class FormWorkGroup :
-        FormLayout,
-        INotificationHandler<ApplicationInitialized>
+    public partial class FormWorkGroup : FormLayout
     {
         /// <summary>
         ///     Construtor.
@@ -33,18 +31,6 @@ namespace Cabster.Business.Forms
         {
             InitializeComponent();
             InitializeComponent2();
-        }
-
-        /// <summary>
-        ///     Processa o evento: ApplicationInitialized
-        /// </summary>
-        /// <param name="notification">Evento.</param>
-        /// <param name="cancellationToken">Token.</param>
-        /// <returns>Task</returns>
-        public new Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
-        {
-            Show();
-            return Unit.Task;
         }
 
         /// <summary>
@@ -359,9 +345,24 @@ namespace Cabster.Business.Forms
             labelTips.Invoke(new Action(() => labelTips.Text = tip));
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Evento: botão começar.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonStart_Click(object sender, EventArgs args)
         {
             Log.Information("Resposta: {value}", FormDialogConfirm.Show("Teste de mensagem."));
+        }
+
+        /// <summary>
+        /// Evento: botão configurações.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonConfiguration_Click(object sender, EventArgs args)
+        {
+            MessageBus.Send(new OpenFormConfiguration());
         }
     }
 }

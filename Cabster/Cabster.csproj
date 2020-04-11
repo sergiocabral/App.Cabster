@@ -158,6 +158,12 @@
     <Compile Include="Business\Entities\WorkGroupParticipantSet.cs" />
     <Compile Include="Business\Entities\WorkGroupSet.cs" />
     <Compile Include="Business\Entities\WorkGroupStatisticsSet.cs" />
+    <Compile Include="Business\Forms\FormConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Forms\FormConfiguration.Designer.cs">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\Forms\FormWorkGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,11 +173,14 @@
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\Clock.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\OpenForms.cs" />
     <Compile Include="Business\Messenger\Request\FinalizeApplication.cs" />
+    <Compile Include="Business\Messenger\Request\OpenFormConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\InitializeApplication.cs" />
+    <Compile Include="Business\Messenger\Request\OpenFormWorkGroup.cs" />
     <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
-    <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Components\FormDialogConfirm.cs">
       <SubType>Form</SubType>
@@ -245,6 +254,7 @@
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
+    <Compile Include="Infrastructure\MessengerBase.cs" />
     <Compile Include="Infrastructure\MessengerHandler.cs" />
     <Compile Include="Infrastructure\MessengerRequest.cs" />
     <Compile Include="Infrastructure\DependencyResolverConfiguration.cs" />
@@ -255,6 +265,9 @@
     <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">
       <DependentUpon>FormWorkGroup.cs</DependentUpon>
     </EmbeddedResource>
