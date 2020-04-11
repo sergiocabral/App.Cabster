@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 using Cabster.Exceptions;
 using Cabster.Properties;
 using MediatR;
@@ -26,29 +27,34 @@ namespace Cabster.Infrastructure
         {
             var type = instance.GetType();
 
+            const string messageTemplate = "New instance of {Context}: {Type}";
+            string context;
+            string typeName;
+
             switch (instance)
             {
-                case IDisposable _:
-                    Log.Verbose(
-                        "New instance of {Type} : {Interface}.",
-                        type.FullName, nameof(IDisposable));
-                    break;
                 case MessengerHandler _:
-                    Log.Verbose("New instance of message handler: {Type}",
-                        type.Name);
+                    context = nameof(MessengerHandler);
+                    typeName = type.Name;
                     break;
-                case IRequest _:
-                case INotification _:
-                    Log.Verbose("New instance of message {MessageType}: {Type}",
-                        instance is IRequest ? nameof(IRequest) : nameof(INotification),
-                        type.Name);
+                case Form _:
+                    context = nameof(Form);
+                    typeName = type.Name;
+                    break;
+                case MessengerRequest _:
+                case MessengerNotification _:
+                    context = instance is MessengerRequest ? nameof(MessengerRequest) : nameof(MessengerNotification);
+                    typeName = type.Name;
                     break;
                 default:
-                    Log.Verbose(
-                        "New instance of {Type}.",
-                        type.FullName);
+                    context = nameof(Object);
+                    typeName = type.FullName;
                     break;
             }
+
+            if (instance is IDisposable) typeName += " : " + nameof(IDisposable);
+
+            Log.Verbose(messageTemplate, context, typeName);
         }
 
         /// <summary>
@@ -58,17 +64,32 @@ namespace Cabster.Infrastructure
         public static void LogClassDispose<T>(this T instance) where T : notnull
         {
             var type = instance.GetType();
-            var typeDisposable = typeof(IDisposable);
 
-            if (typeDisposable.IsAssignableFrom(type))
-                Log.Verbose(
-                    "Dispose instance of {Type} : {Interface}.",
-                    type.FullName, typeDisposable.Name);
-            else
+            if (!typeof(IDisposable).IsAssignableFrom(type))
                 throw new WrongArgumentException(
                     nameof(LoggerConfiguration),
                     nameof(LogClassDispose),
                     nameof(instance));
+
+            const string messageTemplate = "Dispose instance of {Context}: {Type}";
+            string context;
+            string typeName;
+
+            switch (instance)
+            {
+                case Form _:
+                    context = nameof(Form);
+                    typeName = type.Name;
+                    break;
+                default:
+                    context = nameof(Object);
+                    typeName = instance.GetType().FullName;
+                    break;
+            }
+
+            if (instance is IDisposable) typeName += " : " + nameof(IDisposable);
+
+            Log.Verbose(messageTemplate, context, typeName);
         }
 
         /// <summary>

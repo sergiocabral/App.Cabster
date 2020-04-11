@@ -61,38 +61,11 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimize window..
-        /// </summary>
-        public static string Action_MinimizeWindow {
-            get {
-                return ResourceManager.GetString("Action.MinimizeWindow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Resize window..
-        /// </summary>
-        public static string Action_ResizeWindow {
-            get {
-                return ResourceManager.GetString("Action.ResizeWindow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Close application..
-        /// </summary>
-        public static string Action_TerminateApplication {
-            get {
-                return ResourceManager.GetString("Action.TerminateApplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonCloseEnter {
+        public static System.Drawing.Bitmap buttonParticipantAddLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -100,39 +73,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonCloseLeave {
+        public static System.Drawing.Bitmap buttonParticipantSortEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonConfigurationLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -160,9 +103,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddLeave {
+        public static System.Drawing.Bitmap buttonResizeLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonResizeLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -170,9 +113,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortEnter {
+        public static System.Drawing.Bitmap FormBackground {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -200,10 +143,97 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonResizeLeave {
+        public static System.Drawing.Bitmap buttonCloseEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonResizeLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon IconSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonCloseLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonConfigurationLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonConfigurationLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonMinimizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonMinimizeEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonConfigurationEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize window..
+        /// </summary>
+        public static string Action_MinimizeWindow {
+            get {
+                return ResourceManager.GetString("Action.MinimizeWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resize window..
+        /// </summary>
+        public static string Action_ResizeWindow {
+            get {
+                return ResourceManager.GetString("Action.ResizeWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close application..
+        /// </summary>
+        public static string Action_TerminateApplication {
+            get {
+                return ResourceManager.GetString("Action.TerminateApplication", resourceCulture);
             }
         }
         
@@ -267,36 +297,6 @@ namespace Cabster.Properties {
         public static string Exception_Infrastructure_ConfigurationIsManagedInternally {
             get {
                 return ResourceManager.GetString("Exception.Infrastructure.ConfigurationIsManagedInternally", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
