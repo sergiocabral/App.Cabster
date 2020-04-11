@@ -88,7 +88,7 @@
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.NotTransparent = false;
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
-            this.buttonMinimize.TabIndex = 5;
+            this.buttonMinimize.TabIndex = 4;
             this.toolTip.SetToolTip(this.buttonMinimize, "Action.MinimizeWindow");
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
@@ -109,7 +109,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.NotTransparent = false;
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
-            this.buttonClose.TabIndex = 4;
+            this.buttonClose.TabIndex = 5;
             this.toolTip.SetToolTip(this.buttonClose, "Action.TerminateApplication");
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -200,6 +200,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormLayout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLayout";

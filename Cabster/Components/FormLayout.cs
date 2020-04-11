@@ -75,7 +75,7 @@ namespace Cabster.Components
             Resize += (sender, args) =>
             {
                 buttonResize.Left = Width - buttonResize.Width;
-                buttonResize.Top = Height - buttonResize.Height + 1;
+                buttonResize.Top = Height - buttonResize.Height;
 
                 labelStatus.Left = 10;
                 labelStatus.Top = Height - labelStatus.Height - labelStatus.Left;
