@@ -1,6 +1,6 @@
 ﻿using Cabster.Infrastructure;
 
-namespace Cabster.Business.Messenger.Notification
+namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Abrir janela de configuração.

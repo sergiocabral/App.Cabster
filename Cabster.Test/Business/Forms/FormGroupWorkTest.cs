@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Cabster.Business.Forms
 {
-    public class FormWorkGroupTest
+    public class FormGroupWorkTest
     {
         [Fact]
         public void deve_ser_possível_criar_uma_instância_sem_falhar()
@@ -14,7 +14,7 @@ namespace Cabster.Business.Forms
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormWorkGroup()
+            Action criar = () => new FormGroupWork()
                 .AbrirFecharDescartar()
                 .Descartar();
 
@@ -29,7 +29,7 @@ namespace Cabster.Business.Forms
             // Arrange, Given
             // Act, When
 
-            var sut = typeof(FormWorkGroup);
+            var sut = typeof(FormGroupWork);
 
             // Assert, Then
 

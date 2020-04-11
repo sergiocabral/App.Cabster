@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
-using Cabster.Business.Forms;
+﻿using Cabster.Business.Forms;
 using Cabster.Components;
-using Cabster.Exceptions;
 using MediatR;
-using MediatR.Registration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Cabster.Infrastructure
 {
@@ -27,7 +19,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.AddInstance<IDependencyResolver>(dependencyResolver);
 
             dependencyResolver.Register<FormMainWindow, FormMainWindow>();
-            dependencyResolver.Register<FormWorkGroup, FormWorkGroup>();
+            dependencyResolver.Register<FormGroupWork, FormGroupWork>();
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
 
             dependencyResolver.ServiceCollection.AddMediatR(typeof(Program));

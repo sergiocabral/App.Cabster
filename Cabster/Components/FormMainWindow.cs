@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
-using Cabster.Business.Messenger.Notification;
+using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
-using Cabster.Exceptions;
 using Cabster.Extensions;
-using MediatR;
 using Serilog;
-using Timer = System.Windows.Forms.Timer;
 
 namespace Cabster.Components
 {
@@ -43,7 +38,7 @@ namespace Cabster.Components
                 Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
             });
         }
-        
+
         /// <summary>
         ///     Clock de funcionamento da aplicação.
         /// </summary>
@@ -52,7 +47,7 @@ namespace Cabster.Components
         private void OnTimerTick(object sender, EventArgs args)
         {
             if (!_applicationInitialized) return;
-            
+
             ((Timer) sender).Enabled = false;
 
             try
@@ -63,7 +58,7 @@ namespace Cabster.Components
                 if (requestSinalizeApplicationClock.TickCount % 1000 == 0 ||
                     requestSinalizeApplicationClock.TickCount == 1)
                     Log.Verbose("Clock: {ClockTickCount}",
-                            requestSinalizeApplicationClock.TickCount);
+                        requestSinalizeApplicationClock.TickCount);
             }
             finally
             {

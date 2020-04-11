@@ -273,10 +273,8 @@ namespace Cabster.Business
             var translated = $"{tip[KeyTitle]}: {tip[KeyBody]}";
 
             if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName != DefaultLanguage)
-            {
                 translated = await translated
                     .GoogleTranslate(DefaultLanguage, CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
-            }
 
             tip[KeyTranslated] = $"{translated} — {tip[KeyAuthor]}";
 

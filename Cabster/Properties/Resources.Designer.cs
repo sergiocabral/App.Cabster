@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -61,82 +61,29 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Minimize window..
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddLeave {
+        public static string Action_MinimizeWindow {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Action.MinimizeWindow", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Resize window..
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortEnter {
+        public static string Action_ResizeWindow {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Action.ResizeWindow", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Close application..
         /// </summary>
-        public static System.Drawing.Bitmap buttonMinimizeLeave {
+        public static string Action_TerminateApplication {
             get {
-                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonResizeLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonResizeLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonResizeEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Action.TerminateApplication", resourceCulture);
             }
         }
         
@@ -151,21 +98,11 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
+        public static System.Drawing.Bitmap buttonCloseLeave {
             get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +110,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonCloseLeave {
+        public static System.Drawing.Bitmap buttonConfigurationEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,37 +140,70 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationEnter {
+        public static System.Drawing.Bitmap buttonMinimizeLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonMinimizeLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimize window..
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static string Action_MinimizeWindow {
+        public static System.Drawing.Bitmap buttonParticipantAddEnter {
             get {
-                return ResourceManager.GetString("Action.MinimizeWindow", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resize window..
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static string Action_ResizeWindow {
+        public static System.Drawing.Bitmap buttonParticipantAddLeave {
             get {
-                return ResourceManager.GetString("Action.ResizeWindow", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close application..
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static string Action_TerminateApplication {
+        public static System.Drawing.Bitmap buttonParticipantSortEnter {
             get {
-                return ResourceManager.GetString("Action.TerminateApplication", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonParticipantSortLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonResizeEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonResizeLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonResizeLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -297,6 +267,36 @@ namespace Cabster.Properties {
         public static string Exception_Infrastructure_ConfigurationIsManagedInternally {
             get {
                 return ResourceManager.GetString("Exception.Infrastructure.ConfigurationIsManagedInternally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon IconSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -366,90 +366,90 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The interval starts after how many rounds.
         /// </summary>
-        public static string Text_WorkGroup_BreakStartsAfterHowManyRounds_Part1 {
+        public static string Text_GroupWork_BreakStartsAfterHowManyRounds_Part1 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.BreakStartsAfterHowManyRounds_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to rounds. Every {minutes} minute(s)..
         /// </summary>
-        public static string Text_WorkGroup_BreakStartsAfterHowManyRounds_Part2 {
+        public static string Text_GroupWork_BreakStartsAfterHowManyRounds_Part2 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.BreakStartsAfterHowManyRounds_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Opens the configuration options..
         /// </summary>
-        public static string Text_WorkGroup_ConfigurationHint {
+        public static string Text_GroupWork_ConfigurationHint {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ConfigurationHint", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ConfigurationHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Duration of each break.
         /// </summary>
-        public static string Text_WorkGroup_DurationOfEachBreak_Part1 {
+        public static string Text_GroupWork_DurationOfEachBreak_Part1 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.DurationOfEachBreak_Part1", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.DurationOfEachBreak_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to minute(s)..
         /// </summary>
-        public static string Text_WorkGroup_DurationOfEachBreak_Part2 {
+        public static string Text_GroupWork_DurationOfEachBreak_Part2 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.DurationOfEachBreak_Part2", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.DurationOfEachBreak_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Duration of each round.
         /// </summary>
-        public static string Text_WorkGroup_DurationOfEachRound_Part1 {
+        public static string Text_GroupWork_DurationOfEachRound_Part1 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.DurationOfEachRound_Part1", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.DurationOfEachRound_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to minute(s)..
         /// </summary>
-        public static string Text_WorkGroup_DurationOfEachRound_Part2 {
+        public static string Text_GroupWork_DurationOfEachRound_Part2 {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.DurationOfEachRound_Part2", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.DurationOfEachRound_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter the participant&apos;s name..
         /// </summary>
-        public static string Text_WorkGroup_ParticipantAdd {
+        public static string Text_GroupWork_ParticipantAdd {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ParticipantAdd", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ParticipantAdd", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Click here to add a participant..
         /// </summary>
-        public static string Text_WorkGroup_ParticipantAddHint {
+        public static string Text_GroupWork_ParticipantAddHint {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ParticipantAddHint", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ParticipantAddHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to To add a participant enter a name..
         /// </summary>
-        public static string Text_WorkGroup_ParticipantNameEmpty {
+        public static string Text_GroupWork_ParticipantNameEmpty {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ParticipantNameEmpty", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ParticipantNameEmpty", resourceCulture);
             }
         }
         
@@ -459,45 +459,45 @@ namespace Cabster.Properties {
         ///To activate or deactivate: right button.
         ///To remove: left button..
         /// </summary>
-        public static string Text_WorkGroup_ParticipantRemoveHint {
+        public static string Text_GroupWork_ParticipantRemoveHint {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ParticipantRemoveHint", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ParticipantRemoveHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Randomly sort the participants..
         /// </summary>
-        public static string Text_WorkGroup_ParticipantSortHint {
+        public static string Text_GroupWork_ParticipantSortHint {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.ParticipantSortHint", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.ParticipantSortHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Start Mob.
         /// </summary>
-        public static string Text_WorkGroup_Start {
+        public static string Text_GroupWork_Start {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.Start", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.Start", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Loading another tip ....
         /// </summary>
-        public static string Text_WorkGroup_TipsLoading {
+        public static string Text_GroupWork_TipsLoading {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.TipsLoading", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.TipsLoading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Work Group.
+        ///   Looks up a localized string similar to Group Work as MOB.
         /// </summary>
-        public static string Text_WorkGroup_WindowTitle {
+        public static string Text_GroupWork_WindowTitle {
             get {
-                return ResourceManager.GetString("Text.WorkGroup.WindowTitle", resourceCulture);
+                return ResourceManager.GetString("Text.GroupWork.WindowTitle", resourceCulture);
             }
         }
     }

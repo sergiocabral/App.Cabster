@@ -31,6 +31,15 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Mensagem de status.
+        /// </summary>
+        public string StatusMessage
+        {
+            get => labelStatus.Text;
+            set => SetStatusMessage(value);
+        }
+
+        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
@@ -120,16 +129,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Mensagem de status.
-        /// </summary>
-        public string StatusMessage
-        {
-            get => labelStatus.Text;
-            set => SetStatusMessage(value);
-        }
-
-        /// <summary>
-        /// Define uma mensagem de status.
+        ///     Define uma mensagem de status.
         /// </summary>
         /// <param name="message">Mensagem.</param>
         /// <param name="information">Quando true, azul. Se false, vermelho.</param>
@@ -142,7 +142,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Timer para remover mensagem de status.
+        ///     Timer para remover mensagem de status.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
@@ -153,7 +153,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Ao minimizar, restaurar, maximizar.
+        ///     Ao minimizar, restaurar, maximizar.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>

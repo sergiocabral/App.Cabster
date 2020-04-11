@@ -1,11 +1,11 @@
 ﻿using Cabster.Infrastructure;
 
-namespace Cabster.Business.Messenger.Notification
+namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Abrir janela de trabalho em grupo
     /// </summary>
-    public class OpenFormWorkGroup : MessengerRequest
+    public class OpenFormGroupWork : MessengerRequest
     {
     }
 }

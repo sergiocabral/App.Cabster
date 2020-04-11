@@ -1,19 +1,14 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
-using MediatR;
 using Serilog;
-using Timer = System.Windows.Forms.Timer;
 
 #pragma warning disable 109
 
@@ -22,12 +17,12 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela de trabalho em grupo.
     /// </summary>
-    public partial class FormWorkGroup : FormLayout
+    public partial class FormGroupWork : FormLayout
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormWorkGroup()
+        public FormGroupWork()
         {
             InitializeComponent();
             InitializeComponent2();
@@ -46,7 +41,7 @@ namespace Cabster.Business.Forms
             PanelParticipantsOnControlAddedOrRemoved(panelParticipants, null);
             VisibleChanged += OnVisibleChanged;
 
-            var minScreen = Screen.AllScreens.First(a => 
+            var minScreen = Screen.AllScreens.First(a =>
                 a.Bounds.Width == Screen.AllScreens.Min(b => b.Bounds.Width));
             Width = (int) (minScreen.Bounds.Width * 0.8);
             Height = (int) (minScreen.Bounds.Height * 0.8);
@@ -55,13 +50,13 @@ namespace Cabster.Business.Forms
             Left = currentScreen.Bounds.Left + (currentScreen.Bounds.Width - Width) / 2;
             Top = currentScreen.Bounds.Top + (currentScreen.Bounds.Height - Height) / 2;
 
-            Shown += (sender, args) => buttonStart.Focus(); 
-            
+            Shown += (sender, args) => buttonStart.Focus();
+
             labelTips.Text = string.Empty;
         }
 
         /// <summary>
-        /// Quando a janela é exibida ou escondida.
+        ///     Quando a janela é exibida ou escondida.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -71,7 +66,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Evento ao atualizar controles dos participantes.
+        ///     Evento ao atualizar controles dos participantes.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
@@ -117,7 +112,7 @@ namespace Cabster.Business.Forms
                 var participantName = textBoxAddParticipant.Text;
                 if (string.IsNullOrWhiteSpace(participantName))
                 {
-                    SetStatusMessage(Resources.Text_WorkGroup_ParticipantNameEmpty, false);
+                    SetStatusMessage(Resources.Text_GroupWork_ParticipantNameEmpty, false);
                     return;
                 }
 
@@ -158,6 +153,56 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Evento de clique no botão de sortear participantes.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonParticipantSort_Click(object sender, EventArgs args)
+        {
+            panelParticipants.Sort();
+        }
+
+        /// <summary>
+        ///     Evento ao clicar duas vezes na frase de dica.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void labelTips_Click(object sender, EventArgs args)
+        {
+            SetStatusMessage(Resources.Text_GroupWork_TipsLoading);
+            LoadTip();
+        }
+
+        /// <summary>
+        ///     Carrega uma frase de dicas.
+        /// </summary>
+        private async void LoadTip()
+        {
+            var tip = await Tips.Get();
+            labelTips.Invoke(new Action(() => labelTips.Text = tip));
+        }
+
+        /// <summary>
+        ///     Evento: botão começar.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonStart_Click(object sender, EventArgs args)
+        {
+            Log.Information("Resposta: {value}", FormDialogConfirm.Show("Teste de mensagem."));
+        }
+
+        /// <summary>
+        ///     Evento: botão configurações.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonConfiguration_Click(object sender, EventArgs args)
+        {
+            MessageBus.Send(new OpenFormConfiguration());
+        }
+
+        /// <summary>
         ///     Informações sobre o participant.
         /// </summary>
         private class ParticipantInfo
@@ -173,14 +218,14 @@ namespace Cabster.Business.Forms
             private static readonly Color ColorForInactive = Color.FromArgb(127, 127, 127);
 
             /// <summary>
-            /// Esta janela.
-            /// </summary>
-            private readonly FormWorkGroup _form;
-
-            /// <summary>
             ///     Controle.
             /// </summary>
             private readonly MyButton _control;
+
+            /// <summary>
+            ///     Esta janela.
+            /// </summary>
+            private readonly FormGroupWork _form;
 
             /// <summary>
             ///     Sinaliza ativo ou desativo.
@@ -197,7 +242,7 @@ namespace Cabster.Business.Forms
             /// </summary>
             /// <param name="form">Esta janela.</param>
             /// <param name="control">Controle.</param>
-            private ParticipantInfo(FormWorkGroup form, MyButton control)
+            private ParticipantInfo(FormGroupWork form, MyButton control)
             {
                 _form = form;
                 _control = control;
@@ -208,28 +253,14 @@ namespace Cabster.Business.Forms
             }
 
             /// <summary>
-            /// Atualiza o ToolTip do controle.
-            /// </summary>
-            private void UpdateToolTip()
-            {
-                _form.toolTip.SetToolTip(
-                    _control,
-                    Resources.Text_WorkGroup_ParticipantRemoveHint
-                        .QueryString(
-                            Active
-                                ? Resources.Text_Common_Active.ToUpper()
-                                : Resources.Text_Common_Inactive.ToUpper()));
-            }
-
-            /// <summary>
-            /// Nome do participante.
+            ///     Nome do participante.
             /// </summary>
             public string Name
             {
                 get => _control.Text;
                 set
                 {
-                    _control.Text = value.Trim(); 
+                    _control.Text = value.Trim();
                     _control.UpdateSizeToText();
                 }
             }
@@ -250,6 +281,20 @@ namespace Cabster.Business.Forms
             }
 
             /// <summary>
+            ///     Atualiza o ToolTip do controle.
+            /// </summary>
+            private void UpdateToolTip()
+            {
+                _form.toolTip.SetToolTip(
+                    _control,
+                    Resources.Text_GroupWork_ParticipantRemoveHint
+                        .QueryString(
+                            Active
+                                ? Resources.Text_Common_Active.ToUpper()
+                                : Resources.Text_Common_Inactive.ToUpper()));
+            }
+
+            /// <summary>
             ///     Remove o participant.
             /// </summary>
             private void Remove()
@@ -265,7 +310,7 @@ namespace Cabster.Business.Forms
             /// <param name="form">Esta janela.</param>
             /// <param name="name">Nome do participante.</param>
             /// <returns>Controle</returns>
-            public static MyButton CreateControl(FormWorkGroup form, string name)
+            public static MyButton CreateControl(FormGroupWork form, string name)
             {
                 var control = new MyButton
                 {
@@ -275,7 +320,7 @@ namespace Cabster.Business.Forms
                     AutoSize = true
                 };
                 control.Font = new Font(control.Font.FontFamily, 20);
-                control.Tag = new ParticipantInfo(form, control);;
+                control.Tag = new ParticipantInfo(form, control);
                 return control;
             }
 
@@ -313,56 +358,6 @@ namespace Cabster.Business.Forms
                 if (_lastPosition != currentPosition) return;
                 Active = !Active;
             }
-        }
-
-        /// <summary>
-        /// Evento de clique no botão de sortear participantes.
-        /// </summary>
-        /// <param name="sender">Fonte do evento.</param>
-        /// <param name="args">Dados do evento.</param>
-        private void buttonParticipantSort_Click(object sender, EventArgs args)
-        {
-            panelParticipants.Sort();
-        }
-
-        /// <summary>
-        /// Evento ao clicar duas vezes na frase de dica.
-        /// </summary>
-        /// <param name="sender">Fonte do evento.</param>
-        /// <param name="args">Dados do evento.</param>
-        private void labelTips_Click(object sender, EventArgs args)
-        {
-            SetStatusMessage(Resources.Text_WorkGroup_TipsLoading);
-            LoadTip();
-        }
-
-        /// <summary>
-        /// Carrega uma frase de dicas.
-        /// </summary>
-        private async void LoadTip()
-        {
-            var tip = await Tips.Get();
-            labelTips.Invoke(new Action(() => labelTips.Text = tip));
-        }
-
-        /// <summary>
-        /// Evento: botão começar.
-        /// </summary>
-        /// <param name="sender">Fonte do evento.</param>
-        /// <param name="args">Dados do evento.</param>
-        private void buttonStart_Click(object sender, EventArgs args)
-        {
-            Log.Information("Resposta: {value}", FormDialogConfirm.Show("Teste de mensagem."));
-        }
-
-        /// <summary>
-        /// Evento: botão configurações.
-        /// </summary>
-        /// <param name="sender">Fonte do evento.</param>
-        /// <param name="args">Dados do evento.</param>
-        private void buttonConfiguration_Click(object sender, EventArgs args)
-        {
-            MessageBus.Send(new OpenFormConfiguration());
         }
     }
 }

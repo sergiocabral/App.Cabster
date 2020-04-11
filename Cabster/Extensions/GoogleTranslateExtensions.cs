@@ -44,9 +44,10 @@ namespace Cabster.Extensions
 
             try
             {
-                Log.Verbose("Requesting Google Translate from {fromLanguage} to {toLanguage} for text \"{Text}\". Url: {Url}", 
+                Log.Verbose(
+                    "Requesting Google Translate from {fromLanguage} to {toLanguage} for text \"{Text}\". Url: {Url}",
                     fromLanguage, toLanguage, text, url);
-                
+
                 var response = await Task.Run(() => WebClient.DownloadString(url));
 
                 var responseJson = (dynamic)

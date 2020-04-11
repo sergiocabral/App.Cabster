@@ -1,22 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cabster.Components
 {
     /// <summary>
-    /// Form de exibição de mensagem.
+    ///     Form de exibição de mensagem.
     /// </summary>
     public partial class FormDialogAlert : FormDialogBase
     {
         /// <summary>
-        /// Exibir caixa de dialogo.
+        ///     Construtor.
+        /// </summary>
+        public FormDialogAlert()
+        {
+            InitializeComponent();
+            InitializeComponent2();
+        }
+
+        /// <summary>
+        ///     Exibir caixa de dialogo.
         /// </summary>
         /// <param name="message">Texto.</param>
         public static void Show(string message)
@@ -32,24 +34,14 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Construtor.
-        /// </summary>
-        public FormDialogAlert()
-        {
-            InitializeComponent();
-            InitializeComponent2();
-        }
-
-        /// <summary>
-        /// Inicializa controles.
+        ///     Inicializa controles.
         /// </summary>
         private void InitializeComponent2()
         {
-
         }
 
         /// <summary>
-        /// Evento ao clicar no botão Fechar.
+        ///     Evento ao clicar no botão Fechar.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -60,7 +52,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando pressionar uma tecla.
+        ///     Quando pressionar uma tecla.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>

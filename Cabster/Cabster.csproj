@@ -69,7 +69,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
@@ -109,37 +109,28 @@
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0-preview.1.20120.5\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0-preview.2.20160.6\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.Text.Encodings.Web.5.0.0-preview.1.20120.5\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.0-preview.2.20160.6\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.Text.Json.5.0.0-preview.1.20120.5\lib\net461\System.Text.Json.dll</HintPath>
+      <HintPath>..\packages\System.Text.Json.5.0.0-preview.2.20160.6\lib\net461\System.Text.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
@@ -155,20 +146,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entities\ContainerData.cs" />
-    <Compile Include="Business\Entities\WorkGroupParticipantSet.cs" />
-    <Compile Include="Business\Entities\WorkGroupSet.cs" />
-    <Compile Include="Business\Entities\WorkGroupStatisticsSet.cs" />
+    <Compile Include="Business\Entities\GroupWorkParticipantSet.cs" />
+    <Compile Include="Business\Entities\GroupWorkSet.cs" />
+    <Compile Include="Business\Entities\GroupWorkStatisticsSet.cs" />
     <Compile Include="Business\Forms\FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Business\Forms\FormConfiguration.Designer.cs">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\Forms\FormWorkGroup.cs">
+    <Compile Include="Business\Forms\FormGroupWork.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Business\Forms\FormWorkGroup.Designer.cs">
-      <DependentUpon>FormWorkGroup.cs</DependentUpon>
+    <Compile Include="Business\Forms\FormGroupWork.Designer.cs">
+      <DependentUpon>FormGroupWork.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
@@ -178,7 +169,7 @@
     <Compile Include="Business\Messenger\Request\FinalizeApplication.cs" />
     <Compile Include="Business\Messenger\Request\OpenFormConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\InitializeApplication.cs" />
-    <Compile Include="Business\Messenger\Request\OpenFormWorkGroup.cs" />
+    <Compile Include="Business\Messenger\Request\OpenFormGroupWork.cs" />
     <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
     <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
     <Compile Include="Business\Tips.cs" />
@@ -268,8 +259,8 @@
     <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Business\Forms\FormWorkGroup.resx">
-      <DependentUpon>FormWorkGroup.cs</DependentUpon>
+    <EmbeddedResource Include="Business\Forms\FormGroupWork.resx">
+      <DependentUpon>FormGroupWork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>

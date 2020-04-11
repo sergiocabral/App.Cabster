@@ -178,28 +178,28 @@
   <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>The interval starts after how many rounds</value>
   </data>
-  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rounds. Every {minutes} minute(s).</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachBreak_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duration of each break</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachBreak_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachRound_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
     <value>Duration of each round</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantAdd" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantAdd" xml:space="preserve">
     <value>Enter the participant's name.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantRemoveHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantRemoveHint" xml:space="preserve">
     <value>Participant: {Participant}
 
 To activate or deactivate: right button.
@@ -211,10 +211,10 @@ To remove: left button.</value>
   <data name="Text.Common.Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantNameEmpty" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantNameEmpty" xml:space="preserve">
     <value>To add a participant enter a name.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantAddHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantAddHint" xml:space="preserve">
     <value>Click here to add a participant.</value>
   </data>
   <data name="buttonParticipantAddEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -229,13 +229,13 @@ To remove: left button.</value>
   <data name="buttonParticipantSortLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonParticipantSortLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantSortHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantSortHint" xml:space="preserve">
     <value>Randomly sort the participants.</value>
   </data>
-  <data name="Text.WorkGroup.Start" xml:space="preserve">
+  <data name="Text.GroupWork.Start" xml:space="preserve">
     <value>Start Mob</value>
   </data>
-  <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
+  <data name="Text.GroupWork.TipsLoading" xml:space="preserve">
     <value>Loading another tip ...</value>
   </data>
   <data name="Text.DialogShow.ButtonClose" xml:space="preserve">
@@ -253,13 +253,13 @@ To remove: left button.</value>
   <data name="buttonConfigurationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonConfigurationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.WorkGroup.ConfigurationHint" xml:space="preserve">
+  <data name="Text.GroupWork.ConfigurationHint" xml:space="preserve">
     <value>Opens the configuration options.</value>
   </data>
   <data name="Text.Configuration.WindowTitle" xml:space="preserve">
     <value>Configuration</value>
   </data>
-  <data name="Text.WorkGroup.WindowTitle" xml:space="preserve">
-    <value>Work Group</value>
+  <data name="Text.GroupWork.WindowTitle" xml:space="preserve">
+    <value>Group Work as MOB</value>
   </data>
 </root>

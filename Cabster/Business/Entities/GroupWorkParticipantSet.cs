@@ -3,7 +3,7 @@
     /// <summary>
     ///     Conjunto de informações que representa um participante de trabalho de mob.
     /// </summary>
-    public class WorkGroupParticipantSet
+    public class GroupWorkParticipantSet
     {
         /// <summary>
         ///     Nome da pessoa

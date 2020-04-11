@@ -3,7 +3,7 @@
     /// <summary>
     ///     Classe base para qualquer comando.
     /// </summary>
-    public abstract class MessengerHandler: MessengerBase
+    public abstract class MessengerHandler : MessengerBase
     {
     }
 }

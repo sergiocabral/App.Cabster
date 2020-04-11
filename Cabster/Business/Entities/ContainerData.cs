@@ -17,6 +17,6 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Trabalho em grupo do aplicativo.
         /// </summary>
-        public WorkGroupSet WorkGroup { get; set; } = new WorkGroupSet();
+        public GroupWorkSet GroupWork { get; set; } = new GroupWorkSet();
     }
 }

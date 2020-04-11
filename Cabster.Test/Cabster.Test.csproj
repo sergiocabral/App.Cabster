@@ -111,7 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Forms\FormWorkGroupTest.cs" />
+    <Compile Include="Business\Forms\FormGroupWorkTest.cs" />
     <Compile Include="Business\IEntityTest.cs" />
     <Compile Include="Components\MyButtonTest.cs" />
     <Compile Include="Exceptions\DomainExceptionTest.cs" />

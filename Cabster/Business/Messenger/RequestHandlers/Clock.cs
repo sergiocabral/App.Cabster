@@ -2,10 +2,8 @@
 using System.Threading.Tasks;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
-using Cabster.Components;
 using Cabster.Infrastructure;
 using MediatR;
-using Serilog;
 
 namespace Cabster.Business.Messenger.RequestHandlers
 {
@@ -16,11 +14,6 @@ namespace Cabster.Business.Messenger.RequestHandlers
         MessengerHandler,
         IRequestHandler<SinalizeApplicationClock>
     {
-        /// <summary>
-        /// Ignora o log desse Request.
-        /// </summary>
-        protected override bool IgnoreLog { get; } = true;
-
         /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
@@ -34,6 +27,11 @@ namespace Cabster.Business.Messenger.RequestHandlers
         {
             _messageBus = messageBus;
         }
+
+        /// <summary>
+        ///     Ignora o log desse Request.
+        /// </summary>
+        protected override bool IgnoreLog { get; } = true;
 
         /// <summary>
         ///     Processa o comando: SinalizeApplicationClock

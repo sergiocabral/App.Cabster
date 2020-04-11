@@ -13,10 +13,10 @@ namespace Cabster.Extensions
     public static class ControlAbleToOperateFormExtensions
     {
         /// <summary>
-        /// Sinaliza que ao mover ou redimensionar deve desativar o redraw.
+        ///     Sinaliza que ao mover ou redimensionar deve desativar o redraw.
         /// </summary>
-        public static bool SetRedrawFalse = false; 
-            
+        public static bool SetRedrawFalse = false;
+
         /// <summary>
         ///     Lista de controles que movem o form.
         /// </summary>

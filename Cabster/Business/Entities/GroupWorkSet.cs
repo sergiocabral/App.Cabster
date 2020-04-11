@@ -5,7 +5,7 @@ namespace Cabster.Business.Entities
     /// <summary>
     ///     Coleção de informação para um trabalho de mob.
     /// </summary>
-    public class WorkGroupSet
+    public class GroupWorkSet
     {
         /// <summary>
         ///     Tempo de cada rodada de trabalho.
@@ -25,11 +25,11 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Participantes.
         /// </summary>
-        public IList<WorkGroupParticipantSet> Participants { get; set; } = new List<WorkGroupParticipantSet>();
+        public IList<GroupWorkParticipantSet> Participants { get; set; } = new List<GroupWorkParticipantSet>();
 
         /// <summary>
         ///     Estatísticas.
         /// </summary>
-        public WorkGroupStatisticsSet Statistics { get; set; } = new WorkGroupStatisticsSet();
+        public GroupWorkStatisticsSet Statistics { get; set; } = new GroupWorkStatisticsSet();
     }
 }

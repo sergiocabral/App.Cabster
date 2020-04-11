@@ -170,7 +170,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Sortear aleatoriamente a ordem dos participantes.
+        ///     Sortear aleatoriamente a ordem dos participantes.
         /// </summary>
         public void Sort()
         {

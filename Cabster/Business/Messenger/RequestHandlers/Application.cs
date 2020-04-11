@@ -4,7 +4,6 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Infrastructure;
-using Cabster.Properties;
 using MediatR;
 using Serilog;
 
@@ -23,8 +22,6 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// </summary>
         private readonly FormMainWindow _formMainWindow;
 
-        private readonly IDependencyResolver _dependencyResolver;
-
         /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
@@ -35,11 +32,10 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// </summary>
         /// <param name="messageBus">IMediator</param>
         /// <param name="formMainWindow">Janela principal do sistema.</param>
-        public Application(IMediator messageBus, FormMainWindow formMainWindow, IDependencyResolver dependencyResolver)
+        public Application(IMediator messageBus, FormMainWindow formMainWindow)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
-            _dependencyResolver = dependencyResolver;
         }
 
         /// <summary>
@@ -64,7 +60,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         public Task<Unit> Handle(InitializeApplication request, CancellationToken cancellationToken)
         {
             Log.Information("Application started.");
-            _messageBus.Send(new OpenFormWorkGroup(), cancellationToken);
+            _messageBus.Send(new OpenFormGroupWork(), cancellationToken);
             System.Windows.Forms.Application.Run(_formMainWindow);
             return Unit.Task;
         }

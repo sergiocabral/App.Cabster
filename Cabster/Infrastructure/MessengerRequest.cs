@@ -1,6 +1,4 @@
-﻿using System;
-using MediatR;
-using Serilog;
+﻿using MediatR;
 
 namespace Cabster.Infrastructure
 {

@@ -168,52 +168,52 @@
   <data name="Text.DialogShow.ButtonConfirm" xml:space="preserve">
     <value>Confirmar</value>
   </data>
-  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>O intervalo inicia após quantas rodadas:</value>
   </data>
-  <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rodadas. A cada {minutes} minuto(s).</value>
   </data>
-  <data name="Text.WorkGroup.ConfigurationHint" xml:space="preserve">
+  <data name="Text.GroupWork.ConfigurationHint" xml:space="preserve">
     <value>Abre as opções de configuração.</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachBreak_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duração de cada intervalo:</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachBreak_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
     <value>minuto(s).</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachRound_Part1" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
     <value>Duração de cada rodada:</value>
   </data>
-  <data name="Text.WorkGroup.DurationOfEachRound_Part2" xml:space="preserve">
+  <data name="Text.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minuto(s).</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantAdd" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantAdd" xml:space="preserve">
     <value>Digite o nome do participante.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantAddHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantAddHint" xml:space="preserve">
     <value>Clique aqui para adicionar um participante.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantNameEmpty" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantNameEmpty" xml:space="preserve">
     <value>Para adicionar um participante informe um nome.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantRemoveHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantRemoveHint" xml:space="preserve">
     <value>Participante: {Participant}
 
 Para ativar ou desativar: botão direito.
 Para remover: botão esquerdo.</value>
   </data>
-  <data name="Text.WorkGroup.ParticipantSortHint" xml:space="preserve">
+  <data name="Text.GroupWork.ParticipantSortHint" xml:space="preserve">
     <value>Ordenar aleatóriamente os participantes.</value>
   </data>
-  <data name="Text.WorkGroup.Start" xml:space="preserve">
+  <data name="Text.GroupWork.Start" xml:space="preserve">
     <value>Começar Mob</value>
   </data>
-  <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
+  <data name="Text.GroupWork.TipsLoading" xml:space="preserve">
     <value>Carregando outra dica...</value>
   </data>
-  <data name="Text.WorkGroup.WindowTitle" xml:space="preserve">
-    <value>Trabalho em Grupo</value>
+  <data name="Text.GroupWork.WindowTitle" xml:space="preserve">
+    <value>Trabalho em Grupo em MOB</value>
   </data>
 </root>
