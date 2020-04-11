@@ -3,9 +3,9 @@
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
-    ///     Inicializa a aplicação.
+    ///     Finaliza a aplicação.
     /// </summary>
-    public class InitializeApplication : MessengerRequest
+    public class ApplicationFinalize : MessengerRequest
     {
     }
 }

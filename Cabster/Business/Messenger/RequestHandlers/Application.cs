@@ -14,8 +14,8 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// </summary>
     public class Application :
         MessengerHandler,
-        IRequestHandler<InitializeApplication>,
-        IRequestHandler<FinalizeApplication>
+        IRequestHandler<ApplicationInitialize>,
+        IRequestHandler<ApplicationFinalize>
     {
         /// <summary>
         ///     Janela principal do sistema.
@@ -39,12 +39,12 @@ namespace Cabster.Business.Messenger.RequestHandlers
         }
 
         /// <summary>
-        ///     Processa o comando: FinalizeApplication
+        ///     Processa o comando: ApplicationFinalize
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(FinalizeApplication request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
         {
             Log.Information("Application finalized.");
             _formMainWindow.Close();
@@ -52,15 +52,15 @@ namespace Cabster.Business.Messenger.RequestHandlers
         }
 
         /// <summary>
-        ///     Processa o comando: InitializeApplication
+        ///     Processa o comando: ApplicationInitialize
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(InitializeApplication request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             Log.Information("Application started.");
-            _messageBus.Send(new OpenFormGroupWork(), cancellationToken);
+            _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
             System.Windows.Forms.Application.Run(_formMainWindow);
             return Unit.Task;
         }

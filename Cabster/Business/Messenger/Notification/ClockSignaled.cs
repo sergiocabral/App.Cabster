@@ -6,13 +6,13 @@ namespace Cabster.Business.Messenger.Notification
     /// <summary>
     ///     Sinalização do click do sistema.
     /// </summary>
-    public class ApplicationClockSignaled : MessengerNotification<SinalizeApplicationClock>
+    public class ClockSignaled : MessengerNotification<ClockSinalize>
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="request">Comando.</param>
-        public ApplicationClockSignaled(SinalizeApplicationClock request) : base(request)
+        public ClockSignaled(ClockSinalize request) : base(request)
         {
         }
 

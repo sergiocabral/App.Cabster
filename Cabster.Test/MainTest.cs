@@ -25,7 +25,7 @@ namespace Cabster
                 {
                     Thread.Sleep((int) (esperarUmTempoAtéAAplicaçãoIniciar * 0.9));
                     Program.DependencyResolver.GetInstanceRequired<IMediator>()
-                        .Send(new FinalizeApplication());
+                        .Send(new ApplicationFinalize());
                 });
                 Program.Main();
             });

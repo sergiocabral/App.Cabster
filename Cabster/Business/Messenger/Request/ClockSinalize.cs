@@ -5,7 +5,7 @@ namespace Cabster.Business.Messenger.Request
     /// <summary>
     ///     Sinalização do click do sistema.
     /// </summary>
-    public class SinalizeApplicationClock : MessengerRequest
+    public class ClockSinalize : MessengerRequest
     {
         /// <summary>
         ///     Contagem de clocks executados.

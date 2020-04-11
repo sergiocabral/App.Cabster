@@ -165,13 +165,13 @@
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Clock.cs" />
-    <Compile Include="Business\Messenger\RequestHandlers\OpenForms.cs" />
-    <Compile Include="Business\Messenger\Request\FinalizeApplication.cs" />
-    <Compile Include="Business\Messenger\Request\OpenFormConfiguration.cs" />
-    <Compile Include="Business\Messenger\Request\InitializeApplication.cs" />
-    <Compile Include="Business\Messenger\Request\OpenFormGroupWork.cs" />
-    <Compile Include="Business\Messenger\Request\SinalizeApplicationClock.cs" />
-    <Compile Include="Business\Messenger\Notification\ApplicationClockSignaled.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\WindowOpen.cs" />
+    <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
+    <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
+    <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />
+    <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />
+    <Compile Include="Business\Messenger\Request\ClockSinalize.cs" />
+    <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Components\FormDialogConfirm.cs">
       <SubType>Form</SubType>

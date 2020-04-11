@@ -3,9 +3,9 @@
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
-    ///     Finaliza a aplicação.
+    ///     Abrir janela de configuração.
     /// </summary>
-    public class FinalizeApplication : MessengerRequest
+    public class WindowOpenConfiguration : MessengerRequest
     {
     }
 }

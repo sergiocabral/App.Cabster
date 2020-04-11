@@ -12,7 +12,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// </summary>
     public class Clock :
         MessengerHandler,
-        IRequestHandler<SinalizeApplicationClock>
+        IRequestHandler<ClockSinalize>
     {
         /// <summary>
         ///     Barramento de mensagens.
@@ -39,9 +39,9 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(SinalizeApplicationClock request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(ClockSinalize request, CancellationToken cancellationToken)
         {
-            _messageBus.Publish(new ApplicationClockSignaled(request), cancellationToken);
+            _messageBus.Publish(new ClockSignaled(request), cancellationToken);
             return Unit.Task;
         }
     }

@@ -52,7 +52,7 @@ namespace Cabster.Components
 
             try
             {
-                var requestSinalizeApplicationClock = new SinalizeApplicationClock();
+                var requestSinalizeApplicationClock = new ClockSinalize();
                 MessageBus.Send(requestSinalizeApplicationClock);
 
                 if (requestSinalizeApplicationClock.TickCount % 1000 == 0 ||

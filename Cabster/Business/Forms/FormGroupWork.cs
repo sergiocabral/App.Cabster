@@ -81,7 +81,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void OnButtonCloseClick()
         {
-            MessageBus.Send(new FinalizeApplication());
+            MessageBus.Send(new ApplicationFinalize());
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonConfiguration_Click(object sender, EventArgs args)
         {
-            MessageBus.Send(new OpenFormConfiguration());
+            MessageBus.Send(new WindowOpenConfiguration());
         }
 
         /// <summary>

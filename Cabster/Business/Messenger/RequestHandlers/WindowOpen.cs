@@ -13,10 +13,10 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// <summary>
     ///     Controlador de abertura de janelas.
     /// </summary>
-    public class OpenForms :
+    public class WindowOpen :
         MessengerHandler,
-        IRequestHandler<OpenFormGroupWork>,
-        IRequestHandler<OpenFormConfiguration>
+        IRequestHandler<WindowOpenGroupWork>,
+        IRequestHandler<WindowOpenConfiguration>
     {
         /// <summary>
         ///     Resolvedor de dependências.
@@ -27,18 +27,18 @@ namespace Cabster.Business.Messenger.RequestHandlers
         ///     Construtor.
         /// </summary>
         /// <param name="dependencyResolver">Resolvedor de dependências.</param>
-        public OpenForms(IDependencyResolver dependencyResolver)
+        public WindowOpen(IDependencyResolver dependencyResolver)
         {
             _dependencyResolver = dependencyResolver;
         }
 
         /// <summary>
-        ///     Processa o comando: OpenFormConfiguration
+        ///     Processa o comando: WindowOpenConfiguration
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(OpenFormConfiguration request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
             OpenForm(_dependencyResolver.GetInstanceRequired<FormConfiguration>());
             return Unit.Task;
@@ -50,7 +50,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(OpenFormGroupWork request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
             OpenForm(_dependencyResolver.GetInstanceRequired<FormGroupWork>());
             return Unit.Task;
