@@ -391,7 +391,6 @@
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "FormGroupWork";
-            this.ShowLogo = true;
             this.Text = "Text.GroupWork.WindowTitle";
             this.Controls.SetChildIndex(this.labelDurationOfEachRound_Part1, 0);
             this.Controls.SetChildIndex(this.numericUpDownDurationOfEachRound, 0);

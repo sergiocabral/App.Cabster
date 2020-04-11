@@ -38,7 +38,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormConfiguration";
-            this.ShowLogo = true;
             this.Text = "Text.Configuration.WindowTitle";
             this.ResumeLayout(false);
 

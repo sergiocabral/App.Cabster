@@ -34,6 +34,7 @@ namespace Cabster.Business.Forms
         [ExcludeFromCodeCoverage]
         private void InitializeComponent2()
         {
+            ShowLogo = true;
             Load += UpdateControls;
             ButtonCloseClick += OnButtonCloseClick;
             panelParticipants.ControlAdded += PanelParticipantsOnControlAddedOrRemoved;

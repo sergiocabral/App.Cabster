@@ -24,7 +24,7 @@ namespace Cabster.Components
         /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
-        public bool ShowLogo
+        protected bool ShowLogo
         {
             get => panelLogo.Visible;
             set => panelLogo.Visible = value;
