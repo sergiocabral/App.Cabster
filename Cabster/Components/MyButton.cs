@@ -35,6 +35,11 @@ namespace Cabster.Components
                     ((Bitmap) value.First().GetValue(null), (Bitmap) value.Last().GetValue(null)));
 
         /// <summary>
+        /// Evita transparência.
+        /// </summary>
+        public bool NotTransparent { get; set; }
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public MyButton()
@@ -112,6 +117,9 @@ namespace Cabster.Components
                 Text = string.Empty;
 
                 FlatAppearance.BorderSize = 0;
+                
+                if (NotTransparent) return;
+                
                 FlatAppearance.CheckedBackColor = Color.Transparent;
                 FlatAppearance.MouseDownBackColor = Color.Transparent;
                 FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -119,7 +127,10 @@ namespace Cabster.Components
                 {
                     BackColor = Color.Transparent;
                 }
-                catch { /* Ignora em caso de erro. */ }
+                catch
+                {
+                    /* Ignora em caso de erro. */
+                }
             }
             else
             {

@@ -171,6 +171,9 @@
   <data name="Text.WorkGroup.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rodadas. A cada {minutes} minuto(s).</value>
   </data>
+  <data name="Text.WorkGroup.ConfigurationHint" xml:space="preserve">
+    <value>Abre as opções de configuração.</value>
+  </data>
   <data name="Text.WorkGroup.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duração de cada intervalo:</value>
   </data>

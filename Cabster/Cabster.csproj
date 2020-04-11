@@ -347,6 +347,8 @@
     <None Include="Resources\buttonParticipantSortLeave.png" />
     <None Include="Resources\buttonParticipantAddEnter.png" />
     <None Include="Resources\buttonParticipantAddLeave.png" />
+    <None Include="Resources\buttonConfigurationEnter.png" />
+    <None Include="Resources\buttonConfigurationLeave.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>
