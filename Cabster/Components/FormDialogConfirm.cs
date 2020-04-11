@@ -13,28 +13,28 @@ namespace Cabster.Components
     /// <summary>
     /// Form de exibição de mensagem.
     /// </summary>
-    public partial class FormDialogAlert : FormDialogBase
+    public partial class FormDialogConfirm : FormDialogBase
     {
         /// <summary>
         /// Exibir caixa de dialogo.
         /// </summary>
         /// <param name="message">Texto.</param>
-        public static void Show(string message)
+        public static bool Show(string message)
         {
-            using var form = new FormDialogAlert
+            using var form = new FormDialogConfirm
             {
                 labelText =
                 {
                     Text = message
                 }
             };
-            form.ShowDialog();
+            return form.ShowDialog() != DialogResult.Cancel;
         }
 
         /// <summary>
         /// Construtor.
         /// </summary>
-        public FormDialogAlert()
+        public FormDialogConfirm()
         {
             InitializeComponent();
             InitializeComponent2();
@@ -51,11 +51,11 @@ namespace Cabster.Components
         /// <summary>
         /// Evento ao clicar no botão Fechar.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void buttonDialogClose_Click(object sender, EventArgs args)
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void buttonDialog_Click(object sender, EventArgs args)
         {
-            DialogResult = DialogResult.OK;
+            DialogResult = sender == buttonDialogConfirm ? DialogResult.OK : DialogResult.Cancel;
             Close();
         }
 
@@ -66,7 +66,7 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void FormDialogConfirm_KeyUp(object sender, KeyEventArgs args)
         {
-            if (args.KeyCode == Keys.Escape) buttonDialogClose.PerformClick();
+            if (args.KeyCode == Keys.Escape) buttonDialogCancel.PerformClick();
         }
     }
 }

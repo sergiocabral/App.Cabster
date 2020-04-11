@@ -241,4 +241,10 @@ To remove: left button.</value>
   <data name="Text.DialogShow.ButtonClose" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="Text.DialogShow.ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Text.DialogShow.ButtonConfirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
 </root>

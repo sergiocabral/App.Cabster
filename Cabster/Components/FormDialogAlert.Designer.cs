@@ -42,7 +42,7 @@
             this.labelText.Location = new System.Drawing.Point(26, 23);
             this.labelText.Name = "labelText";
             this.labelText.Size = new System.Drawing.Size(348, 91);
-            this.labelText.TabIndex = 5;
+            this.labelText.TabIndex = 6;
             this.labelText.Text = "Text Here";
             this.labelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -63,7 +63,7 @@
             this.buttonDialogClose.Location = new System.Drawing.Point(26, 127);
             this.buttonDialogClose.Name = "buttonDialogClose";
             this.buttonDialogClose.Size = new System.Drawing.Size(348, 47);
-            this.buttonDialogClose.TabIndex = 4;
+            this.buttonDialogClose.TabIndex = 5;
             this.buttonDialogClose.Text = "Text.DialogShow.ButtonClose";
             this.buttonDialogClose.UseVisualStyleBackColor = false;
             this.buttonDialogClose.Click += new System.EventHandler(this.buttonDialogClose_Click);
@@ -77,6 +77,7 @@
             this.Controls.Add(this.buttonDialogClose);
             this.Name = "FormDialogAlert";
             this.Text = "FormDialogAlert";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDialogConfirm_KeyUp);
             this.Controls.SetChildIndex(this.buttonDialogClose, 0);
             this.Controls.SetChildIndex(this.labelText, 0);
             this.ResumeLayout(false);

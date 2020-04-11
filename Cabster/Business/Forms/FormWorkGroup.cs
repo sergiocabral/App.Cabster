@@ -12,6 +12,7 @@ using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
 using MediatR;
+using Serilog;
 using Timer = System.Windows.Forms.Timer;
 
 #pragma warning disable 109
@@ -360,7 +361,7 @@ namespace Cabster.Business.Forms
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            FormDialogAlert.Show("Teste de mensagem.");
+            Log.Information("Resposta: {value}", FormDialogConfirm.Show("Teste de mensagem."));
         }
     }
 }
