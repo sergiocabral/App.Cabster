@@ -29,9 +29,9 @@ namespace Cabster
         private static IDependencyResolver? _dependencyResolver;
 
         /// <summary>
-        ///     Sinaliza se a aplicação pode ser finalizada.
+        ///     Sinaliza se a aplicação deve ser reiniciada ao fechar.
         /// </summary>
-        public static bool CanClose { get; set; } = true;
+        public static bool RestartWhenClose { get; set; }
 
         /// <summary>
         ///     DependencyResolver de uso comum.
@@ -74,7 +74,7 @@ namespace Cabster
                 DependencyResolver = dependencyResolver;
 
                 DependencyResolver.GetInstanceRequired<IMediator>().Send(new InitializeApplication());
-            } while (!CanClose);
+            } while (RestartWhenClose);
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }

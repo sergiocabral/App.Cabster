@@ -24,10 +24,20 @@ namespace Cabster.Components
         /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
-        protected bool ShowLogo
+        private bool _showLogo;
+        
+        /// <summary>
+        ///     Exibe o logotipo.
+        /// </summary>
+        public bool ShowLogo
         {
-            get => panelLogo.Visible;
-            set => panelLogo.Visible = value;
+            get => panelLogo.Visible = _showLogo;
+            set
+            {
+                _showLogo = value;
+                panelLogo.Visible = _showLogo;
+                panelLogo.Left = _showLogo ? 0 : Width + 10;
+            }
         }
 
         /// <summary>
@@ -113,7 +123,6 @@ namespace Cabster.Components
         private void AdjustLogo()
         {
             panelLogo.Top = panelTitle.Top + panelTitle.Height;
-            panelLogo.Left = 0;
             panelLogo.Width = panelLogo.BackgroundImage.Width * panelLogo.Height / panelLogo.BackgroundImage.Height;
         }
 
