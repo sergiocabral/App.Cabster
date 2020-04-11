@@ -286,4 +286,7 @@ To remove: left button.</value>
   <data name="Text.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>To change the language, the application must be restarted.</value>
   </data>
+  <data name="Text.Configuration.LanguageAlreadySelected" xml:space="preserve">
+    <value>The application is already in the selected language.</value>
+  </data>
 </root>

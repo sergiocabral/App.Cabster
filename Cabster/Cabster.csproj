@@ -166,6 +166,7 @@
     <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Clock.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\WindowOpen.cs" />
+    <Compile Include="Business\Messenger\Request\ApplicationChangeLanguage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />

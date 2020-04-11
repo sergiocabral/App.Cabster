@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
@@ -15,7 +16,8 @@ namespace Cabster.Business.Messenger.RequestHandlers
     public class Application :
         MessengerHandler,
         IRequestHandler<ApplicationInitialize>,
-        IRequestHandler<ApplicationFinalize>
+        IRequestHandler<ApplicationFinalize>,
+        IRequestHandler<ApplicationChangeLanguage>
     {
         /// <summary>
         ///     Janela principal do sistema.
@@ -62,6 +64,29 @@ namespace Cabster.Business.Messenger.RequestHandlers
             Log.Information("Application started.");
             _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
             System.Windows.Forms.Application.Run(_formMainWindow);
+            return Unit.Task;
+        }
+
+        /// <summary>
+        ///     Processa o comando: ApplicationChangeLanguage
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
+        {
+            Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, 
+                request.NewLanguage.TwoLetterISOLanguageName);
+
+            Program.RestartWhenClose = true;
+            
+            CultureInfo.DefaultThreadCurrentCulture = 
+                CultureInfo.DefaultThreadCurrentUICulture = 
+                    new CultureInfo(request.NewLanguage.TwoLetterISOLanguageName);
+            
+            _messageBus.Send(new ApplicationFinalize(), cancellationToken);
+            
             return Unit.Task;
         }
     }

@@ -368,6 +368,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The application is already in the selected language..
+        /// </summary>
+        public static string Text_Configuration_LanguageAlreadySelected {
+            get {
+                return ResourceManager.GetString("Text.Configuration.LanguageAlreadySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To change the language, the application must be restarted..
         /// </summary>
         public static string Text_Configuration_LanguageChangeConfirm {

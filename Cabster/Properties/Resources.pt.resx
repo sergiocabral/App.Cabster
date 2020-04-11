@@ -156,6 +156,9 @@
   <data name="Text.Common.Inactive" xml:space="preserve">
     <value>Inativo</value>
   </data>
+  <data name="Text.Configuration.LanguageAlreadySelected" xml:space="preserve">
+    <value>A aplicação já está no idioma selecionado.</value>
+  </data>
   <data name="Text.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>Para trocar o idioma a aplicação deve ser reiniciada.</value>
   </data>

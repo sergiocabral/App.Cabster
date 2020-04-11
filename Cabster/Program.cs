@@ -70,6 +70,8 @@ namespace Cabster
 
             do
             {
+                Program.RestartWhenClose = false;
+                
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
 

@@ -47,7 +47,7 @@
             this.panelLanguage.Controls.Add(this.labelLanguage);
             this.panelLanguage.Location = new System.Drawing.Point(15, 64);
             this.panelLanguage.Name = "panelLanguage";
-            this.panelLanguage.Size = new System.Drawing.Size(570, 135);
+            this.panelLanguage.Size = new System.Drawing.Size(570, 142);
             this.panelLanguage.TabIndex = 11;
             // 
             // buttonLanguageEnglish
@@ -64,7 +64,7 @@
             this.buttonLanguageEnglish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLanguageEnglish.Image = ((System.Drawing.Image)(resources.GetObject("buttonLanguageEnglish.Image")));
             this.buttonLanguageEnglish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLanguageEnglish.Location = new System.Drawing.Point(22, 83);
+            this.buttonLanguageEnglish.Location = new System.Drawing.Point(22, 89);
             this.buttonLanguageEnglish.Name = "buttonLanguageEnglish";
             this.buttonLanguageEnglish.NotTransparent = false;
             this.buttonLanguageEnglish.Size = new System.Drawing.Size(526, 50);
