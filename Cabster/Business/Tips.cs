@@ -42,11 +42,6 @@ namespace Cabster.Business
         private const string KeyTranslated = "translated";
 
         /// <summary>
-        ///     Random.
-        /// </summary>
-        private static readonly Random Random = new Random(DateTime.Now.Millisecond);
-
-        /// <summary>
         ///     Lista de frases.
         /// </summary>
         private static readonly IList<IDictionary<string, string>> List = new List<IDictionary<string, string>>
@@ -263,7 +258,7 @@ namespace Cabster.Business
         /// <summary>
         ///     Última dica obtida.
         /// </summary>
-        private static int _lastIndex = -1;
+        private static int _index = new Random(DateTime.Now.Millisecond).Next(0, List.Count);
 
         /// <summary>
         ///     Obtem uma dica aleatória.
@@ -271,18 +266,17 @@ namespace Cabster.Business
         /// <returns></returns>
         public static async Task<string> Get()
         {
-            int index;
-            do
-            {
-                index = Random.Next(0, List.Count);
-            } while (index == _lastIndex);
-
-            var tip = List[_lastIndex = index];
+            var tip = List[_index++ % List.Count];
 
             if (tip.ContainsKey(KeyTranslated)) return tip[KeyTranslated];
 
-            var translated = await $"{tip[KeyTitle]}: {tip[KeyBody]}"
-                .GoogleTranslate(DefaultLanguage, CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+            var translated = $"{tip[KeyTitle]}: {tip[KeyBody]}";
+
+            if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName != DefaultLanguage)
+            {
+                translated = await translated
+                    .GoogleTranslate(DefaultLanguage, CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+            }
 
             tip[KeyTranslated] = $"{translated} — {tip[KeyAuthor]}";
 

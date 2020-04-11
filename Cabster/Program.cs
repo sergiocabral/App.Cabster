@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Cabster.Business;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
-using Cabster.Extensions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
 using MediatR;
@@ -32,6 +29,11 @@ namespace Cabster
         private static IDependencyResolver? _dependencyResolver;
 
         /// <summary>
+        ///     Sinaliza se a aplicação pode ser finalizada.
+        /// </summary>
+        public static bool CanClose { get; set; } = true;
+
+        /// <summary>
         ///     DependencyResolver de uso comum.
         /// </summary>
         public static IDependencyResolver DependencyResolver
@@ -47,8 +49,6 @@ namespace Cabster
         [STAThread]
         public static void Main(params string[] args)
         {
-            CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = new CultureInfo("pt");
-
 #if DEBUG
             IsDebug = true;
 #else
@@ -61,18 +61,20 @@ namespace Cabster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var logger = LoggerConfiguration.Initialize(
+            using var logger = LoggerConfiguration.Initialize(
                 IsDebug == true || args.Contains("-vv") ? LogEventLevel.Verbose :
                 args.Contains("-v") ? LogEventLevel.Debug :
-                LogEventLevel.Information))
-            {
-                Log.Logger = logger;
+                LogEventLevel.Information);
 
+            Log.Logger = logger;
+
+            do
+            {
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
 
                 DependencyResolver.GetInstanceRequired<IMediator>().Send(new InitializeApplication());
-            }
+            } while (!CanClose);
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }
