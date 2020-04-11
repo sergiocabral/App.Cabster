@@ -4,6 +4,7 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Infrastructure;
+using Cabster.Properties;
 using MediatR;
 using Serilog;
 

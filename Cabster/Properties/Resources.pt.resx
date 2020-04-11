@@ -156,6 +156,9 @@
   <data name="Text.Common.Inactive" xml:space="preserve">
     <value>Inativo</value>
   </data>
+  <data name="Text.Configuration.WindowTitle" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
   <data name="Text.DialogShow.ButtonCancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -209,5 +212,8 @@ Para remover: botão esquerdo.</value>
   </data>
   <data name="Text.WorkGroup.TipsLoading" xml:space="preserve">
     <value>Carregando outra dica...</value>
+  </data>
+  <data name="Text.WorkGroup.WindowTitle" xml:space="preserve">
+    <value>Trabalho em Grupo</value>
   </data>
 </root>

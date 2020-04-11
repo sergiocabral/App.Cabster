@@ -46,6 +46,7 @@
             // 
             // panelTitle
             // 
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Controls.Add(this.buttonMinimize);
             this.panelTitle.Controls.Add(this.buttonClose);
@@ -85,6 +86,7 @@
             this.buttonMinimize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.Image")));
             this.buttonMinimize.Location = new System.Drawing.Point(716, 0);
             this.buttonMinimize.Name = "buttonMinimize";
+            this.buttonMinimize.NotTransparent = false;
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
             this.buttonMinimize.TabIndex = 5;
             this.toolTip.SetToolTip(this.buttonMinimize, "Action.MinimizeWindow");
@@ -105,6 +107,7 @@
             this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
             this.buttonClose.Location = new System.Drawing.Point(766, 0);
             this.buttonClose.Name = "buttonClose";
+            this.buttonClose.NotTransparent = false;
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
             this.buttonClose.TabIndex = 4;
             this.toolTip.SetToolTip(this.buttonClose, "Action.TerminateApplication");
@@ -143,6 +146,7 @@
             this.buttonResize.Image = ((System.Drawing.Image)(resources.GetObject("buttonResize.Image")));
             this.buttonResize.Location = new System.Drawing.Point(807, 491);
             this.buttonResize.Name = "buttonResize";
+            this.buttonResize.NotTransparent = false;
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
             this.buttonResize.TabIndex = 8;
             this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");

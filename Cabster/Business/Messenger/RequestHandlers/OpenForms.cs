@@ -39,8 +39,8 @@ namespace Cabster.Business.Messenger.RequestHandlers
         {
             form.WindowState = FormWindowState.Normal;
             form.Show();
-            form.InvalidadeAll();
             form.BringToFront();
+            form.InvalidadeAll();
         }
         
         /// <summary>

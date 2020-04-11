@@ -256,4 +256,10 @@ To remove: left button.</value>
   <data name="Text.WorkGroup.ConfigurationHint" xml:space="preserve">
     <value>Opens the configuration options.</value>
   </data>
+  <data name="Text.Configuration.WindowTitle" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Text.WorkGroup.WindowTitle" xml:space="preserve">
+    <value>Work Group</value>
+  </data>
 </root>
