@@ -1,8 +1,11 @@
-﻿namespace Cabster.Business.Enums
+﻿using System;
+
+namespace Cabster.Business.Enums
 {
     /// <summary>
     ///     Estados possíveis da aplicação.
     /// </summary>
+    [Flags]
     public enum ApplicationState
     {
         /// <summary>

@@ -1,5 +1,4 @@
 ﻿using System;
-using Cabster.Business.Enums;
 
 namespace Cabster.Business.Entities
 {
@@ -7,13 +6,13 @@ namespace Cabster.Business.Entities
     ///     Representa todas as configurações da aplicação.
     /// </summary>
     [Serializable]
-    public class ContainerData : IEntity
+    public class ContainerData : EntityBase
     {
         /// <summary>
-        ///     Estado da aplicação
+        ///     Conjunto de configurações da aplicação.
         /// </summary>
-        public ApplicationState ApplicationState { get; set; } = ApplicationState.ApplicationStarted;
-
+        public ApplicationSet Application { get; set; } = new ApplicationSet();
+        
         /// <summary>
         ///     Trabalho em grupo do aplicativo.
         /// </summary>

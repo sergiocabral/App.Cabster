@@ -145,10 +145,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Entities\ApplicationSet.cs" />
     <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\GroupWorkParticipantSet.cs" />
     <Compile Include="Business\Entities\GroupWorkSet.cs" />
     <Compile Include="Business\Entities\GroupWorkStatisticsSet.cs" />
+    <Compile Include="Business\EntityBase.cs" />
+    <Compile Include="Business\Enums\DataSection.cs" />
     <Compile Include="Business\Forms\FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,11 +166,14 @@
     </Compile>
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
+    <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\Clock.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\Data.cs" />
     <Compile Include="Business\Messenger\RequestHandlers\WindowOpen.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationChangeLanguage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
+    <Compile Include="Business\Messenger\Request\DataUpdate.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />

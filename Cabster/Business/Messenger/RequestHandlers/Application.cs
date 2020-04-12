@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
@@ -80,11 +81,12 @@ namespace Cabster.Business.Messenger.RequestHandlers
                 request.NewLanguage.TwoLetterISOLanguageName);
 
             Program.RestartWhenClose = true;
-            
-            CultureInfo.DefaultThreadCurrentCulture = 
-                CultureInfo.DefaultThreadCurrentUICulture = 
-                    new CultureInfo(request.NewLanguage.TwoLetterISOLanguageName);
-            
+
+            var data = Program.Data; 
+            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
+
+            _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
+
             _messageBus.Send(new ApplicationFinalize(), cancellationToken);
             
             return Unit.Task;

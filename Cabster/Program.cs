@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Helpers;
@@ -32,6 +34,20 @@ namespace Cabster
         ///     Sinaliza se a aplicação deve ser reiniciada ao fechar.
         /// </summary>
         public static bool RestartWhenClose { get; set; }
+        
+        /// <summary>
+        /// Dados que configuram a aplicação.
+        /// </summary>
+        private static ContainerData _data = new ContainerData();
+
+        /// <summary>
+        /// Dados que configuram a aplicação.
+        /// </summary>
+        public static ContainerData Data
+        {
+            get => (ContainerData) _data.Clone();
+            set => _data = value;
+        }
 
         /// <summary>
         ///     DependencyResolver de uso comum.
@@ -71,7 +87,11 @@ namespace Cabster
             do
             {
                 Program.RestartWhenClose = false;
-                
+
+                CultureInfo.DefaultThreadCurrentCulture =
+                    CultureInfo.DefaultThreadCurrentUICulture =
+                        new CultureInfo(Data.Application.Language);
+
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
 
