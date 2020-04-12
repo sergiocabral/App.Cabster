@@ -126,6 +126,9 @@
   <data name="Action.TerminateApplication" xml:space="preserve">
     <value>Fechar a aplicação.</value>
   </data>
+  <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
+    <value>A tecla de atalho já está sendo utilizada por outro aplicativo.</value>
+  </data>
   <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>Era esperado uma operação única para: {Operation}</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
+  </data>
+  <data name="Text.Application.ShortcutDefined" xml:space="preserve">
+    <value>A tecla de atalho foi registrada com sucesso.</value>
+  </data>
+  <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
+    <value>Nenhuma tecla de atalho definida.</value>
   </data>
   <data name="Text.Common.Active" xml:space="preserve">
     <value>Ativo</value>

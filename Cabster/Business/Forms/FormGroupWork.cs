@@ -19,7 +19,7 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela de trabalho em grupo.
     /// </summary>
-    public partial class FormGroupWork : FormLayout
+    public partial class FormGroupWork : FormLayout, IFormContainerData
     {
         /// <summary>
         ///     Sinaliza que a janela já foi carregada.
@@ -113,7 +113,7 @@ namespace Cabster.Business.Forms
 
             Shown += (sender, args) =>
             {
-                LoadData();
+                UpdateControls();
                 buttonStart.Focus();
 
                 _loaded = true;
@@ -131,9 +131,9 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        ///     Carrega os dados da aplicação.
+        /// Notifica a atualização dos controles da tela.
         /// </summary>
-        public void LoadData()
+        public void UpdateControls()
         {
             var data = Program.Data;
             Participants = data.GroupWork.Participants;

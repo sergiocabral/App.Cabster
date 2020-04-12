@@ -7,6 +7,7 @@ using Cabster.Business.Enums;
 using Cabster.Business.Forms;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
+using Cabster.Components;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 using MediatR;
@@ -20,7 +21,8 @@ namespace Cabster.Business.Messenger.Handlers
         MessengerHandler,
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>,
-        INotificationHandler<DataUpdated>
+        INotificationHandler<DataUpdated>,
+        INotificationHandler<DataUpdatedMessage>
     {
         /// <summary>
         ///     Lista de forms abertos.
@@ -35,7 +37,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         /// Janela: FormGroupWork
         /// </summary>
-        private static FormGroupWork FormGroupWork =>
+        private static IFormContainerData FormGroupWork =>
             _formGroupWork ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWork>();
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         /// Janela: FormConfiguration
         /// </summary>
-        private static FormConfiguration FormConfiguration =>
+        private static IFormContainerData FormConfiguration =>
             _formConfiguration ??= Program.DependencyResolver.GetInstanceRequired<FormConfiguration>();
 
         /// <summary>
@@ -77,8 +79,9 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Abrir uma janela.
         /// </summary>
         /// <param name="form">Janela.</param>
-        private static void OpenWindows(Form form)
+        private static void OpenWindows(IFormContainerData formContainerData)
         {
+            var form = (Form) formContainerData;
             form.WindowState = FormWindowState.Normal;
             form.Show();
 
@@ -101,12 +104,28 @@ namespace Cabster.Business.Messenger.Handlers
         /// Evento: DataUpdated
         /// </summary>
         /// <param name="notification">Evento.</param>
-        /// <param name="cancellationToken">Token de ancelamento.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
         /// <returns>Task</returns>
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            if ((notification.Request.Section & DataSection.Application) != 0) _formConfiguration?.LoadData();
-            if ((notification.Request.Section & DataSection.WorkGroup) != 0) _formGroupWork?.LoadData();
+            if ((notification.Request.Section & DataSection.Application) != 0) _formConfiguration?.UpdateControls();
+            if ((notification.Request.Section & DataSection.WorkGroup) != 0) _formGroupWork?.UpdateControls();
+            return Unit.Task;
+        }
+
+        /// <summary>
+        /// Evento: DataUpdatedMessage
+        /// </summary>
+        /// <param name="notification">Evento.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        public Task Handle(DataUpdatedMessage notification, CancellationToken cancellationToken)
+        {
+            //TODO: Ao ligar tem que carregar os dados para quando não houver arquivos.
+            //TODO: Exibir erros de startup.
+            if ((notification.Request.Section & DataSection.ApplicationShortcut) != 0)
+                _formConfiguration?.SetStatusMessage(notification.Message, notification.Success);
+
             return Unit.Task;
         }
     }

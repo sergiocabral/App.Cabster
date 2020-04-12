@@ -1,11 +1,15 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Enums;
+using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
+using Cabster.Extensions;
 using Cabster.Infrastructure;
+using Cabster.Properties;
 using MediatR;
 using Serilog;
 
@@ -18,12 +22,18 @@ namespace Cabster.Business.Messenger.Handlers
         MessengerHandler,
         IRequestHandler<ApplicationInitialize>,
         IRequestHandler<ApplicationFinalize>,
-        IRequestHandler<ApplicationChangeLanguage>
+        IRequestHandler<ApplicationChangeLanguage>,
+        INotificationHandler<DataUpdated>
     {
         /// <summary>
         ///     Janela principal do sistema.
         /// </summary>
         private readonly FormMainWindow _formMainWindow;
+
+        /// <summary>
+        /// Configurações de teclas de atalho.
+        /// </summary>
+        private readonly IShortcut _shortcut;
 
         /// <summary>
         ///     Barramento de mensagens.
@@ -35,10 +45,15 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         /// <param name="messageBus">IMediator</param>
         /// <param name="formMainWindow">Janela principal do sistema.</param>
-        public ApplicationHandler(IMediator messageBus, FormMainWindow formMainWindow)
+        /// <param name="shortcut">Configurações de teclas de atalho.</param>
+        public ApplicationHandler(
+            IMediator messageBus, 
+            FormMainWindow formMainWindow,
+            IShortcut shortcut)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
+            _shortcut = shortcut;
         }
 
         /// <summary>
@@ -90,6 +105,43 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
             Application.Run(_formMainWindow);
             return Unit.Value;
+        }
+
+        /// <summary>
+        /// Evento: DataUpdated
+        /// </summary>
+        /// <param name="notification">Evento.</param>
+        /// <param name="cancellationToken">Token de ancelamento.</param>
+        /// <returns>Task</returns>
+        public async Task Handle(DataUpdated notification, CancellationToken cancellationToken)
+        {
+            if ((notification.Request.Section & DataSection.ApplicationShortcut) == DataSection.ApplicationShortcut)
+            {
+                var shortcut = notification.Request.Data.Application.Shortcut.ToShortcutDescription();
+                
+                try
+                {
+                    var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
+                    await _messageBus.Publish(new DataUpdatedMessage(
+                        notification.Request,
+                        registered
+                            ? Resources.Text_Application_ShortcutDefined
+                            : Resources.Text_Application_ShortcutRemoved), cancellationToken);
+
+                    Log.Debug("Shortcut key {Shortcut} registered: {Registered}", 
+                        shortcut, registered);
+                }
+                catch (Exception exception)
+                {
+                    Log.Error(exception,
+                        "Error registering shortcut key: {Shortcut}", shortcut);
+                    
+                    await _messageBus.Publish(new DataUpdatedMessage(
+                        notification.Request,
+                        Resources.Exception_Application_ShortcutAlreadyUsed,
+                        false), cancellationToken);
+                }
+            }
         }
     }
 }

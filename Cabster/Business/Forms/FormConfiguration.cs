@@ -8,13 +8,14 @@ using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
+using Serilog;
 
 namespace Cabster.Business.Forms
 {
     /// <summary>
     ///     Janela de configuração
     /// </summary>
-    public partial class FormConfiguration : FormLayout
+    public partial class FormConfiguration : FormLayout, IFormContainerData
     {
         /// <summary>
         ///     Construtor.
@@ -33,7 +34,7 @@ namespace Cabster.Business.Forms
             ButtonCloseClick += OnButtonCloseClick;
             Shown += (sender, args) =>
             {
-                LoadData();
+                UpdateControls();
                 _loaded = true;
             };
         }
@@ -43,7 +44,10 @@ namespace Cabster.Business.Forms
         /// </summary>
         private bool _loaded;
         
-        public void LoadData()
+        /// <summary>
+        /// Notifica a atualização dos controles da tela.
+        /// </summary>
+        public void UpdateControls()
         {
             var data = Program.Data;
             _lastShortcut = Shortcut = data.Application.Shortcut;

@@ -168,6 +168,7 @@
     <Compile Include="Business\IDataManipulation.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
+    <Compile Include="Business\IShortcut.cs" />
     <Compile Include="Business\Messenger\Notification\DataLoadedFromFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataSavedToFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Business\Messenger\Handlers\ClockHandler.cs" />
     <Compile Include="Business\Messenger\Handlers\DataHandler.cs" />
     <Compile Include="Business\Messenger\Handlers\WindowHandler.cs" />
+    <Compile Include="Business\Messenger\Notification\DataUpdatedMessage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationChangeLanguage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
     <Compile Include="Business\Messenger\Request\DataLoadFromFile.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />
     <Compile Include="Business\Messenger\Request\ClockSinalize.cs" />
     <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
+    <Compile Include="Business\Shortcut.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Components\FormDialogConfirm.cs">
       <SubType>Form</SubType>
@@ -204,6 +207,7 @@
     <Compile Include="Components\FormDialogBase.Designer.cs">
       <DependentUpon>FormDialogBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\IFormContainerData.cs" />
     <Compile Include="Components\MyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -236,6 +240,7 @@
     <Compile Include="Extensions\ControlSetRedrawExtensions.cs" />
     <Compile Include="Extensions\ControlsExtensions.cs" />
     <Compile Include="Extensions\GoogleTranslateExtensions.cs" />
+    <Compile Include="Extensions\ShortcutKeysExtensions.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Extensions\FormInvisibleExtensions.cs" />
     <Compile Include="Components\FormBase.cs">

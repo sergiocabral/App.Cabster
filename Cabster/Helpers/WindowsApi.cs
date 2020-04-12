@@ -59,7 +59,34 @@ namespace Cabster.Helpers
                 handle, 0x000B /* WM_SETREDRAW */, new IntPtr(enable ? 1 : 0), IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Exibe ou esconde uma janela.
+        /// </summary>
+        /// <param name="hWnd">IntPtr</param>
+        /// <param name="nCmdShow">bool</param>
+        /// <returns>bool</returns>
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, bool nCmdShow);
+        
+        /// <summary>
+        /// Registra uma tecla de atalho.
+        /// </summary>
+        /// <param name="hWnd">IntPtr</param>
+        /// <param name="id">int</param>
+        /// <param name="fsModifiers">uint</param>
+        /// <param name="vk">uint</param>
+        /// <returns>bool</returns>
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+        
+        /// <summary>
+        /// Remove o registro de uma tecla de atalho
+        /// </summary>
+        /// <param name="hWnd">IntPtr</param>
+        /// <param name="id">id</param>
+        /// <returns>bool</returns>
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
     }
 }

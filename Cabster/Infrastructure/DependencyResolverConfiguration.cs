@@ -24,6 +24,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
 
             dependencyResolver.Register<IDataManipulation, DataManipulation>();
+            dependencyResolver.Register<IShortcut, Shortcut>();
 
             dependencyResolver.ServiceCollection.AddMediatR(typeof(Program));
 

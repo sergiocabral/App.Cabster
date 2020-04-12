@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Text;
 using Cabster.Business.Entities;
 using Cabster.Exceptions;
+using Cabster.Infrastructure;
 
 namespace Cabster.Business
 {
@@ -11,6 +12,14 @@ namespace Cabster.Business
     /// </summary>
     public class DataManipulation : IDataManipulation
     {
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        public DataManipulation()
+        {
+            this.LogClassInstantiate();
+        }
+        
         /// <summary>
         ///     Codificação de texto padrão.
         /// </summary>
