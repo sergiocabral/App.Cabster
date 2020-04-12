@@ -77,9 +77,9 @@ namespace Cabster.Business.Messenger.Handlers
 
                 if (data != null)
                 {
+                    Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
                     _messageBus.Publish(new DataLoadedFromFile(request), cancellationToken);
                     _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
-                    Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
                 }
                 else
                 {
