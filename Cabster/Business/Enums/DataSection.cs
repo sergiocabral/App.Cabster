@@ -27,6 +27,12 @@ namespace Cabster.Business.Enums
             0b_0000_0001,
 
         /// <summary>
+        ///     ApplicationSet: Tecla de atalho
+        /// </summary>
+        ApplicationShortcut =
+            0b_0000_0010,
+
+        /// <summary>
         ///     WorkGroupSet
         /// </summary>
         WorkGroup =

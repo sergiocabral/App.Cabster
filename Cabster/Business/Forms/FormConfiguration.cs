@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
@@ -29,6 +30,23 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void InitializeComponent2()
         {
+            ButtonCloseClick += OnButtonCloseClick;
+            Shown += (sender, args) =>
+            {
+                LoadData();
+                _loaded = true;
+            };
+        }
+
+        /// <summary>
+        /// Sinaliza o carregamento da tela.
+        /// </summary>
+        private bool _loaded;
+        
+        public void LoadData()
+        {
+            var data = Program.Data;
+            _lastShortcut = Shortcut = data.Application.Shortcut;
         }
 
         /// <summary>
@@ -54,16 +72,23 @@ namespace Cabster.Business.Forms
             }
             set
             {
-                checkBoxShortcutControl.Checked = (value & Keys.Control) == Keys.Control;
-                checkBoxShortcutShift.Checked = (value & Keys.Shift) == Keys.Shift;
-                checkBoxShortcutAlt.Checked = (value & Keys.Alt) == Keys.Alt;
+                checkBoxShortcutControl.Checked = value != null && (value & Keys.Control) == Keys.Control;
+                checkBoxShortcutShift.Checked = value != null && (value & Keys.Shift) == Keys.Shift;
+                checkBoxShortcutAlt.Checked = value != null && (value & Keys.Alt) == Keys.Alt;
 
-                var key = value & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
-                var text = $"{key}";
+                if (value != null)
+                {
+                    var key = value & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
+                    var text = $"{key}";
 
-                if (text.Length == 2) text = text.Substring(1);
+                    if (text.Length == 2) text = text.Substring(1);
 
-                textBoxShortcutLetter.Text = text;
+                    textBoxShortcutLetter.Text = text;
+                }
+                else
+                {
+                    textBoxShortcutLetter.Text = string.Empty;
+                }
             }
         }
 
@@ -104,6 +129,65 @@ namespace Cabster.Business.Forms
                     textBoxShortcutLetter.Text.ToUpper(),
                     @"[^A-Z0-9]", string.Empty);
             textBoxShortcutLetter.SelectAll();
+            SaveShortcut();
+        }
+
+        /// <summary>
+        /// Evento ao marcar um botão de atalho.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void checkBoxShortcut_CheckedChanged(object sender, EventArgs args)
+        {
+            SaveShortcut();
+        }
+
+        /// <summary>
+        /// Última tecla de atalho gravada.
+        /// </summary>
+        private Keys? _lastShortcut;
+
+        /// <summary>
+        /// Dados pendentes de gravação.
+        /// </summary>
+        private DataSection _pendingToSave;
+        
+        /// <summary>
+        /// Grava as informações da tecla de atalho.
+        /// </summary>
+        private void SaveShortcut()
+        {
+            if (!_loaded) return;
+            timerToSaveShortcut.Enabled = false;
+            timerToSaveShortcut.Enabled = true;
+            _pendingToSave |= DataSection.ApplicationShortcut;
+        }
+
+        /// <summary>
+        /// Evento para efetivar a gravação da tecla de atalho.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void timerToSaveShortcut_Tick(object sender, EventArgs args)
+        {
+            ((Timer) sender).Enabled = false;
+            if (Shortcut == _lastShortcut) return;
+            var data = Program.Data;
+            data.Application.Shortcut = Shortcut;
+            MessageBus.Send(new DataUpdate(data, DataSection.ApplicationShortcut));
+            _pendingToSave ^= DataSection.ApplicationShortcut;
+        }
+
+        /// <summary>
+        ///     Quando clica o botão de fechar a janela.
+        /// </summary>
+        private async void OnButtonCloseClick()
+        {
+            Hide();
+            if (_pendingToSave == 0) return;
+            var data = Program.Data;
+            data.Application.Shortcut = Shortcut;
+            await MessageBus.Send(new DataUpdate(data, _pendingToSave));
         }
     }
 }

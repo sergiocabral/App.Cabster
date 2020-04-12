@@ -39,6 +39,7 @@
             this.checkBoxShortcutShift = new System.Windows.Forms.CheckBox();
             this.checkBoxShortcutAlt = new System.Windows.Forms.CheckBox();
             this.textBoxShortcutLetter = new System.Windows.Forms.TextBox();
+            this.timerToSaveShortcut = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // buttonClose
@@ -179,6 +180,8 @@
             this.checkBoxShortcutControl.Text = "CONTROL";
             this.checkBoxShortcutControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxShortcutControl.UseVisualStyleBackColor = false;
+            this.checkBoxShortcutControl.CheckedChanged +=
+                new System.EventHandler(this.checkBoxShortcut_CheckedChanged);
             // 
             // checkBoxShortcutShift
             // 
@@ -208,6 +211,7 @@
             this.checkBoxShortcutShift.Text = "SHIFT";
             this.checkBoxShortcutShift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxShortcutShift.UseVisualStyleBackColor = false;
+            this.checkBoxShortcutShift.CheckedChanged += new System.EventHandler(this.checkBoxShortcut_CheckedChanged);
             // 
             // checkBoxShortcutAlt
             // 
@@ -237,6 +241,7 @@
             this.checkBoxShortcutAlt.Text = "ALT";
             this.checkBoxShortcutAlt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxShortcutAlt.UseVisualStyleBackColor = false;
+            this.checkBoxShortcutAlt.CheckedChanged += new System.EventHandler(this.checkBoxShortcut_CheckedChanged);
             // 
             // textBoxShortcutLetter
             // 
@@ -255,6 +260,11 @@
             this.textBoxShortcutLetter.Enter += new System.EventHandler(this.textBoxShortcutLetter_TextChanged);
             this.textBoxShortcutLetter.MouseUp +=
                 new System.Windows.Forms.MouseEventHandler(this.textBoxShortcutLetter_TextChanged);
+            // 
+            // timerToSaveShortcut
+            // 
+            this.timerToSaveShortcut.Interval = 1000;
+            this.timerToSaveShortcut.Tick += new System.EventHandler(this.timerToSaveShortcut_Tick);
             // 
             // FormConfiguration
             // 
@@ -294,5 +304,6 @@
         private System.Windows.Forms.CheckBox checkBoxShortcutShift;
         private System.Windows.Forms.CheckBox checkBoxShortcutAlt;
         private System.Windows.Forms.TextBox textBoxShortcutLetter;
+        private System.Windows.Forms.Timer timerToSaveShortcut;
     }
 }

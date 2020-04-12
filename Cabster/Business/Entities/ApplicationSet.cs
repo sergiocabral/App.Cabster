@@ -17,7 +17,7 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Tecla de atalho.
         /// </summary>
-        public Keys Shortcut { get; set; } = Keys.Control | Keys.Shift | Keys.M;
+        public Keys? Shortcut { get; set; } = Keys.Control | Keys.Shift | Keys.M;
 
         /// <summary>
         ///     Idioma padrão.
