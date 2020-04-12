@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -70,18 +71,25 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(DataLoad request, CancellationToken cancellationToken)
         {
-            var data = _dataManipulation.LoadFromFile();
+            try
+            {
+                var data = _dataManipulation.LoadFromFile();
 
-            if (data != null)
-            {
-                _messageBus.Publish(new DataLoaded(request), cancellationToken);
-                _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
-                Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
+                if (data != null)
+                {
+                    _messageBus.Publish(new DataLoaded(request), cancellationToken);
+                    _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
+                    Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
+                }
+                else
+                {
+                    Log.Debug("Application data cannot be loaded because the file does not exist in: {Path}",
+                        _dataManipulation.Path);
+                }
             }
-            else
+            catch (Exception exception)
             {
-                Log.Debug("Application data cannot be loaded because the file does not exist in: {Path}",
-                    _dataManipulation.Path);
+                Log.Error(exception, "Application data cannot load from: {Path}", _dataManipulation.Path);
             }
 
             return Unit.Task;
@@ -97,11 +105,18 @@ namespace Cabster.Business.Messenger.Handlers
         {
             var data = Program.Data;
 
-            _dataManipulation.SaveToFile(data);
+            try
+            {
+                _dataManipulation.SaveToFile(data);
 
-            Log.Debug("Application data saved to: {Path}", _dataManipulation.Path);
+                Log.Debug("Application data saved to: {Path}", _dataManipulation.Path);
 
-            _messageBus.Publish(new DataSaved(request), cancellationToken);
+                _messageBus.Publish(new DataSaved(request), cancellationToken);
+            }
+            catch (Exception exception)
+            {
+                Log.Error(exception, "Application data cannot save to: {Path}", _dataManipulation.Path);
+            }
 
             return Unit.Task;
         }
