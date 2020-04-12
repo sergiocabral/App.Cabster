@@ -22,6 +22,11 @@ namespace Cabster.Business.Forms
     public partial class FormGroupWork : FormLayout
     {
         /// <summary>
+        ///     Sinaliza que a janela já foi carregada.
+        /// </summary>
+        private bool _loaded;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormGroupWork()
@@ -31,7 +36,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Tempos.
+        ///     Tempos.
         /// </summary>
         private GroupWorkTimesSet Times
         {
@@ -77,15 +82,11 @@ namespace Cabster.Business.Forms
 
                 foreach (var participantSet in value)
                     panelParticipants.Controls.Add(
-                        ParticipantInfo.CreateControl(this, SaveParticipants, participantSet.Name, participantSet.Active));
+                        ParticipantInfo.CreateControl(this, SaveParticipants, participantSet.Name,
+                            participantSet.Active));
             }
         }
 
-        /// <summary>
-        /// Sinaliza que a janela já foi carregada.
-        /// </summary>
-        private bool _loaded;
-        
         /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
@@ -111,15 +112,23 @@ namespace Cabster.Business.Forms
 
             Shown += (sender, args) =>
             {
-                var data = Program.Data;
-                Participants = data.GroupWork.Participants;
-                Times = data.GroupWork.Times;
+                LoadData();
                 buttonStart.Focus();
 
                 _loaded = true;
             };
 
             labelTips.Text = string.Empty;
+        }
+
+        /// <summary>
+        ///     Carrega os dados da aplicação.
+        /// </summary>
+        public void LoadData()
+        {
+            var data = Program.Data;
+            Participants = data.GroupWork.Participants;
+            Times = data.GroupWork.Times;
         }
 
         /// <summary>
@@ -144,7 +153,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Grava os participants.
+        ///     Grava os participants.
         /// </summary>
         private void SaveParticipants()
         {
@@ -154,7 +163,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Grava os tempos.
+        ///     Grava os tempos.
         /// </summary>
         private void SaveTimes()
         {
@@ -162,7 +171,7 @@ namespace Cabster.Business.Forms
             timerToSaveTimes.Enabled = false;
             timerToSaveTimes.Enabled = true;
         }
-        
+
         /// <summary>
         ///     Timer para gravar os dados dos participantes.
         /// </summary>
@@ -175,7 +184,7 @@ namespace Cabster.Business.Forms
             data.GroupWork.Participants = Participants.ToList();
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
         }
-        
+
         /// <summary>
         ///     Timer para gravar os dados dos participantes.
         /// </summary>
@@ -188,7 +197,7 @@ namespace Cabster.Business.Forms
             data.GroupWork.Times = Times;
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimes));
         }
-        
+
         /// <summary>
         ///     Quando clica o botão de fechar a janela.
         /// </summary>
@@ -358,11 +367,6 @@ namespace Cabster.Business.Forms
             private Point _lastPosition;
 
             /// <summary>
-            /// Evento disparado quando ocorre alguma alteração.
-            /// </summary>
-            public event Action? Updated;
-            
-            /// <summary>
             ///     Construtor.
             /// </summary>
             /// <param name="form">Esta janela.</param>
@@ -406,6 +410,11 @@ namespace Cabster.Business.Forms
                     Updated?.Invoke();
                 }
             }
+
+            /// <summary>
+            ///     Evento disparado quando ocorre alguma alteração.
+            /// </summary>
+            public event Action? Updated;
 
             /// <summary>
             ///     Atualiza o ToolTip do controle.
