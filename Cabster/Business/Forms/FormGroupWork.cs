@@ -160,7 +160,13 @@ namespace Cabster.Business.Forms
             if (!_loaded) return;
             timerToSaveParticipants.Enabled = false;
             timerToSaveParticipants.Enabled = true;
+            _pendingToSave |= DataSection.WorkGroupParticipants;
         }
+
+        /// <summary>
+        /// Dados pendentes de gravação.
+        /// </summary>
+        private DataSection _pendingToSave;
 
         /// <summary>
         ///     Grava os tempos.
@@ -170,6 +176,7 @@ namespace Cabster.Business.Forms
             if (!_loaded) return;
             timerToSaveTimes.Enabled = false;
             timerToSaveTimes.Enabled = true;
+            _pendingToSave |= DataSection.WorkGroupTimes;
         }
 
         /// <summary>
@@ -183,6 +190,7 @@ namespace Cabster.Business.Forms
             var data = Program.Data;
             data.GroupWork.Participants = Participants.ToList();
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
+            _pendingToSave ^= DataSection.WorkGroupParticipants;
         }
 
         /// <summary>
@@ -196,6 +204,7 @@ namespace Cabster.Business.Forms
             var data = Program.Data;
             data.GroupWork.Times = Times;
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimes));
+            _pendingToSave ^= DataSection.WorkGroupTimes;
         }
 
         /// <summary>
@@ -203,10 +212,14 @@ namespace Cabster.Business.Forms
         /// </summary>
         private async void OnButtonCloseClick()
         {
-            var data = Program.Data;
-            data.GroupWork.Times = Times;
-            data.GroupWork.Participants = Participants.ToList();
-            await MessageBus.Send(new DataUpdate(data, DataSection.WorkGroup));
+            if (_pendingToSave != 0)
+            {
+                var data = Program.Data;
+                data.GroupWork.Times = Times;
+                data.GroupWork.Participants = Participants.ToList();
+                await MessageBus.Send(new DataUpdate(data, DataSection.WorkGroup));
+            }
+
             await MessageBus.Send(new ApplicationFinalize());
         }
 
