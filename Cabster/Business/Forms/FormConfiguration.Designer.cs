@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
             this.buttonLanguageEnglish = new Cabster.Components.MyButton(this.components);
             this.buttonLanguagePortuguese = new Cabster.Components.MyButton(this.components);
             this.labelLanguage = new System.Windows.Forms.Label();
@@ -42,39 +43,46 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
+                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
+            this.buttonClose.Image = ((System.Drawing.Image) (resources.GetObject("buttonClose.Image")));
             this.buttonClose.Location = new System.Drawing.Point(535, 0);
             this.toolTip.SetToolTip(this.buttonClose, "Close application.");
             // 
             // buttonMinimize
             // 
-            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
+                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.Image")));
+            this.buttonMinimize.Image = ((System.Drawing.Image) (resources.GetObject("buttonMinimize.Image")));
             this.buttonMinimize.Location = new System.Drawing.Point(485, 0);
             this.toolTip.SetToolTip(this.buttonMinimize, "Minimize window.");
             // 
             // buttonLanguageEnglish
             // 
-            this.buttonLanguageEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLanguageEnglish.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLanguageEnglish.BackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLanguageEnglish.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonLanguageEnglish.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
+                    ((int) (((byte) (255)))));
             this.buttonLanguageEnglish.FlatAppearance.BorderSize = 0;
             this.buttonLanguageEnglish.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLanguageEnglish.Image = ((System.Drawing.Image)(resources.GetObject("buttonLanguageEnglish.Image")));
+            this.buttonLanguageEnglish.Image =
+                ((System.Drawing.Image) (resources.GetObject("buttonLanguageEnglish.Image")));
             this.buttonLanguageEnglish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageEnglish.Location = new System.Drawing.Point(19, 153);
             this.buttonLanguageEnglish.Name = "buttonLanguageEnglish";
@@ -89,17 +97,22 @@
             // 
             // buttonLanguagePortuguese
             // 
-            this.buttonLanguagePortuguese.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLanguagePortuguese.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLanguagePortuguese.BackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLanguagePortuguese.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonLanguagePortuguese.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
+                    ((int) (((byte) (255)))));
             this.buttonLanguagePortuguese.FlatAppearance.BorderSize = 0;
             this.buttonLanguagePortuguese.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLanguagePortuguese.Image = ((System.Drawing.Image)(resources.GetObject("buttonLanguagePortuguese.Image")));
+            this.buttonLanguagePortuguese.Image =
+                ((System.Drawing.Image) (resources.GetObject("buttonLanguagePortuguese.Image")));
             this.buttonLanguagePortuguese.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguagePortuguese.Location = new System.Drawing.Point(19, 100);
             this.buttonLanguagePortuguese.Name = "buttonLanguagePortuguese";
@@ -114,8 +127,10 @@
             // 
             // labelLanguage
             // 
-            this.labelLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLanguage.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.labelLanguage.BackColor = System.Drawing.Color.Transparent;
             this.labelLanguage.Location = new System.Drawing.Point(12, 70);
             this.labelLanguage.Name = "labelLanguage";
@@ -125,8 +140,10 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 220);
             this.label1.Name = "label1";
@@ -138,12 +155,21 @@
             // 
             this.checkBoxShortcutControl.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBoxShortcutControl.AutoSize = true;
-            this.checkBoxShortcutControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.checkBoxShortcutControl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (127)))),
+                ((int) (((byte) (127)))), ((int) (((byte) (127)))));
             this.checkBoxShortcutControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxShortcutControl.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.checkBoxShortcutControl.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutControl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutControl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(200)))), ((int)(((byte)(100)))));
+            this.checkBoxShortcutControl.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
+                    ((int) (((byte) (224)))));
+            this.checkBoxShortcutControl.FlatAppearance.CheckedBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutControl.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutControl.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (200)))),
+                    ((int) (((byte) (100)))));
             this.checkBoxShortcutControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxShortcutControl.ForeColor = System.Drawing.Color.Black;
             this.checkBoxShortcutControl.Location = new System.Drawing.Point(26, 256);
@@ -158,12 +184,21 @@
             // 
             this.checkBoxShortcutShift.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBoxShortcutShift.AutoSize = true;
-            this.checkBoxShortcutShift.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.checkBoxShortcutShift.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (127)))),
+                ((int) (((byte) (127)))), ((int) (((byte) (127)))));
             this.checkBoxShortcutShift.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxShortcutShift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.checkBoxShortcutShift.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutShift.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutShift.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(200)))), ((int)(((byte)(100)))));
+            this.checkBoxShortcutShift.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
+                    ((int) (((byte) (224)))));
+            this.checkBoxShortcutShift.FlatAppearance.CheckedBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutShift.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutShift.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (200)))),
+                    ((int) (((byte) (100)))));
             this.checkBoxShortcutShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxShortcutShift.ForeColor = System.Drawing.Color.Black;
             this.checkBoxShortcutShift.Location = new System.Drawing.Point(130, 256);
@@ -178,12 +213,21 @@
             // 
             this.checkBoxShortcutAlt.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBoxShortcutAlt.AutoSize = true;
-            this.checkBoxShortcutAlt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.checkBoxShortcutAlt.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (127)))),
+                ((int) (((byte) (127)))), ((int) (((byte) (127)))));
             this.checkBoxShortcutAlt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxShortcutAlt.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.checkBoxShortcutAlt.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutAlt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
-            this.checkBoxShortcutAlt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(200)))), ((int)(((byte)(100)))));
+            this.checkBoxShortcutAlt.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
+                    ((int) (((byte) (224)))));
+            this.checkBoxShortcutAlt.FlatAppearance.CheckedBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutAlt.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (180)))),
+                    ((int) (((byte) (20)))));
+            this.checkBoxShortcutAlt.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (250)))), ((int) (((byte) (200)))),
+                    ((int) (((byte) (100)))));
             this.checkBoxShortcutAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxShortcutAlt.ForeColor = System.Drawing.Color.Black;
             this.checkBoxShortcutAlt.Location = new System.Drawing.Point(205, 256);
@@ -197,14 +241,20 @@
             // textBoxShortcutLetter
             // 
             this.textBoxShortcutLetter.BackColor = System.Drawing.Color.White;
-            this.textBoxShortcutLetter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxShortcutLetter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxShortcutLetter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.textBoxShortcutLetter.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))),
+                ((int) (((byte) (64)))), ((int) (((byte) (64)))));
             this.textBoxShortcutLetter.Location = new System.Drawing.Point(265, 257);
             this.textBoxShortcutLetter.MaxLength = 1;
             this.textBoxShortcutLetter.Name = "textBoxShortcutLetter";
             this.textBoxShortcutLetter.Size = new System.Drawing.Size(37, 27);
             this.textBoxShortcutLetter.TabIndex = 13;
             this.textBoxShortcutLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxShortcutLetter.TextChanged += new System.EventHandler(this.textBoxShortcutLetter_TextChanged);
+            this.textBoxShortcutLetter.Enter += new System.EventHandler(this.textBoxShortcutLetter_TextChanged);
+            this.textBoxShortcutLetter.MouseUp +=
+                new System.Windows.Forms.MouseEventHandler(this.textBoxShortcutLetter_TextChanged);
             // 
             // FormConfiguration
             // 
@@ -219,7 +269,7 @@
             this.Controls.Add(this.buttonLanguageEnglish);
             this.Controls.Add(this.buttonLanguagePortuguese);
             this.Controls.Add(this.labelLanguage);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormConfiguration";
             this.Text = "Text.Configuration.WindowTitle";
             this.Controls.SetChildIndex(this.labelLanguage, 0);
@@ -232,7 +282,6 @@
             this.Controls.SetChildIndex(this.textBoxShortcutLetter, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
