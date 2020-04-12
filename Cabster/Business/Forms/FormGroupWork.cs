@@ -98,6 +98,7 @@ namespace Cabster.Business.Forms
             ButtonCloseClick += OnButtonCloseClick;
             panelParticipants.ControlAdded += PanelParticipantsOnControlAddedOrRemoved;
             panelParticipants.ControlRemoved += PanelParticipantsOnControlAddedOrRemoved;
+            panelParticipants.OrderChanged += PanelParticipantsOnOrderChanged;
             PanelParticipantsOnControlAddedOrRemoved(panelParticipants, null);
             VisibleChanged += OnVisibleChanged;
 
@@ -119,6 +120,14 @@ namespace Cabster.Business.Forms
             };
 
             labelTips.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Evento quando a ordem dos nomes é alterada.
+        /// </summary>
+        private void PanelParticipantsOnOrderChanged()
+        {
+            SaveParticipants();
         }
 
         /// <summary>

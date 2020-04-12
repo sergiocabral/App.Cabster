@@ -27,6 +27,11 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        /// Quando a ordem dos controles é alterada.
+        /// </summary>
+        public event Action? OrderChanged;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="container">Container</param>
@@ -167,6 +172,8 @@ namespace Cabster.Components
             _positions.Clear();
             this.MakeChildrenOrganized(control => _positions[control] = controls.IndexOf(control));
             target.MakeHighlight();
+            
+            OrderChanged?.Invoke();
         }
 
         /// <summary>
