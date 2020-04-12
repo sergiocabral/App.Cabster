@@ -52,43 +52,37 @@ namespace Cabster.Business.Forms
         /// <summary>
         /// Tecla de atalho.
         /// </summary>
-        public Keys? Shortcut
+        public Keys Shortcut
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(textBoxShortcutLetter.Text)) return null;
                 var shortcut = Keys.None;
+                
                 if (checkBoxShortcutControl.Checked) shortcut |= Keys.Control;
                 if (checkBoxShortcutShift.Checked) shortcut |= Keys.Shift;
                 if (checkBoxShortcutAlt.Checked) shortcut |= Keys.Alt;
 
+                if (string.IsNullOrWhiteSpace(textBoxShortcutLetter.Text)) return shortcut;
+                
                 var text = textBoxShortcutLetter.Text[0];
                 var isNumber = text >= '0' && text <= '9';
                 var value = (Keys) Enum.Parse(typeof(Keys), isNumber ? $"D{text}" : $"{text}");
-                
                 shortcut |= value;
-                
+
                 return shortcut;
             }
             set
             {
-                checkBoxShortcutControl.Checked = value != null && (value & Keys.Control) == Keys.Control;
-                checkBoxShortcutShift.Checked = value != null && (value & Keys.Shift) == Keys.Shift;
-                checkBoxShortcutAlt.Checked = value != null && (value & Keys.Alt) == Keys.Alt;
+                checkBoxShortcutControl.Checked = (value & Keys.Control) == Keys.Control;
+                checkBoxShortcutShift.Checked = (value & Keys.Shift) == Keys.Shift;
+                checkBoxShortcutAlt.Checked = (value & Keys.Alt) == Keys.Alt;
 
-                if (value != null)
-                {
-                    var key = value & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
-                    var text = $"{key}";
+                var key = value & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
+                var text = $"{key}";
 
-                    if (text.Length == 2) text = text.Substring(1);
+                if (text.Length == 2 && text[0] == 'D') text = text.Substring(1);
 
-                    textBoxShortcutLetter.Text = text;
-                }
-                else
-                {
-                    textBoxShortcutLetter.Text = string.Empty;
-                }
+                textBoxShortcutLetter.Text = text.Length == 1 ? text : string.Empty;
             }
         }
 
@@ -145,7 +139,7 @@ namespace Cabster.Business.Forms
         /// <summary>
         /// Última tecla de atalho gravada.
         /// </summary>
-        private Keys? _lastShortcut;
+        private Keys _lastShortcut;
 
         /// <summary>
         /// Dados pendentes de gravação.

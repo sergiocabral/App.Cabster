@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cabster.Business.Enums;
 using Cabster.Business.Forms;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
@@ -27,40 +28,26 @@ namespace Cabster.Business.Messenger.Handlers
         private static readonly List<int> FormsPositioned = new List<int>();
 
         /// <summary>
-        ///     Resolvedor de dependências.
-        /// </summary>
-        private readonly IDependencyResolver _dependencyResolver;
-
-        /// <summary>
         /// Janela: FormGroupWork
         /// </summary>
-        private FormGroupWork? _formGroupWork;
+        private static FormGroupWork? _formGroupWork;
         
         /// <summary>
         /// Janela: FormGroupWork
         /// </summary>
-        private FormGroupWork FormGroupWork =>
-            _formGroupWork ??= _dependencyResolver.GetInstanceRequired<FormGroupWork>();
+        private static FormGroupWork FormGroupWork =>
+            _formGroupWork ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWork>();
 
         /// <summary>
         /// Janela: FormConfiguration
         /// </summary>
-        private FormConfiguration? _formConfiguration;
+        private static FormConfiguration? _formConfiguration;
 
         /// <summary>
         /// Janela: FormConfiguration
         /// </summary>
-        private FormConfiguration FormConfiguration =>
-            _formConfiguration ??= _dependencyResolver.GetInstanceRequired<FormConfiguration>();
-
-        /// <summary>
-        ///     Construtor.
-        /// </summary>
-        /// <param name="dependencyResolver">Resolvedor de dependências.</param>
-        public WindowHandler(IDependencyResolver dependencyResolver)
-        {
-            _dependencyResolver = dependencyResolver;
-        }
+        private static FormConfiguration FormConfiguration =>
+            _formConfiguration ??= Program.DependencyResolver.GetInstanceRequired<FormConfiguration>();
 
         /// <summary>
         ///     Processa o comando: WindowOpenConfiguration
@@ -118,7 +105,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            _formGroupWork?.LoadData();
+            if ((notification.Request.Section & DataSection.Application) != 0) _formConfiguration?.LoadData();
+            if ((notification.Request.Section & DataSection.WorkGroup) != 0) _formGroupWork?.LoadData();
             return Unit.Task;
         }
     }
