@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -57,10 +58,9 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            if (!notification.Request.AvoidDataSave)
-                _messageBus.Send(new DataSaveToFile(), cancellationToken);
-
-            return Unit.Task;
+            return !notification.Request.AvoidDataSave
+                ? _messageBus.Send(new DataSaveToFile(), cancellationToken)
+                : Unit.Task;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(DataLoadFromFile request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DataLoadFromFile request, CancellationToken cancellationToken)
         {
             try
             {
@@ -78,8 +78,8 @@ namespace Cabster.Business.Messenger.Handlers
                 if (data != null)
                 {
                     Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
-                    _messageBus.Publish(new DataLoadedFromFile(request), cancellationToken);
-                    _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
+                    await _messageBus.Publish(new DataLoadedFromFile(request), cancellationToken);
+                    await _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
                 }
                 else
                 {
@@ -92,33 +92,69 @@ namespace Cabster.Business.Messenger.Handlers
                 Log.Error(exception, "Application data cannot load from: {Path}", _dataManipulation.Path);
             }
 
-            return Unit.Task;
+            return Unit.Value;
         }
 
+        /// <summary>
+        /// Cronômetro para DataSaveToFile efetivar a função depois de 1 segundo.
+        /// </summary>
+        private static Stopwatch? _stopwatchDataSaveToFile;
+        
         /// <summary>
         ///     Processa o comando: DataSaveToFile
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(DataSaveToFile request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DataSaveToFile request, CancellationToken cancellationToken)
         {
-            var data = Program.Data;
+            const int delayToCheck = 100;
+            const int delayToAction = 500;
+            
+            Log.Verbose("Application data save requested. Waiting {Milliseconds} milliseconds.",
+                delayToAction);
+            
+            if (_stopwatchDataSaveToFile != null)
+            {
+                _stopwatchDataSaveToFile.Restart();
+                
+                return await Task.Run(async () =>
+                {
+                    while (_stopwatchDataSaveToFile != null)
+                    {
+                        await Task.Delay(delayToCheck, cancellationToken);
+                    }
+                    return Unit.Value;
+                }, cancellationToken);
+            }
 
+            _stopwatchDataSaveToFile = new Stopwatch();
+            _stopwatchDataSaveToFile.Start();
+
+            while (_stopwatchDataSaveToFile != null &&
+                   _stopwatchDataSaveToFile.ElapsedMilliseconds < delayToAction)
+            {
+                await Task.Delay(delayToCheck, cancellationToken);
+            }
+
+            var data = Program.Data;
+            
             try
             {
                 _dataManipulation.SaveToFile(data);
 
                 Log.Debug("Application data saved to: {Path}", _dataManipulation.Path);
 
-                _messageBus.Publish(new DataSavedToFile(request), cancellationToken);
+                await _messageBus.Publish(new DataSavedToFile(request), cancellationToken);
             }
             catch (Exception exception)
             {
                 Log.Error(exception, "Application data cannot save to: {Path}", _dataManipulation.Path);
             }
 
-            return Unit.Task;
+            _stopwatchDataSaveToFile = null;
+
+            return Unit.Value;
         }
 
         /// <summary>
@@ -127,20 +163,20 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
         {
             if (_programData == null)
                 _programData = typeof(Program)
                     .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
                     .Single(f => f.FieldType == typeof(ContainerData));
+            
             _programData.SetValue(null, request.Data);
 
             Log.Debug("Application data updated. Sections: {Data}", request.Section);
 
-            _messageBus.Publish(new DataUpdated(request), cancellationToken)
-                .Wait(cancellationToken);
-
-            return Unit.Task;
+            await _messageBus.Publish(new DataUpdated(request), cancellationToken);
+            
+            return Unit.Value;
         }
     }
 }

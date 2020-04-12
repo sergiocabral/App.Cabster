@@ -46,6 +46,8 @@ namespace Cabster.Business.Forms
             if (!FormDialogConfirm.Show(Resources.Text_Configuration_LanguageChangeConfirm)) return;
 
             MessageBus.Send(new ApplicationChangeLanguage(newLanguage));
+            
+            buttonClose.PerformClick();
         }
     }
 }

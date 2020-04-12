@@ -47,7 +47,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
         {
             Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
                 CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
@@ -58,11 +58,11 @@ namespace Cabster.Business.Messenger.Handlers
             var data = Program.Data;
             data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
 
-            _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
+            await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
-            _messageBus.Send(new ApplicationFinalize(), cancellationToken);
+            await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
-            return Unit.Task;
+            return Unit.Value;
         }
 
         /// <summary>
@@ -84,12 +84,12 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             Log.Information("Application started.");
-            _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
+            await _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
             Application.Run(_formMainWindow);
-            return Unit.Task;
+            return Unit.Value;
         }
     }
 }

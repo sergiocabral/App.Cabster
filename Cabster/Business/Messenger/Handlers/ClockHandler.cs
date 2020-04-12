@@ -39,10 +39,10 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(ClockSinalize request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(ClockSinalize request, CancellationToken cancellationToken)
         {
-            _messageBus.Publish(new ClockSignaled(request), cancellationToken);
-            return Unit.Task;
+            await _messageBus.Publish(new ClockSignaled(request), cancellationToken);
+            return Unit.Value;
         }
     }
 }

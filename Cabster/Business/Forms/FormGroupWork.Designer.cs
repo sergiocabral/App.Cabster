@@ -406,7 +406,6 @@
         }
 
         #endregion
-        private Cabster.Components.MyButton buttonMinimize;
         private System.Windows.Forms.Label labelDurationOfEachRound_Part1;
         private System.Windows.Forms.NumericUpDown numericUpDownDurationOfEachRound;
         private System.Windows.Forms.Label labelDurationOfEachRound_Part2;
