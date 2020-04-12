@@ -179,19 +179,19 @@
     <value>Cabster</value>
   </data>
   <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
-    <value>The interval starts after how many rounds</value>
+    <value>The interval starts after:</value>
   </data>
   <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rounds. Every {minutes} minute(s).</value>
   </data>
   <data name="Text.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
-    <value>Duration of each break</value>
+    <value>Duration of each break:</value>
   </data>
   <data name="Text.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
   <data name="Text.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
-    <value>Duration of each round</value>
+    <value>Duration of each round:</value>
   </data>
   <data name="Text.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minute(s).</value>

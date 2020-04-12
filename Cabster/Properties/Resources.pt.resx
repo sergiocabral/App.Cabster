@@ -184,7 +184,7 @@
     <value>Confirmar</value>
   </data>
   <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
-    <value>O intervalo inicia após quantas rodadas:</value>
+    <value>O intervalo inicia após:</value>
   </data>
   <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rodadas. A cada {minutes} minuto(s).</value>

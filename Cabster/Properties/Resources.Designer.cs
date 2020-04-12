@@ -449,7 +449,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The interval starts after how many rounds.
+        ///   Looks up a localized string similar to The interval starts after:.
         /// </summary>
         public static string Text_GroupWork_BreakStartsAfterHowManyRounds_Part1 {
             get {
@@ -476,7 +476,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duration of each break.
+        ///   Looks up a localized string similar to Duration of each break:.
         /// </summary>
         public static string Text_GroupWork_DurationOfEachBreak_Part1 {
             get {
@@ -494,7 +494,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duration of each round.
+        ///   Looks up a localized string similar to Duration of each round:.
         /// </summary>
         public static string Text_GroupWork_DurationOfEachRound_Part1 {
             get {
