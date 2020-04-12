@@ -82,13 +82,18 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        /// Sinaliza que a janela já foi carregada.
+        /// </summary>
+        private bool _loaded;
+        
+        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         [ExcludeFromCodeCoverage]
         private void InitializeComponent2()
         {
             ShowLogo = true;
-            Load += UpdateControls;
+            Load += numericUpDownTimes_Change;
             ButtonCloseClick += OnButtonCloseClick;
             panelParticipants.ControlAdded += PanelParticipantsOnControlAddedOrRemoved;
             panelParticipants.ControlRemoved += PanelParticipantsOnControlAddedOrRemoved;
@@ -110,6 +115,8 @@ namespace Cabster.Business.Forms
                 Participants = data.GroupWork.Participants;
                 Times = data.GroupWork.Times;
                 buttonStart.Focus();
+
+                _loaded = true;
             };
 
             labelTips.Text = string.Empty;
@@ -141,8 +148,19 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void SaveParticipants()
         {
+            if (!_loaded) return;
             timerToSaveParticipants.Enabled = false;
             timerToSaveParticipants.Enabled = true;
+        }
+
+        /// <summary>
+        /// Grava os tempos.
+        /// </summary>
+        private void SaveTimes()
+        {
+            if (!_loaded) return;
+            timerToSaveTimes.Enabled = false;
+            timerToSaveTimes.Enabled = true;
         }
         
         /// <summary>
@@ -188,7 +206,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
-        private void UpdateControls(object sender, EventArgs args)
+        private void numericUpDownTimes_Change(object sender, EventArgs args)
         {
             if (labelBreakStartsAfterHowManyRounds_Part2.Tag == null)
                 labelBreakStartsAfterHowManyRounds_Part2.Tag = labelBreakStartsAfterHowManyRounds_Part2.Text;
@@ -198,6 +216,8 @@ namespace Cabster.Business.Forms
                 (numericUpDownBreakStartsAfterHowManyRounds.Value * numericUpDownDurationOfEachRound.Value);
 
             labelBreakStartsAfterHowManyRounds_Part2.Text = textTemplate.QueryString(minutes);
+
+            SaveTimes();
         }
 
         /// <summary>
