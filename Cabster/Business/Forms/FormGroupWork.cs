@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Cabrones.Utils.Text;
+using Cabster.Business.Entities;
+using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
@@ -19,12 +22,44 @@ namespace Cabster.Business.Forms
     public partial class FormGroupWork : FormLayout
     {
         /// <summary>
+        ///     Indica carregamento concluído.
+        /// </summary>
+        private bool _loaded;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormGroupWork()
         {
             InitializeComponent();
             InitializeComponent2();
+        }
+
+        /// <summary>
+        ///     Lista de participantes.
+        /// </summary>
+        private IEnumerable<GroupWorkParticipantSet> Participants
+        {
+            get => panelParticipants
+                .Controls
+                .OfType<MyButton>()
+                .Select(myButton => new GroupWorkParticipantSet
+                {
+                    Name = ((ParticipantInfo) myButton.Tag).Name,
+                    Active = ((ParticipantInfo) myButton.Tag).Active
+                });
+            set
+            {
+                foreach (var myButton in panelParticipants.Controls.OfType<MyButton>())
+                {
+                    var participantInfo = (ParticipantInfo) myButton.Tag;
+                    participantInfo.Remove();
+                }
+
+                foreach (var participantSet in value)
+                    panelParticipants.Controls.Add(
+                        ParticipantInfo.CreateControl(this, SaveParticipants, participantSet.Name, participantSet.Active));
+            }
         }
 
         /// <summary>
@@ -53,6 +88,11 @@ namespace Cabster.Business.Forms
             Shown += (sender, args) => buttonStart.Focus();
 
             labelTips.Text = string.Empty;
+
+            var data = Program.Data;
+            Participants = data.GroupWork.Participants;
+
+            _loaded = true;
         }
 
         /// <summary>
@@ -73,6 +113,30 @@ namespace Cabster.Business.Forms
         private void PanelParticipantsOnControlAddedOrRemoved(object sender, ControlEventArgs? args)
         {
             buttonParticipantSort.Visible = panelParticipants.Controls.Count > 1;
+            SaveParticipants();
+        }
+
+        /// <summary>
+        ///     Grava os participants.
+        /// </summary>
+        private void SaveParticipants()
+        {
+            if (!_loaded) return;
+            timerToSaveParticipants.Enabled = false;
+            timerToSaveParticipants.Enabled = true;
+        }
+
+        /// <summary>
+        ///     Timer para gravar os dados dos participantes.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void timerToSaveParticipants_Tick(object sender, EventArgs args)
+        {
+            ((Timer) sender).Enabled = false;
+            var data = Program.Data;
+            data.GroupWork.Participants = Participants.ToList();
+            MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
         }
 
         /// <summary>
@@ -129,7 +193,7 @@ namespace Cabster.Business.Forms
                 }
                 else
                 {
-                    participant = ParticipantInfo.CreateControl(this, participantName);
+                    participant = ParticipantInfo.CreateControl(this, SaveParticipants, participantName);
                     panelParticipants.Controls.Add(participant);
                 }
             }
@@ -238,6 +302,11 @@ namespace Cabster.Business.Forms
             private Point _lastPosition;
 
             /// <summary>
+            /// Evento disparado quando ocorre alguma alteração.
+            /// </summary>
+            public event Action? Updated;
+            
+            /// <summary>
             ///     Construtor.
             /// </summary>
             /// <param name="form">Esta janela.</param>
@@ -262,6 +331,7 @@ namespace Cabster.Business.Forms
                 {
                     _control.Text = value.Trim();
                     _control.UpdateSizeToText();
+                    Updated?.Invoke();
                 }
             }
 
@@ -277,6 +347,7 @@ namespace Cabster.Business.Forms
                     _control.BackColor = _active ? ColorForActive : ColorForInactive;
                     _control.UpdateLayout();
                     UpdateToolTip();
+                    Updated?.Invoke();
                 }
             }
 
@@ -297,7 +368,7 @@ namespace Cabster.Business.Forms
             /// <summary>
             ///     Remove o participant.
             /// </summary>
-            private void Remove()
+            public void Remove()
             {
                 _control.Parent.Controls.Remove(_control);
                 _control.Tag = null;
@@ -308,19 +379,23 @@ namespace Cabster.Business.Forms
             ///     Cria um botão para um novo participante.
             /// </summary>
             /// <param name="form">Esta janela.</param>
+            /// <param name="onUpdate">Evento quando o participante é alterado.</param>
             /// <param name="name">Nome do participante.</param>
+            /// <param name="active">Ativo ou não.</param>
             /// <returns>Controle</returns>
-            public static MyButton CreateControl(FormGroupWork form, string name)
+            public static MyButton CreateControl(FormGroupWork form, Action onUpdate, string name, bool active = true)
             {
                 var control = new MyButton
                 {
                     Text = name.Trim(),
                     ForeColor = Color.Black,
                     BackColor = ColorForActive,
-                    AutoSize = true
+                    AutoSize = active
                 };
                 control.Font = new Font(control.Font.FontFamily, 20);
-                control.Tag = new ParticipantInfo(form, control);
+                var info = new ParticipantInfo(form, control);
+                info.Updated += onUpdate;
+                control.Tag = info;
                 return control;
             }
 

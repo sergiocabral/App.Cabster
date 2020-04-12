@@ -9,7 +9,7 @@ namespace Cabster.Business.Enums
     public enum DataSection
     {
         /// <summary>
-        ///     Todas as seções.
+        ///     Todas as seções
         /// </summary>
         All =
             0b_1111_1111,
@@ -21,9 +21,21 @@ namespace Cabster.Business.Enums
             0b_0000_1111,
 
         /// <summary>
-        ///     ApplicationSet: Idioma.
+        ///     ApplicationSet: Idioma
         /// </summary>
         ApplicationLanguage =
-            0b_0000_0001
+            0b_0000_0001,
+
+        /// <summary>
+        ///     WorkGroupSet
+        /// </summary>
+        WorkGroup =
+            0b_1111_0000,
+
+        /// <summary>
+        ///     WorkGroupSet: Participantes.
+        /// </summary>
+        WorkGroupParticipants =
+            0b_0001_0000
     }
 }

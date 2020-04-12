@@ -18,11 +18,11 @@
         /// <summary>
         ///     Sinaliza se é o driver.
         /// </summary>
-        public bool IdDriver { get; }
+        public bool IsDriver { get; }
 
         /// <summary>
         ///     Sinaliza se é o navegador.
         /// </summary>
-        public bool IdNavigator { get; }
+        public bool IsNavigator { get; }
     }
 }

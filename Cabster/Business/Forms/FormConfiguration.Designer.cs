@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
             this.buttonLanguageEnglish = new Cabster.Components.MyButton(this.components);
             this.buttonLanguagePortuguese = new Cabster.Components.MyButton(this.components);
             this.labelLanguage = new System.Windows.Forms.Label();
@@ -37,17 +38,22 @@
             // 
             // buttonLanguageEnglish
             // 
-            this.buttonLanguageEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLanguageEnglish.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLanguageEnglish.BackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLanguageEnglish.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonLanguageEnglish.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
+                    ((int) (((byte) (255)))));
             this.buttonLanguageEnglish.FlatAppearance.BorderSize = 0;
             this.buttonLanguageEnglish.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguageEnglish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLanguageEnglish.Image = ((System.Drawing.Image)(resources.GetObject("buttonLanguageEnglish.Image")));
+            this.buttonLanguageEnglish.Image =
+                ((System.Drawing.Image) (resources.GetObject("buttonLanguageEnglish.Image")));
             this.buttonLanguageEnglish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageEnglish.Location = new System.Drawing.Point(39, 155);
             this.buttonLanguageEnglish.Name = "buttonLanguageEnglish";
@@ -62,17 +68,22 @@
             // 
             // buttonLanguagePortuguese
             // 
-            this.buttonLanguagePortuguese.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLanguagePortuguese.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLanguagePortuguese.BackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLanguagePortuguese.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonLanguagePortuguese.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
+                    ((int) (((byte) (255)))));
             this.buttonLanguagePortuguese.FlatAppearance.BorderSize = 0;
             this.buttonLanguagePortuguese.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonLanguagePortuguese.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLanguagePortuguese.Image = ((System.Drawing.Image)(resources.GetObject("buttonLanguagePortuguese.Image")));
+            this.buttonLanguagePortuguese.Image =
+                ((System.Drawing.Image) (resources.GetObject("buttonLanguagePortuguese.Image")));
             this.buttonLanguagePortuguese.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguagePortuguese.Location = new System.Drawing.Point(39, 101);
             this.buttonLanguagePortuguese.Name = "buttonLanguagePortuguese";
@@ -87,8 +98,10 @@
             // 
             // labelLanguage
             // 
-            this.labelLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLanguage.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.labelLanguage.BackColor = System.Drawing.Color.Transparent;
             this.labelLanguage.Location = new System.Drawing.Point(29, 70);
             this.labelLanguage.Name = "labelLanguage";
@@ -104,14 +117,13 @@
             this.Controls.Add(this.buttonLanguageEnglish);
             this.Controls.Add(this.buttonLanguagePortuguese);
             this.Controls.Add(this.labelLanguage);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormConfiguration";
             this.Text = "Text.Configuration.WindowTitle";
             this.Controls.SetChildIndex(this.labelLanguage, 0);
             this.Controls.SetChildIndex(this.buttonLanguagePortuguese, 0);
             this.Controls.SetChildIndex(this.buttonLanguageEnglish, 0);
             this.ResumeLayout(false);
-
         }
 
         #endregion
