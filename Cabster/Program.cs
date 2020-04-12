@@ -86,7 +86,7 @@ namespace Cabster
 
             do
             {
-                Program.RestartWhenClose = false;
+                RestartWhenClose = false;
 
                 CultureInfo.DefaultThreadCurrentCulture =
                     CultureInfo.DefaultThreadCurrentUICulture =

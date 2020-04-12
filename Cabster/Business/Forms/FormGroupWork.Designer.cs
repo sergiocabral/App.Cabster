@@ -70,6 +70,7 @@
             this.buttonMinimize.NotTransparent = false;
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
             this.buttonMinimize.TabIndex = 12;
+            this.buttonMinimize.UseText = false;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             // 
             // labelDurationOfEachRound_Part1
@@ -79,7 +80,7 @@
             this.labelDurationOfEachRound_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelDurationOfEachRound_Part1.Location = new System.Drawing.Point(12, 263);
             this.labelDurationOfEachRound_Part1.Name = "labelDurationOfEachRound_Part1";
-            this.labelDurationOfEachRound_Part1.Size = new System.Drawing.Size(194, 21);
+            this.labelDurationOfEachRound_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelDurationOfEachRound_Part1.TabIndex = 13;
             this.labelDurationOfEachRound_Part1.Text = "Text.GroupWork.DurationOfEachRound_Part1";
             this.labelDurationOfEachRound_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -90,7 +91,7 @@
             this.numericUpDownDurationOfEachRound.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numericUpDownDurationOfEachRound.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDurationOfEachRound.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownDurationOfEachRound.Location = new System.Drawing.Point(213, 263);
+            this.numericUpDownDurationOfEachRound.Location = new System.Drawing.Point(233, 263);
             this.numericUpDownDurationOfEachRound.Maximum = new decimal(new int[] {
             999,
             0,
@@ -117,7 +118,7 @@
             this.labelDurationOfEachRound_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachRound_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachRound_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachRound_Part2.Location = new System.Drawing.Point(289, 263);
+            this.labelDurationOfEachRound_Part2.Location = new System.Drawing.Point(309, 263);
             this.labelDurationOfEachRound_Part2.Name = "labelDurationOfEachRound_Part2";
             this.labelDurationOfEachRound_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachRound_Part2.TabIndex = 15;
@@ -129,7 +130,7 @@
             this.labelDurationOfEachBreak_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDurationOfEachBreak_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelDurationOfEachBreak_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelDurationOfEachBreak_Part2.Location = new System.Drawing.Point(289, 296);
+            this.labelDurationOfEachBreak_Part2.Location = new System.Drawing.Point(309, 296);
             this.labelDurationOfEachBreak_Part2.Name = "labelDurationOfEachBreak_Part2";
             this.labelDurationOfEachBreak_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachBreak_Part2.TabIndex = 18;
@@ -142,7 +143,7 @@
             this.numericUpDownDurationOfEachBreak.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numericUpDownDurationOfEachBreak.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDurationOfEachBreak.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownDurationOfEachBreak.Location = new System.Drawing.Point(213, 296);
+            this.numericUpDownDurationOfEachBreak.Location = new System.Drawing.Point(233, 296);
             this.numericUpDownDurationOfEachBreak.Maximum = new decimal(new int[] {
             999,
             0,
@@ -170,7 +171,7 @@
             this.labelDurationOfEachBreak_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelDurationOfEachBreak_Part1.Location = new System.Drawing.Point(12, 296);
             this.labelDurationOfEachBreak_Part1.Name = "labelDurationOfEachBreak_Part1";
-            this.labelDurationOfEachBreak_Part1.Size = new System.Drawing.Size(194, 21);
+            this.labelDurationOfEachBreak_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelDurationOfEachBreak_Part1.TabIndex = 16;
             this.labelDurationOfEachBreak_Part1.Text = "Text.GroupWork.DurationOfEachBreak_Part1";
             this.labelDurationOfEachBreak_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -180,7 +181,7 @@
             this.labelBreakStartsAfterHowManyRounds_Part2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBreakStartsAfterHowManyRounds_Part2.BackColor = System.Drawing.Color.Transparent;
             this.labelBreakStartsAfterHowManyRounds_Part2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelBreakStartsAfterHowManyRounds_Part2.Location = new System.Drawing.Point(289, 331);
+            this.labelBreakStartsAfterHowManyRounds_Part2.Location = new System.Drawing.Point(309, 331);
             this.labelBreakStartsAfterHowManyRounds_Part2.Name = "labelBreakStartsAfterHowManyRounds_Part2";
             this.labelBreakStartsAfterHowManyRounds_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelBreakStartsAfterHowManyRounds_Part2.TabIndex = 21;
@@ -193,7 +194,7 @@
             this.numericUpDownBreakStartsAfterHowManyRounds.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numericUpDownBreakStartsAfterHowManyRounds.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownBreakStartsAfterHowManyRounds.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDownBreakStartsAfterHowManyRounds.Location = new System.Drawing.Point(213, 329);
+            this.numericUpDownBreakStartsAfterHowManyRounds.Location = new System.Drawing.Point(233, 329);
             this.numericUpDownBreakStartsAfterHowManyRounds.Maximum = new decimal(new int[] {
             999,
             0,
@@ -222,7 +223,7 @@
             this.labelBreakStartsAfterHowManyRounds_Part1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelBreakStartsAfterHowManyRounds_Part1.Location = new System.Drawing.Point(12, 331);
             this.labelBreakStartsAfterHowManyRounds_Part1.Name = "labelBreakStartsAfterHowManyRounds_Part1";
-            this.labelBreakStartsAfterHowManyRounds_Part1.Size = new System.Drawing.Size(194, 21);
+            this.labelBreakStartsAfterHowManyRounds_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelBreakStartsAfterHowManyRounds_Part1.TabIndex = 19;
             this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Text.GroupWork.BreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -269,6 +270,7 @@
             this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
             this.buttonParticipantAdd.TabIndex = 10;
             this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
+            this.buttonParticipantAdd.UseText = false;
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
             this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
             // 
@@ -290,6 +292,7 @@
             this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
             this.buttonParticipantSort.TabIndex = 11;
             this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
+            this.buttonParticipantSort.UseText = false;
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
             this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
             // 
@@ -311,6 +314,7 @@
             this.buttonStart.Size = new System.Drawing.Size(171, 36);
             this.buttonStart.TabIndex = 22;
             this.buttonStart.Text = "Text.GroupWork.Start";
+            this.buttonStart.UseText = false;
             this.buttonStart.UseVisualStyleBackColor = false;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
@@ -346,6 +350,7 @@
             this.buttonConfiguration.Size = new System.Drawing.Size(50, 50);
             this.buttonConfiguration.TabIndex = 23;
             this.toolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
+            this.buttonConfiguration.UseText = false;
             this.buttonConfiguration.UseVisualStyleBackColor = false;
             this.buttonConfiguration.Click += new System.EventHandler(this.buttonConfiguration_Click);
             // 
