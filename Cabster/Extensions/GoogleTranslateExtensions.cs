@@ -44,7 +44,7 @@ namespace Cabster.Extensions
 
             try
             {
-                Log.Verbose(
+                Log.Debug(
                     "Requesting Google Translate from {fromLanguage} to {toLanguage} for text \"{Text}\". Url: {Url}",
                     fromLanguage, toLanguage, text, url);
 

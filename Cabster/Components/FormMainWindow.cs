@@ -35,7 +35,7 @@ namespace Cabster.Components
             Task.Run(() =>
             {
                 _applicationInitialized = true;
-                Log.Verbose("Clock started with {Interval} milliseconds interval.", timer.Interval);
+                Log.Debug("Clock started with {Interval} milliseconds interval.", timer.Interval);
             });
         }
 
