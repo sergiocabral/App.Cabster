@@ -225,6 +225,9 @@ Para remover: botão esquerdo.</value>
   <data name="Text.GroupWork.Start" xml:space="preserve">
     <value>Começar Mob</value>
   </data>
+  <data name="Text.GroupWork.TipsHint" xml:space="preserve">
+    <value>Clique para carregar uma nova dica.</value>
+  </data>
   <data name="Text.GroupWork.TipsLoading" xml:space="preserve">
     <value>Carregando outra dica...</value>
   </data>

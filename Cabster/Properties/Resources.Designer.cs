@@ -181,22 +181,22 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon IconSapiensia {
             get {
                 object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -213,9 +213,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonLanguagePortugueseEnter {
+        public static System.Drawing.Bitmap buttonLanguageEnglishLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonLanguagePortugueseEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonLanguageEnglishLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonLanguageEnglishLeave {
+        public static System.Drawing.Bitmap buttonLanguagePortugueseEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonLanguageEnglishLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonLanguagePortugueseEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -565,6 +565,15 @@ namespace Cabster.Properties {
         public static string Text_GroupWork_Start {
             get {
                 return ResourceManager.GetString("Text.GroupWork.Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to load a new tip..
+        /// </summary>
+        public static string Text_GroupWork_TipsHint {
+            get {
+                return ResourceManager.GetString("Text.GroupWork.TipsHint", resourceCulture);
             }
         }
         

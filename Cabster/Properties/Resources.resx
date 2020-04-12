@@ -289,4 +289,7 @@ To remove: left button.</value>
   <data name="Text.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>The application is already in the selected language.</value>
   </data>
+  <data name="Text.GroupWork.TipsHint" xml:space="preserve">
+    <value>Click to load a new tip.</value>
+  </data>
 </root>
