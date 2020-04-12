@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Forms;
+using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
@@ -17,7 +18,8 @@ namespace Cabster.Business.Messenger.Handlers
     public class WindowHandler :
         MessengerHandler,
         IRequestHandler<WindowOpenGroupWork>,
-        IRequestHandler<WindowOpenConfiguration>
+        IRequestHandler<WindowOpenConfiguration>,
+        INotificationHandler<DataUpdated>
     {
         /// <summary>
         ///     Lista de forms abertos.
@@ -28,6 +30,28 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Resolvedor de dependências.
         /// </summary>
         private readonly IDependencyResolver _dependencyResolver;
+
+        /// <summary>
+        /// Janela: FormGroupWork
+        /// </summary>
+        private FormGroupWork? _formGroupWork;
+        
+        /// <summary>
+        /// Janela: FormGroupWork
+        /// </summary>
+        private FormGroupWork FormGroupWork =>
+            _formGroupWork ??= _dependencyResolver.GetInstanceRequired<FormGroupWork>();
+
+        /// <summary>
+        /// Janela: FormConfiguration
+        /// </summary>
+        private FormConfiguration? _formConfiguration;
+
+        /// <summary>
+        /// Janela: FormConfiguration
+        /// </summary>
+        private FormConfiguration FormConfiguration =>
+            _formConfiguration ??= _dependencyResolver.GetInstanceRequired<FormConfiguration>();
 
         /// <summary>
         ///     Construtor.
@@ -46,7 +70,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
-            OpenWindows(_dependencyResolver.GetInstanceRequired<FormConfiguration>());
+            OpenWindows(FormConfiguration);
             return Unit.Task;
         }
 
@@ -58,7 +82,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
-            OpenWindows(_dependencyResolver.GetInstanceRequired<FormGroupWork>());
+            OpenWindows(FormGroupWork);
             return Unit.Task;
         }
 
@@ -84,6 +108,18 @@ namespace Cabster.Business.Messenger.Handlers
 
             form.BringToFront();
             form.InvalidadeAll();
+        }
+
+        /// <summary>
+        /// Evento: DataUpdated
+        /// </summary>
+        /// <param name="notification">Evento.</param>
+        /// <param name="cancellationToken">Token de ancelamento.</param>
+        /// <returns>Task</returns>
+        public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
+        {
+            _formGroupWork?.LoadData();
+            return Unit.Task;
         }
     }
 }
