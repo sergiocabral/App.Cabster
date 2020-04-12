@@ -150,7 +150,7 @@
     <Compile Include="Business\Entities\ContainerData.cs" />
     <Compile Include="Business\Entities\GroupWorkParticipantSet.cs" />
     <Compile Include="Business\Entities\GroupWorkSet.cs" />
-    <Compile Include="Business\Entities\GroupWorkStatisticsSet.cs" />
+    <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\Enums\DataSection.cs" />
     <Compile Include="Business\Forms\FormConfiguration.cs">

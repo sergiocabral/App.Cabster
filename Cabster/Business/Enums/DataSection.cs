@@ -33,9 +33,15 @@ namespace Cabster.Business.Enums
             0b_1111_0000,
 
         /// <summary>
+        ///     WorkGroupSet: Tempos.
+        /// </summary>
+        WorkGroupTimes =
+            0b_0001_0000,
+
+        /// <summary>
         ///     WorkGroupSet: Participantes.
         /// </summary>
         WorkGroupParticipants =
-            0b_0001_0000
+            0b_0010_0000
     }
 }

@@ -48,6 +48,7 @@
             this.labelTips = new System.Windows.Forms.Label();
             this.buttonConfiguration = new Cabster.Components.MyButton(this.components);
             this.timerToSaveParticipants = new System.Windows.Forms.Timer(this.components);
+            this.timerToSaveTimes = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
@@ -380,6 +381,11 @@
             this.timerToSaveParticipants.Interval = 10000;
             this.timerToSaveParticipants.Tick += new System.EventHandler(this.timerToSaveParticipants_Tick);
             // 
+            // timerToSaveTimes
+            // 
+            this.timerToSaveTimes.Interval = 10000;
+            this.timerToSaveTimes.Tick += new System.EventHandler(this.timerToSaveTimes_Tick);
+            // 
             // FormGroupWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -447,5 +453,6 @@
         private Cabster.Components.MyButton buttonParticipantSort;
         private Cabster.Components.MyButton buttonConfiguration;
         private System.Windows.Forms.Timer timerToSaveParticipants;
+        private System.Windows.Forms.Timer timerToSaveTimes;
     }
 }

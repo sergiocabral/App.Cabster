@@ -31,6 +31,25 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        /// Tempos.
+        /// </summary>
+        private GroupWorkTimesSet Times
+        {
+            get => new GroupWorkTimesSet
+            {
+                TimeToWork = (int) numericUpDownDurationOfEachRound.Value,
+                TimeToBreak = (int) numericUpDownDurationOfEachBreak.Value,
+                RoundsUpToBreak = (int) numericUpDownBreakStartsAfterHowManyRounds.Value
+            };
+            set
+            {
+                numericUpDownDurationOfEachRound.Value = value.TimeToWork;
+                numericUpDownDurationOfEachBreak.Value = value.TimeToBreak;
+                numericUpDownBreakStartsAfterHowManyRounds.Value = value.RoundsUpToBreak;
+            }
+        }
+
+        /// <summary>
         ///     Lista de participantes.
         /// </summary>
         private IEnumerable<GroupWorkParticipantSet> Participants
@@ -89,6 +108,7 @@ namespace Cabster.Business.Forms
             {
                 var data = Program.Data;
                 Participants = data.GroupWork.Participants;
+                Times = data.GroupWork.Times;
                 buttonStart.Focus();
             };
 
@@ -137,13 +157,27 @@ namespace Cabster.Business.Forms
             data.GroupWork.Participants = Participants.ToList();
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
         }
-
+        
+        /// <summary>
+        ///     Timer para gravar os dados dos participantes.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void timerToSaveTimes_Tick(object sender, EventArgs args)
+        {
+            ((Timer) sender).Enabled = false;
+            var data = Program.Data;
+            data.GroupWork.Times = Times;
+            MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimes));
+        }
+        
         /// <summary>
         ///     Quando clica o botão de fechar a janela.
         /// </summary>
         private async void OnButtonCloseClick()
         {
             var data = Program.Data;
+            data.GroupWork.Times = Times;
             data.GroupWork.Participants = Participants.ToList();
             await MessageBus.Send(new DataUpdate(data, DataSection.WorkGroup));
             await MessageBus.Send(new ApplicationFinalize());
