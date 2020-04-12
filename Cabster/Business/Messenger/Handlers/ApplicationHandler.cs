@@ -2,14 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Cabster.Business.Enums;
-using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Infrastructure;
 using MediatR;
 using Serilog;
 
-namespace Cabster.Business.Messenger.RequestHandlers
+namespace Cabster.Business.Messenger.Handlers
 {
     /// <summary>
     ///     Tarefas gerais sobre a aplicação.

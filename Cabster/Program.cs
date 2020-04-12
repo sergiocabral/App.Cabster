@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Cabster.Business;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
@@ -88,14 +89,18 @@ namespace Cabster
             {
                 RestartWhenClose = false;
 
+                using var dependencyResolver = DependencyResolverConfiguration.Initialize();
+                DependencyResolver = dependencyResolver;
+
+                var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
+
+                messageBus.Send(new DataLoad()).Wait();
+
                 CultureInfo.DefaultThreadCurrentCulture =
                     CultureInfo.DefaultThreadCurrentUICulture =
                         new CultureInfo(Data.Application.Language);
 
-                using var dependencyResolver = DependencyResolverConfiguration.Initialize();
-                DependencyResolver = dependencyResolver;
-
-                DependencyResolver.GetInstanceRequired<IMediator>().Send(new ApplicationInitialize());
+                messageBus.Send(new ApplicationInitialize());
             } while (RestartWhenClose);
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();

@@ -5,7 +5,7 @@ using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;
 using MediatR;
 
-namespace Cabster.Business.Messenger.RequestHandlers
+namespace Cabster.Business.Messenger.Handlers
 {
     /// <summary>
     ///     Tarefas relacionadas ao clock.

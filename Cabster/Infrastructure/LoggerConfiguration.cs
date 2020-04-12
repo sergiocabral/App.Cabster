@@ -154,7 +154,7 @@ namespace Cabster.Infrastructure
         {
             return loggerConfiguration
                 .WriteTo.File(
-                    $"{Assembly.GetEntryAssembly()?.Location}-log-.txt",
+                    $"{Assembly.GetEntryAssembly()?.Location}.log-.txt",
                     rollingInterval: RollingInterval.Day);
         }
     }

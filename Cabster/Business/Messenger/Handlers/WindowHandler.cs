@@ -4,13 +4,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Forms;
-using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 using MediatR;
 
-namespace Cabster.Business.Messenger.RequestHandlers
+namespace Cabster.Business.Messenger.Handlers
 {
     /// <summary>
     ///     Controlador de abertura de janelas.
