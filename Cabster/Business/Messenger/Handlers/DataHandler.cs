@@ -19,8 +19,8 @@ namespace Cabster.Business.Messenger.Handlers
     public class DataHandler :
         MessengerHandler,
         IRequestHandler<DataUpdate>,
-        IRequestHandler<DataSave>,
-        IRequestHandler<DataLoad>,
+        IRequestHandler<DataSaveToFile>,
+        IRequestHandler<DataLoadFromFile>,
         INotificationHandler<DataUpdated>
     {
         /// <summary>
@@ -58,18 +58,18 @@ namespace Cabster.Business.Messenger.Handlers
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
             if (!notification.Request.AvoidDataSave)
-                _messageBus.Send(new DataSave(), cancellationToken);
+                _messageBus.Send(new DataSaveToFile(), cancellationToken);
 
             return Unit.Task;
         }
 
         /// <summary>
-        ///     Processa o comando: DataLoad
+        ///     Processa o comando: DataLoadFromFile
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(DataLoad request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(DataLoadFromFile request, CancellationToken cancellationToken)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Cabster.Business.Messenger.Handlers
 
                 if (data != null)
                 {
-                    _messageBus.Publish(new DataLoaded(request), cancellationToken);
+                    _messageBus.Publish(new DataLoadedFromFile(request), cancellationToken);
                     _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
                     Log.Debug("Application data was loaded from: {Path}", _dataManipulation.Path);
                 }
@@ -96,12 +96,12 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
-        ///     Processa o comando: DataSave
+        ///     Processa o comando: DataSaveToFile
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(DataSave request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(DataSaveToFile request, CancellationToken cancellationToken)
         {
             var data = Program.Data;
 
@@ -111,7 +111,7 @@ namespace Cabster.Business.Messenger.Handlers
 
                 Log.Debug("Application data saved to: {Path}", _dataManipulation.Path);
 
-                _messageBus.Publish(new DataSaved(request), cancellationToken);
+                _messageBus.Publish(new DataSavedToFile(request), cancellationToken);
             }
             catch (Exception exception)
             {

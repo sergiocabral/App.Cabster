@@ -3,9 +3,9 @@
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
-    ///     Carrega dos disco os dados da aplicação.
+    ///     Grava em disco os dados da aplicação.
     /// </summary>
-    public class DataLoad : MessengerRequest
+    public class DataSaveToFile : MessengerRequest
     {
     }
 }

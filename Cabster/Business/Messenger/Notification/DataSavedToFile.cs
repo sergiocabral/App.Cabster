@@ -6,13 +6,13 @@ namespace Cabster.Business.Messenger.Notification
     /// <summary>
     ///     Sinalização de gravação dos dados do aplicativo em disco.
     /// </summary>
-    public class DataSaved : MessengerNotification<DataSave>
+    public class DataSavedToFile : MessengerNotification<DataSaveToFile>
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="request">Comando.</param>
-        public DataSaved(DataSave request) : base(request)
+        public DataSavedToFile(DataSaveToFile request) : base(request)
         {
         }
     }

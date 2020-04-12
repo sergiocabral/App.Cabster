@@ -168,8 +168,8 @@
     <Compile Include="Business\IDataManipulation.cs" />
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
-    <Compile Include="Business\Messenger\Notification\DataLoaded.cs" />
-    <Compile Include="Business\Messenger\Notification\DataSaved.cs" />
+    <Compile Include="Business\Messenger\Notification\DataLoadedFromFile.cs" />
+    <Compile Include="Business\Messenger\Notification\DataSavedToFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
     <Compile Include="Business\Messenger\Handlers\ApplicationHandler.cs" />
     <Compile Include="Business\Messenger\Handlers\ClockHandler.cs" />
@@ -177,8 +177,8 @@
     <Compile Include="Business\Messenger\Handlers\WindowHandler.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationChangeLanguage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
-    <Compile Include="Business\Messenger\Request\DataLoad.cs" />
-    <Compile Include="Business\Messenger\Request\DataSave.cs" />
+    <Compile Include="Business\Messenger\Request\DataLoadFromFile.cs" />
+    <Compile Include="Business\Messenger\Request\DataSaveToFile.cs" />
     <Compile Include="Business\Messenger\Request\DataUpdate.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />

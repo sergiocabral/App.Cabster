@@ -90,7 +90,7 @@ namespace Cabster
 
                 var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
 
-                messageBus.Send(new DataLoad()).Wait();
+                messageBus.Send(new DataLoadFromFile()).Wait();
 
                 CultureInfo.DefaultThreadCurrentCulture =
                     CultureInfo.DefaultThreadCurrentUICulture =
