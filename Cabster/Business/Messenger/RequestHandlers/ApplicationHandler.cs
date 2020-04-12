@@ -14,7 +14,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// <summary>
     ///     Tarefas gerais sobre a aplicação.
     /// </summary>
-    public class Application :
+    public class ApplicationHandler :
         MessengerHandler,
         IRequestHandler<ApplicationInitialize>,
         IRequestHandler<ApplicationFinalize>,
@@ -35,7 +35,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// </summary>
         /// <param name="messageBus">IMediator</param>
         /// <param name="formMainWindow">Janela principal do sistema.</param>
-        public Application(IMediator messageBus, FormMainWindow formMainWindow)
+        public ApplicationHandler(IMediator messageBus, FormMainWindow formMainWindow)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;

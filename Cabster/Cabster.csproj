@@ -167,10 +167,10 @@
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
-    <Compile Include="Business\Messenger\RequestHandlers\Application.cs" />
-    <Compile Include="Business\Messenger\RequestHandlers\Clock.cs" />
-    <Compile Include="Business\Messenger\RequestHandlers\Data.cs" />
-    <Compile Include="Business\Messenger\RequestHandlers\WindowOpen.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\ApplicationHandler.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\ClockHandler.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\DataHandler.cs" />
+    <Compile Include="Business\Messenger\RequestHandlers\WindowHandler.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationChangeLanguage.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationFinalize.cs" />
     <Compile Include="Business\Messenger\Request\DataUpdate.cs" />

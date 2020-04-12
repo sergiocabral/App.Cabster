@@ -4,15 +4,16 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;
 using MediatR;
+using Serilog;
 
 namespace Cabster.Business.Messenger.RequestHandlers
 {
     /// <summary>
-    ///     Tarefas relacionadas ao clock.
+    ///     Operações de atualização de dados da aplicação.
     /// </summary>
-    public class Clock :
+    public class DataHandler :
         MessengerHandler,
-        IRequestHandler<ClockSinalize>
+        IRequestHandler<DataUpdate>
     {
         /// <summary>
         ///     Barramento de mensagens.
@@ -23,25 +24,26 @@ namespace Cabster.Business.Messenger.RequestHandlers
         ///     Construtor.
         /// </summary>
         /// <param name="messageBus">IMediator</param>
-        public Clock(IMediator messageBus)
+        public DataHandler(IMediator messageBus)
         {
             _messageBus = messageBus;
         }
 
         /// <summary>
-        ///     Ignora o log desse Request.
-        /// </summary>
-        protected override bool IgnoreLog { get; } = true;
-
-        /// <summary>
-        ///     Processa o comando: SinalizeApplicationClock
+        ///     Processa o comando: DataUpdate
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(ClockSinalize request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
         {
-            _messageBus.Publish(new ClockSignaled(request), cancellationToken);
+            Program.Data = request.Data;
+
+            Log.Debug("Application data updated. Sections: {Data}", request.Section);
+
+            _messageBus.Publish(new DataUpdated(request), cancellationToken)
+                .Wait(cancellationToken);
+
             return Unit.Task;
         }
     }

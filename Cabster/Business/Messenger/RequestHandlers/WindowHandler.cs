@@ -13,7 +13,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
     /// <summary>
     ///     Controlador de abertura de janelas.
     /// </summary>
-    public class WindowOpen :
+    public class WindowHandler :
         MessengerHandler,
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>
@@ -27,7 +27,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         ///     Construtor.
         /// </summary>
         /// <param name="dependencyResolver">Resolvedor de dependências.</param>
-        public WindowOpen(IDependencyResolver dependencyResolver)
+        public WindowHandler(IDependencyResolver dependencyResolver)
         {
             _dependencyResolver = dependencyResolver;
         }
