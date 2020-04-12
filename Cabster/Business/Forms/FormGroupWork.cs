@@ -22,11 +22,6 @@ namespace Cabster.Business.Forms
     public partial class FormGroupWork : FormLayout
     {
         /// <summary>
-        ///     Indica carregamento concluído.
-        /// </summary>
-        private bool _loaded;
-
-        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormGroupWork()
@@ -40,14 +35,19 @@ namespace Cabster.Business.Forms
         /// </summary>
         private IEnumerable<GroupWorkParticipantSet> Participants
         {
-            get => panelParticipants
-                .Controls
-                .OfType<MyButton>()
-                .Select(myButton => new GroupWorkParticipantSet
-                {
-                    Name = ((ParticipantInfo) myButton.Tag).Name,
-                    Active = ((ParticipantInfo) myButton.Tag).Active
-                });
+            get
+            {
+                var index = 0;
+                return panelParticipants
+                    .ControlsSorted
+                    .Select(myButton => new GroupWorkParticipantSet
+                    {
+                        Name = ((ParticipantInfo) myButton.Tag).Name,
+                        Active = ((ParticipantInfo) myButton.Tag).Active,
+                        IsDriver = ++index == 1,
+                        IsNavigator = index == 2
+                    });
+            }
             set
             {
                 foreach (var myButton in panelParticipants.Controls.OfType<MyButton>())
@@ -85,14 +85,14 @@ namespace Cabster.Business.Forms
             Left = currentScreen.Bounds.Left + (currentScreen.Bounds.Width - Width) / 2;
             Top = currentScreen.Bounds.Top + (currentScreen.Bounds.Height - Height) / 2;
 
-            Shown += (sender, args) => buttonStart.Focus();
+            Shown += (sender, args) =>
+            {
+                var data = Program.Data;
+                Participants = data.GroupWork.Participants;
+                buttonStart.Focus();
+            };
 
             labelTips.Text = string.Empty;
-
-            var data = Program.Data;
-            Participants = data.GroupWork.Participants;
-
-            _loaded = true;
         }
 
         /// <summary>
@@ -117,15 +117,14 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        ///     Grava os participants.
+        /// Grava os participants.
         /// </summary>
         private void SaveParticipants()
         {
-            if (!_loaded) return;
             timerToSaveParticipants.Enabled = false;
             timerToSaveParticipants.Enabled = true;
         }
-
+        
         /// <summary>
         ///     Timer para gravar os dados dos participantes.
         /// </summary>
@@ -142,9 +141,12 @@ namespace Cabster.Business.Forms
         /// <summary>
         ///     Quando clica o botão de fechar a janela.
         /// </summary>
-        private void OnButtonCloseClick()
+        private async void OnButtonCloseClick()
         {
-            MessageBus.Send(new ApplicationFinalize());
+            var data = Program.Data;
+            data.GroupWork.Participants = Participants.ToList();
+            await MessageBus.Send(new DataUpdate(data, DataSection.WorkGroup));
+            await MessageBus.Send(new ApplicationFinalize());
         }
 
         /// <summary>
@@ -390,10 +392,10 @@ namespace Cabster.Business.Forms
                     Text = name.Trim(),
                     ForeColor = Color.Black,
                     BackColor = ColorForActive,
-                    AutoSize = active
+                    AutoSize = true
                 };
                 control.Font = new Font(control.Font.FontFamily, 20);
-                var info = new ParticipantInfo(form, control);
+                var info = new ParticipantInfo(form, control) {Active = active};
                 info.Updated += onUpdate;
                 control.Tag = info;
                 return control;

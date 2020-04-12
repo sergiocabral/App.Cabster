@@ -180,5 +180,11 @@ namespace Cabster.Components
                 .ToDictionary(a => a.Key, a => index++);
             this.MakeChildrenOrganized(control => _positions[control]);
         }
+
+        /// <summary>
+        /// Lista de controles ordenados.
+        /// </summary>
+        public IEnumerable<Control> ControlsSorted =>
+            _positions.OrderBy(a => a.Value).Select(a => a.Key);
     }
 }
