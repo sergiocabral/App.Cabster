@@ -186,6 +186,7 @@ namespace Cabster.Components
                 .OrderBy(a => Guid.NewGuid())
                 .ToDictionary(a => a.Key, a => index++);
             this.MakeChildrenOrganized(control => _positions[control]);
+            OrderChanged?.Invoke();
         }
 
         /// <summary>

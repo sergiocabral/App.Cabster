@@ -266,7 +266,7 @@
             this.buttonParticipantAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonParticipantAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantAdd.Image")));
-            this.buttonParticipantAdd.Location = new System.Drawing.Point(298, 114);
+            this.buttonParticipantAdd.Location = new System.Drawing.Point(288, 114);
             this.buttonParticipantAdd.Name = "buttonParticipantAdd";
             this.buttonParticipantAdd.NotTransparent = false;
             this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
@@ -288,7 +288,7 @@
             this.buttonParticipantSort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonParticipantSort.Image = ((System.Drawing.Image)(resources.GetObject("buttonParticipantSort.Image")));
-            this.buttonParticipantSort.Location = new System.Drawing.Point(263, 114);
+            this.buttonParticipantSort.Location = new System.Drawing.Point(246, 114);
             this.buttonParticipantSort.Name = "buttonParticipantSort";
             this.buttonParticipantSort.NotTransparent = false;
             this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
