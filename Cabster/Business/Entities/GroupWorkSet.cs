@@ -5,7 +5,7 @@ namespace Cabster.Business.Entities
     /// <summary>
     ///     Coleção de informação para um trabalho de mob.
     /// </summary>
-    public class GroupWorkSet: EntityBase
+    public class GroupWorkSet : EntityBase
     {
         /// <summary>
         ///     Tempo de cada rodada de trabalho.

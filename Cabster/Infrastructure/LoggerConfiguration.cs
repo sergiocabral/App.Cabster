@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using Cabster.Exceptions;
 using Cabster.Properties;
-using MediatR;
 using Serilog;
 using Serilog.Core;
 using Serilog.Enrichers;

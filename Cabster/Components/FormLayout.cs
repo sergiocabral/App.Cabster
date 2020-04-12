@@ -13,6 +13,11 @@ namespace Cabster.Components
     public partial class FormLayout : FormBase
     {
         /// <summary>
+        ///     Exibe o logotipo.
+        /// </summary>
+        private bool _showLogo;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormLayout()
@@ -21,11 +26,6 @@ namespace Cabster.Components
             InitializeComponent2();
         }
 
-        /// <summary>
-        ///     Exibe o logotipo.
-        /// </summary>
-        private bool _showLogo;
-        
         /// <summary>
         ///     Exibe o logotipo.
         /// </summary>

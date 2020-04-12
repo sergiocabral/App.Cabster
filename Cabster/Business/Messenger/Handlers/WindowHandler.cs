@@ -20,6 +20,11 @@ namespace Cabster.Business.Messenger.Handlers
         IRequestHandler<WindowOpenConfiguration>
     {
         /// <summary>
+        ///     Lista de forms abertos.
+        /// </summary>
+        private static readonly List<int> FormsPositioned = new List<int>();
+
+        /// <summary>
         ///     Resolvedor de dependências.
         /// </summary>
         private readonly IDependencyResolver _dependencyResolver;
@@ -56,11 +61,6 @@ namespace Cabster.Business.Messenger.Handlers
             OpenWindows(_dependencyResolver.GetInstanceRequired<FormGroupWork>());
             return Unit.Task;
         }
-        
-        /// <summary>
-        /// Lista de forms abertos.
-        /// </summary>
-        private static readonly List<int> FormsPositioned = new List<int>();
 
         /// <summary>
         ///     Abrir uma janela.

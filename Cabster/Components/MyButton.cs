@@ -34,6 +34,11 @@ namespace Cabster.Components
                     ((Bitmap) value.First().GetValue(null), (Bitmap) value.Last().GetValue(null)));
 
         /// <summary>
+        ///     Sinaliza que é um botão de ícone.
+        /// </summary>
+        private bool _buttonIsIcon;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public MyButton()
@@ -90,7 +95,7 @@ namespace Cabster.Components
         /// </summary>
         private void UpdateSizeToText(string text)
         {
-            if (!AutoSize || _buttonIcon) return;
+            if (!AutoSize || _buttonIsIcon) return;
             const int padding = 20;
             var measureText = TextRenderer.MeasureText(text, Font);
             Size = new Size(
@@ -109,16 +114,12 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Sinaliza que é um botão de ícone.
-        /// </summary>
-        private bool _buttonIcon;
-
-        /// <summary>
         ///     Atualiza a exibição do controle.
         /// </summary>
         public void UpdateLayout()
         {
-            if (_buttonIcon = Images.ContainsKey(Name))
+            _buttonIsIcon = Images.ContainsKey(Name);
+            if (_buttonIsIcon)
             {
                 var (bitmapLeave, bitmapEnter) = Images[Name];
                 this.MakeImageHover("Image", bitmapLeave, bitmapEnter);

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;
@@ -27,11 +28,11 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Botão para troca de idioma.
+        ///     Botão para troca de idioma.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void buttonLanguage_Click(object sender, System.EventArgs args)
+        private void buttonLanguage_Click(object sender, EventArgs args)
         {
             var newLanguage = new CultureInfo(sender == buttonLanguagePortuguese ? "pt" : "en");
             var currentLanguage = CultureInfo.CurrentUICulture;
@@ -43,7 +44,7 @@ namespace Cabster.Business.Forms
             }
 
             if (!FormDialogConfirm.Show(Resources.Text_Configuration_LanguageChangeConfirm)) return;
-            
+
             MessageBus.Send(new ApplicationChangeLanguage(newLanguage));
         }
     }

@@ -1,5 +1,4 @@
-﻿using Cabster.Business.Enums;
-using Cabster.Business.Messenger.Request;
+﻿using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Notification
@@ -10,7 +9,7 @@ namespace Cabster.Business.Messenger.Notification
     public class DataUpdated : MessengerNotification<DataUpdate>
     {
         /// <summary>
-        /// Construtor.
+        ///     Construtor.
         /// </summary>
         /// <param name="request">Comando.</param>
         public DataUpdated(DataUpdate request) : base(request)

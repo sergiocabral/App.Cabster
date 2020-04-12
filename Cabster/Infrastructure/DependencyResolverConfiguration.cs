@@ -22,7 +22,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.Register<FormMainWindow, FormMainWindow>();
             dependencyResolver.Register<FormGroupWork, FormGroupWork>();
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
-            
+
             dependencyResolver.Register<IDataManipulation, DataManipulation>();
 
             dependencyResolver.ServiceCollection.AddMediatR(typeof(Program));

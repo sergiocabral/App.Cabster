@@ -3,7 +3,7 @@
     /// <summary>
     ///     Conjunto de informações que representa um participante de trabalho de mob.
     /// </summary>
-    public class GroupWorkParticipantSet: EntityBase
+    public class GroupWorkParticipantSet : EntityBase
     {
         /// <summary>
         ///     Nome da pessoa

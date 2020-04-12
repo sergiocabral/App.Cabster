@@ -1,5 +1,4 @@
 ﻿using System;
-using Cabster.Business.Entities;
 using Cabster.Exceptions;
 using Newtonsoft.Json;
 
@@ -8,10 +7,19 @@ namespace Cabster.Business
     /// <summary>
     ///     Classe base para entidade.
     /// </summary>
-    public class EntityBase: IEntity, ICloneable
+    public class EntityBase : IEntity, ICloneable
     {
         /// <summary>
-        /// Retorna o conteúdo como JSON.
+        ///     Faz um clone da instância.
+        /// </summary>
+        /// <returns>ContainerData</returns>
+        public object Clone()
+        {
+            return FromJson(GetType(), AsJson());
+        }
+
+        /// <summary>
+        ///     Retorna o conteúdo como JSON.
         /// </summary>
         /// <returns></returns>
         public string AsJson()
@@ -20,7 +28,7 @@ namespace Cabster.Business
         }
 
         /// <summary>
-        /// Monta a instância com base em um JSON.
+        ///     Monta a instância com base em um JSON.
         /// </summary>
         /// <param name="json">JSON.</param>
         /// <returns>Instância.</returns>
@@ -30,23 +38,15 @@ namespace Cabster.Business
         }
 
         /// <summary>
-        /// Monta a instância com base em um JSON.
+        ///     Monta a instância com base em um JSON.
         /// </summary>
+        /// <param name="type">Tipo.</param>
         /// <param name="json">JSON.</param>
         /// <returns>Instância.</returns>
         public static object FromJson(Type type, string json)
         {
-            return JsonConvert.DeserializeObject(json, type) 
+            return JsonConvert.DeserializeObject(json, type)
                    ?? throw new IsNullOrEmptyException(type.Name);
-        }
-        
-        /// <summary>
-        /// Faz um clone da instância.
-        /// </summary>
-        /// <returns>ContainerData</returns>
-        public object Clone()
-        {
-            return FromJson(GetType(), AsJson());
         }
     }
 }

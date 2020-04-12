@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
@@ -41,6 +42,30 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
+        ///     Processa o comando: ApplicationChangeLanguage
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
+        {
+            Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
+                request.NewLanguage.TwoLetterISOLanguageName);
+
+            Program.RestartWhenClose = true;
+
+            var data = Program.Data;
+            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
+
+            _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
+
+            _messageBus.Send(new ApplicationFinalize(), cancellationToken);
+
+            return Unit.Task;
+        }
+
+        /// <summary>
         ///     Processa o comando: ApplicationFinalize
         /// </summary>
         /// <param name="request">Comando</param>
@@ -63,31 +88,7 @@ namespace Cabster.Business.Messenger.Handlers
         {
             Log.Information("Application started.");
             _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
-            System.Windows.Forms.Application.Run(_formMainWindow);
-            return Unit.Task;
-        }
-
-        /// <summary>
-        ///     Processa o comando: ApplicationChangeLanguage
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
-        {
-            Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
-                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, 
-                request.NewLanguage.TwoLetterISOLanguageName);
-
-            Program.RestartWhenClose = true;
-
-            var data = Program.Data; 
-            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
-
-            _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
-
-            _messageBus.Send(new ApplicationFinalize(), cancellationToken);
-            
+            Application.Run(_formMainWindow);
             return Unit.Task;
         }
     }

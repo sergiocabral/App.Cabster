@@ -7,25 +7,26 @@ using Cabster.Exceptions;
 namespace Cabster.Business
 {
     /// <summary>
-    /// Manipulação de dados.
+    ///     Manipulação de dados.
     /// </summary>
-    public class DataManipulation: IDataManipulation
+    public class DataManipulation : IDataManipulation
     {
         /// <summary>
-        /// Arquivo onde os dados são salvos.
-        /// </summary>
-        public string Path { get; } = 
-            new FileInfo((
-                Assembly.GetEntryAssembly() ?? throw new ThisWillNeverOccurException()).Location + ".data.json")
-                .FullName;
-
-        /// <summary>
-        /// Codificação de texto padrão.
+        ///     Codificação de texto padrão.
         /// </summary>
         private readonly Encoding _encoding = Encoding.UTF8;
 
         /// <summary>
-        /// Carrega do arquivo.
+        ///     Arquivo onde os dados são salvos.
+        /// </summary>
+        public string Path { get; } =
+            new FileInfo((
+                             Assembly.GetEntryAssembly() ?? throw new ThisWillNeverOccurException()).Location +
+                         ".data.json")
+                .FullName;
+
+        /// <summary>
+        ///     Carrega do arquivo.
         /// </summary>
         /// <returns>ContainerData</returns>
         public ContainerData? LoadFromFile()
@@ -36,7 +37,7 @@ namespace Cabster.Business
         }
 
         /// <summary>
-        /// Grava no arquivo.
+        ///     Grava no arquivo.
         /// </summary>
         /// <param name="data">ContainerData</param>
         public void SaveToFile(ContainerData data)

@@ -12,7 +12,7 @@ namespace Cabster.Business.Entities
         ///     Conjunto de configurações da aplicação.
         /// </summary>
         public ApplicationSet Application { get; set; } = new ApplicationSet();
-        
+
         /// <summary>
         ///     Trabalho em grupo do aplicativo.
         /// </summary>

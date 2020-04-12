@@ -3,7 +3,7 @@
     /// <summary>
     ///     Conjunto de informações estatísticas para o trabalho de mob.
     /// </summary>
-    public class GroupWorkStatisticsSet: EntityBase
+    public class GroupWorkStatisticsSet : EntityBase
     {
     }
 }

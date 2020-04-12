@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Cabster.Business;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
@@ -32,19 +31,19 @@ namespace Cabster
         private static IDependencyResolver? _dependencyResolver;
 
         /// <summary>
-        ///     Sinaliza se a aplicação deve ser reiniciada ao fechar.
-        /// </summary>
-        public static bool RestartWhenClose { get; set; }
-        
-        /// <summary>
-        /// Dados que configuram a aplicação.
+        ///     Dados que configuram a aplicação.
         /// </summary>
         private static readonly ContainerData DataSource = new ContainerData();
 
         /// <summary>
-        /// Dados que configuram a aplicação.
+        ///     Sinaliza se a aplicação deve ser reiniciada ao fechar.
         /// </summary>
-        public static ContainerData Data => 
+        public static bool RestartWhenClose { get; set; }
+
+        /// <summary>
+        ///     Dados que configuram a aplicação.
+        /// </summary>
+        public static ContainerData Data =>
             (ContainerData) DataSource.Clone();
 
         /// <summary>
