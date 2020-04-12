@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Forms;
@@ -40,7 +42,7 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
-            OpenForm(_dependencyResolver.GetInstanceRequired<FormConfiguration>());
+            OpenWindows(_dependencyResolver.GetInstanceRequired<FormConfiguration>());
             return Unit.Task;
         }
 
@@ -52,18 +54,35 @@ namespace Cabster.Business.Messenger.RequestHandlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
-            OpenForm(_dependencyResolver.GetInstanceRequired<FormGroupWork>());
+            OpenWindows(_dependencyResolver.GetInstanceRequired<FormGroupWork>());
             return Unit.Task;
         }
+        
+        /// <summary>
+        /// Lista de forms abertos.
+        /// </summary>
+        private static readonly List<int> FormsPositioned = new List<int>();
 
         /// <summary>
         ///     Abrir uma janela.
         /// </summary>
         /// <param name="form">Janela.</param>
-        private static void OpenForm(Form form)
+        private static void OpenWindows(Form form)
         {
             form.WindowState = FormWindowState.Normal;
             form.Show();
+
+            var formHash = form.GetHashCode();
+            var formPositioned = FormsPositioned.Contains(formHash);
+            if (!formPositioned) FormsPositioned.Add(formHash);
+            if (Application.OpenForms.Count > 0 && !formPositioned)
+            {
+                var mainForm = Application.OpenForms[0];
+                var center = new Point(mainForm.Left + mainForm.Width / 2, mainForm.Top + mainForm.Height / 2);
+                form.Left = center.X - form.Width / 2;
+                form.Top = center.Y - form.Height / 2;
+            }
+
             form.BringToFront();
             form.InvalidadeAll();
         }
