@@ -1,8 +1,12 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
+using Cabster.Business.Entities;
 using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
+using Cabster.Exceptions;
 using Cabster.Infrastructure;
 using MediatR;
 using Serilog;
@@ -99,6 +103,11 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
+        /// Acesso direto ao repositório de dados da aplicação.
+        /// </summary>
+        private static FieldInfo? _programData;
+
+        /// <summary>
         ///     Processa o comando: DataUpdate
         /// </summary>
         /// <param name="request">Comando</param>
@@ -106,7 +115,13 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
         {
-            Program.Data = request.Data;
+            if (_programData == null)
+            {
+                _programData = typeof(Program)
+                    .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
+                    .Single(f => f.FieldType == typeof(ContainerData));
+            }
+            _programData.SetValue(null, request.Data);
 
             Log.Debug("Application data updated. Sections: {Data}", request.Section);
 

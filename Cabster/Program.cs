@@ -39,16 +39,13 @@ namespace Cabster
         /// <summary>
         /// Dados que configuram a aplicação.
         /// </summary>
-        private static ContainerData _data = new ContainerData();
+        private static readonly ContainerData DataSource = new ContainerData();
 
         /// <summary>
         /// Dados que configuram a aplicação.
         /// </summary>
-        public static ContainerData Data
-        {
-            get => (ContainerData) _data.Clone();
-            set => _data = value;
-        }
+        public static ContainerData Data => 
+            (ContainerData) DataSource.Clone();
 
         /// <summary>
         ///     DependencyResolver de uso comum.
