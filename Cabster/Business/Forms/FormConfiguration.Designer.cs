@@ -30,14 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguration));
+                new System.ComponentModel.ComponentResourceManager(typeof(Cabster.Business.Forms.FormConfiguration));
             this.buttonLanguageEnglish = new Cabster.Components.MyButton(this.components);
             this.buttonLanguagePortuguese = new Cabster.Components.MyButton(this.components);
             this.labelLanguage = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // buttonLanguageEnglish
-            // 
             this.buttonLanguageEnglish.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -65,9 +62,6 @@
             this.buttonLanguageEnglish.UseText = true;
             this.buttonLanguageEnglish.UseVisualStyleBackColor = false;
             this.buttonLanguageEnglish.Click += new System.EventHandler(this.buttonLanguage_Click);
-            // 
-            // buttonLanguagePortuguese
-            // 
             this.buttonLanguagePortuguese.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -95,9 +89,6 @@
             this.buttonLanguagePortuguese.UseText = true;
             this.buttonLanguagePortuguese.UseVisualStyleBackColor = false;
             this.buttonLanguagePortuguese.Click += new System.EventHandler(this.buttonLanguage_Click);
-            // 
-            // labelLanguage
-            // 
             this.labelLanguage.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -108,9 +99,6 @@
             this.labelLanguage.Size = new System.Drawing.Size(546, 21);
             this.labelLanguage.TabIndex = 0;
             this.labelLanguage.Text = "Text.Configuration.LanguageSelect";
-            // 
-            // FormConfiguration
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 400);

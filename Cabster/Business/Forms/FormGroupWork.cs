@@ -226,7 +226,7 @@ namespace Cabster.Business.Forms
                 var data = Program.Data;
                 data.GroupWork.Times = Times;
                 data.GroupWork.Participants = Participants.ToList();
-                await MessageBus.Send(new DataUpdate(data, DataSection.WorkGroup));
+                await MessageBus.Send(new DataUpdate(data, _pendingToSave));
             }
 
             await MessageBus.Send(new ApplicationFinalize());
