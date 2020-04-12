@@ -171,6 +171,9 @@
   <data name="Text.Configuration.LanguageSelect" xml:space="preserve">
     <value>Selecione o idioma de exibição</value>
   </data>
+  <data name="Text.Configuration.Shortcut" xml:space="preserve">
+    <value>Tecla de atalho para ações do aplicativo</value>
+  </data>
   <data name="Text.Configuration.WindowTitle" xml:space="preserve">
     <value>Configurações</value>
   </data>

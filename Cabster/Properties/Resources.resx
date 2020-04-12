@@ -292,4 +292,7 @@ To remove: left button.</value>
   <data name="Text.GroupWork.TipsHint" xml:space="preserve">
     <value>Click to load a new tip.</value>
   </data>
+  <data name="Text.Configuration.Shortcut" xml:space="preserve">
+    <value>Shortcut key for application actions</value>
+  </data>
 </root>

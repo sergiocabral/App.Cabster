@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Windows.Forms;
 using Cabster.Business.Enums;
 
 namespace Cabster.Business.Entities
@@ -12,6 +13,11 @@ namespace Cabster.Business.Entities
         ///     Estado da aplicação
         /// </summary>
         public ApplicationState State { get; set; } = ApplicationState.ApplicationStarted;
+
+        /// <summary>
+        ///     Tecla de atalho.
+        /// </summary>
+        public Keys Shortcut { get; set; } = Keys.Control | Keys.Shift | Keys.M;
 
         /// <summary>
         ///     Idioma padrão.

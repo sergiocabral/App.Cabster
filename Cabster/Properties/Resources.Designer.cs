@@ -413,6 +413,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shortcut key for application actions.
+        /// </summary>
+        public static string Text_Configuration_Shortcut {
+            get {
+                return ResourceManager.GetString("Text.Configuration.Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuration.
         /// </summary>
         public static string Text_Configuration_WindowTitle {
