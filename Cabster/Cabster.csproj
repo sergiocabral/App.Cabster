@@ -169,6 +169,7 @@
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\IShortcut.cs" />
+    <Compile Include="Business\IUserNotification.cs" />
     <Compile Include="Business\Messenger\Notification\DataLoadedFromFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataSavedToFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
     <Compile Include="Business\Shortcut.cs" />
     <Compile Include="Business\Tips.cs" />
+    <Compile Include="Business\UserNotification.cs" />
     <Compile Include="Components\FormDialogConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
