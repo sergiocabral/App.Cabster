@@ -11,6 +11,8 @@ namespace Cabster.Business
     /// </summary>
     public static class Tips
     {
+        //TODO: Converter em serviço
+        
         /// <summary>
         ///     Idioma padrão.
         /// </summary>

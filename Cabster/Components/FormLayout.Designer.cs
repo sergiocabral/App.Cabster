@@ -41,6 +41,7 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.buttonNotification = new Cabster.Components.MyButton(this.components);
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +151,7 @@
             this.buttonResize.Name = "buttonResize";
             this.buttonResize.NotTransparent = false;
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
-            this.buttonResize.TabIndex = 8;
+            this.buttonResize.TabIndex = 9;
             this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");
             this.buttonResize.UseText = false;
             this.buttonResize.UseVisualStyleBackColor = false;
@@ -176,16 +177,36 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatus.BackColor = System.Drawing.Color.Transparent;
             this.labelStatus.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.Location = new System.Drawing.Point(12, 480);
+            this.labelStatus.Location = new System.Drawing.Point(43, 480);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(789, 25);
-            this.labelStatus.TabIndex = 7;
+            this.labelStatus.Size = new System.Drawing.Size(758, 25);
+            this.labelStatus.TabIndex = 8;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timerStatus
             // 
             this.timerStatus.Interval = 3000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
+            // 
+            // buttonNotification
+            // 
+            this.buttonNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonNotification.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNotification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNotification.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonNotification.FlatAppearance.BorderSize = 0;
+            this.buttonNotification.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonNotification.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonNotification.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNotification.Image = ((System.Drawing.Image)(resources.GetObject("buttonNotification.Image")));
+            this.buttonNotification.Location = new System.Drawing.Point(12, 480);
+            this.buttonNotification.Name = "buttonNotification";
+            this.buttonNotification.NotTransparent = false;
+            this.buttonNotification.Size = new System.Drawing.Size(25, 25);
+            this.buttonNotification.TabIndex = 7;
+            this.buttonNotification.UseText = false;
+            this.buttonNotification.UseVisualStyleBackColor = false;
             // 
             // FormLayout
             // 
@@ -195,6 +216,7 @@
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(831, 514);
+            this.Controls.Add(this.buttonNotification);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.panelLogo);
             this.Controls.Add(this.buttonResize);
@@ -227,5 +249,6 @@
         protected System.Windows.Forms.ToolTip toolTip;
         protected MyButton buttonClose;
         protected MyButton buttonMinimize;
+        private MyButton buttonNotification;
     }
 }

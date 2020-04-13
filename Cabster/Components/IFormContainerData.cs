@@ -9,5 +9,7 @@
         /// Notifica a atualização dos controles da tela.
         /// </summary>
         void UpdateControls();
+        
+        //TODO: Trazer SetStatusMessage pra cá.
     }
 }

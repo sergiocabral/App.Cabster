@@ -98,7 +98,7 @@ namespace Cabster
                         new CultureInfo(Data.Application.Language);
 
                 messageBus.Send(new ApplicationInitialize());
-            } while (RestartWhenClose);
+            } while (RestartWhenClose); //TODO: Falha na troca de idiomas.
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }

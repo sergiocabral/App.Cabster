@@ -87,8 +87,14 @@ namespace Cabster.Components
                 buttonResize.Left = Width - buttonResize.Width;
                 buttonResize.Top = Height - buttonResize.Height;
 
-                labelStatus.Left = 10;
-                labelStatus.Top = Height - labelStatus.Height - labelStatus.Left;
+                const int padding = 10;
+                
+                buttonNotification.Height = labelStatus.Height;
+                buttonNotification.Top = Height - buttonNotification.Height - padding;
+                buttonNotification.Left = padding;
+                
+                labelStatus.Top = buttonNotification.Top;
+                labelStatus.Left = buttonNotification.Right + (padding / 2);
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
         }

@@ -198,4 +198,18 @@
   <metadata name="timerStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>107, 17</value>
   </metadata>
+  <data name="buttonNotification.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAYAAABSx2cSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAF
+        TAAABUwBmsAx9gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGuSURBVDhPjVS9
+        SgNBEL7EmDQWMeojWPgKtgqSB4iPkOz/3h0Eku46KwkEg5yNWHpgaeEDiKWIMYKiFgaS6EPEmc2GkPOO
+        3MDHsjffNztzM7tOmkVRtOZ5XgVX+ymbBUFQkFKdKuWGjKlz3FvXapNSloSQVyCqQJBr3FtXugE577pu
+        WSmlKeUDRvgrQjDNWrS1iX5LXTZ0+L5/AKI+IWwC688cZk/4QGt9lBQg11TNXSC8W/JvHCYQ4R+Q2d50
+        Os1Z3ewHCaFCIE3iohgmkuvLer2+bqVGXGSUP6adOgf6kYd8K3Wcbrdbog3+mUVMCftCvpXOxBAxtd45
+        jJiKt6XWYRrw8TmLmFHR/yeGk58ynUzES1y8DW0YJgkSMGy32ztGCD3LS+lSQvg4gZgAPtbab6BuljKT
+        96tSnsPW/WDaVa1W4RKoCByjTDVTPoLRj1BnUq/VakW4u8dSqDsgQe2mBJw2DAar2Q8FV7e+9oFeWwwJ
+        GqSRx7Hr9XobSvn7SrghXMsbKfWFlN5hJ+iUgVNAnpUkGwaB1E7gxG+4z2dhGC5mOYvh8wMt2Up/hhzn
+        D5lhokSKPQCBAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
