@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cabster.Business.Entities;
 using MediatR;
 
 namespace Cabster.Business
@@ -13,16 +14,15 @@ namespace Cabster.Business
         /// <summary>
         /// Lista de mensagens.
         /// </summary>
-        private readonly List<(DateTimeOffset, string, bool)> _messages = new List<(DateTimeOffset, string, bool)>();
+        private readonly List<NotificationMessage> _messages = new List<NotificationMessage>();
         
         /// <summary>
         /// Posta uma mensagem.
         /// </summary>
         /// <param name="message">Mensagem.</param>
-        /// <param name="success">Sucesso ou falha.</param>
-        public void Post(string message, bool success)
+        public void Post(NotificationMessage message)
         {
-            _messages.Add((DateTimeOffset.Now, message, success));
+            _messages.Add(message);
         }
 
         /// <summary>
@@ -30,14 +30,14 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="filter">Filtro de data.</param>
         /// <returns>Lista de mensagens</returns>
-        public IEnumerable<(string, bool)> GetMessages(DateTimeOffset? filter = null)
+        public IEnumerable<NotificationMessage> GetMessages(DateTimeOffset? filter = null)
         {
             var messages = _messages.AsEnumerable();
 
             if (filter.HasValue)
-                messages = messages.Where(a => a.Item1 >= filter.Value);
+                messages = messages.Where(a => a.Time >= filter.Value);
                 
-            return messages.Select(a => (a.Item2, a.Item3));
+            return messages;
         }
     }
 }

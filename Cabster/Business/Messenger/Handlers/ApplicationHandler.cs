@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cabster.Business.Entities;
 using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
@@ -126,28 +127,30 @@ namespace Cabster.Business.Messenger.Handlers
             if ((notification.Request.Section & DataSection.ApplicationShortcut) == DataSection.ApplicationShortcut)
             {
                 var shortcut = notification.Request.Data.Application.Shortcut.ToShortcutDescription();
-                
+
                 try
                 {
                     var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
                     await _messageBus.Send(new UserNotificationPost(
-                        registered
-                            ? Resources.Text_Application_ShortcutDefined
-                            : Resources.Text_Application_ShortcutRemoved,
-                        true,
+                        new NotificationMessage(
+                            registered
+                                ? Resources.Text_Application_ShortcutDefined
+                                : Resources.Text_Application_ShortcutRemoved,
+                            true),
                         notification.Request), cancellationToken);
 
-                    Log.Debug("Shortcut key {Shortcut} registered: {Registered}", 
+                    Log.Debug("Shortcut key {Shortcut} registered: {Registered}",
                         shortcut, registered);
                 }
                 catch (Exception exception)
                 {
                     Log.Error(exception,
                         "Error registering shortcut key: {Shortcut}", shortcut);
-                    
+
                     await _messageBus.Send(new UserNotificationPost(
-                        Resources.Exception_Application_ShortcutAlreadyUsed,
-                        false,
+                        new NotificationMessage(
+                            Resources.Exception_Application_ShortcutAlreadyUsed,
+                            false),
                         notification.Request), cancellationToken);
                 }
             }

@@ -102,7 +102,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         ///     Abrir uma janela.
         /// </summary>
-        /// <param name="form">Janela.</param>
+        /// <param name="formContainerData">Janela.</param>
         private static void OpenWindows(IFormContainerData formContainerData)
         {
             var form = (Form) formContainerData;
@@ -121,6 +121,7 @@ namespace Cabster.Business.Messenger.Handlers
             }
 
             form.BringToFront();
+            Application.DoEvents();
             form.InvalidadeAll();
         }
 
@@ -147,8 +148,10 @@ namespace Cabster.Business.Messenger.Handlers
         {
             if (notification.Request.SourceRequest is DataUpdate dataUpdate &&
                 (dataUpdate.Section & DataSection.ApplicationShortcut) != 0)
-                _formConfiguration?.SetStatusMessage(notification.Request.Message, notification.Request.Success);
+                _formConfiguration?.SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
+            _formNotification?.UpdateControls();
+            
             return Unit.Task;
         }
     }

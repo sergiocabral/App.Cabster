@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cabster.Business.Entities;
 
 namespace Cabster.Business
 {
@@ -12,14 +13,13 @@ namespace Cabster.Business
         /// Posta uma mensagem.
         /// </summary>
         /// <param name="message">Mensagem.</param>
-        /// <param name="success">Sucesso ou falha.</param>
-        void Post(string message, bool success);
+        void Post(NotificationMessage message);
 
         /// <summary>
         /// Obtem as mensagens a partir de uma data.
         /// </summary>
         /// <param name="filter">Filtro de data.</param>
         /// <returns>Lista de mensagens</returns>
-        IEnumerable<(string, bool)> GetMessages(DateTimeOffset? filter = null);
+        IEnumerable<NotificationMessage> GetMessages(DateTimeOffset? filter = null);
     }
 }

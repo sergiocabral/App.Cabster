@@ -151,6 +151,7 @@
     <Compile Include="Business\Entities\GroupWorkParticipantSet.cs" />
     <Compile Include="Business\Entities\GroupWorkSet.cs" />
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
+    <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\Enums\DataSection.cs" />
     <Compile Include="Business\Forms\FormNotification.cs">
@@ -191,6 +192,7 @@
     <Compile Include="Business\Messenger\Request\DataLoadFromFile.cs" />
     <Compile Include="Business\Messenger\Request\DataSaveToFile.cs" />
     <Compile Include="Business\Messenger\Request\DataUpdate.cs" />
+    <Compile Include="Business\Messenger\Request\UserNotificationRequestList.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />

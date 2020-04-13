@@ -1,4 +1,5 @@
 ﻿using Cabster.Infrastructure;
+using Cabster.Business.Entities;
 
 namespace Cabster.Business.Messenger.Request
 {
@@ -11,27 +12,20 @@ namespace Cabster.Business.Messenger.Request
         ///     Construtor.
         /// </summary>
         /// <param name="message">Mensagem</param>
-        /// <param name="success">Sucesso</param>
-        /// <param name="sourceRequest">Comando fonte da notificação.</param>
-        public UserNotificationPost(string message, bool success, MessengerRequest? sourceRequest = null)
+        /// <param name="sourceRequest">Comando</param>
+        public UserNotificationPost(NotificationMessage message, MessengerRequest? sourceRequest = null)
         {
             Message = message;
-            Success = success;
             SourceRequest = sourceRequest;
         }
 
         /// <summary>
         ///     Mensagem.
         /// </summary>
-        public string Message { get; }
+        public NotificationMessage Message { get; }
 
         /// <summary>
-        ///     Sucesso.
-        /// </summary>
-        public bool Success { get; }
-
-        /// <summary>
-        /// Comando fonte da notificação.
+        /// Comando associado.
         /// </summary>
         public MessengerRequest? SourceRequest { get; }
     }

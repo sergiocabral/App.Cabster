@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -19,7 +20,8 @@ namespace Cabster.Business.Messenger.Handlers
     /// </summary>
     public class UserNotificationHandler :
         MessengerHandler,
-        IRequestHandler<UserNotificationPost>
+        IRequestHandler<UserNotificationPost>,
+        IRequestHandler<UserNotificationRequestList, IEnumerable<NotificationMessage>>
     {
         /// <summary>
         ///     Notificação de mensagens para o usuário.
@@ -50,9 +52,20 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(UserNotificationPost request, CancellationToken cancellationToken)
         {
-            _userNotification.Post(request.Message, request.Success);
+            _userNotification.Post(request.Message);
             await _messageBus.Publish(new UserNotificationPosted(request), cancellationToken);
             return Unit.Value;
+        }
+
+        /// <summary>
+        ///     Processa o comando: UserNotificationRequestList
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<IEnumerable<NotificationMessage>> Handle(UserNotificationRequestList request, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(_userNotification.GetMessages(request.Filter));
         }
     }
 }
