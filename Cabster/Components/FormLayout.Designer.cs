@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormLayout));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLayout));
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonMinimize = new Cabster.Components.MyButton(this.components);
@@ -43,13 +42,15 @@
             this.labelStatus = new System.Windows.Forms.Label();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.buttonNotification = new Cabster.Components.MyButton(this.components);
+            this.panelMarginLeft = new System.Windows.Forms.Panel();
+            this.panelMarginRight = new System.Windows.Forms.Panel();
+            this.panelMarginBottom = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))), ((int) (((byte) (32)))),
-                ((int) (((byte) (32)))));
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Controls.Add(this.buttonMinimize);
             this.panelTitle.Controls.Add(this.buttonClose);
@@ -66,8 +67,7 @@
             // 
             this.labelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(15, 0);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
@@ -81,14 +81,13 @@
             this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Image = ((System.Drawing.Image) (resources.GetObject("buttonMinimize.Image")));
+            this.buttonMinimize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.Image")));
             this.buttonMinimize.Location = new System.Drawing.Point(716, 0);
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.NotTransparent = false;
@@ -104,14 +103,13 @@
             this.buttonClose.BackColor = System.Drawing.Color.Transparent;
             this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Image = ((System.Drawing.Image) (resources.GetObject("buttonClose.Image")));
+            this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
             this.buttonClose.Location = new System.Drawing.Point(766, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.NotTransparent = false;
@@ -142,24 +140,21 @@
             // 
             // buttonResize
             // 
-            this.buttonResize.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonResize.BackColor = System.Drawing.Color.Transparent;
             this.buttonResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.buttonResize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonResize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.buttonResize.FlatAppearance.BorderSize = 0;
             this.buttonResize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResize.Image = ((System.Drawing.Image) (resources.GetObject("buttonResize.Image")));
+            this.buttonResize.Image = ((System.Drawing.Image)(resources.GetObject("buttonResize.Image")));
             this.buttonResize.Location = new System.Drawing.Point(807, 491);
             this.buttonResize.Name = "buttonResize";
             this.buttonResize.NotTransparent = false;
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
-            this.buttonResize.TabIndex = 9;
+            this.buttonResize.TabIndex = 11;
             this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");
             this.buttonResize.UseText = false;
             this.buttonResize.UseVisualStyleBackColor = false;
@@ -181,17 +176,14 @@
             // 
             // labelStatus
             // 
-            this.labelStatus.Anchor =
-                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom |
-                                                        System.Windows.Forms.AnchorStyles.Left) |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatus.BackColor = System.Drawing.Color.Transparent;
-            this.labelStatus.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelStatus.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.Location = new System.Drawing.Point(43, 480);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(758, 25);
-            this.labelStatus.TabIndex = 8;
+            this.labelStatus.TabIndex = 10;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timerStatus
@@ -201,46 +193,70 @@
             // 
             // buttonNotification
             // 
-            this.buttonNotification.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
-                                                       System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNotification.BackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonNotification.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonNotification.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.buttonNotification.FlatAppearance.BorderSize = 0;
             this.buttonNotification.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNotification.Image = ((System.Drawing.Image) (resources.GetObject("buttonNotification.Image")));
+            this.buttonNotification.Image = ((System.Drawing.Image)(resources.GetObject("buttonNotification.Image")));
             this.buttonNotification.Location = new System.Drawing.Point(12, 480);
             this.buttonNotification.Name = "buttonNotification";
             this.buttonNotification.NotTransparent = false;
             this.buttonNotification.Size = new System.Drawing.Size(25, 25);
-            this.buttonNotification.TabIndex = 7;
+            this.buttonNotification.TabIndex = 9;
             this.buttonNotification.UseText = false;
             this.buttonNotification.UseVisualStyleBackColor = false;
             this.buttonNotification.Click += new System.EventHandler(this.buttonNotification_Click);
+            // 
+            // panelMarginLeft
+            // 
+            this.panelMarginLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMarginLeft.Location = new System.Drawing.Point(0, 50);
+            this.panelMarginLeft.Name = "panelMarginLeft";
+            this.panelMarginLeft.Size = new System.Drawing.Size(1, 464);
+            this.panelMarginLeft.TabIndex = 6;
+            // 
+            // panelMarginRight
+            // 
+            this.panelMarginRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelMarginRight.Location = new System.Drawing.Point(830, 50);
+            this.panelMarginRight.Name = "panelMarginRight";
+            this.panelMarginRight.Size = new System.Drawing.Size(1, 464);
+            this.panelMarginRight.TabIndex = 7;
+            // 
+            // panelMarginBottom
+            // 
+            this.panelMarginBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelMarginBottom.Location = new System.Drawing.Point(1, 513);
+            this.panelMarginBottom.Name = "panelMarginBottom";
+            this.panelMarginBottom.Size = new System.Drawing.Size(829, 1);
+            this.panelMarginBottom.TabIndex = 8;
             // 
             // FormLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))), ((int) (((byte) (64)))),
-                ((int) (((byte) (64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(831, 514);
+            this.Controls.Add(this.panelMarginBottom);
+            this.Controls.Add(this.panelMarginRight);
+            this.Controls.Add(this.panelMarginLeft);
             this.Controls.Add(this.buttonNotification);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.panelLogo);
             this.Controls.Add(this.buttonResize);
             this.Controls.Add(this.panelTitle);
-            this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
-                ((int) (((byte) (224)))));
+            this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(300, 300);
@@ -251,6 +267,7 @@
             this.SizeChanged += new System.EventHandler(this.FormLayout_SizeChanged);
             this.panelTitle.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -267,5 +284,8 @@
         private Cabster.Components.MyButton buttonMinimize;
         private Cabster.Components.MyButton buttonClose;
         protected System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Panel panelMarginLeft;
+        private System.Windows.Forms.Panel panelMarginRight;
+        private System.Windows.Forms.Panel panelMarginBottom;
     }
 }
