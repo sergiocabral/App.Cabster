@@ -22,7 +22,7 @@ namespace Cabster.Business.Messenger.Handlers
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>,
         INotificationHandler<DataUpdated>,
-        INotificationHandler<DataUpdatedMessage>
+        INotificationHandler<UserNotificationPosted>
     {
         /// <summary>
         ///     Lista de forms abertos.
@@ -119,11 +119,11 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="notification">Evento.</param>
         /// <param name="cancellationToken">Token de cancelamento.</param>
         /// <returns>Task</returns>
-        public Task Handle(DataUpdatedMessage notification, CancellationToken cancellationToken)
+        public Task Handle(UserNotificationPosted notification, CancellationToken cancellationToken)
         {
-            //TODO: Exibir erros de startup.
-            if ((notification.Request.Section & DataSection.ApplicationShortcut) != 0)
-                _formConfiguration?.SetStatusMessage(notification.Message, notification.Success);
+            if (notification.Request.SourceRequest is DataUpdate dataUpdate &&
+                (dataUpdate.Section & DataSection.ApplicationShortcut) != 0)
+                _formConfiguration?.SetStatusMessage(notification.Request.Message, notification.Request.Success);
 
             return Unit.Task;
         }

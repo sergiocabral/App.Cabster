@@ -36,6 +36,11 @@ namespace Cabster.Business.Messenger.Handlers
         private readonly IShortcut _shortcut;
 
         /// <summary>
+        /// Notificação de mensagens para o usuário.
+        /// </summary>
+        private readonly IUserNotification _userNotification;
+
+        /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
@@ -46,14 +51,17 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="messageBus">IMediator</param>
         /// <param name="formMainWindow">Janela principal do sistema.</param>
         /// <param name="shortcut">Configurações de teclas de atalho.</param>
+        /// <param name="userNotification">Notificação de mensagens para o usuário.</param>
         public ApplicationHandler(
             IMediator messageBus, 
             FormMainWindow formMainWindow,
-            IShortcut shortcut)
+            IShortcut shortcut,
+            IUserNotification userNotification)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
             _shortcut = shortcut;
+            _userNotification = userNotification;
         }
 
         /// <summary>
@@ -122,11 +130,12 @@ namespace Cabster.Business.Messenger.Handlers
                 try
                 {
                     var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
-                    await _messageBus.Publish(new DataUpdatedMessage(
-                        notification.Request,
+                    await _messageBus.Send(new UserNotificationPost(
                         registered
                             ? Resources.Text_Application_ShortcutDefined
-                            : Resources.Text_Application_ShortcutRemoved), cancellationToken);
+                            : Resources.Text_Application_ShortcutRemoved,
+                        true,
+                        notification.Request), cancellationToken);
 
                     Log.Debug("Shortcut key {Shortcut} registered: {Registered}", 
                         shortcut, registered);
@@ -136,10 +145,10 @@ namespace Cabster.Business.Messenger.Handlers
                     Log.Error(exception,
                         "Error registering shortcut key: {Shortcut}", shortcut);
                     
-                    await _messageBus.Publish(new DataUpdatedMessage(
-                        notification.Request,
+                    await _messageBus.Send(new UserNotificationPost(
                         Resources.Exception_Application_ShortcutAlreadyUsed,
-                        false), cancellationToken);
+                        false,
+                        notification.Request), cancellationToken);
                 }
             }
         }

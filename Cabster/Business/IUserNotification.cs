@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Cabster.Business
 {
     /// <summary>
-    /// Notificador de mensagens para o usuário.
+    /// Notificação de mensagens para o usuário.
     /// </summary>
     public interface IUserNotification
     {

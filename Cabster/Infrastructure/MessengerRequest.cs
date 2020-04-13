@@ -12,7 +12,7 @@ namespace Cabster.Infrastructure
     /// <summary>
     ///     Classe base para qualquer comando.
     /// </summary>
-    public abstract class MessengerRequest<TResponse> : IRequest<TResponse>
+    public abstract class MessengerRequest<TResponse> : MessengerRequest, IRequest<TResponse>
     {
     }
 }
