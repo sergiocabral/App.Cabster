@@ -14,14 +14,14 @@ namespace Cabster.Business.Messenger.Request
         /// </summary>
         /// <param name="data">Dados atualizados.</param>
         /// <param name="section">Seções que foram atualizadas.</param>
-        /// <param name="avoidDataSave">Sinaliza para evitar a gravação dos dados.</param>
-        public DataUpdate(ContainerData data, DataSection section = DataSection.All, bool avoidDataSave = false)
+        /// <param name="avoidSaveToFile">Sinaliza para evitar a gravação dos dados.</param>
+        public DataUpdate(ContainerData data, DataSection section = DataSection.All, bool avoidSaveToFile = false)
         {
             Data = data;
             Section = section;
-            AvoidDataSave = avoidDataSave;
+            AvoidSaveToFile = avoidSaveToFile;
         }
-
+        
         /// <summary>
         ///     Dados atualizados
         /// </summary>
@@ -35,6 +35,6 @@ namespace Cabster.Business.Messenger.Request
         /// <summary>
         ///     Sinaliza para evitar a gravação dos dados.
         /// </summary>
-        public bool AvoidDataSave { get; }
+        public bool AvoidSaveToFile { get; }
     }
 }

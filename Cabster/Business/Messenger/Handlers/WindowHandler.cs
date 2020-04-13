@@ -121,7 +121,6 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(DataUpdatedMessage notification, CancellationToken cancellationToken)
         {
-            //TODO: Ao ligar tem que carregar os dados para quando não houver arquivos.
             //TODO: Exibir erros de startup.
             if ((notification.Request.Section & DataSection.ApplicationShortcut) != 0)
                 _formConfiguration?.SetStatusMessage(notification.Message, notification.Success);

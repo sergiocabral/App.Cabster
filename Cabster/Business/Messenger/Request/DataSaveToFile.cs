@@ -7,5 +7,9 @@ namespace Cabster.Business.Messenger.Request
     /// </summary>
     public class DataSaveToFile : MessengerRequest
     {
+        /// <summary>
+        /// Força a gravação imediata sem esperas
+        /// </summary>
+        public bool SaveImmediately { get; set; }
     }
 }

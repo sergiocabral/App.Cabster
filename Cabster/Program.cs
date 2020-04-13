@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
+using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Helpers;

@@ -58,7 +58,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            return !notification.Request.AvoidDataSave
+            return !notification.Request.AvoidSaveToFile
                 ? _messageBus.Send(new DataSaveToFile(), cancellationToken)
                 : Unit.Task;
         }
@@ -85,6 +85,10 @@ namespace Cabster.Business.Messenger.Handlers
                 {
                     Log.Debug("Application data cannot be loaded because the file does not exist in: {Path}",
                         _dataManipulation.Path);
+
+                    data = Program.Data;
+                    await _messageBus.Send(new DataSaveToFile{ SaveImmediately = true}, cancellationToken);
+                    await _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
                 }
             }
             catch (Exception exception)
@@ -111,9 +115,20 @@ namespace Cabster.Business.Messenger.Handlers
             const int delayToCheck = 100;
             const int delayToAction = 500;
             
-            Log.Verbose("Application data save requested. Waiting {Milliseconds} milliseconds.",
-                delayToAction);
-            
+            if (!request.SaveImmediately)
+            {
+                Log.Verbose("Application data save requested. Waiting {Milliseconds} milliseconds.",
+                    delayToAction);
+            }
+            else if (_stopwatchDataSaveToFile != null)
+            {
+                Log.Verbose("Application data save immediately requested, but there is a task in progress that must be awaited.");
+            }
+            else
+            {
+                Log.Verbose("Application data save immediately requested.");
+            }
+
             if (_stopwatchDataSaveToFile != null)
             {
                 _stopwatchDataSaveToFile.Restart();
@@ -131,7 +146,8 @@ namespace Cabster.Business.Messenger.Handlers
             _stopwatchDataSaveToFile = new Stopwatch();
             _stopwatchDataSaveToFile.Start();
 
-            while (_stopwatchDataSaveToFile != null &&
+            while (!request.SaveImmediately &&
+                   _stopwatchDataSaveToFile != null &&
                    _stopwatchDataSaveToFile.ElapsedMilliseconds < delayToAction)
             {
                 await Task.Delay(delayToCheck, cancellationToken);
