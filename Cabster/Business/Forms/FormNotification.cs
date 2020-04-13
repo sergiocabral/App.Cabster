@@ -15,12 +15,12 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela de configuração
     /// </summary>
-    public partial class FormNotifications : FormLayout, IFormContainerData
+    public partial class FormNotification : FormLayout, IFormContainerData
     {
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormNotifications()
+        public FormNotification()
         {
             InitializeComponent();
             InitializeComponent2();

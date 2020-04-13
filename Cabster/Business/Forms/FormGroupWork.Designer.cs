@@ -245,7 +245,7 @@
             this.buttonParticipantAdd.NotTransparent = false;
             this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
             this.buttonParticipantAdd.TabIndex = 10;
-            this.ToolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
+            this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
             this.buttonParticipantAdd.UseText = false;
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
             this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
@@ -270,7 +270,7 @@
             this.buttonParticipantSort.NotTransparent = false;
             this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
             this.buttonParticipantSort.TabIndex = 11;
-            this.ToolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
+            this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
             this.buttonParticipantSort.UseText = false;
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
             this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
@@ -321,7 +321,7 @@
             this.labelTips.Size = new System.Drawing.Size(457, 59);
             this.labelTips.TabIndex = 17;
             this.labelTips.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ToolTip.SetToolTip(this.labelTips, "Text.GroupWork.TipsHint");
+            this.toolTip.SetToolTip(this.labelTips, "Text.GroupWork.TipsHint");
             this.labelTips.Click += new System.EventHandler(this.labelTips_Click);
             // 
             // buttonConfiguration
@@ -348,7 +348,7 @@
             this.buttonConfiguration.NotTransparent = true;
             this.buttonConfiguration.Size = new System.Drawing.Size(50, 50);
             this.buttonConfiguration.TabIndex = 23;
-            this.ToolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
+            this.toolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
             this.buttonConfiguration.UseText = false;
             this.buttonConfiguration.UseVisualStyleBackColor = false;
             this.buttonConfiguration.Click += new System.EventHandler(this.buttonConfiguration_Click);

@@ -221,6 +221,7 @@
             this.buttonNotification.TabIndex = 7;
             this.buttonNotification.UseText = false;
             this.buttonNotification.UseVisualStyleBackColor = false;
+            this.buttonNotification.Click += new System.EventHandler(this.buttonNotification_Click);
             // 
             // FormLayout
             // 
@@ -265,6 +266,6 @@
         private Cabster.Components.MyButton buttonNotification;
         private Cabster.Components.MyButton buttonMinimize;
         private Cabster.Components.MyButton buttonClose;
-        private System.Windows.Forms.ToolTip toolTip;
+        protected System.Windows.Forms.ToolTip toolTip;
     }
 }

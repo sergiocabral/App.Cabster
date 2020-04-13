@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
+using Cabster.Business.Messenger.Request;
 using Cabster.Extensions;
 using Cabster.Properties;
 
@@ -57,11 +58,6 @@ namespace Cabster.Components
             get => !labelStatus.Visible;
             set => buttonNotification.Visible = labelStatus.Visible = !value;
         }
-
-        /// <summary>
-        /// ToolTip.
-        /// </summary>
-        protected ToolTip ToolTip => toolTip;
 
         /// <summary>
         /// ButtonClose.
@@ -209,6 +205,16 @@ namespace Cabster.Components
                 ((Timer) sender2).Dispose();
                 this.InvalidadeAll();
             };
+        }
+
+        /// <summary>
+        /// Evento ao clicar no botão de notificações.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void buttonNotification_Click(object sender, EventArgs args)
+        {
+            MessageBus.Send(new WindowOpenNotification());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Cabster.Business.Forms
 {
-    partial class FormNotifications
+    partial class FormNotification
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormNotifications));
+                new System.ComponentModel.ComponentResourceManager(typeof(FormNotification));
             this.timerToSaveShortcut = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // FormNotifications
+            // FormNotification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.ClientSize = new System.Drawing.Size(400, 200);
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
-            this.Name = "FormNotifications";
-            this.Text = "Text.Configuration.WindowTitle";
+            this.Name = "FormNotification";
+            this.Text = "Text.Notification.WindowTitle";
             this.ResumeLayout(false);
         }
 

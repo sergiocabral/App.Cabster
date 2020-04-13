@@ -153,11 +153,11 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\Enums\DataSection.cs" />
-    <Compile Include="Business\Forms\FormNotifications.cs">
+    <Compile Include="Business\Forms\FormNotification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Business\Forms\FormNotifications.Designer.cs">
-      <DependentUpon>FormNotifications.cs</DependentUpon>
+    <Compile Include="Business\Forms\FormNotification.Designer.cs">
+      <DependentUpon>FormNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\Forms\FormConfiguration.cs">
       <SubType>Form</SubType>
@@ -196,6 +196,7 @@
     <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />
     <Compile Include="Business\Messenger\Request\ClockSinalize.cs" />
     <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
+    <Compile Include="Business\Messenger\Request\WindowOpenNotification.cs" />
     <Compile Include="Business\Shortcut.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Business\UserNotification.cs" />
@@ -284,8 +285,8 @@
     <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Business\Forms\FormNotifications.resx">
-      <DependentUpon>FormNotifications.cs</DependentUpon>
+    <EmbeddedResource Include="Business\Forms\FormNotification.resx">
+      <DependentUpon>FormNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>

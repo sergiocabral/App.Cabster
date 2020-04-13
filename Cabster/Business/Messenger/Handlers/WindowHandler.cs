@@ -21,6 +21,7 @@ namespace Cabster.Business.Messenger.Handlers
         MessengerHandler,
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>,
+        IRequestHandler<WindowOpenNotification>,
         INotificationHandler<DataUpdated>,
         INotificationHandler<UserNotificationPosted>
     {
@@ -52,6 +53,17 @@ namespace Cabster.Business.Messenger.Handlers
             _formConfiguration ??= Program.DependencyResolver.GetInstanceRequired<FormConfiguration>();
 
         /// <summary>
+        /// Janela: FormNotification
+        /// </summary>
+        private static FormNotification? _formNotification;
+
+        /// <summary>
+        /// Janela: FormNotification
+        /// </summary>
+        private static IFormContainerData FormNotification =>
+            _formNotification ??= Program.DependencyResolver.GetInstanceRequired<FormNotification>();
+
+        /// <summary>
         ///     Processa o comando: WindowOpenConfiguration
         /// </summary>
         /// <param name="request">Comando</param>
@@ -60,6 +72,18 @@ namespace Cabster.Business.Messenger.Handlers
         public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
             OpenWindows(FormConfiguration);
+            return Unit.Task;
+        }
+
+        /// <summary>
+        ///     Processa o comando: WindowOpenNotification
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Unit> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
+        {
+            OpenWindows(FormNotification);
             return Unit.Task;
         }
 
