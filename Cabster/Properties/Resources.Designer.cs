@@ -650,5 +650,14 @@ namespace Cabster.Properties {
                 return ResourceManager.GetString("Text.GroupWork.WindowTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General application notifications..
+        /// </summary>
+        public static string Text_Layout_NotificationUser {
+            get {
+                return ResourceManager.GetString("Text.Layout.NotificationUser", resourceCulture);
+            }
+        }
     }
 }

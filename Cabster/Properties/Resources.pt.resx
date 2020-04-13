@@ -246,4 +246,7 @@ Para remover: botão esquerdo.</value>
   <data name="Text.GroupWork.WindowTitle" xml:space="preserve">
     <value>Trabalho em Grupo em MOB</value>
   </data>
+  <data name="Text.Layout.NotificationUser" xml:space="preserve">
+    <value>Notificações gerais da aplicação.</value>
+  </data>
 </root>

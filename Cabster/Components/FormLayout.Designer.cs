@@ -205,6 +205,7 @@
             this.buttonNotification.NotTransparent = false;
             this.buttonNotification.Size = new System.Drawing.Size(25, 25);
             this.buttonNotification.TabIndex = 7;
+            this.toolTip.SetToolTip(this.buttonNotification, "Text.Layout.NotificationUser");
             this.buttonNotification.UseText = false;
             this.buttonNotification.UseVisualStyleBackColor = false;
             // 
