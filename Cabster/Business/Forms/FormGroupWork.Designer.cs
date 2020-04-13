@@ -54,30 +54,6 @@
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonClose
-            // 
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.Image = ((System.Drawing.Image) (resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(635, 0);
-            this.toolTip.SetToolTip(this.buttonClose, "Close application.");
-            // 
-            // buttonMinimize
-            // 
-            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
-            this.buttonMinimize.FlatAppearance.BorderSize = 0;
-            this.buttonMinimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.Image = ((System.Drawing.Image) (resources.GetObject("buttonMinimize.Image")));
-            this.buttonMinimize.Location = new System.Drawing.Point(585, 0);
-            this.toolTip.SetToolTip(this.buttonMinimize, "Minimize window.");
-            // 
             // labelDurationOfEachRound_Part1
             // 
             this.labelDurationOfEachRound_Part1.Anchor =
@@ -269,7 +245,7 @@
             this.buttonParticipantAdd.NotTransparent = false;
             this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
             this.buttonParticipantAdd.TabIndex = 10;
-            this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
+            this.ToolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
             this.buttonParticipantAdd.UseText = false;
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
             this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
@@ -294,7 +270,7 @@
             this.buttonParticipantSort.NotTransparent = false;
             this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
             this.buttonParticipantSort.TabIndex = 11;
-            this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
+            this.ToolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
             this.buttonParticipantSort.UseText = false;
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
             this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
@@ -345,7 +321,7 @@
             this.labelTips.Size = new System.Drawing.Size(457, 59);
             this.labelTips.TabIndex = 17;
             this.labelTips.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip.SetToolTip(this.labelTips, "Text.GroupWork.TipsHint");
+            this.ToolTip.SetToolTip(this.labelTips, "Text.GroupWork.TipsHint");
             this.labelTips.Click += new System.EventHandler(this.labelTips_Click);
             // 
             // buttonConfiguration
@@ -372,7 +348,7 @@
             this.buttonConfiguration.NotTransparent = true;
             this.buttonConfiguration.Size = new System.Drawing.Size(50, 50);
             this.buttonConfiguration.TabIndex = 23;
-            this.toolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
+            this.ToolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
             this.buttonConfiguration.UseText = false;
             this.buttonConfiguration.UseVisualStyleBackColor = false;
             this.buttonConfiguration.Click += new System.EventHandler(this.buttonConfiguration_Click);

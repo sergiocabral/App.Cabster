@@ -153,6 +153,12 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\Enums\DataSection.cs" />
+    <Compile Include="Business\Forms\FormNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Forms\FormNotifications.Designer.cs">
+      <DependentUpon>FormNotifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\Forms\FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\Forms\FormNotifications.resx">
+      <DependentUpon>FormNotifications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\Forms\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>

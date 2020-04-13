@@ -50,6 +50,30 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Esconde a barra de status
+        /// </summary>
+        protected bool HideStatusBar
+        {
+            get => !labelStatus.Visible;
+            set => buttonNotification.Visible = labelStatus.Visible = !value;
+        }
+
+        /// <summary>
+        /// ToolTip.
+        /// </summary>
+        protected ToolTip ToolTip => toolTip;
+
+        /// <summary>
+        /// ButtonClose.
+        /// </summary>
+        protected Button ButtonClose => buttonClose;
+
+        /// <summary>
+        /// ButtonMinimize.
+        /// </summary>
+        protected Button ButtonMinimize => buttonMinimize;
+
+        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
@@ -88,13 +112,13 @@ namespace Cabster.Components
                 buttonResize.Top = Height - buttonResize.Height;
 
                 const int padding = 10;
-                
+
                 buttonNotification.Height = labelStatus.Height;
                 buttonNotification.Top = Height - buttonNotification.Height - padding;
                 buttonNotification.Left = padding;
-                
+
                 labelStatus.Top = buttonNotification.Top;
-                labelStatus.Left = buttonNotification.Right + (padding / 2);
+                labelStatus.Left = buttonNotification.Right + padding / 2;
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
         }

@@ -443,7 +443,7 @@ namespace Cabster.Business.Forms
             /// </summary>
             private void UpdateToolTip()
             {
-                _form.toolTip.SetToolTip(
+                _form.ToolTip.SetToolTip(
                     _control,
                     Resources.Text_GroupWork_ParticipantRemoveHint
                         .QueryString(

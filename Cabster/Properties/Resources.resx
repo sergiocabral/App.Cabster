@@ -313,4 +313,7 @@ To remove: left button.</value>
   <data name="Text.Layout.NotificationUser" xml:space="preserve">
     <value>General application notifications.</value>
   </data>
+  <data name="Text.Notification.WindowTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
 </root>

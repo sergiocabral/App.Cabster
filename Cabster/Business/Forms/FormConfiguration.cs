@@ -112,7 +112,7 @@ namespace Cabster.Business.Forms
 
             MessageBus.Send(new ApplicationChangeLanguage(newLanguage));
             
-            buttonClose.PerformClick();
+            ButtonClose.PerformClick();
         }
 
         /// <summary>
