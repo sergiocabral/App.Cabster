@@ -30,6 +30,8 @@ namespace Cabster.Extensions
             PatchModifier(Keys.Shift);
             PatchModifier(Keys.Alt);
 
+            if (shortcut == Keys.None) return string.Join("+", keys);
+            
             var text = $"{shortcut}";
             text = text.Length == 2 ? text.Substring(1) : text;
             keys.Add(text);

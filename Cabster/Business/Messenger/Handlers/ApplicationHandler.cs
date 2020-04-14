@@ -136,8 +136,10 @@ namespace Cabster.Business.Messenger.Handlers
                         new NotificationMessage(
                             registered
                                 ? Resources.Text_Application_ShortcutDefined.QueryString(shortcut)
-                                : Resources.Text_Application_ShortcutRemoved,
-                            true),
+                                : notification.Request.Data.Application.Shortcut != Keys.None
+                                    ? Resources.Text_Application_ShortcutInvalid.QueryString(shortcut)
+                                    : Resources.Text_Application_ShortcutRemoved.QueryString(shortcut),
+                            registered || notification.Request.Data.Application.Shortcut == Keys.None),
                         notification.Request), cancellationToken);
 
                     Log.Debug("Shortcut key {Shortcut} registered: {Registered}",

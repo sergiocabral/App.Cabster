@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNotification));
             this.timerToSaveShortcut = new System.Windows.Forms.Timer(this.components);
             this.panelMessages = new System.Windows.Forms.Panel();
+            this.labelNoNotification = new System.Windows.Forms.Label();
+            this.panelMessages.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMessages
@@ -41,10 +43,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMessages.AutoScroll = true;
             this.panelMessages.BackColor = System.Drawing.Color.Transparent;
+            this.panelMessages.Controls.Add(this.labelNoNotification);
             this.panelMessages.Location = new System.Drawing.Point(18, 68);
             this.panelMessages.Name = "panelMessages";
             this.panelMessages.Size = new System.Drawing.Size(364, 214);
             this.panelMessages.TabIndex = 12;
+            // 
+            // labelNoNotification
+            // 
+            this.labelNoNotification.AutoSize = true;
+            this.labelNoNotification.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNoNotification.Location = new System.Drawing.Point(0, 0);
+            this.labelNoNotification.Name = "labelNoNotification";
+            this.labelNoNotification.Size = new System.Drawing.Size(230, 19);
+            this.labelNoNotification.TabIndex = 0;
+            this.labelNoNotification.Text = "Text.Notification.NoNotification";
             // 
             // FormNotification
             // 
@@ -56,6 +69,8 @@
             this.Name = "FormNotification";
             this.Text = "Text.Notification.WindowTitle";
             this.Controls.SetChildIndex(this.panelMessages, 0);
+            this.panelMessages.ResumeLayout(false);
+            this.panelMessages.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -64,5 +79,6 @@
 
         private System.Windows.Forms.Timer timerToSaveShortcut;
         private System.Windows.Forms.Panel panelMessages;
+        private System.Windows.Forms.Label labelNoNotification;
     }
 }

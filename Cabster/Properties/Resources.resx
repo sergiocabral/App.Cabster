@@ -299,7 +299,7 @@ To remove: left button.</value>
     <value>The shortcut key is already being used by another application.</value>
   </data>
   <data name="Text.Application.ShortcutDefined" xml:space="preserve">
-    <value>The shortcut keys {Shortcut} has been successfully registered.</value>
+    <value>The {Shortcut} shortcut keys has been successfully registered.</value>
   </data>
   <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
     <value>No shortcut keys defined.</value>
@@ -315,5 +315,11 @@ To remove: left button.</value>
   </data>
   <data name="Text.Notification.WindowTitle" xml:space="preserve">
     <value>Notifications</value>
+  </data>
+  <data name="Text.Notification.NoNotification" xml:space="preserve">
+    <value>No notification.</value>
+  </data>
+  <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
+    <value>The {Shortcut} shortcut key cannot be activated.</value>
   </data>
 </root>

@@ -69,6 +69,7 @@ namespace Cabster.Business.Forms
                 Text = message + Environment.NewLine + ' ',
                 Dock = DockStyle.Top
             };
+            if (labelNoNotification.Visible) labelNoNotification.Visible = false;
             panelMessages.Controls.Add(label);
             AdjustLabelSize(label).SendToBack();
         }
