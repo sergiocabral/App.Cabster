@@ -63,38 +63,9 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
             if (DataSection.ApplicationShortcut == (DataSection.ApplicationShortcut & notification.Request.Section))
-            {
-                var shortcut = notification.Request.Data.Application.Shortcut.ToShortcutDescription();
-
-                try
-                {
-                    var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
-
-                    Log.Debug("Shortcut key \"{Shortcut}\" registered: {Registered}",
-                        shortcut, registered);
-
-                    await _messageBus.Send(new UserNotificationPost(
-                        new NotificationMessage(
-                            (registered
-                                ? Resources.Notification_ShortcutDefined
-                                : notification.Request.Data.Application.Shortcut != Keys.None
-                                    ? Resources.Notification_ShortcutInvalid
-                                    : Resources.Notification_ShortcutRemoved).QueryString(shortcut),
-                            registered || notification.Request.Data.Application.Shortcut == Keys.None),
-                        notification.Request), cancellationToken);
-                }
-                catch (Exception exception)
-                {
-                    Log.Error(exception,
-                        "Error registering shortcut key: {Shortcut}", shortcut);
-
-                    await _messageBus.Send(new UserNotificationPost(
-                        new NotificationMessage(
-                            Resources.Exception_Application_ShortcutAlreadyUsed.QueryString(shortcut),
-                            false),
-                        notification.Request), cancellationToken);
-                }
-            }
+                await ApplyDataApplicationShortcut(notification, cancellationToken);
+            if (DataSection.ApplicationLockScreen == (DataSection.ApplicationLockScreen & notification.Request.Section))
+                await ApplyDataApplicationLockScreen(notification, cancellationToken);
         }
 
         /// <summary>
@@ -142,6 +113,64 @@ namespace Cabster.Business.Messenger.Handlers
             var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
             Application.Run(mainWindow);
             return mainWindow.Tag != SignalForApplicationRestart;
+        }
+
+        /// <summary>
+        ///     Aplica os dados do aplicativo para: Shortcut
+        /// </summary>
+        /// <param name="dataUpdatedNotification">Notificação de atualização de dados.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        private async Task ApplyDataApplicationShortcut(DataUpdated dataUpdatedNotification,
+            CancellationToken cancellationToken)
+        {
+            var request = dataUpdatedNotification.Request;
+            var dataApplicationShortcut = request.Data.Application.Shortcut;
+
+            var shortcut = dataApplicationShortcut.ToShortcutDescription();
+
+            try
+            {
+                var registered = _shortcut.Register(dataApplicationShortcut);
+
+                Log.Debug("Shortcut key \"{Shortcut}\" registered: {Registered}",
+                    shortcut, registered);
+
+                await _messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(
+                        (registered
+                            ? Resources.Notification_ShortcutDefined
+                            : dataApplicationShortcut != Keys.None
+                                ? Resources.Notification_ShortcutInvalid
+                                : Resources.Notification_ShortcutRemoved).QueryString(shortcut),
+                        registered || dataApplicationShortcut == Keys.None),
+                    request), cancellationToken);
+            }
+            catch (Exception exception)
+            {
+                Log.Error(exception,
+                    "Error registering shortcut key: {Shortcut}", shortcut);
+
+                await _messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(
+                        Resources.Exception_Application_ShortcutAlreadyUsed.QueryString(shortcut),
+                        false),
+                    request), cancellationToken);
+            }
+        }
+
+        /// <summary>
+        ///     Aplica os dados do aplicativo para: LockScreen
+        /// </summary>
+        /// <param name="dataUpdatedNotification">Notificação de atualização de dados.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        private async Task ApplyDataApplicationLockScreen(DataUpdated dataUpdatedNotification,
+            CancellationToken cancellationToken)
+        {
+            var request = dataUpdatedNotification.Request;
+            var dataApplicationLockScreen = request.Data.Application.LockScreen;
+            await Task.Delay(1, cancellationToken);
         }
     }
 }

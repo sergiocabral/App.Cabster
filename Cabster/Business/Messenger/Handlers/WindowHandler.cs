@@ -146,7 +146,8 @@ namespace Cabster.Business.Messenger.Handlers
         public Task Handle(UserNotificationPosted notification, CancellationToken cancellationToken)
         {
             if (notification.Request.SourceRequest is DataUpdate dataUpdate &&
-                (dataUpdate.Section & DataSection.ApplicationShortcut) != 0)
+                ((dataUpdate.Section & DataSection.ApplicationShortcut) != 0 ||
+                 (dataUpdate.Section & DataSection.ApplicationLockScreen) != 0))
                 ((IFormLayout?) _formConfiguration)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
