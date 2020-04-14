@@ -46,7 +46,7 @@
             this.panelMessages.Controls.Add(this.labelNoNotification);
             this.panelMessages.Location = new System.Drawing.Point(18, 68);
             this.panelMessages.Name = "panelMessages";
-            this.panelMessages.Size = new System.Drawing.Size(364, 214);
+            this.panelMessages.Size = new System.Drawing.Size(414, 214);
             this.panelMessages.TabIndex = 12;
             // 
             // labelNoNotification
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 300);
+            this.ClientSize = new System.Drawing.Size(450, 300);
             this.Controls.Add(this.panelMessages);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNotification";
