@@ -279,6 +279,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
                 ((int) (((byte) (224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormLayout";
@@ -286,6 +287,7 @@
             this.Text = "FormLayout";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLayout_FormClosing);
             this.SizeChanged += new System.EventHandler(this.FormLayout_SizeChanged);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormLayout_KeyUp);
             this.panelTitle.ResumeLayout(false);
             this.ResumeLayout(false);
         }

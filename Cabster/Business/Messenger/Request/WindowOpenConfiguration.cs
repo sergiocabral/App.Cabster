@@ -1,11 +1,12 @@
-﻿using Cabster.Infrastructure;
+﻿using System.Windows.Forms;
+using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Abrir janela de configuração.
     /// </summary>
-    public class WindowOpenConfiguration : MessengerRequest
+    public class WindowOpenConfiguration : MessengerRequest<Form>
     {
     }
 }

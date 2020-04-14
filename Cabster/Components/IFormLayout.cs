@@ -18,6 +18,11 @@ namespace Cabster.Components
         string StatusMessage { get; set; }
 
         /// <summary>
+        ///     Evita o uso de ESC para fechar a janela.
+        /// </summary>
+        bool NotUseEscToClose { get; set; }
+
+        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>

@@ -22,9 +22,9 @@ namespace Cabster.Business.Messenger.Handlers
     public class WindowHandler :
         MessengerHandler,
         IRequestHandler<WindowOpenMain, Form>,
-        IRequestHandler<WindowOpenGroupWork>,
-        IRequestHandler<WindowOpenConfiguration>,
-        IRequestHandler<WindowOpenNotification>,
+        IRequestHandler<WindowOpenGroupWork, Form>,
+        IRequestHandler<WindowOpenConfiguration, Form>,
+        IRequestHandler<WindowOpenNotification, Form>,
         INotificationHandler<ApplicationInitialized>,
         INotificationHandler<ApplicationFinalized>,
         INotificationHandler<DataUpdated>,
@@ -115,10 +115,10 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="notification">Evento.</param>
         /// <param name="cancellationToken">Token de cancelamento.</param>
         /// <returns>Task</returns>
-        public Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
+        public async Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
-            _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
-            return Unit.Task;
+            var form = await _messageBus.Send<Form>(new WindowOpenGroupWork(), cancellationToken);
+            ((IFormLayout) form).NotUseEscToClose = true;
         }
 
         /// <summary>
@@ -161,10 +161,9 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
+        public Task<Form> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
-            OpenWindow(FormConfiguration);
-            return Unit.Task;
+            return Task.FromResult(OpenWindow(FormConfiguration));
         }
 
         /// <summary>
@@ -173,10 +172,9 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
+        public Task<Form> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
-            OpenWindow(FormGroupWork);
-            return Unit.Task;
+            return Task.FromResult(OpenWindow(FormGroupWork));
         }
 
         /// <summary>
@@ -196,19 +194,18 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
+        public Task<Form> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
         {
-            OpenWindow(FormNotification);
-            return Unit.Task;
+            return Task.FromResult(OpenWindow(FormNotification));
         }
 
         /// <summary>
         ///     Abrir uma janela.
         /// </summary>
         /// <param name="formContainerData">Janela.</param>
-        private static void OpenWindow(Form formContainerData)
+        /// <returns>Mesma instância de entrada.</returns>
+        private static Form OpenWindow(Form form)
         {
-            var form = formContainerData;
             form.WindowState = FormWindowState.Normal;
             form.Show();
 
@@ -227,6 +224,8 @@ namespace Cabster.Business.Messenger.Handlers
             form.BringToFront();
             Application.DoEvents();
             form.InvalidadeAll();
+
+            return form;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
+using Cabster.Business.Values;
 using Cabster.Extensions;
 using Cabster.Properties;
 using Environment = Cabster.Infrastructure.Environment;
@@ -62,6 +62,11 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Evita o uso de ESC para fechar a janela.
+        /// </summary>
+        public bool NotUseEscToClose { get; set; }
+
+        /// <summary>
         ///     Mensagem de status.
         /// </summary>
         public string StatusMessage
@@ -92,9 +97,9 @@ namespace Cabster.Components
             timerStatus.Enabled = false;
             timerStatus.Enabled = true;
             labelStatus.Text = message;
-            labelStatus.ForeColor = information 
-                ? Business.Values.Color.NotificationSuccess 
-                : Business.Values.Color.NotificationError;
+            labelStatus.ForeColor = information
+                ? Color.NotificationSuccess
+                : Color.NotificationError;
         }
 
         /// <summary>
@@ -217,7 +222,18 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void buttonNotification_Click(object sender, EventArgs args)
         {
-            MessageBus.Send(new WindowOpenNotification());
+            MessageBus.Send<Form>(new WindowOpenNotification());
+        }
+
+        /// <summary>
+        ///     Evento ao pressionar teclas.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void FormLayout_KeyUp(object sender, KeyEventArgs args)
+        {
+            if (!NotUseEscToClose && args.KeyCode == Keys.Escape)
+                buttonClose.PerformClick();
         }
     }
 }
