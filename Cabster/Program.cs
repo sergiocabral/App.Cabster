@@ -48,11 +48,6 @@ namespace Cabster
         }
 
         /// <summary>
-        ///     Sinaliza se a aplicação deve ser reiniciada ao fechar.
-        /// </summary>
-        public static bool RestartWhenClose { get; set; }
-
-        /// <summary>
         ///     Ponto de entrada do sistema operacional.
         /// </summary>
         [STAThread]
@@ -68,13 +63,10 @@ namespace Cabster
                 Environment.IsDebug || args.Contains("-vv") ? LogEventLevel.Verbose :
                 args.Contains("-v") ? LogEventLevel.Debug :
                 LogEventLevel.Information);
-
             Log.Logger = logger;
 
-            do
+            while (true)
             {
-                RestartWhenClose = false;
-
                 using var dependencyResolver = DependencyResolverConfiguration.Initialize();
                 DependencyResolver = dependencyResolver;
 
@@ -85,8 +77,9 @@ namespace Cabster
 
                 messageBus.Send(new DataLoadFromFile()).Wait();
 
-                messageBus.Send(new ApplicationInitialize()).Wait();
-            } while (RestartWhenClose);
+                var restart = messageBus.Send<bool>(new ApplicationInitialize());
+                if (restart.Result) break;
+            };
 
             if (Environment.IsDebug && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }

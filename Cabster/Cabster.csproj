@@ -153,6 +153,7 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
+    <Compile Include="Business\Messenger\Request\WindowOpenMain.cs" />
     <Compile Include="Business\Values\DataSection.cs" />
     <Compile Include="Business\Forms\FormNotification.cs">
       <SubType>Form</SubType>
@@ -273,11 +274,11 @@
     <Compile Include="Components\FormLayout.Designer.cs">
       <DependentUpon>FormLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\FormMainWindow.cs">
+    <Compile Include="Components\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Components\FormMainWindow.Designer.cs">
-      <DependentUpon>FormMainWindow.cs</DependentUpon>
+    <Compile Include="Components\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
@@ -317,8 +318,8 @@
     <EmbeddedResource Include="Components\FormLayout.resx">
       <DependentUpon>FormLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\FormMainWindow.resx">
-      <DependentUpon>FormMainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Components\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MyTextBox.resx">
       <DependentUpon>MyTextBox.cs</DependentUpon>

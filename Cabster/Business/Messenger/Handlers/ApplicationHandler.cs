@@ -22,11 +22,16 @@ namespace Cabster.Business.Messenger.Handlers
     /// </summary>
     public class ApplicationHandler :
         MessengerHandler,
-        IRequestHandler<ApplicationInitialize>,
+        IRequestHandler<ApplicationInitialize, bool>,
         IRequestHandler<ApplicationFinalize>,
         IRequestHandler<ApplicationChangeLanguage>,
         INotificationHandler<DataUpdated>
     {
+        /// <summary>
+        ///     Marcação que sinaliza que a aplicação deve ser reiniciada.
+        /// </summary>
+        private static readonly object SignalForApplicationRestart = new object();
+        
         /// <summary>
         /// Configurações de teclas de atalho.
         /// </summary>
@@ -58,11 +63,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
         {
-            var fromLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-            var toLanguage = request.NewLanguage.TwoLetterISOLanguageName;
-            
             var data = Program.Data;
-            data.Application.Language = toLanguage;
+            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
@@ -71,7 +73,8 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(new UserNotificationPost(
                 new NotificationMessage(Resources.Notification_ApplicationRestarting)), cancellationToken);
             
-            Program.RestartWhenClose = true;
+            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
+            mainWindow.Tag = SignalForApplicationRestart;
             
             await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
@@ -84,11 +87,13 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public async Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             Log.Information("Application initialized.");
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
-            return Unit.Value;
+            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
+            Application.Run(mainWindow);
+            return mainWindow.Tag != SignalForApplicationRestart;
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Cabster.Components
 {
-    public class FormMainWindowTest
+    public class FormMainTest
     {
         [Fact]
         public void deve_ser_possível_criar_uma_instância_sem_falhar()
@@ -13,7 +13,7 @@ namespace Cabster.Components
             // Arrange, Given
             // Act, When
 
-            Action criar = () => new FormMainWindow()
+            Action criar = () => new FormMain()
                 .AbrirFecharDescartar()
                 .Descartar();
 
@@ -28,7 +28,7 @@ namespace Cabster.Components
             // Arrange, Given
             // Act, When
 
-            var sut = typeof(FormMainWindow);
+            var sut = typeof(FormMain);
 
             // Assert, Then
 

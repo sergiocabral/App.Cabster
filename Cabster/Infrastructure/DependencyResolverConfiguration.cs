@@ -19,7 +19,7 @@ namespace Cabster.Infrastructure
 
             dependencyResolver.AddInstance<IDependencyResolver>(dependencyResolver);
 
-            dependencyResolver.Register<FormMainWindow, FormMainWindow>();
+            dependencyResolver.Register<FormMain, FormMain>();
             dependencyResolver.Register<FormGroupWork, FormGroupWork>();
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
             dependencyResolver.Register<FormNotification, FormNotification>();

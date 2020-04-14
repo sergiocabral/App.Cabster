@@ -20,6 +20,7 @@ namespace Cabster.Business.Messenger.Handlers
     /// </summary>
     public class WindowHandler :
         MessengerHandler,
+        IRequestHandler<WindowOpenMain, Form>,
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>,
         IRequestHandler<WindowOpenNotification>,
@@ -34,15 +35,15 @@ namespace Cabster.Business.Messenger.Handlers
         private static List<int>? _formsPositioned;
 
         /// <summary>
-        /// Janela: FormMainWindow
+        /// Janela: FormMain
         /// </summary>
         private static Form? _formMainWindow;
         
         /// <summary>
-        /// Janela: FormMainWindow
+        /// Janela: FormMain
         /// </summary>
-        private static Form FormMainWindow =>
-            _formMainWindow ??= Program.DependencyResolver.GetInstanceRequired<FormMainWindow>();
+        private static Form FormMain =>
+            _formMainWindow ??= Program.DependencyResolver.GetInstanceRequired<FormMain>();
 
         /// <summary>
         /// Janela: FormGroupWork
@@ -111,6 +112,17 @@ namespace Cabster.Business.Messenger.Handlers
         {
             OpenWindow(FormGroupWork);
             return Unit.Task;
+        }
+
+        /// <summary>
+        ///     Processa o comando: WindowOpenMain
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Form> Handle(WindowOpenMain request, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(FormMain);
         }
 
         /// <summary>
@@ -183,7 +195,6 @@ namespace Cabster.Business.Messenger.Handlers
         public Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
             OpenWindow(FormGroupWork);
-            Application.Run(FormMainWindow);
             return Unit.Task;
         }
 
@@ -195,7 +206,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(ApplicationFinalized notification, CancellationToken cancellationToken)
         {
-            FormMainWindow.Close();
+            FormMain.Close();
 
             var fields = GetType().GetFields(BindingFlags.Static | BindingFlags.NonPublic);
             foreach (var field in fields)

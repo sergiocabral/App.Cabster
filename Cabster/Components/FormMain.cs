@@ -10,7 +10,7 @@ namespace Cabster.Components
     /// <summary>
     ///     Janela principal da aplicação.
     /// </summary>
-    public partial class FormMainWindow : FormBase
+    public partial class FormMain : FormBase
     {
         /// <summary>
         ///     Sinaliza que a aplicação foi inicializada.
@@ -20,7 +20,7 @@ namespace Cabster.Components
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormMainWindow()
+        public FormMain()
         {
             InitializeComponent();
             InitializeComponent2();

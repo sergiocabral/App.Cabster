@@ -1,6 +1,6 @@
 ﻿namespace Cabster.Components
 {
-    partial class FormMainWindow
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -37,13 +37,13 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
-            // FormMainWindow
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormMainWindow";
-            this.Text = "FormMainWindow";
+            this.Name = "FormMain";
+            this.Text = "FormMain";
             this.ResumeLayout(false);
         }
 

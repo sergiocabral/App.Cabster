@@ -127,7 +127,7 @@
     <Compile Include="Extensions\TextExtensionsTest.cs" />
     <Compile Include="Components\FormBaseTest.cs" />
     <Compile Include="Components\FormLayoutTest.cs" />
-    <Compile Include="Components\FormMainWindowTest.cs" />
+    <Compile Include="Components\FormMainTest.cs" />
     <Compile Include="Helpers\WindowsApiTest.cs" />
     <Compile Include="Infrastructure\IDependencyResolverTest.cs" />
     <Compile Include="Infrastructure\DependencyResolverLifeTimeTest.cs" />
