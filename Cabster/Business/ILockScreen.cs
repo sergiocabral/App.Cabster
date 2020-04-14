@@ -3,21 +3,21 @@
     /// <summary>
     ///     Bloqueador de telas.
     /// </summary>
-    public interface IScreenBlocker
+    public interface ILockScreen
     {
         /// <summary>
         ///     Determina se as telas estão bloqueada.
         /// </summary>
-        bool IsBlocked { get; }
+        bool IsLocked { get; }
 
         /// <summary>
         ///     Bloqueia todas as telas.
         /// </summary>
-        void Block();
+        void Lock();
 
         /// <summary>
         ///     Desbloqueia todas as telas.
         /// </summary>
-        void Unblock();
+        void Unlock();
     }
 }

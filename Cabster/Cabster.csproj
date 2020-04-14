@@ -153,10 +153,10 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
-    <Compile Include="Business\IScreenBlocker.cs" />
+    <Compile Include="Business\ILockScreen.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpen.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenMain.cs" />
-    <Compile Include="Business\ScreenBlocker.cs" />
+    <Compile Include="Business\LockScreen.cs" />
     <Compile Include="Business\Values\Color.cs" />
     <Compile Include="Business\Values\DataSection.cs" />
     <Compile Include="Business\Forms\FormNotification.cs">

@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Components;
 using Cabster.Infrastructure;
@@ -15,17 +14,22 @@ namespace Cabster.Business
     ///     Bloqueador de telas.
     /// </summary>
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class ScreenBlocker : IScreenBlocker
+    public class LockScreen : ILockScreen
     {
         /// <summary>
         ///     Marca para sinalizar que um form é um bloqueador de telas.
         /// </summary>
-        private static readonly object MarkToFormBlocker = new object();
+        private static readonly object MarkToFormLockScreen = new object();
+
+        /// <summary>
+        ///     Sinaliza que as janelas estão tendo suas posições calculadas.
+        /// </summary>
+        private static bool _formsCalculating;
 
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public ScreenBlocker()
+        public LockScreen()
         {
             this.LogClassInstantiate();
         }
@@ -33,12 +37,12 @@ namespace Cabster.Business
         /// <summary>
         ///     Determina se as telas estão bloqueada.
         /// </summary>
-        public bool IsBlocked { get; private set; }
+        public bool IsLocked { get; private set; }
 
         /// <summary>
         ///     Bloqueia todas as telas.
         /// </summary>
-        public void Block()
+        public void Lock()
         {
             foreach (var screen in Screen.AllScreens) CreateForm(screen);
 
@@ -51,26 +55,26 @@ namespace Cabster.Business
             foreach (var form in formsLayout) form.TopMost = true;
             foreach (var form in formsLayout) form.Deactivate += FormLayoutOnDeactivate;
 
-            IsBlocked = true;
+            IsLocked = true;
         }
 
         /// <summary>
         ///     Desbloqueia todas as telas.
         /// </summary>
-        public void Unblock()
+        public void Unlock()
         {
             foreach (Form form in Application.OpenForms)
             {
                 form.Activated -= FormLayoutOnDeactivate;
                 form.Deactivate -= FormLayoutOnDeactivate;
                 form.TopMost = false;
-                if (form.Tag != MarkToFormBlocker) continue;
+                if (form.Tag != MarkToFormLockScreen) continue;
                 form.Hide();
                 form.Close();
                 Application.DoEvents();
             }
 
-            IsBlocked = false;
+            IsLocked = false;
         }
 
         /// <summary>
@@ -86,9 +90,9 @@ namespace Cabster.Business
             form.Height = screen.Bounds.Height;
             form.Show();
             Application.DoEvents();
-            
+
             Log.Debug(
-                "Showing screen blocker (Left: {Left}, Top: {Top}, Width: {Width}, Height: {Height}).",
+                "Lock screen created for area: Left: {Left}, Top: {Top}, Width: {Width}, Height: {Height}.",
                 form.Left, form.Top, form.Width, form.Height);
         }
 
@@ -100,7 +104,7 @@ namespace Cabster.Business
         {
             var form = new FormBase
             {
-                Tag = MarkToFormBlocker,
+                Tag = MarkToFormLockScreen,
                 ShowInTaskbar = false,
                 TopMost = true,
                 StartPosition = FormStartPosition.Manual,
@@ -117,12 +121,7 @@ namespace Cabster.Business
         }
 
         /// <summary>
-        /// Sinaliza que as janelas estão tendo suas posições calculadas.
-        /// </summary>
-        private static bool _formsCalculating;
-
-        /// <summary>
-        /// Ao sair da janela.
+        ///     Ao sair da janela.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
@@ -143,21 +142,21 @@ namespace Cabster.Business
 
                 var forms = Application.OpenForms.Cast<Form>().ToArray();
 
-                foreach (var formBlocker in forms
-                    .Where(a => a.Tag == MarkToFormBlocker))
-                    formBlocker.BringToFront();
+                foreach (var formLockerScreen in forms
+                    .Where(a => a.Tag == MarkToFormLockScreen))
+                    formLockerScreen.BringToFront();
 
                 var formsLayout = forms
                     .Where(a => a is IFormLayout)
                     .OrderBy(a => ((IFormLayout) a).ZOrder)
                     .ToArray();
-                
+
                 foreach (var formLayout in formsLayout)
                 {
                     formLayout.BringToFront();
                     Application.DoEvents();
                 }
-                
+
                 formsLayout.Last().Activate();
 
                 _formsCalculating = false;

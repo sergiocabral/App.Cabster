@@ -346,8 +346,8 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonStart_Click(object sender, EventArgs args)
         {
-            var screenBlocker = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>();
-            screenBlocker.Block();
+            var lockScreen = Program.DependencyResolver.GetInstanceRequired<ILockScreen>();
+            lockScreen.Lock();
             new Timer
             {
                 Interval = 10000,
@@ -356,7 +356,7 @@ namespace Cabster.Business.Forms
             {
                 ((Timer) o).Enabled = false;
                 ((Timer) o).Dispose();
-                screenBlocker.Unblock();
+                lockScreen.Unlock();
             };
         }
 

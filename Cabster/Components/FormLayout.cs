@@ -135,7 +135,7 @@ namespace Cabster.Components
                     ControlStyles.DoubleBuffer,
                     true);
 
-                TopMost = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>().IsBlocked;
+                TopMost = Program.DependencyResolver.GetInstanceRequired<ILockScreen>().IsLocked;
             }
                 
             AdjustLogo();

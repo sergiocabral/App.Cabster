@@ -23,5 +23,10 @@ namespace Cabster.Business.Entities
         ///     Idioma padrão.
         /// </summary>
         public string Language { get; set; } = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+        /// <summary>
+        ///     Bloqueio de tela.
+        /// </summary>
+        public bool LockScreen { get; set; } = true;
     }
 }

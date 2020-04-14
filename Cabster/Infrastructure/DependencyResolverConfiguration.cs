@@ -28,7 +28,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.Register<IDataManipulation, DataManipulation>();
             dependencyResolver.Register<IShortcut, Shortcut>();
             dependencyResolver.Register<IUserNotification, UserNotification>();
-            dependencyResolver.Register<IScreenBlocker, ScreenBlocker>();
+            dependencyResolver.Register<ILockScreen, LockScreen>();
 
             dependencyResolver.ServiceCollection.AddMediatR(typeof(Program));
 
