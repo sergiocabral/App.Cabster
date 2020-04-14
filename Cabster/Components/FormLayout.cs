@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Extensions;
 using Cabster.Properties;
+using Environment = Cabster.Infrastructure.Environment;
 
 namespace Cabster.Components
 {
@@ -86,7 +87,7 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            if (Program.IsDebug != null)
+            if (!Environment.IsDesign)
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |

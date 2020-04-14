@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using Environment = Cabster.Infrastructure.Environment;
 
 namespace Cabster.Components
 {
@@ -85,7 +86,7 @@ namespace Cabster.Components
 
                 _textUpdating = true;
 
-                if (!string.IsNullOrWhiteSpace(value) || Program.IsDebug == null)
+                if (!string.IsNullOrWhiteSpace(value) || Environment.IsDesign)
                 {
                     base.Text = value;
                     base.ForeColor = ForeColor;

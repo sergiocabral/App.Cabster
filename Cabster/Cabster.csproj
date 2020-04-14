@@ -281,6 +281,7 @@
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
+    <Compile Include="Infrastructure\Environment.cs" />
     <Compile Include="Infrastructure\MessengerBase.cs" />
     <Compile Include="Infrastructure\MessengerHandler.cs" />
     <Compile Include="Infrastructure\MessengerRequest.cs" />
