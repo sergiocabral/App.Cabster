@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -185,7 +186,13 @@ namespace Cabster.Business.Messenger.Handlers
                 _programData = typeof(Program)
                     .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
                     .Single(f => f.FieldType == typeof(ContainerData));
-            
+
+            if (CultureInfo.DefaultThreadCurrentCulture == null ||
+                CultureInfo.DefaultThreadCurrentCulture.TwoLetterISOLanguageName != request.Data.Application.Language)
+                CultureInfo.DefaultThreadCurrentUICulture =
+                    CultureInfo.DefaultThreadCurrentCulture =
+                        new CultureInfo(request.Data.Application.Language);
+
             _programData.SetValue(null, request.Data);
 
             Log.Debug("Application data updated. Sections: {Data}", request.Section);

@@ -38,11 +38,6 @@ namespace Cabster.Business.Messenger.Handlers
         private readonly IShortcut _shortcut;
 
         /// <summary>
-        /// Notificação de mensagens para o usuário.
-        /// </summary>
-        private readonly IUserNotification _userNotification;
-
-        /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
@@ -57,13 +52,11 @@ namespace Cabster.Business.Messenger.Handlers
         public ApplicationHandler(
             IMediator messageBus, 
             FormMainWindow formMainWindow,
-            IShortcut shortcut,
-            IUserNotification userNotification)
+            IShortcut shortcut)
         {
             _messageBus = messageBus;
             _formMainWindow = formMainWindow;
             _shortcut = shortcut;
-            _userNotification = userNotification;
         }
 
         /// <summary>
@@ -142,7 +135,7 @@ namespace Cabster.Business.Messenger.Handlers
                             registered || notification.Request.Data.Application.Shortcut == Keys.None),
                         notification.Request), cancellationToken);
 
-                    Log.Debug("Shortcut key {Shortcut} registered: {Registered}",
+                    Log.Debug("Shortcut key \"{Shortcut}\" registered: {Registered}",
                         shortcut, registered);
                 }
                 catch (Exception exception)

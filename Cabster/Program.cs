@@ -9,6 +9,7 @@ using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
+using Cabster.Properties;
 using MediatR;
 using Serilog;
 using Serilog.Events;
@@ -92,10 +93,6 @@ namespace Cabster
                 var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
 
                 messageBus.Send(new DataLoadFromFile()).Wait();
-
-                CultureInfo.DefaultThreadCurrentCulture =
-                    CultureInfo.DefaultThreadCurrentUICulture =
-                        new CultureInfo(Data.Application.Language);
 
                 messageBus.Send(new ApplicationInitialize());
             } while (RestartWhenClose); //TODO: Falha na troca de idiomas.
