@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,45 +23,58 @@ namespace Cabster.Business.Messenger.Handlers
         IRequestHandler<WindowOpenGroupWork>,
         IRequestHandler<WindowOpenConfiguration>,
         IRequestHandler<WindowOpenNotification>,
+        INotificationHandler<ApplicationInitialized>,
+        INotificationHandler<ApplicationFinalized>,
         INotificationHandler<DataUpdated>,
         INotificationHandler<UserNotificationPosted>
     {
         /// <summary>
         ///     Lista de forms abertos.
         /// </summary>
-        private static readonly List<int> FormsPositioned = new List<int>();
+        private static List<int>? _formsPositioned;
+
+        /// <summary>
+        /// Janela: FormMainWindow
+        /// </summary>
+        private static Form? _formMainWindow;
+        
+        /// <summary>
+        /// Janela: FormMainWindow
+        /// </summary>
+        private static Form FormMainWindow =>
+            _formMainWindow ??= Program.DependencyResolver.GetInstanceRequired<FormMainWindow>();
 
         /// <summary>
         /// Janela: FormGroupWork
         /// </summary>
-        private static FormGroupWork? _formGroupWork;
+        private static Form? _formGroupWork;
         
         /// <summary>
         /// Janela: FormGroupWork
         /// </summary>
-        private static IFormContainerData FormGroupWork =>
+        private static Form FormGroupWork =>
             _formGroupWork ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWork>();
 
         /// <summary>
         /// Janela: FormConfiguration
         /// </summary>
-        private static FormConfiguration? _formConfiguration;
+        private static Form? _formConfiguration;
 
         /// <summary>
         /// Janela: FormConfiguration
         /// </summary>
-        private static IFormContainerData FormConfiguration =>
+        private static Form FormConfiguration =>
             _formConfiguration ??= Program.DependencyResolver.GetInstanceRequired<FormConfiguration>();
 
         /// <summary>
         /// Janela: FormNotification
         /// </summary>
-        private static FormNotification? _formNotification;
+        private static Form? _formNotification;
 
         /// <summary>
         /// Janela: FormNotification
         /// </summary>
-        private static IFormContainerData FormNotification =>
+        private static Form FormNotification =>
             _formNotification ??= Program.DependencyResolver.GetInstanceRequired<FormNotification>();
 
         /// <summary>
@@ -71,7 +85,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
-            OpenWindows(FormConfiguration);
+            OpenWindow(FormConfiguration);
             return Unit.Task;
         }
 
@@ -83,7 +97,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
         {
-            OpenWindows(FormNotification);
+            OpenWindow(FormNotification);
             return Unit.Task;
         }
 
@@ -95,7 +109,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
-            OpenWindows(FormGroupWork);
+            OpenWindow(FormGroupWork);
             return Unit.Task;
         }
 
@@ -103,15 +117,16 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Abrir uma janela.
         /// </summary>
         /// <param name="formContainerData">Janela.</param>
-        private static void OpenWindows(IFormContainerData formContainerData)
+        private static void OpenWindow(Form formContainerData)
         {
-            var form = (Form) formContainerData;
+            var form = formContainerData;
             form.WindowState = FormWindowState.Normal;
             form.Show();
 
             var formHash = form.GetHashCode();
-            var formPositioned = FormsPositioned.Contains(formHash);
-            if (!formPositioned) FormsPositioned.Add(formHash);
+            if (_formsPositioned == null) _formsPositioned = new List<int>();
+            var formPositioned = _formsPositioned.Contains(formHash);
+            if (!formPositioned) _formsPositioned.Add(formHash);
             if (Application.OpenForms.Count > 0 && !formPositioned)
             {
                 var mainForm = Application.OpenForms[0];
@@ -133,8 +148,11 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            if ((notification.Request.Section & DataSection.Application) != 0) _formConfiguration?.UpdateControls();
-            if ((notification.Request.Section & DataSection.WorkGroup) != 0) _formGroupWork?.UpdateControls();
+            if ((notification.Request.Section & DataSection.Application) != 0) 
+                ((IFormContainerData?) _formConfiguration)?.UpdateControls();
+            if ((notification.Request.Section & DataSection.WorkGroup) != 0)
+                ((IFormContainerData?) _formGroupWork)?
+                    .UpdateControls();
             return Unit.Task;
         }
 
@@ -148,10 +166,43 @@ namespace Cabster.Business.Messenger.Handlers
         {
             if (notification.Request.SourceRequest is DataUpdate dataUpdate &&
                 (dataUpdate.Section & DataSection.ApplicationShortcut) != 0)
-                _formConfiguration?.SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
+                ((IFormLayout?) _formConfiguration)?
+                    .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
-            _formNotification?.UpdateControls();
+            ((IFormContainerData?) _formNotification)?.UpdateControls();
             
+            return Unit.Task;
+        }
+
+        /// <summary>
+        /// Evento: ApplicationInitialized
+        /// </summary>
+        /// <param name="notification">Evento.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        public Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
+        {
+            OpenWindow(FormGroupWork);
+            Application.Run(FormMainWindow);
+            return Unit.Task;
+        }
+
+        /// <summary>
+        /// Evento: ApplicationFinalized
+        /// </summary>
+        /// <param name="notification">Evento.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        public Task Handle(ApplicationFinalized notification, CancellationToken cancellationToken)
+        {
+            FormMainWindow.Close();
+
+            var fields = GetType().GetFields(BindingFlags.Static | BindingFlags.NonPublic);
+            foreach (var field in fields)
+            {
+                field.SetValue(null, null);
+            }
+
             return Unit.Task;
         }
     }

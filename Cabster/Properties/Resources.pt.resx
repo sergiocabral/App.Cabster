@@ -153,6 +153,12 @@
   <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
   </data>
+  <data name="Text.Application.ChangeLanguage" xml:space="preserve">
+    <value>Alterado idioma da aplicação de {fromLanguage} para {toLanguage}.</value>
+  </data>
+  <data name="Text.Application.Finalized" xml:space="preserve">
+    <value>Aplicação finalizada.</value>
+  </data>
   <data name="Text.Application.ShortcutDefined" xml:space="preserve">
     <value>A tecla de atalho {Shortcut} foi registrada com sucesso.</value>
   </data>
@@ -161,6 +167,9 @@
   </data>
   <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
+  </data>
+  <data name="Text.Application.Started" xml:space="preserve">
+    <value>Aplicação iniciada.</value>
   </data>
   <data name="Text.Common.Active" xml:space="preserve">
     <value>Ativo</value>

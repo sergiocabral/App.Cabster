@@ -95,7 +95,9 @@ namespace Cabster
                 messageBus.Send(new DataLoadFromFile()).Wait();
 
                 messageBus.Send(new ApplicationInitialize());
-            } while (RestartWhenClose); //TODO: Falha na troca de idiomas.
+
+                var end = string.Empty;
+            } while (RestartWhenClose);
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }

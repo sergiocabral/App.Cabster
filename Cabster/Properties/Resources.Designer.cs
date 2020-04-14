@@ -379,6 +379,24 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changing application language from {fromLanguage} to {toLanguage}..
+        /// </summary>
+        public static string Text_Application_ChangeLanguage {
+            get {
+                return ResourceManager.GetString("Text.Application.ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application finalized..
+        /// </summary>
+        public static string Text_Application_Finalized {
+            get {
+                return ResourceManager.GetString("Text.Application.Finalized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {Shortcut} shortcut keys has been successfully registered..
         /// </summary>
         public static string Text_Application_ShortcutDefined {
@@ -402,6 +420,15 @@ namespace Cabster.Properties {
         public static string Text_Application_ShortcutRemoved {
             get {
                 return ResourceManager.GetString("Text.Application.ShortcutRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application started..
+        /// </summary>
+        public static string Text_Application_Started {
+            get {
+                return ResourceManager.GetString("Text.Application.Started", resourceCulture);
             }
         }
         

@@ -23,7 +23,7 @@ namespace Cabster.Business
         /// <summary>
         /// Lista de mensagens.
         /// </summary>
-        private readonly List<NotificationMessage> _messages = new List<NotificationMessage>();
+        private static readonly List<NotificationMessage> _messages = new List<NotificationMessage>();
         
         /// <summary>
         /// Posta uma mensagem.

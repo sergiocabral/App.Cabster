@@ -179,6 +179,8 @@
     <Compile Include="Business\ITips.cs" />
     <Compile Include="Business\IUserNotification.cs" />
     <Compile Include="Business\Messenger\Handlers\UserNotificationHandler.cs" />
+    <Compile Include="Business\Messenger\Notification\ApplicationFinalized.cs" />
+    <Compile Include="Business\Messenger\Notification\ApplicationInitialized.cs" />
     <Compile Include="Business\Messenger\Notification\DataLoadedFromFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataSavedToFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />

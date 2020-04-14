@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using Cabster.Business;
 using Cabster.Exceptions;
 using Cabster.Properties;
 using Serilog;
@@ -24,36 +25,25 @@ namespace Cabster.Infrastructure
         /// <param name="instance">Instância.</param>
         public static void LogClassInstantiate<T>(this T instance) where T : notnull
         {
-            var type = instance.GetType();
+            var typeOfInstance = instance.GetType();
 
             const string messageTemplate = "New instance of {Context}: {Type}";
-            string context;
-            string typeName;
+            var typeOfContext = new[]
+                {
+                    typeof(Form),
+                    typeof(EntityBase),
+                    typeof(MessengerHandler),
+                    typeof(MessengerRequest),
+                    typeof(MessengerNotification)
+                }
+                .SingleOrDefault(type => type.IsAssignableFrom(typeOfInstance));
 
-            switch (instance)
-            {
-                case MessengerHandler _:
-                    context = nameof(MessengerHandler);
-                    typeName = type.Name;
-                    break;
-                case Form _:
-                    context = nameof(Form);
-                    typeName = type.Name;
-                    break;
-                case MessengerRequest _:
-                case MessengerNotification _:
-                    context = instance is MessengerRequest ? nameof(MessengerRequest) : nameof(MessengerNotification);
-                    typeName = type.Name;
-                    break;
-                default:
-                    context = nameof(Object);
-                    typeName = type.FullName;
-                    break;
-            }
+            var context = typeOfContext != null ? typeOfContext.Name : typeof(object).Name;
+            var type = typeOfContext != null ? typeOfInstance.Name : typeOfInstance.FullName;
 
-            if (instance is IDisposable) typeName += " : " + nameof(IDisposable);
+            if (instance is IDisposable) type += " : " + nameof(IDisposable);
 
-            Log.Verbose(messageTemplate, context, typeName);
+            Log.Verbose(messageTemplate, context, type);
         }
 
         /// <summary>

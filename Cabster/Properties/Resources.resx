@@ -322,4 +322,13 @@ To remove: left button.</value>
   <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
     <value>The {Shortcut} shortcut key cannot be activated.</value>
   </data>
+  <data name="Text.Application.Finalized" xml:space="preserve">
+    <value>Application finalized.</value>
+  </data>
+  <data name="Text.Application.Started" xml:space="preserve">
+    <value>Application started.</value>
+  </data>
+  <data name="Text.Application.ChangeLanguage" xml:space="preserve">
+    <value>Changing application language from {fromLanguage} to {toLanguage}.</value>
+  </data>
 </root>

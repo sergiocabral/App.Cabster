@@ -12,7 +12,7 @@ namespace Cabster.Business.Entities
         /// </summary>
         /// <param name="text">Mensagem.</param>
         /// <param name="success">Sucesso.</param>
-        public NotificationMessage(string text, bool success)
+        public NotificationMessage(string text, bool success = true)
         {
             Time = DateTimeOffset.Now;
             Text = text;

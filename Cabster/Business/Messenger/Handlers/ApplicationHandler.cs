@@ -28,11 +28,6 @@ namespace Cabster.Business.Messenger.Handlers
         INotificationHandler<DataUpdated>
     {
         /// <summary>
-        ///     Janela principal do sistema.
-        /// </summary>
-        private readonly FormMainWindow _formMainWindow;
-
-        /// <summary>
         /// Configurações de teclas de atalho.
         /// </summary>
         private readonly IShortcut _shortcut;
@@ -46,16 +41,12 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Construtor.
         /// </summary>
         /// <param name="messageBus">IMediator</param>
-        /// <param name="formMainWindow">Janela principal do sistema.</param>
         /// <param name="shortcut">Configurações de teclas de atalho.</param>
-        /// <param name="userNotification">Notificação de mensagens para o usuário.</param>
         public ApplicationHandler(
-            IMediator messageBus, 
-            FormMainWindow formMainWindow,
+            IMediator messageBus,
             IShortcut shortcut)
         {
             _messageBus = messageBus;
-            _formMainWindow = formMainWindow;
             _shortcut = shortcut;
         }
 
@@ -67,9 +58,10 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
         {
+            var fromLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            var toLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
             Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
-                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
-                request.NewLanguage.TwoLetterISOLanguageName);
+                fromLanguage, toLanguage);
 
             Program.RestartWhenClose = true;
 
@@ -78,22 +70,14 @@ namespace Cabster.Business.Messenger.Handlers
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
+            await _messageBus.Send(
+                new UserNotificationPost(
+                    new NotificationMessage(Resources.Text_Application_ChangeLanguage.QueryString(
+                        fromLanguage, toLanguage))), cancellationToken);
+
             await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
             return Unit.Value;
-        }
-
-        /// <summary>
-        ///     Processa o comando: ApplicationFinalize
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
-        {
-            Log.Information("Application finalized.");
-            _formMainWindow.Close();
-            return Unit.Task;
         }
 
         /// <summary>
@@ -105,8 +89,26 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             Log.Information("Application started.");
-            await _messageBus.Send(new WindowOpenGroupWork(), cancellationToken);
-            Application.Run(_formMainWindow);
+            await _messageBus.Send(
+                new UserNotificationPost(
+                    new NotificationMessage(Resources.Text_Application_Started)), cancellationToken);
+            await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
+            return Unit.Value;
+        }
+
+        /// <summary>
+        ///     Processa o comando: ApplicationFinalize
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
+        {
+            Log.Information("Application finalized.");
+            await _messageBus.Publish(new ApplicationFinalized(request), cancellationToken);
+            await _messageBus.Send(
+                new UserNotificationPost(
+                    new NotificationMessage(Resources.Text_Application_Finalized)), cancellationToken);
             return Unit.Value;
         }
 
