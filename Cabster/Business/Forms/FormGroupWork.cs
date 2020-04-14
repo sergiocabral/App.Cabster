@@ -27,6 +27,11 @@ namespace Cabster.Business.Forms
         private bool _loaded;
 
         /// <summary>
+        ///     Dados pendentes de gravação.
+        /// </summary>
+        private DataSection _pendingToSave;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormGroupWork()
@@ -88,6 +93,21 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Texto de dicas aleatórias.
+        /// </summary>
+        private static ITips Tips => Program.DependencyResolver.GetInstanceRequired<ITips>();
+
+        /// <summary>
+        ///     Notifica a atualização dos controles da tela.
+        /// </summary>
+        public void UpdateControls()
+        {
+            var data = Program.Data;
+            Participants = data.GroupWork.Participants;
+            Times = data.GroupWork.Times;
+        }
+
+        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         [ExcludeFromCodeCoverage]
@@ -123,21 +143,11 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Evento quando a ordem dos nomes é alterada.
+        ///     Evento quando a ordem dos nomes é alterada.
         /// </summary>
         private void PanelParticipantsOnOrderChanged()
         {
             SaveParticipants();
-        }
-
-        /// <summary>
-        /// Notifica a atualização dos controles da tela.
-        /// </summary>
-        public void UpdateControls()
-        {
-            var data = Program.Data;
-            Participants = data.GroupWork.Participants;
-            Times = data.GroupWork.Times;
         }
 
         /// <summary>
@@ -171,11 +181,6 @@ namespace Cabster.Business.Forms
             timerToSaveParticipants.Enabled = true;
             _pendingToSave |= DataSection.WorkGroupParticipants;
         }
-
-        /// <summary>
-        /// Dados pendentes de gravação.
-        /// </summary>
-        private DataSection _pendingToSave;
 
         /// <summary>
         ///     Grava os tempos.
@@ -323,11 +328,6 @@ namespace Cabster.Business.Forms
             SetStatusMessage(Resources.Window_GroupWork_TipsLoading);
             LoadTip();
         }
-
-        /// <summary>
-        /// Texto de dicas aleatórias.
-        /// </summary>
-        private static ITips Tips => Program.DependencyResolver.GetInstanceRequired<ITips>();
 
         /// <summary>
         ///     Carrega uma frase de dicas.

@@ -39,11 +39,11 @@ namespace Cabster.Infrastructure
                 .SingleOrDefault(type => type.IsAssignableFrom(typeOfInstance));
 
             var context = typeOfContext != null ? typeOfContext.Name : typeof(object).Name;
-            var type = typeOfContext != null ? typeOfInstance.Name : typeOfInstance.FullName;
+            var typeNameOfInstance = typeOfContext != null ? typeOfInstance.Name : typeOfInstance.FullName;
 
-            if (instance is IDisposable) type += " : " + nameof(IDisposable);
+            if (instance is IDisposable) typeNameOfInstance += " : " + nameof(IDisposable);
 
-            Log.Verbose(messageTemplate, context, type);
+            Log.Verbose(messageTemplate, context, typeNameOfInstance);
         }
 
         /// <summary>

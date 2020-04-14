@@ -8,17 +8,9 @@
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormDialogBase()
+        protected FormDialogBase()
         {
             InitializeComponent();
-            InitializeComponent2();
-        }
-
-        /// <summary>
-        ///     Inicializa os componentes.
-        /// </summary>
-        private void InitializeComponent2()
-        {
         }
     }
 }

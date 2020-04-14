@@ -10,6 +10,7 @@ namespace Cabster.Business.Messenger.Handlers
     /// <summary>
     ///     Tarefas relacionadas ao clock.
     /// </summary>
+    // ReSharper disable once UnusedType.Global
     public class ClockHandler :
         MessengerHandler,
         IRequestHandler<ClockSinalize>

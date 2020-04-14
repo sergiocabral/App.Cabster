@@ -3,49 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using Cabster.Business.Entities;
 using Cabster.Infrastructure;
-using MediatR;
 
 namespace Cabster.Business
 {
     /// <summary>
-    /// Notificador de mensagens para o usuário.
+    ///     Notificação de mensagens para o usuário.
     /// </summary>
-    public class UserNotification: IUserNotification
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class UserNotification : IUserNotification
     {
         /// <summary>
-        /// Construtor.
+        ///     Lista de mensagens.
+        /// </summary>
+        private static readonly List<NotificationMessage> Messages = new List<NotificationMessage>();
+
+        /// <summary>
+        ///     Construtor.
         /// </summary>
         public UserNotification()
         {
             this.LogClassInstantiate();
         }
-        
+
         /// <summary>
-        /// Lista de mensagens.
-        /// </summary>
-        private static readonly List<NotificationMessage> _messages = new List<NotificationMessage>();
-        
-        /// <summary>
-        /// Posta uma mensagem.
+        ///     Posta uma mensagem.
         /// </summary>
         /// <param name="message">Mensagem.</param>
         public void Post(NotificationMessage message)
         {
-            _messages.Add(message);
+            Messages.Add(message);
         }
 
         /// <summary>
-        /// Obtem as mensagens a partir de uma data.
+        ///     Obtem as mensagens a partir de uma data.
         /// </summary>
         /// <param name="filter">Filtro de data.</param>
         /// <returns>Lista de mensagens</returns>
         public IEnumerable<NotificationMessage> GetMessages(DateTimeOffset? filter = null)
         {
-            var messages = _messages.AsEnumerable();
+            var messages = Messages.AsEnumerable();
 
             if (filter.HasValue)
                 messages = messages.Where(a => a.Time > filter.Value);
-                
+
             return messages;
         }
     }

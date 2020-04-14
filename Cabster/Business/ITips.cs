@@ -8,7 +8,7 @@ namespace Cabster.Business
     public interface ITips
     {
         /// <summary>
-        /// Obtem uma dica aleatória
+        ///     Obtem uma dica aleatória
         /// </summary>
         /// <returns>Dica.</returns>
         Task<string> Get();

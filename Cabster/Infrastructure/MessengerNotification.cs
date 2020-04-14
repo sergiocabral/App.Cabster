@@ -18,7 +18,7 @@ namespace Cabster.Infrastructure
         ///     Construtor.
         /// </summary>
         /// <param name="request">Comando.</param>
-        public MessengerNotification(TRequest request)
+        protected MessengerNotification(TRequest request)
         {
             Request = request;
         }

@@ -14,7 +14,6 @@ namespace Cabster.Components
         public FormDialogAlert()
         {
             InitializeComponent();
-            InitializeComponent2();
         }
 
         /// <summary>
@@ -31,13 +30,6 @@ namespace Cabster.Components
                 }
             };
             form.ShowDialog();
-        }
-
-        /// <summary>
-        ///     Inicializa controles.
-        /// </summary>
-        private void InitializeComponent2()
-        {
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace Cabster.Business.Messenger.Request
             Section = section;
             AvoidSaveToFile = avoidSaveToFile;
         }
-        
+
         /// <summary>
         ///     Dados atualizados
         /// </summary>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,7 +7,6 @@ using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
-using Cabster.Components;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 using Cabster.Properties;
@@ -20,6 +18,7 @@ namespace Cabster.Business.Messenger.Handlers
     /// <summary>
     ///     Tarefas gerais sobre a aplicação.
     /// </summary>
+    // ReSharper disable once UnusedType.Global
     public class ApplicationHandler :
         MessengerHandler,
         IRequestHandler<ApplicationInitialize, bool>,
@@ -31,16 +30,16 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Marcação que sinaliza que a aplicação deve ser reiniciada.
         /// </summary>
         private static readonly object SignalForApplicationRestart = new object();
-        
-        /// <summary>
-        /// Configurações de teclas de atalho.
-        /// </summary>
-        private readonly IShortcut _shortcut;
 
         /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
+
+        /// <summary>
+        ///     Configurações de teclas de atalho.
+        /// </summary>
+        private readonly IShortcut _shortcut;
 
         /// <summary>
         ///     Construtor.
@@ -56,64 +55,10 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
-        ///     Processa o comando: ApplicationChangeLanguage
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
-        {
-            var data = Program.Data;
-            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
-
-            await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
-
-            Log.Information("Restarting application.");
-            
-            await _messageBus.Send(new UserNotificationPost(
-                new NotificationMessage(Resources.Notification_ApplicationRestarting)), cancellationToken);
-            
-            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
-            mainWindow.Tag = SignalForApplicationRestart;
-            
-            await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
-
-            return Unit.Value;
-        }
-
-        /// <summary>
-        ///     Processa o comando: ApplicationInitialize
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
-        {
-            Log.Information("Application initialized.");
-            await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
-            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
-            Application.Run(mainWindow);
-            return mainWindow.Tag != SignalForApplicationRestart;
-        }
-
-        /// <summary>
-        ///     Processa o comando: ApplicationFinalize
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public async Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
-        {
-            await _messageBus.Publish(new ApplicationFinalized(request), cancellationToken);
-            Log.Information("Application finalized.");
-            return Unit.Value;
-        }
-
-        /// <summary>
-        /// Evento: DataUpdated
+        ///     Evento: DataUpdated
         /// </summary>
         /// <param name="notification">Evento.</param>
-        /// <param name="cancellationToken">Token de ancelamento.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
         /// <returns>Task</returns>
         public async Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
@@ -124,7 +69,7 @@ namespace Cabster.Business.Messenger.Handlers
                 try
                 {
                     var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
-                    
+
                     Log.Debug("Shortcut key \"{Shortcut}\" registered: {Registered}",
                         shortcut, registered);
 
@@ -150,6 +95,60 @@ namespace Cabster.Business.Messenger.Handlers
                         notification.Request), cancellationToken);
                 }
             }
+        }
+
+        /// <summary>
+        ///     Processa o comando: ApplicationChangeLanguage
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
+        {
+            var data = Program.Data;
+            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
+
+            await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
+
+            Log.Information("Restarting application.");
+
+            await _messageBus.Send(new UserNotificationPost(
+                new NotificationMessage(Resources.Notification_ApplicationRestarting)), cancellationToken);
+
+            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
+            mainWindow.Tag = SignalForApplicationRestart;
+
+            await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
+
+            return Unit.Value;
+        }
+
+        /// <summary>
+        ///     Processa o comando: ApplicationFinalize
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
+        {
+            await _messageBus.Publish(new ApplicationFinalized(request), cancellationToken);
+            Log.Information("Application finalized.");
+            return Unit.Value;
+        }
+
+        /// <summary>
+        ///     Processa o comando: ApplicationInitialize
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
+        {
+            Log.Information("Application initialized.");
+            await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
+            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
+            Application.Run(mainWindow);
+            return mainWindow.Tag != SignalForApplicationRestart;
         }
     }
 }

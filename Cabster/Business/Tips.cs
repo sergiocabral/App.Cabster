@@ -11,16 +11,9 @@ namespace Cabster.Business
     /// <summary>
     ///     Texto de dicas aleatórias.
     /// </summary>
-    public class Tips: ITips
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class Tips : ITips
     {
-        /// <summary>
-        /// Construtor.
-        /// </summary>
-        public Tips()
-        {
-            this.LogClassInstantiate();
-        }
-        
         /// <summary>
         ///     Idioma padrão.
         /// </summary>
@@ -54,6 +47,7 @@ namespace Cabster.Business
         /// <summary>
         ///     Lista de frases.
         /// </summary>
+        // ReSharper disable StringLiteralTypo
         private static readonly IList<IDictionary<string, string>> List = new List<IDictionary<string, string>>
         {
             new Dictionary<string, string>
@@ -264,11 +258,20 @@ namespace Cabster.Business
                 {KeyAuthor, "Agile Manifesto Signatories"}
             }
         };
+        // ReSharper restore StringLiteralTypo
 
         /// <summary>
         ///     Última dica obtida.
         /// </summary>
         private int _index = new Random(DateTime.Now.Millisecond).Next(0, List.Count);
+
+        /// <summary>
+        ///     Construtor.
+        /// </summary>
+        public Tips()
+        {
+            this.LogClassInstantiate();
+        }
 
         /// <summary>
         ///     Obtem uma dica aleatória.

@@ -20,6 +20,6 @@ namespace Cabster.Business.Messenger.Request
         /// <summary>
         ///     Novo idioma.
         /// </summary>
-        public CultureInfo NewLanguage { get; set; }
+        public CultureInfo NewLanguage { get; }
     }
 }

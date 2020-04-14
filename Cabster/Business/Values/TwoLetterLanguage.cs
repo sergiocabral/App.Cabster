@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Globalization;
 using Cabster.Properties;
 
@@ -23,7 +22,7 @@ namespace Cabster.Business.Values
         /// <summary>
         ///     Lista de CultureInfo já carregados.
         /// </summary>
-        private static readonly ConcurrentDictionary<string, CultureInfo> CultureInfos 
+        private static readonly ConcurrentDictionary<string, CultureInfo> CultureInfos
             = new ConcurrentDictionary<string, CultureInfo>();
 
         /// <summary>

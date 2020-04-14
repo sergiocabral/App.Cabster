@@ -20,6 +20,7 @@ namespace Cabster.Business.Messenger.Handlers
     /// <summary>
     ///     Operações de atualização de dados da aplicação.
     /// </summary>
+    // ReSharper disable once UnusedType.Global
     public class DataHandler :
         MessengerHandler,
         IRequestHandler<DataUpdate>,
@@ -31,6 +32,11 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Acesso direto ao repositório de dados da aplicação.
         /// </summary>
         private static FieldInfo? _programData;
+
+        /// <summary>
+        ///     Cronômetro para DataSaveToFile efetivar a função depois de 1 segundo.
+        /// </summary>
+        private static Stopwatch? _stopwatchDataSaveToFile;
 
         /// <summary>
         ///     Manipulação de dados.
@@ -90,7 +96,7 @@ namespace Cabster.Business.Messenger.Handlers
                         _dataManipulation.Path);
 
                     data = Program.Data;
-                    await _messageBus.Send(new DataSaveToFile{ SaveImmediately = true}, cancellationToken);
+                    await _messageBus.Send(new DataSaveToFile {SaveImmediately = true}, cancellationToken);
                     await _messageBus.Send(new DataUpdate(data, DataSection.All, true), cancellationToken);
                 }
             }
@@ -103,11 +109,6 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
-        /// Cronômetro para DataSaveToFile efetivar a função depois de 1 segundo.
-        /// </summary>
-        private static Stopwatch? _stopwatchDataSaveToFile;
-        
-        /// <summary>
         ///     Processa o comando: DataSaveToFile
         /// </summary>
         /// <param name="request">Comando</param>
@@ -117,31 +118,23 @@ namespace Cabster.Business.Messenger.Handlers
         {
             const int delayToCheck = 100;
             const int delayToAction = 500;
-            
+
             if (!request.SaveImmediately)
-            {
                 Log.Verbose("Application data save requested. Waiting {Milliseconds} milliseconds.",
                     delayToAction);
-            }
             else if (_stopwatchDataSaveToFile != null)
-            {
-                Log.Verbose("Application data save immediately requested, but there is a task in progress that must be awaited.");
-            }
+                Log.Verbose(
+                    "Application data save immediately requested, but there is a task in progress that must be awaited.");
             else
-            {
                 Log.Verbose("Application data save immediately requested.");
-            }
 
             if (_stopwatchDataSaveToFile != null)
             {
                 _stopwatchDataSaveToFile.Restart();
-                
+
                 return await Task.Run(async () =>
                 {
-                    while (_stopwatchDataSaveToFile != null)
-                    {
-                        await Task.Delay(delayToCheck, cancellationToken);
-                    }
+                    while (_stopwatchDataSaveToFile != null) await Task.Delay(delayToCheck, cancellationToken);
                     return Unit.Value;
                 }, cancellationToken);
             }
@@ -152,12 +145,10 @@ namespace Cabster.Business.Messenger.Handlers
             while (!request.SaveImmediately &&
                    _stopwatchDataSaveToFile != null &&
                    _stopwatchDataSaveToFile.ElapsedMilliseconds < delayToAction)
-            {
                 await Task.Delay(delayToCheck, cancellationToken);
-            }
 
             var data = Program.Data;
-            
+
             try
             {
                 _dataManipulation.SaveToFile(data);
@@ -185,12 +176,10 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
         {
             if (_programData == null)
-            {
                 _programData = typeof(Program)
                     .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
                     .Single(f => f.FieldType == typeof(ContainerData));
-            }
-            
+
             if (DataSection.ApplicationLanguage == (DataSection.ApplicationLanguage & request.Section) &&
                 CultureInfo.DefaultThreadCurrentCulture?.TwoLetterISOLanguageName != request.Data.Application.Language)
             {

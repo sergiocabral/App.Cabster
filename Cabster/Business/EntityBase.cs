@@ -11,13 +11,13 @@ namespace Cabster.Business
     public abstract class EntityBase : IEntity, ICloneable
     {
         /// <summary>
-        /// Construtor.
+        ///     Construtor.
         /// </summary>
         protected EntityBase()
         {
             this.LogClassInstantiate();
         }
-        
+
         /// <summary>
         ///     Faz um clone da instância.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Cabster.Business
         /// <param name="type">Tipo.</param>
         /// <param name="json">JSON.</param>
         /// <returns>Instância.</returns>
-        public static object FromJson(Type type, string json)
+        private static object FromJson(Type type, string json)
         {
             return JsonConvert.DeserializeObject(json, type)
                    ?? throw new IsNullOrEmptyException(type.Name);

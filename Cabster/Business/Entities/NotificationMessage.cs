@@ -5,7 +5,7 @@ namespace Cabster.Business.Entities
     /// <summary>
     ///     Notificação.
     /// </summary>
-    public class NotificationMessage: EntityBase
+    public class NotificationMessage : EntityBase
     {
         /// <summary>
         ///     Construtor.
@@ -18,9 +18,9 @@ namespace Cabster.Business.Entities
             Text = text;
             Success = success;
         }
-        
+
         /// <summary>
-        /// Data e hora da mensagem.
+        ///     Data e hora da mensagem.
         /// </summary>
         public DateTimeOffset Time { get; }
 
@@ -35,7 +35,7 @@ namespace Cabster.Business.Entities
         public bool Success { get; }
 
         /// <summary>
-        /// Representação como texto da instância. 
+        ///     Representação como texto da instância.
         /// </summary>
         /// <returns>Texto.</returns>
         public override string ToString()

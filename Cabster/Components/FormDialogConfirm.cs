@@ -11,10 +11,9 @@ namespace Cabster.Components
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public FormDialogConfirm()
+        private FormDialogConfirm()
         {
             InitializeComponent();
-            InitializeComponent2();
         }
 
         /// <summary>
@@ -31,13 +30,6 @@ namespace Cabster.Components
                 }
             };
             return form.ShowDialog() != DialogResult.Cancel;
-        }
-
-        /// <summary>
-        ///     Inicializa controles.
-        /// </summary>
-        private void InitializeComponent2()
-        {
         }
 
         /// <summary>

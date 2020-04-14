@@ -27,11 +27,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Quando a ordem dos controles é alterada.
-        /// </summary>
-        public event Action? OrderChanged;
-
-        /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="container">Container</param>
@@ -42,6 +37,17 @@ namespace Cabster.Components
             InitializeComponent();
             InitializeComponent2();
         }
+
+        /// <summary>
+        ///     Lista de controles ordenados.
+        /// </summary>
+        public IEnumerable<Control> ControlsSorted =>
+            _positions.OrderBy(a => a.Value).Select(a => a.Key);
+
+        /// <summary>
+        ///     Quando a ordem dos controles é alterada.
+        /// </summary>
+        public event Action? OrderChanged;
 
         /// <summary>
         ///     Inicializa o componente.
@@ -172,7 +178,7 @@ namespace Cabster.Components
             _positions.Clear();
             this.MakeChildrenOrganized(control => _positions[control] = controls.IndexOf(control));
             target.MakeHighlight();
-            
+
             OrderChanged?.Invoke();
         }
 
@@ -188,11 +194,5 @@ namespace Cabster.Components
             this.MakeChildrenOrganized(control => _positions[control]);
             OrderChanged?.Invoke();
         }
-
-        /// <summary>
-        /// Lista de controles ordenados.
-        /// </summary>
-        public IEnumerable<Control> ControlsSorted =>
-            _positions.OrderBy(a => a.Value).Select(a => a.Key);
     }
 }

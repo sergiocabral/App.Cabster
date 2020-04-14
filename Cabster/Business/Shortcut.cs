@@ -12,6 +12,7 @@ namespace Cabster.Business
     /// <summary>
     ///     Configurações de teclas de atalho.
     /// </summary>
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class Shortcut : IShortcut, IDisposable
     {
         /// <summary>
@@ -58,11 +59,11 @@ namespace Cabster.Business
         {
             if (_registered)
             {
-                if (!WindowsApi.UnregisterHotKey(_nativeWindow.Handle, ShortcutId)) 
-                    throw new  ThisWillNeverOccurException();
+                if (!WindowsApi.UnregisterHotKey(_nativeWindow.Handle, ShortcutId))
+                    throw new ThisWillNeverOccurException();
                 _registered = false;
             }
-            
+
             if (shortcut == Keys.None) return _registered;
 
             var modifier = ModifierKeys.None;
@@ -74,7 +75,7 @@ namespace Cabster.Business
 
             if (modifier == ModifierKeys.None ||
                 !Regex.IsMatch($"{key}", @"^([A-Z]|D[0-9])$")) return _registered;
-            
+
             if (!WindowsApi.RegisterHotKey(_nativeWindow.Handle, ShortcutId, (uint) modifier, (uint) key))
                 throw new WrongOperationException(Resources.Exception_Application_ShortcutAlreadyUsed);
 
@@ -88,7 +89,7 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="modifiers">Teclas de acesso.</param>
         /// <param name="key">Tecla.</param>
-        private void NativeWindowOnKeyPressed(ModifierKeys modifiers, Keys key)
+        private static void NativeWindowOnKeyPressed(ModifierKeys modifiers, Keys key)
         {
             Log.Information("Shortcut {Modifiers} + {Key}", modifiers, key);
         }
@@ -175,6 +176,7 @@ namespace Cabster.Business
             /// <summary>
             ///     WinKey
             /// </summary>
+            // ReSharper disable once UnusedMember.Local
             Win = 8
         }
     }

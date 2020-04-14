@@ -1,17 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Cabster.Extensions
 {
     /// <summary>
-    /// Funções para formatar a exibição das teclas de atalho.
+    ///     Funções para formatar a exibição das teclas de atalho.
     /// </summary>
     public static class ShortcutKeysExtensions
     {
         /// <summary>
-        /// Converte tecla de atalho num formato texto para exibição.
+        ///     Converte tecla de atalho num formato texto para exibição.
         /// </summary>
         /// <param name="shortcut">Tecla de atalho.</param>
         /// <returns>Tecla de atalho como texto.</returns>
@@ -31,7 +29,7 @@ namespace Cabster.Extensions
             PatchModifier(Keys.Alt);
 
             if (shortcut == Keys.None) return string.Join("+", keys);
-            
+
             var text = $"{shortcut}";
             text = text.Length == 2 ? text.Substring(1) : text;
             keys.Add(text);

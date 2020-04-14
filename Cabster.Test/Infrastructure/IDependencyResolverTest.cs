@@ -2,6 +2,7 @@
 using Cabrones.Test;
 using FluentAssertions;
 using Xunit;
+// ReSharper disable InconsistentNaming
 
 namespace Cabster.Infrastructure
 {

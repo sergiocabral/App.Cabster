@@ -36,9 +36,11 @@
             // 
             // labelText
             // 
-            this.labelText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelText.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top |
+                                                         System.Windows.Forms.AnchorStyles.Bottom) |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.labelText.BackColor = System.Drawing.Color.Transparent;
             this.labelText.Location = new System.Drawing.Point(26, 23);
             this.labelText.Name = "labelText";
@@ -49,45 +51,73 @@
             // 
             // buttonDialogConfirm
             // 
-            this.buttonDialogConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDialogConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(10)))));
+            this.buttonDialogConfirm.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDialogConfirm.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (250)))),
+                ((int) (((byte) (180)))), ((int) (((byte) (10)))));
             this.buttonDialogConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDialogConfirm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(208)))), ((int)(((byte)(107)))));
+            this.buttonDialogConfirm.FlatAppearance.BorderColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (252)))), ((int) (((byte) (208)))),
+                    ((int) (((byte) (107)))));
             this.buttonDialogConfirm.FlatAppearance.BorderSize = 3;
-            this.buttonDialogConfirm.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(84)))), ((int)(((byte)(2)))));
-            this.buttonDialogConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(84)))), ((int)(((byte)(2)))));
-            this.buttonDialogConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(96)))), ((int)(((byte)(3)))));
+            this.buttonDialogConfirm.FlatAppearance.CheckedBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (119)))), ((int) (((byte) (84)))),
+                    ((int) (((byte) (2)))));
+            this.buttonDialogConfirm.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (119)))), ((int) (((byte) (84)))),
+                    ((int) (((byte) (2)))));
+            this.buttonDialogConfirm.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (135)))), ((int) (((byte) (96)))),
+                    ((int) (((byte) (3)))));
             this.buttonDialogConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDialogConfirm.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDialogConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonDialogConfirm.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.buttonDialogConfirm.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))),
+                ((int) (((byte) (64)))), ((int) (((byte) (64)))));
             this.buttonDialogConfirm.Location = new System.Drawing.Point(205, 127);
             this.buttonDialogConfirm.Name = "buttonDialogConfirm";
+            this.buttonDialogConfirm.NotTransparent = false;
             this.buttonDialogConfirm.Size = new System.Drawing.Size(169, 47);
             this.buttonDialogConfirm.TabIndex = 5;
             this.buttonDialogConfirm.Text = "Window.DialogShow.ButtonConfirm";
+            this.buttonDialogConfirm.UseText = false;
             this.buttonDialogConfirm.UseVisualStyleBackColor = false;
             this.buttonDialogConfirm.Click += new System.EventHandler(this.buttonDialog_Click);
             // 
             // buttonDialogCancel
             // 
-            this.buttonDialogCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDialogCancel.Anchor =
+                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDialogCancel.BackColor = System.Drawing.Color.Silver;
             this.buttonDialogCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDialogCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.buttonDialogCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (217)))),
+                ((int) (((byte) (217)))), ((int) (((byte) (217)))));
             this.buttonDialogCancel.FlatAppearance.BorderSize = 3;
-            this.buttonDialogCancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.buttonDialogCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.buttonDialogCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.buttonDialogCancel.FlatAppearance.CheckedBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (89)))), ((int) (((byte) (89)))),
+                    ((int) (((byte) (89)))));
+            this.buttonDialogCancel.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (89)))), ((int) (((byte) (89)))),
+                    ((int) (((byte) (89)))));
+            this.buttonDialogCancel.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (102)))), ((int) (((byte) (102)))),
+                    ((int) (((byte) (102)))));
             this.buttonDialogCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDialogCancel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDialogCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonDialogCancel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.buttonDialogCancel.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))),
+                ((int) (((byte) (64)))), ((int) (((byte) (64)))));
             this.buttonDialogCancel.Location = new System.Drawing.Point(26, 127);
             this.buttonDialogCancel.Name = "buttonDialogCancel";
+            this.buttonDialogCancel.NotTransparent = false;
             this.buttonDialogCancel.Size = new System.Drawing.Size(169, 47);
             this.buttonDialogCancel.TabIndex = 4;
             this.buttonDialogCancel.Text = "Window.DialogShow.ButtonCancel";
+            this.buttonDialogCancel.UseText = false;
             this.buttonDialogCancel.UseVisualStyleBackColor = false;
             this.buttonDialogCancel.Click += new System.EventHandler(this.buttonDialog_Click);
             // 
@@ -106,13 +136,12 @@
             this.Controls.SetChildIndex(this.labelText, 0);
             this.Controls.SetChildIndex(this.buttonDialogCancel, 0);
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
         private System.Windows.Forms.Label labelText;
-        private MyButton buttonDialogConfirm;
-        private MyButton buttonDialogCancel;
+        private Cabster.Components.MyButton buttonDialogCancel;
+        private Cabster.Components.MyButton buttonDialogConfirm;
     }
 }

@@ -103,7 +103,7 @@ namespace Cabster.Extensions
         }
 
         /// <summary>
-        ///     Formata uma chave de recurso para correspondr a pesquisa.
+        ///     Formata uma chave de recurso para corresponder a pesquisa.
         /// </summary>
         /// <param name="resourceKey">Chave do recurso.</param>
         /// <returns>Mesma chave, porém formatada.</returns>

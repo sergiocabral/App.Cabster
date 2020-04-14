@@ -29,6 +29,25 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Esconde a barra de status
+        /// </summary>
+        protected bool HideStatusBar
+        {
+            get => !labelStatus.Visible;
+            set => buttonNotification.Visible = labelStatus.Visible = !value;
+        }
+
+        /// <summary>
+        ///     ButtonClose.
+        /// </summary>
+        protected Button ButtonClose => buttonClose;
+
+        /// <summary>
+        ///     ButtonMinimize.
+        /// </summary>
+        protected Button ButtonMinimize => buttonMinimize;
+
+        /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
         public bool ShowLogo
@@ -52,25 +71,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        ///     Esconde a barra de status
-        /// </summary>
-        protected bool HideStatusBar
-        {
-            get => !labelStatus.Visible;
-            set => buttonNotification.Visible = labelStatus.Visible = !value;
-        }
-
-        /// <summary>
-        /// ButtonClose.
-        /// </summary>
-        protected Button ButtonClose => buttonClose;
-
-        /// <summary>
-        /// ButtonMinimize.
-        /// </summary>
-        protected Button ButtonMinimize => buttonMinimize;
-
-        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
@@ -81,6 +81,19 @@ namespace Cabster.Components
         ///     Retorna false para cancelar o fechamento.
         /// </summary>
         public event Action? ButtonMinimizeClick;
+
+        /// <summary>
+        ///     Define uma mensagem de status.
+        /// </summary>
+        /// <param name="message">Mensagem.</param>
+        /// <param name="information">Quando true, azul. Se false, vermelho.</param>
+        public void SetStatusMessage(string message, bool information = true)
+        {
+            timerStatus.Enabled = false;
+            timerStatus.Enabled = true;
+            labelStatus.Text = message;
+            labelStatus.ForeColor = information ? Color.RoyalBlue : Color.Brown;
+        }
 
         /// <summary>
         ///     Inicializa os componentes da janela.
@@ -165,19 +178,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        ///     Define uma mensagem de status.
-        /// </summary>
-        /// <param name="message">Mensagem.</param>
-        /// <param name="information">Quando true, azul. Se false, vermelho.</param>
-        public void SetStatusMessage(string message, bool information = true)
-        {
-            timerStatus.Enabled = false;
-            timerStatus.Enabled = true;
-            labelStatus.Text = message;
-            labelStatus.ForeColor = information ? Color.RoyalBlue : Color.Brown;
-        }
-
-        /// <summary>
         ///     Timer para remover mensagem de status.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
@@ -209,7 +209,7 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        /// Evento ao clicar no botão de notificações.
+        ///     Evento ao clicar no botão de notificações.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>

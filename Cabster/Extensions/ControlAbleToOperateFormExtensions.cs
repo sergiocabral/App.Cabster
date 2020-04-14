@@ -15,7 +15,9 @@ namespace Cabster.Extensions
         /// <summary>
         ///     Sinaliza que ao mover ou redimensionar deve desativar o redraw.
         /// </summary>
-        public static bool SetRedrawFalse = false;
+        // ReSharper disable once FieldCanBeMadeReadOnly.Local
+        // ReSharper disable once ConvertToConstant.Local
+        private static bool _setRedrawFalse = false;
 
         /// <summary>
         ///     Lista de controles que movem o form.
@@ -207,7 +209,7 @@ namespace Cabster.Extensions
             {
                 _isPressing = true;
                 _initialPositionOfMouse = new Point(args.X, args.Y);
-                if (!SetRedrawFalse) return;
+                if (!_setRedrawFalse) return;
                 _form.SetRedraw(false);
             }
 
@@ -237,7 +239,7 @@ namespace Cabster.Extensions
                         break;
                 }
 
-                if (!SetRedrawFalse) return;
+                if (!_setRedrawFalse) return;
                 if (_stopwatch.ElapsedMilliseconds < _millisecondsBetweenRedraw) return;
                 _isRedrawing = true;
                 _form.SetRedraw(true);
@@ -259,7 +261,7 @@ namespace Cabster.Extensions
             private void ControlOnMouseUp(object sender, EventArgs args)
             {
                 _isPressing = false;
-                if (!SetRedrawFalse) return;
+                if (!_setRedrawFalse) return;
                 _form.SetRedraw(true);
                 _form.InvalidadeAll();
             }

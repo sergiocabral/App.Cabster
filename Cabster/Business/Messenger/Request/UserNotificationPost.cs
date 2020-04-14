@@ -1,5 +1,5 @@
-﻿using Cabster.Infrastructure;
-using Cabster.Business.Entities;
+﻿using Cabster.Business.Entities;
+using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Request
 {
@@ -25,7 +25,7 @@ namespace Cabster.Business.Messenger.Request
         public NotificationMessage Message { get; }
 
         /// <summary>
-        /// Comando associado.
+        ///     Comando associado.
         /// </summary>
         public MessengerRequest? SourceRequest { get; }
     }

@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
-using Cabster.Properties;
-using Serilog;
-using Label = System.Windows.Forms.Label;
-using Panel = System.Windows.Forms.Panel;
 
 namespace Cabster.Business.Forms
 {
@@ -23,6 +15,11 @@ namespace Cabster.Business.Forms
     public partial class FormNotification : FormLayout, IFormContainerData
     {
         /// <summary>
+        ///     Filtro da consulta de mensagens.
+        /// </summary>
+        private DateTimeOffset _lastFilter = DateTimeOffset.MinValue;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormNotification()
@@ -30,11 +27,21 @@ namespace Cabster.Business.Forms
             InitializeComponent();
             InitializeComponent2();
         }
-        
+
         /// <summary>
-        /// Filtro da consulta de mensagens.
+        ///     Notifica a atualização dos controles da tela.
         /// </summary>
-        private DateTimeOffset _lastFilter = DateTimeOffset.MinValue;
+        public async void UpdateControls()
+        {
+            var messages = await MessageBus.Send<IEnumerable<NotificationMessage>>(
+                new UserNotificationRequestList(_lastFilter));
+
+            foreach (var message in messages)
+            {
+                AddMessage(message);
+                if (_lastFilter < message.Time) _lastFilter = message.Time;
+            }
+        }
 
         /// <summary>
         ///     Inicializa controles.
@@ -45,7 +52,7 @@ namespace Cabster.Business.Forms
                 .GetType()
                 .GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)?
                 .SetValue(panelMessages, true);
-            panelMessages.Width = Width - (panelMessages.Left * 2);
+            panelMessages.Width = Width - panelMessages.Left * 2;
             panelMessages.Height = Height - (panelMessages.Top + panelMessages.Left);
 
             HandleCreated += (sender, args) => HideStatusBar = true;
@@ -57,7 +64,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Adiciona uma mensagem na janela.
+        ///     Adiciona uma mensagem na janela.
         /// </summary>
         /// <param name="message">Mensagem.</param>
         private void AddMessage(NotificationMessage message)
@@ -74,7 +81,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Ajusta o tamanho dos controles.
+        ///     Ajusta o tamanho dos controles.
         /// </summary>
         /// <param name="label">Label</param>
         /// <returns>Mesma instância de entrada.</returns>
@@ -83,21 +90,6 @@ namespace Cabster.Business.Forms
             label.AutoSize = true;
             label.MaximumSize = new Size(label.Parent.Width, 0);
             return label;
-        }
-
-        /// <summary>
-        /// Notifica a atualização dos controles da tela.
-        /// </summary>
-        public async void UpdateControls()
-        {
-            var messages = await MessageBus.Send<IEnumerable<NotificationMessage>>(
-                new UserNotificationRequestList(_lastFilter));
-            
-            foreach (var message in messages)
-            {
-                AddMessage(message);
-                if (_lastFilter < message.Time) _lastFilter = message.Time;
-            }
         }
     }
 }

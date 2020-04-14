@@ -36,7 +36,8 @@
             // 
             // panelMarginLeft
             // 
-            this.panelMarginLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginLeft.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
+                ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMarginLeft.Location = new System.Drawing.Point(0, 0);
             this.panelMarginLeft.Name = "panelMarginLeft";
@@ -45,7 +46,8 @@
             // 
             // panelMarginRight
             // 
-            this.panelMarginRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginRight.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
+                ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelMarginRight.Location = new System.Drawing.Point(806, 0);
             this.panelMarginRight.Name = "panelMarginRight";
@@ -54,7 +56,8 @@
             // 
             // panelMarginTop
             // 
-            this.panelMarginTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginTop.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
+                ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMarginTop.Location = new System.Drawing.Point(10, 0);
             this.panelMarginTop.Name = "panelMarginTop";
@@ -63,7 +66,8 @@
             // 
             // panelMarginBottom
             // 
-            this.panelMarginBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panelMarginBottom.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
+                ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelMarginBottom.Location = new System.Drawing.Point(10, 479);
             this.panelMarginBottom.Name = "panelMarginBottom";
@@ -74,15 +78,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))), ((int) (((byte) (64)))),
+                ((int) (((byte) (64)))));
             this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
             this.ClientSize = new System.Drawing.Size(816, 489);
             this.Controls.Add(this.panelMarginBottom);
             this.Controls.Add(this.panelMarginTop);
             this.Controls.Add(this.panelMarginRight);
             this.Controls.Add(this.panelMarginLeft);
-            this.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))), ((int) (((byte) (224)))),
+                ((int) (((byte) (224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -92,7 +99,6 @@
             this.Text = "FormDialogShow";
             this.TopMost = true;
             this.ResumeLayout(false);
-
         }
 
         #endregion

@@ -79,7 +79,7 @@ namespace Cabster
 
                 var restart = messageBus.Send<bool>(new ApplicationInitialize());
                 if (restart.Result) break;
-            };
+            }
 
             if (Environment.IsDebug && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }

@@ -10,20 +10,21 @@ namespace Cabster.Business
     /// <summary>
     ///     Manipulação de dados.
     /// </summary>
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class DataManipulation : IDataManipulation
     {
         /// <summary>
-        /// Construtor.
+        ///     Codificação de texto padrão.
+        /// </summary>
+        private readonly Encoding _encoding = Encoding.UTF8;
+
+        /// <summary>
+        ///     Construtor.
         /// </summary>
         public DataManipulation()
         {
             this.LogClassInstantiate();
         }
-        
-        /// <summary>
-        ///     Codificação de texto padrão.
-        /// </summary>
-        private readonly Encoding _encoding = Encoding.UTF8;
 
         /// <summary>
         ///     Arquivo onde os dados são salvos.

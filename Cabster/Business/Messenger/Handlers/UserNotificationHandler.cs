@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Cabster.Business.Entities;
@@ -10,27 +6,27 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;
 using MediatR;
-using Serilog;
 
 namespace Cabster.Business.Messenger.Handlers
 {
     /// <summary>
     ///     Operações notificação ao usuário.
     /// </summary>
+    // ReSharper disable once UnusedType.Global
     public class UserNotificationHandler :
         MessengerHandler,
         IRequestHandler<UserNotificationPost>,
         IRequestHandler<UserNotificationRequestList, IEnumerable<NotificationMessage>>
     {
         /// <summary>
-        ///     Notificação de mensagens para o usuário.
-        /// </summary>
-        private readonly IUserNotification _userNotification;
-
-        /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
+
+        /// <summary>
+        ///     Notificação de mensagens para o usuário.
+        /// </summary>
+        private readonly IUserNotification _userNotification;
 
         /// <summary>
         ///     Construtor.
@@ -62,7 +58,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<IEnumerable<NotificationMessage>> Handle(UserNotificationRequestList request, CancellationToken cancellationToken)
+        public Task<IEnumerable<NotificationMessage>> Handle(UserNotificationRequestList request,
+            CancellationToken cancellationToken)
         {
             return Task.FromResult(_userNotification.GetMessages(request.Filter));
         }

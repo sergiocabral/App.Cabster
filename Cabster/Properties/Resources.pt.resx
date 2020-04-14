@@ -241,7 +241,7 @@ Para ativar ou desativar: botão direito.
 Para remover: botão esquerdo.</value>
   </data>
   <data name="Window.GroupWork.ParticipantSortHint" xml:space="preserve">
-    <value>Ordenar aleatóriamente os participantes.</value>
+    <value>Ordena os participantes de forma aleatória.</value>
   </data>
   <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Começar Mob</value>
