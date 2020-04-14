@@ -18,7 +18,7 @@ namespace Cabster.Components
 
             using var form = new Form();
 
-            var imagemOriginal = Resources.FormBackground;
+            var imagemOriginal = Resources.FormLayoutBackground;
             using var button = new MyButton(Substitute.For<IContainer>())
             {
                 Name = "buttonClose",
@@ -59,7 +59,7 @@ namespace Cabster.Components
 
             using var form = new Form();
 
-            var imagemOriginal = Resources.FormBackground;
+            var imagemOriginal = Resources.FormLayoutBackground;
             using var button = new MyButton(Substitute.For<IContainer>())
             {
                 Name = this.Fixture<string>(),

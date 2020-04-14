@@ -350,7 +350,7 @@ namespace Cabster.Business.Forms
             screenBlocker.Block();
             new Timer
             {
-                Interval = 60000,
+                Interval = 10000,
                 Enabled = true
             }.Tick += (o, eventArgs) =>
             {

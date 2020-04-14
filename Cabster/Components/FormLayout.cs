@@ -128,14 +128,15 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            if (!DesignMode)
+            if (!DesignMode) {
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |
                     ControlStyles.DoubleBuffer,
                     true);
 
-            TopMost = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>().IsBlocked;
+                TopMost = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>().IsBlocked;
+            }
                 
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();

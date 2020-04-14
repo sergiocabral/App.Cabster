@@ -35,7 +35,7 @@ namespace Cabster.Extensions
         {
             // Arrange, Given
 
-            using var button = new Button {BackgroundImage = Resources.FormBackground};
+            using var button = new Button {BackgroundImage = Resources.FormLayoutBackground};
             var imagemOriginal = button.BackgroundImage;
             const string propriedade = "BackgroundImage";
             var imagem1 = Resources.buttonCloseLeave;

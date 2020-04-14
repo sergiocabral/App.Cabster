@@ -107,7 +107,8 @@ namespace Cabster.Business
                 Text = Resources.Name_Application,
                 FormBorderStyle = FormBorderStyle.None,
                 BackColor = Color.Black,
-                Opacity = 0.5
+                BackgroundImage = Resources.FormBlockBackground,
+                Opacity = 0.015
             };
             form.Activated += FormLayoutOnDeactivate;
             form.Deactivate += FormLayoutOnDeactivate;

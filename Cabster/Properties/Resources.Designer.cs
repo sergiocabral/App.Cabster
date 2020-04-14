@@ -241,6 +241,26 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormBlockBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormBlockBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormLayoutBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon IconSapiensia {
@@ -256,16 +276,6 @@ namespace Cabster.Properties {
         public static System.Drawing.Bitmap FormHeaderSapiensia {
             get {
                 object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

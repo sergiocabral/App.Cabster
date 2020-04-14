@@ -80,7 +80,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))), ((int) (((byte) (64)))),
                 ((int) (((byte) (64)))));
-            this.BackgroundImage = global::Cabster.Properties.Resources.FormBackground;
+            this.BackgroundImage = global::Cabster.Properties.Resources.FormLayoutBackground;
             this.ClientSize = new System.Drawing.Size(816, 489);
             this.Controls.Add(this.panelMarginBottom);
             this.Controls.Add(this.panelMarginTop);
