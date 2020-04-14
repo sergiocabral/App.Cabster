@@ -60,6 +60,11 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Exibe ou não retângulo quando tem o foco.
+        /// </summary>
+        protected override bool ShowFocusCues => false;
+
+        /// <summary>
         ///     Evita transparência.
         /// </summary>
         public bool NotTransparent { get; set; }
@@ -119,6 +124,7 @@ namespace Cabster.Components
         public void UpdateLayout()
         {
             _buttonIsIcon = Images.ContainsKey(Name);
+            FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); 
             if (_buttonIsIcon)
             {
                 var (bitmapLeave, bitmapEnter) = Images[Name];
