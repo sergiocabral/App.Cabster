@@ -91,6 +91,9 @@ namespace Cabster
 
                 var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
 
+                messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(Resources.Notification_ApplicationStarted))).Wait();
+
                 messageBus.Send(new DataLoadFromFile()).Wait();
 
                 messageBus.Send(new ApplicationInitialize()).Wait();

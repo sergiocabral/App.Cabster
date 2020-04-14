@@ -264,4 +264,7 @@ Para remover: botão esquerdo.</value>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notificações</value>
   </data>
+  <data name="Notification.ApplicationStarted" xml:space="preserve">
+    <value>Aplicação iniciada.</value>
+  </data>
 </root>

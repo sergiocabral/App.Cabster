@@ -328,4 +328,7 @@ To remove: left button.</value>
   <data name="Notification.ApplicationRestarting" xml:space="preserve">
     <value>Restarting application.</value>
   </data>
+  <data name="Notification.ApplicationStarted" xml:space="preserve">
+    <value>Application started.</value>
+  </data>
 </root>

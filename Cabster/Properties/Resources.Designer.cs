@@ -397,6 +397,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application started..
+        /// </summary>
+        public static string Notification_ApplicationStarted {
+            get {
+                return ResourceManager.GetString("Notification.ApplicationStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The application language has been changed from {fromLanguage} to {toLanguage}..
         /// </summary>
         public static string Notification_LanguageChanged {

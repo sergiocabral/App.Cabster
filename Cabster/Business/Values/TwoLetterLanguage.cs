@@ -1,4 +1,7 @@
-﻿using Cabster.Properties;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Globalization;
+using Cabster.Properties;
 
 namespace Cabster.Business.Values
 {
@@ -18,11 +21,17 @@ namespace Cabster.Business.Values
         public const string English = "en";
 
         /// <summary>
-        /// Converte a sigla em nome do idioma.
+        ///     Lista de CultureInfo já carregados.
+        /// </summary>
+        private static readonly ConcurrentDictionary<string, CultureInfo> CultureInfos 
+            = new ConcurrentDictionary<string, CultureInfo>();
+
+        /// <summary>
+        ///     Converte a sigla em nome do idioma.
         /// </summary>
         /// <param name="twoLetterLanguage">Sigla do idioma.</param>
         /// <returns>Nome do idioma.</returns>
-        public static string LanguageName(this string twoLetterLanguage)
+        public static string ToLanguageName(this string twoLetterLanguage)
         {
             return twoLetterLanguage switch
             {
@@ -30,6 +39,16 @@ namespace Cabster.Business.Values
                 Portuguese => Resources.Name_Language_Portuguese,
                 _ => twoLetterLanguage
             };
-        } 
+        }
+
+        /// <summary>
+        ///     Converte a sigla em CultureInfo.
+        /// </summary>
+        /// <param name="twoLetterLanguage">Sigla do idioma.</param>
+        /// <returns>CultureInfo</returns>
+        public static CultureInfo ToCultureInfo(this string twoLetterLanguage)
+        {
+            return CultureInfos.GetOrAdd(twoLetterLanguage, new CultureInfo(twoLetterLanguage));
+        }
     }
 }

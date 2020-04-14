@@ -66,12 +66,6 @@ namespace Cabster.Business.Messenger.Handlers
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
-            await _messageBus.Send(
-                new UserNotificationPost(
-                    new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
-                        fromLanguage.LanguageName().ToLower(), toLanguage.LanguageName().ToLower()
-                    ))), cancellationToken);
-
             Log.Information("Restarting application.");
             
             await _messageBus.Send(new UserNotificationPost(
@@ -118,7 +112,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
-            if ((notification.Request.Section & DataSection.ApplicationShortcut) == DataSection.ApplicationShortcut)
+            if (DataSection.ApplicationShortcut == (DataSection.ApplicationShortcut & notification.Request.Section))
             {
                 var shortcut = notification.Request.Data.Application.Shortcut.ToShortcutDescription();
 
