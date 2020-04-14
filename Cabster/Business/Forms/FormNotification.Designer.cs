@@ -41,9 +41,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMessages.AutoScroll = true;
             this.panelMessages.BackColor = System.Drawing.Color.Transparent;
-            this.panelMessages.Location = new System.Drawing.Point(12, 62);
+            this.panelMessages.Location = new System.Drawing.Point(18, 68);
             this.panelMessages.Name = "panelMessages";
-            this.panelMessages.Size = new System.Drawing.Size(376, 226);
+            this.panelMessages.Size = new System.Drawing.Size(364, 214);
             this.panelMessages.TabIndex = 12;
             // 
             // FormNotification

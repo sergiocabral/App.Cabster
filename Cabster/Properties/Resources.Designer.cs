@@ -379,7 +379,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The shortcut key has been successfully registered..
+        ///   Looks up a localized string similar to The shortcut keys {Shortcut} has been successfully registered..
         /// </summary>
         public static string Text_Application_ShortcutDefined {
             get {

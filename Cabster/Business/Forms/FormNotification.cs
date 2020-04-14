@@ -46,12 +46,12 @@ namespace Cabster.Business.Forms
                 .GetType()
                 .GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)?
                 .SetValue(panelMessages, true);
-            
+            panelMessages.Width = Width - (panelMessages.Left * 2);
+            panelMessages.Height = Height - (panelMessages.Top + panelMessages.Left);
+
             HandleCreated += (sender, args) => HideStatusBar = true;
             Resize += (sender, args) =>
             {
-                panelMessages.Width = Width - (panelMessages.Left * 2);
-                panelMessages.Height = Height - (panelMessages.Top + panelMessages.Left);
                 foreach (Label label in panelMessages.Controls) AdjustLabelSize(label);
             };
             Load += (sender, args) => UpdateControls();

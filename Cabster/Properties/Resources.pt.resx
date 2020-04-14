@@ -154,7 +154,7 @@
     <value>Cabster</value>
   </data>
   <data name="Text.Application.ShortcutDefined" xml:space="preserve">
-    <value>A tecla de atalho foi registrada com sucesso.</value>
+    <value>A tecla de atalho {Shortcut} foi registrada com sucesso.</value>
   </data>
   <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>

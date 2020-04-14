@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cabrones.Utils.Text;
 using Cabster.Business.Entities;
 using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Notification;
@@ -134,7 +135,7 @@ namespace Cabster.Business.Messenger.Handlers
                     await _messageBus.Send(new UserNotificationPost(
                         new NotificationMessage(
                             registered
-                                ? Resources.Text_Application_ShortcutDefined
+                                ? Resources.Text_Application_ShortcutDefined.QueryString(shortcut)
                                 : Resources.Text_Application_ShortcutRemoved,
                             true),
                         notification.Request), cancellationToken);

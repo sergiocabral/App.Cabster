@@ -23,7 +23,7 @@ namespace Cabster.Extensions
             {
                 if ((shortcut & modifier) != modifier) return;
                 shortcut ^= modifier;
-                keys.Add($"{modifier}".ToUpper());
+                keys.Add($"{modifier}");
             }
 
             PatchModifier(Keys.Control);
@@ -32,7 +32,7 @@ namespace Cabster.Extensions
 
             var text = $"{shortcut}";
             text = text.Length == 2 ? text.Substring(1) : text;
-            keys.Add(text.ToUpper());
+            keys.Add(text);
 
             return string.Join("+", keys);
         }
