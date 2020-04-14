@@ -20,6 +20,11 @@ namespace Cabster.Infrastructure
     public static class LoggerConfiguration
     {
         /// <summary>
+        ///     Nível mínimo para captura do log.
+        /// </summary>
+        public static LogEventLevel MinimumLevel;
+
+        /// <summary>
         ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
         /// </summary>
         /// <param name="instance">Instância.</param>
@@ -87,6 +92,8 @@ namespace Cabster.Infrastructure
         /// <param name="minimumLevel">Nível mínimo para captura do log.</param>
         public static Logger Initialize(LogEventLevel minimumLevel = LogEventLevel.Verbose)
         {
+            MinimumLevel = minimumLevel;
+
             var destinations = new List<Func<Serilog.LoggerConfiguration, Serilog.LoggerConfiguration>>
             {
                 WriteToConsole,
@@ -97,7 +104,7 @@ namespace Cabster.Infrastructure
 
             foreach (var writeTo in destinations)
                 writeTo(loggerConfiguration)
-                    .MinimumLevel.Is(minimumLevel);
+                    .MinimumLevel.Is(MinimumLevel);
 
             var logger = loggerConfiguration.CreateLogger();
 

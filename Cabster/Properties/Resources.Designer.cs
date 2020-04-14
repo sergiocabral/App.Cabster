@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -271,7 +271,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut keys is already being used by another application..
+        ///   Looks up a localized string similar to The {Shortcut} shortcut key is already being used by another application..
         /// </summary>
         public static string Exception_Application_ShortcutAlreadyUsed {
             get {
@@ -388,6 +388,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application finished..
+        /// </summary>
+        public static string Notification_ApplicationFinished {
+            get {
+                return ResourceManager.GetString("Notification.ApplicationFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restarting application..
         /// </summary>
         public static string Notification_ApplicationRestarting {
@@ -415,7 +424,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut keys has been successfully registered..
+        ///   Looks up a localized string similar to The {Shortcut} shortcut key has been successfully registered..
         /// </summary>
         public static string Notification_ShortcutDefined {
             get {
@@ -424,7 +433,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut keys cannot be activated..
+        ///   Looks up a localized string similar to The {Shortcut} shortcut key cannot be activated..
         /// </summary>
         public static string Notification_ShortcutInvalid {
             get {
@@ -433,7 +442,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No shortcut keys defined..
+        ///   Looks up a localized string similar to No shortcut key defined..
         /// </summary>
         public static string Notification_ShortcutRemoved {
             get {

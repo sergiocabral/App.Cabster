@@ -194,9 +194,9 @@ namespace Cabster.Business.Messenger.Handlers
                         CultureInfo.DefaultThreadCurrentCulture =
                             toLanguage;
 
-                    Log.Information("Changed application language from {fromLanguage} to {toLanguage}.",
+                    Log.Debug("Changed application language from {fromLanguage} to {toLanguage}.",
                         $"{fromLanguage.TwoLetterISOLanguageName}, {fromLanguage.DisplayName},",
-                        $"{toLanguage.TwoLetterISOLanguageName}, {toLanguage.DisplayName},");
+                        $"{toLanguage.TwoLetterISOLanguageName}, {toLanguage.DisplayName}");
 
                     await _messageBus.Send(
                         new UserNotificationPost(

@@ -296,13 +296,13 @@ To remove: left button.</value>
     <value>Shortcut key for application actions</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
-    <value>The {Shortcut} shortcut keys is already being used by another application.</value>
+    <value>The {Shortcut} shortcut key is already being used by another application.</value>
   </data>
   <data name="Notification.ShortcutDefined" xml:space="preserve">
-    <value>The {Shortcut} shortcut keys has been successfully registered.</value>
+    <value>The {Shortcut} shortcut key has been successfully registered.</value>
   </data>
   <data name="Notification.ShortcutRemoved" xml:space="preserve">
-    <value>No shortcut keys defined.</value>
+    <value>No shortcut key defined.</value>
   </data>
   <data name="buttonNotificationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonNotificationEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -320,7 +320,7 @@ To remove: left button.</value>
     <value>No notification.</value>
   </data>
   <data name="Notification.ShortcutInvalid" xml:space="preserve">
-    <value>The {Shortcut} shortcut keys cannot be activated.</value>
+    <value>The {Shortcut} shortcut key cannot be activated.</value>
   </data>
   <data name="Notification.LanguageChanged" xml:space="preserve">
     <value>The application language has been changed from {fromLanguage} to {toLanguage}.</value>
@@ -330,5 +330,8 @@ To remove: left button.</value>
   </data>
   <data name="Notification.ApplicationStarted" xml:space="preserve">
     <value>Application started.</value>
+  </data>
+  <data name="Notification.ApplicationFinished" xml:space="preserve">
+    <value>Application finished.</value>
   </data>
 </root>

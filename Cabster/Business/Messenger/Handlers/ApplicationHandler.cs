@@ -110,11 +110,6 @@ namespace Cabster.Business.Messenger.Handlers
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
-            Log.Information("Restarting application.");
-
-            await _messageBus.Send(new UserNotificationPost(
-                new NotificationMessage(Resources.Notification_ApplicationRestarting)), cancellationToken);
-
             var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
             mainWindow.Tag = SignalForApplicationRestart;
 
@@ -132,7 +127,6 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
         {
             await _messageBus.Publish(new ApplicationFinalized(request), cancellationToken);
-            Log.Information("Application finalized.");
             return Unit.Value;
         }
 
@@ -144,7 +138,6 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
-            Log.Information("Application initialized.");
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
             var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
             Application.Run(mainWindow);

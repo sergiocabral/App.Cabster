@@ -78,7 +78,17 @@ namespace Cabster
                 messageBus.Send(new DataLoadFromFile()).Wait();
 
                 var restart = messageBus.Send<bool>(new ApplicationInitialize());
-                if (restart.Result) break;
+                
+                if (restart.Result)
+                {
+                    messageBus.Send(new UserNotificationPost(
+                        new NotificationMessage(Resources.Notification_ApplicationFinished))).Wait();
+                    
+                    break;
+                }
+
+                messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(Resources.Notification_ApplicationRestarting))).Wait();
             }
 
             if (Environment.IsDebug && mainWindowHandle != IntPtr.Zero) Console.ReadKey();

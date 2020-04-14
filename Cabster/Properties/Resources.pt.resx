@@ -127,7 +127,7 @@
     <value>Fechar a aplicação.</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
-    <value>As teclas de atalho {Shortcut} já estão sendo utilizadas por outro aplicativo.</value>
+    <value>A tecla de atalho {Shortcut} já está sendo utilizada por outro aplicativo.</value>
   </data>
   <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>Era esperado uma operação única para: {Operation}</value>
@@ -157,13 +157,13 @@
     <value>O idioma do aplicativo foi alterado de {fromLanguage} para {toLanguage}.</value>
   </data>
   <data name="Notification.ApplicationRestarting" xml:space="preserve">
-    <value>Reiniciando aplicação.</value>
+    <value>Aplicação sendo reiniciada.</value>
   </data>
   <data name="Notification.ShortcutDefined" xml:space="preserve">
-    <value>As teclas de atalho {Shortcut} foram registradas com sucesso.</value>
+    <value>A tecla de atalho {Shortcut} foi registrada com sucesso.</value>
   </data>
   <data name="Notification.ShortcutInvalid" xml:space="preserve">
-    <value>As teclas de atalho {Shortcut} não podem ser acionadas.</value>
+    <value>A tecla de atalho {Shortcut} não pode ser acionada.</value>
   </data>
   <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
@@ -266,5 +266,8 @@ Para remover: botão esquerdo.</value>
   </data>
   <data name="Notification.ApplicationStarted" xml:space="preserve">
     <value>Aplicação iniciada.</value>
+  </data>
+  <data name="Notification.ApplicationFinished" xml:space="preserve">
+    <value>Aplicação finalizada.</value>
   </data>
 </root>
