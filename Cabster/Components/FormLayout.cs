@@ -11,7 +11,7 @@ namespace Cabster.Components
     /// <summary>
     ///     Janela invisível.
     /// </summary>
-    public partial class FormLayout : FormBase
+    public partial class FormLayout : FormBase, IFormLayout
     {
         /// <summary>
         ///     Exibe o logotipo.

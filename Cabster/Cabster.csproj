@@ -221,6 +221,7 @@
       <DependentUpon>FormDialogBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\IFormContainerData.cs" />
+    <Compile Include="Components\IFormLayout.cs" />
     <Compile Include="Components\MyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
