@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Cabrones.Utils.Text;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Infrastructure;
-using Cabster.Properties;
 using MediatR;
 using Serilog;
 
@@ -179,33 +176,6 @@ namespace Cabster.Business.Messenger.Handlers
                 _programData = typeof(Program)
                     .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
                     .Single(f => f.FieldType == typeof(ContainerData));
-
-            if (DataSection.ApplicationLanguage == (DataSection.ApplicationLanguage & request.Section) &&
-                CultureInfo.DefaultThreadCurrentCulture?.TwoLetterISOLanguageName != request.Data.Application.Language)
-            {
-                var fromLanguage = CultureInfo.DefaultThreadCurrentUICulture != null
-                    ? CultureInfo.DefaultThreadCurrentUICulture
-                    : CultureInfo.InstalledUICulture;
-                var toLanguage = request.Data.Application.Language.ToCultureInfo();
-
-                if (fromLanguage.TwoLetterISOLanguageName != toLanguage.TwoLetterISOLanguageName)
-                {
-                    CultureInfo.DefaultThreadCurrentUICulture =
-                        CultureInfo.DefaultThreadCurrentCulture =
-                            toLanguage;
-
-                    Log.Debug("Changed application language from {fromLanguage} to {toLanguage}.",
-                        $"{fromLanguage.TwoLetterISOLanguageName}, {fromLanguage.DisplayName},",
-                        $"{toLanguage.TwoLetterISOLanguageName}, {toLanguage.DisplayName}");
-
-                    await _messageBus.Send(
-                        new UserNotificationPost(
-                            new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
-                                fromLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower(),
-                                toLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower()
-                            ))), cancellationToken);
-                }
-            }
 
             _programData.SetValue(null, request.Data);
 

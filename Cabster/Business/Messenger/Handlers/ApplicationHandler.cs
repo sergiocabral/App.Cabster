@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,8 +63,12 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
+            if (DataSection.ApplicationLanguage == (DataSection.ApplicationLanguage & notification.Request.Section))
+                await ApplyDataApplicationLanguage(notification, cancellationToken);
+            
             if (DataSection.ApplicationShortcut == (DataSection.ApplicationShortcut & notification.Request.Section))
                 await ApplyDataApplicationShortcut(notification, cancellationToken);
+            
             if (DataSection.ApplicationLockScreen == (DataSection.ApplicationLockScreen & notification.Request.Section))
                 await ApplyDataApplicationLockScreen(notification, cancellationToken);
         }
@@ -156,6 +161,45 @@ namespace Cabster.Business.Messenger.Handlers
                         Resources.Exception_Application_ShortcutAlreadyUsed.QueryString(shortcut),
                         false),
                     request), cancellationToken);
+            }
+        }
+
+        /// <summary>
+        ///     Aplica os dados do aplicativo para: Language
+        /// </summary>
+        /// <param name="dataUpdatedNotification">Notificação de atualização de dados.</param>
+        /// <param name="cancellationToken">Token de cancelamento.</param>
+        /// <returns>Task</returns>
+        private async Task ApplyDataApplicationLanguage(DataUpdated dataUpdatedNotification,
+            CancellationToken cancellationToken)
+        {
+            var request = dataUpdatedNotification.Request;
+            var dataApplicationLanguage = request.Data.Application.Language;
+
+            if (CultureInfo.DefaultThreadCurrentCulture?.TwoLetterISOLanguageName != dataApplicationLanguage)
+            {
+                var fromLanguage = CultureInfo.DefaultThreadCurrentUICulture != null
+                    ? CultureInfo.DefaultThreadCurrentUICulture
+                    : CultureInfo.InstalledUICulture;
+                var toLanguage = dataApplicationLanguage.ToCultureInfo();
+
+                if (fromLanguage.TwoLetterISOLanguageName != toLanguage.TwoLetterISOLanguageName)
+                {
+                    CultureInfo.DefaultThreadCurrentUICulture =
+                        CultureInfo.DefaultThreadCurrentCulture =
+                            toLanguage;
+
+                    Log.Debug("Changed application language from {fromLanguage} to {toLanguage}.",
+                        $"{fromLanguage.TwoLetterISOLanguageName}, {fromLanguage.DisplayName},",
+                        $"{toLanguage.TwoLetterISOLanguageName}, {toLanguage.DisplayName}");
+
+                    await _messageBus.Send(
+                        new UserNotificationPost(
+                            new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
+                                fromLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower(),
+                                toLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower()
+                            ))), cancellationToken);
+                }
             }
         }
 
