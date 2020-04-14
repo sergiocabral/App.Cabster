@@ -1,5 +1,6 @@
 ﻿using System;
 using Cabster.Exceptions;
+using Cabster.Infrastructure;
 using Newtonsoft.Json;
 
 namespace Cabster.Business
@@ -7,8 +8,16 @@ namespace Cabster.Business
     /// <summary>
     ///     Classe base para entidade.
     /// </summary>
-    public class EntityBase : IEntity, ICloneable
+    public abstract class EntityBase : IEntity, ICloneable
     {
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        protected EntityBase()
+        {
+            this.LogClassInstantiate();
+        }
+        
         /// <summary>
         ///     Faz um clone da instância.
         /// </summary>

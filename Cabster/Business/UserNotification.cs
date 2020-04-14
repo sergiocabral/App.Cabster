@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cabster.Business.Entities;
+using Cabster.Infrastructure;
 using MediatR;
 
 namespace Cabster.Business
@@ -11,6 +12,14 @@ namespace Cabster.Business
     /// </summary>
     public class UserNotification: IUserNotification
     {
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        public UserNotification()
+        {
+            this.LogClassInstantiate();
+        }
+        
         /// <summary>
         /// Lista de mensagens.
         /// </summary>

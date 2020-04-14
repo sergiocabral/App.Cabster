@@ -5,7 +5,7 @@ namespace Cabster.Business.Entities
     /// <summary>
     ///     Notificação.
     /// </summary>
-    public class NotificationMessage
+    public class NotificationMessage: EntityBase
     {
         /// <summary>
         ///     Construtor.

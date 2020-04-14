@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using Cabster.Extensions;
+using Cabster.Infrastructure;
 
 namespace Cabster.Business
 {
@@ -11,6 +12,14 @@ namespace Cabster.Business
     /// </summary>
     public class Tips: ITips
     {
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        public Tips()
+        {
+            this.LogClassInstantiate();
+        }
+        
         /// <summary>
         ///     Idioma padrão.
         /// </summary>
