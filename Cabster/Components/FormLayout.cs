@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Windows.Forms;
+using Cabster.Business;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
+using Cabster.Exceptions;
 using Cabster.Extensions;
 using Cabster.Properties;
-using Environment = Cabster.Infrastructure.Environment;
 
 namespace Cabster.Components
 {
@@ -14,6 +17,16 @@ namespace Cabster.Components
     /// </summary>
     public partial class FormLayout : FormBase, IFormLayout
     {
+        /// <summary>
+        ///     Lista de forms e suas posições do eixo Z.
+        /// </summary>
+        private static readonly ConcurrentDictionary<int, int> ZOrders = new ConcurrentDictionary<int, int>();
+
+        /// <summary>
+        ///     Identificador desta instância.
+        /// </summary>
+        private int _myHashCode;
+
         /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
@@ -103,17 +116,27 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Ordem do eixo Z.
+        /// </summary>
+        public int ZOrder =>
+            ZOrders.ContainsKey(_myHashCode)
+                ? ZOrders[_myHashCode]
+                : throw new ThisWillNeverOccurException();
+
+        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
         {
-            if (!Environment.IsDesign)
+            if (!DesignMode)
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |
                     ControlStyles.DoubleBuffer,
                     true);
 
+            TopMost = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>().IsBlocked;
+                
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
@@ -138,6 +161,27 @@ namespace Cabster.Components
                 labelStatus.Left = buttonNotification.Right + padding / 2;
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
+
+            _myHashCode = GetHashCode();
+            Activated += OnActivatedUpdateZOrder;
+            OnActivatedUpdateZOrder(this, new EventArgs());
+        }
+
+        private void OnActivatedUpdateZOrder(object sender, EventArgs e)
+        {
+            var otherZOrders = ZOrders
+                .Where(a => a.Key != _myHashCode)
+                .ToArray();
+
+            var maxZOrder =
+                otherZOrders.Length > 0
+                    ? otherZOrders.Max(a => a.Value) + 1
+                    : 0;
+
+            ZOrders.AddOrUpdate(
+                _myHashCode,
+                maxZOrder,
+                (key, value) => maxZOrder);
         }
 
         /// <summary>
@@ -222,7 +266,7 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void buttonNotification_Click(object sender, EventArgs args)
         {
-            MessageBus.Send<Form>(new WindowOpenNotification());
+            MessageBus.Send<Form>(new WindowOpenNotification(this));
         }
 
         /// <summary>

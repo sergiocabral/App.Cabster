@@ -91,6 +91,7 @@ namespace Cabster.Business
         /// <param name="key">Tecla.</param>
         private static void NativeWindowOnKeyPressed(ModifierKeys modifiers, Keys key)
         {
+            // TODO: Implementar tecla de atalho.
             Log.Information("Shortcut {Modifiers} + {Key}", modifiers, key);
         }
 

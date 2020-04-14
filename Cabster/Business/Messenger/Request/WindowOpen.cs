@@ -1,18 +1,25 @@
 ﻿using System.Windows.Forms;
+using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Abrir janela de configuração.
     /// </summary>
-    public class WindowOpenConfiguration : WindowOpen
+    public abstract class WindowOpen : MessengerRequest<Form>
     {
+        /// <summary>
+        /// Form pai.
+        /// </summary>
+        public Form? Parent { get; }
+
         /// <summary>
         /// Construtor.
         /// </summary>
         /// <param name="parent">Form pai.</param>
-        public WindowOpenConfiguration(Form? parent = null) : base(parent)
+        protected WindowOpen(Form? parent)
         {
+            Parent = parent;
         }
     }
 }

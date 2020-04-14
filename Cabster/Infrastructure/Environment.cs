@@ -6,14 +6,6 @@
     public static class Environment
     {
         /// <summary>
-        ///     Construtor estático.
-        /// </summary>
-        static Environment()
-        {
-            IsDesign = false;
-        }
-
-        /// <summary>
         ///     Indica se a aplicação está executando em modo Debug.
         /// </summary>
         // ReSharper disable once ConvertToConstant.Global
@@ -23,10 +15,5 @@
 #else
             = false;
 #endif
-
-        /// <summary>
-        ///     Indica se a aplicação está em modo de design, em não execução.
-        /// </summary>
-        public static readonly bool IsDesign = true;
     }
 }

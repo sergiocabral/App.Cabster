@@ -1,12 +1,18 @@
 ﻿using System.Windows.Forms;
-using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
     ///     Abrir e retorna janela principal da aplicação.
     /// </summary>
-    public class WindowOpenMain : MessengerRequest<Form>
+    public class WindowOpenMain : WindowOpen
     {
+        /// <summary>
+        /// Construtor.
+        /// </summary>
+        /// <param name="parent">Form pai.</param>
+        public WindowOpenMain(Form? parent = null) : base(parent)
+        {
+        }
     }
 }

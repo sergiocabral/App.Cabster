@@ -84,8 +84,8 @@
             this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -107,8 +107,8 @@
             this.buttonClose.BackColor = System.Drawing.Color.Transparent;
             this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -150,8 +150,8 @@
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.buttonResize.BackColor = System.Drawing.Color.Transparent;
             this.buttonResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.buttonResize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonResize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonResize.FlatAppearance.BorderSize = 0;
             this.buttonResize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -178,8 +178,8 @@
                                                        System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNotification.BackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonNotification.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
-                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
+            this.buttonNotification.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonNotification.FlatAppearance.BorderSize = 0;
             this.buttonNotification.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonNotification.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

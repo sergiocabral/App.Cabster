@@ -45,7 +45,7 @@ namespace Cabster.Components
             {
                 var createParams = base.CreateParams;
                 if (!ShowInTaskbar) createParams.ExStyle |= 0x80 /* WS_EX_TOOLWINDOW */;
-                if (!Environment.IsDesign) createParams.ExStyle |= 0x02000000 /* WS_EX_COMPOSITED */;
+                if (!DesignMode) createParams.ExStyle |= 0x02000000 /* WS_EX_COMPOSITED */;
                 return createParams;
             }
         }

@@ -230,9 +230,8 @@
             this.buttonParticipantAdd.AutoSize = true;
             this.buttonParticipantAdd.BackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonParticipantAdd.FlatAppearance.BorderColor =
-                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
-                    ((int) (((byte) (255)))));
+            this.buttonParticipantAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonParticipantAdd.FlatAppearance.BorderSize = 0;
             this.buttonParticipantAdd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -255,9 +254,8 @@
             this.buttonParticipantSort.AutoSize = true;
             this.buttonParticipantSort.BackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantSort.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonParticipantSort.FlatAppearance.BorderColor =
-                System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (255)))),
-                    ((int) (((byte) (255)))));
+            this.buttonParticipantSort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(
+                ((int) (((byte) (0)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonParticipantSort.FlatAppearance.BorderSize = 0;
             this.buttonParticipantSort.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantSort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -332,6 +330,8 @@
             this.buttonConfiguration.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
                 ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.buttonConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonConfiguration.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (255)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
             this.buttonConfiguration.FlatAppearance.BorderSize = 0;
             this.buttonConfiguration.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.buttonConfiguration.FlatAppearance.MouseDownBackColor =

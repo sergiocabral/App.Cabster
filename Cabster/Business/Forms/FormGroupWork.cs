@@ -346,7 +346,18 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonStart_Click(object sender, EventArgs args)
         {
-            Log.Information("Resposta: {value}", FormDialogConfirm.Show("Teste de mensagem."));
+            var screenBlocker = Program.DependencyResolver.GetInstanceRequired<IScreenBlocker>();
+            screenBlocker.Block();
+            new Timer
+            {
+                Interval = 60000,
+                Enabled = true
+            }.Tick += (o, eventArgs) =>
+            {
+                ((Timer) o).Enabled = false;
+                ((Timer) o).Dispose();
+                screenBlocker.Unblock();
+            };
         }
 
         /// <summary>
@@ -356,7 +367,7 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonConfiguration_Click(object sender, EventArgs args)
         {
-            MessageBus.Send<Form>(new WindowOpenConfiguration());
+            MessageBus.Send<Form>(new WindowOpenConfiguration(this));
         }
 
         /// <summary>

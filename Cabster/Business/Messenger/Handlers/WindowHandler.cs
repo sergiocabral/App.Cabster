@@ -163,7 +163,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Form> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(OpenWindow(FormConfiguration));
+            return Task.FromResult(OpenWindow(FormConfiguration, request.Parent));
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Form> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(OpenWindow(FormGroupWork));
+            return Task.FromResult(OpenWindow(FormGroupWork, request.Parent));
         }
 
         /// <summary>
@@ -196,15 +196,16 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Form> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(OpenWindow(FormNotification));
+            return Task.FromResult(OpenWindow(FormNotification, request.Parent));
         }
 
         /// <summary>
         ///     Abrir uma janela.
         /// </summary>
-        /// <param name="formContainerData">Janela.</param>
+        /// <param name="form">Janela.</param>
+        /// <param name="formParent">Janela pai.</param>
         /// <returns>Mesma instância de entrada.</returns>
-        private static Form OpenWindow(Form form)
+        private static Form OpenWindow(Form form, Form? formParent)
         {
             form.WindowState = FormWindowState.Normal;
             form.Show();
@@ -215,7 +216,7 @@ namespace Cabster.Business.Messenger.Handlers
             if (!formPositioned) _formsPositioned.Add(formHash);
             if (Application.OpenForms.Count > 0 && !formPositioned)
             {
-                var mainForm = Application.OpenForms[0];
+                var mainForm = formParent ?? Application.OpenForms[0];
                 var center = new Point(mainForm.Left + mainForm.Width / 2, mainForm.Top + mainForm.Height / 2);
                 form.Left = center.X - form.Width / 2;
                 form.Top = center.Y - form.Height / 2;
