@@ -69,7 +69,8 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(
                 new UserNotificationPost(
                     new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
-                        fromLanguage, toLanguage))), cancellationToken);
+                        fromLanguage.LanguageName().ToLower(), toLanguage.LanguageName().ToLower()
+                    ))), cancellationToken);
 
             Log.Information("Restarting application.");
             
