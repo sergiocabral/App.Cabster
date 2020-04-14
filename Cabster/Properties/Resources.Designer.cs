@@ -352,7 +352,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to American english.
+        ///   Looks up a localized string similar to American English.
         /// </summary>
         public static string Name_Language_English {
             get {
@@ -361,7 +361,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brazilian portuguese.
+        ///   Looks up a localized string similar to Português Brasileiro.
         /// </summary>
         public static string Name_Language_Portuguese {
             get {

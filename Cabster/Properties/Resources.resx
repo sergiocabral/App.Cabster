@@ -278,10 +278,10 @@ To remove: left button.</value>
     <value>Select the display language</value>
   </data>
   <data name="Name.Language.English" xml:space="preserve">
-    <value>American english</value>
+    <value>American English</value>
   </data>
   <data name="Name.Language.Portuguese" xml:space="preserve">
-    <value>Brazilian portuguese</value>
+    <value>Português Brasileiro</value>
   </data>
   <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>To change the language, the application must be restarted.</value>

@@ -181,10 +181,10 @@
     <value>Para trocar o idioma a aplicação deve ser reiniciada.</value>
   </data>
   <data name="Name.Language.English" xml:space="preserve">
-    <value>Inglês americano</value>
+    <value>American English</value>
   </data>
   <data name="Name.Language.Portuguese" xml:space="preserve">
-    <value>Português brasileiro</value>
+    <value>Português Brasileiro</value>
   </data>
   <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
     <value>Selecione o idioma de exibição</value>
