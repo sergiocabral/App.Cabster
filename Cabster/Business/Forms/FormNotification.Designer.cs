@@ -53,9 +53,10 @@
             // 
             this.labelNoNotification.AutoSize = true;
             this.labelNoNotification.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNoNotification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelNoNotification.Location = new System.Drawing.Point(0, 0);
             this.labelNoNotification.Name = "labelNoNotification";
-            this.labelNoNotification.Size = new System.Drawing.Size(230, 19);
+            this.labelNoNotification.Size = new System.Drawing.Size(256, 19);
             this.labelNoNotification.TabIndex = 0;
             this.labelNoNotification.Text = "Window.Notification.NoNotification";
             // 

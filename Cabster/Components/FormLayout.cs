@@ -92,7 +92,9 @@ namespace Cabster.Components
             timerStatus.Enabled = false;
             timerStatus.Enabled = true;
             labelStatus.Text = message;
-            labelStatus.ForeColor = information ? Color.RoyalBlue : Color.Brown;
+            labelStatus.ForeColor = information 
+                ? Business.Values.Color.NotificationSuccess 
+                : Business.Values.Color.NotificationError;
         }
 
         /// <summary>

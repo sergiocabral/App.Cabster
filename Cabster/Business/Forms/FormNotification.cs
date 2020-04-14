@@ -71,7 +71,7 @@ namespace Cabster.Business.Forms
         {
             var label = new Label
             {
-                ForeColor = message.Success ? Color.RoyalBlue : Color.Brown,
+                ForeColor = message.Success ? Values.Color.NotificationSuccess : Values.Color.NotificationError,
                 Text = message + Environment.NewLine + ' ',
                 Dock = DockStyle.Top
             };

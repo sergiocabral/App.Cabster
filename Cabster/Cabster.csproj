@@ -154,6 +154,7 @@
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenMain.cs" />
+    <Compile Include="Business\Values\Color.cs" />
     <Compile Include="Business\Values\DataSection.cs" />
     <Compile Include="Business\Forms\FormNotification.cs">
       <SubType>Form</SubType>
