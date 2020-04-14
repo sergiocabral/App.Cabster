@@ -298,7 +298,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The shortcut key is already being used by another application..
+        ///   Looks up a localized string similar to The {Shortcut} shortcut keys is already being used by another application..
         /// </summary>
         public static string Exception_Application_ShortcutAlreadyUsed {
             get {
@@ -379,20 +379,20 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Changing application language from {fromLanguage} to {toLanguage}..
+        ///   Looks up a localized string similar to The application language has been changed from {fromLanguage} to {toLanguage}..
         /// </summary>
-        public static string Text_Application_ChangeLanguage {
+        public static string Text_Application_LanguageChanged {
             get {
-                return ResourceManager.GetString("Text.Application.ChangeLanguage", resourceCulture);
+                return ResourceManager.GetString("Text.Application.LanguageChanged", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application finalized..
+        ///   Looks up a localized string similar to Restarting application..
         /// </summary>
-        public static string Text_Application_Finalized {
+        public static string Text_Application_Restarting {
             get {
-                return ResourceManager.GetString("Text.Application.Finalized", resourceCulture);
+                return ResourceManager.GetString("Text.Application.Restarting", resourceCulture);
             }
         }
         
@@ -406,7 +406,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut key cannot be activated..
+        ///   Looks up a localized string similar to The {Shortcut} shortcut keys cannot be activated..
         /// </summary>
         public static string Text_Application_ShortcutInvalid {
             get {
@@ -420,15 +420,6 @@ namespace Cabster.Properties {
         public static string Text_Application_ShortcutRemoved {
             get {
                 return ResourceManager.GetString("Text.Application.ShortcutRemoved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Application started..
-        /// </summary>
-        public static string Text_Application_Started {
-            get {
-                return ResourceManager.GetString("Text.Application.Started", resourceCulture);
             }
         }
         

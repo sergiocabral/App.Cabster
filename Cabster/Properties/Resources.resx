@@ -296,7 +296,7 @@ To remove: left button.</value>
     <value>Shortcut key for application actions</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
-    <value>The shortcut key is already being used by another application.</value>
+    <value>The {Shortcut} shortcut keys is already being used by another application.</value>
   </data>
   <data name="Text.Application.ShortcutDefined" xml:space="preserve">
     <value>The {Shortcut} shortcut keys has been successfully registered.</value>
@@ -320,15 +320,12 @@ To remove: left button.</value>
     <value>No notification.</value>
   </data>
   <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
-    <value>The {Shortcut} shortcut key cannot be activated.</value>
+    <value>The {Shortcut} shortcut keys cannot be activated.</value>
   </data>
-  <data name="Text.Application.Finalized" xml:space="preserve">
-    <value>Application finalized.</value>
+  <data name="Text.Application.LanguageChanged" xml:space="preserve">
+    <value>The application language has been changed from {fromLanguage} to {toLanguage}.</value>
   </data>
-  <data name="Text.Application.Started" xml:space="preserve">
-    <value>Application started.</value>
-  </data>
-  <data name="Text.Application.ChangeLanguage" xml:space="preserve">
-    <value>Changing application language from {fromLanguage} to {toLanguage}.</value>
+  <data name="Text.Application.Restarting" xml:space="preserve">
+    <value>Restarting application.</value>
   </data>
 </root>

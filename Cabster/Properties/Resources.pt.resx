@@ -127,7 +127,7 @@
     <value>Fechar a aplicação.</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
-    <value>A tecla de atalho já está sendo utilizada por outro aplicativo.</value>
+    <value>As teclas de atalho {Shortcut} já estão sendo utilizadas por outro aplicativo.</value>
   </data>
   <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>Era esperado uma operação única para: {Operation}</value>
@@ -153,23 +153,20 @@
   <data name="Name.System" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Text.Application.ChangeLanguage" xml:space="preserve">
-    <value>Alterado idioma da aplicação de {fromLanguage} para {toLanguage}.</value>
+  <data name="Text.Application.LanguageChanged" xml:space="preserve">
+    <value>O idioma do aplicativo foi alterado de {fromLanguage} para {toLanguage}.</value>
   </data>
-  <data name="Text.Application.Finalized" xml:space="preserve">
-    <value>Aplicação finalizada.</value>
+  <data name="Text.Application.Restarting" xml:space="preserve">
+    <value>Reiniciando aplicação.</value>
   </data>
   <data name="Text.Application.ShortcutDefined" xml:space="preserve">
-    <value>A tecla de atalho {Shortcut} foi registrada com sucesso.</value>
+    <value>As teclas de atalho {Shortcut} foram registradas com sucesso.</value>
   </data>
   <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
-    <value>A tecla de atalho {Shortcut} não pode ser acionada.</value>
+    <value>As teclas de atalho {Shortcut} não podem ser acionadas.</value>
   </data>
   <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
-  </data>
-  <data name="Text.Application.Started" xml:space="preserve">
-    <value>Aplicação iniciada.</value>
   </data>
   <data name="Text.Common.Active" xml:space="preserve">
     <value>Ativo</value>

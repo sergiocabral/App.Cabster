@@ -8,8 +8,6 @@ namespace Cabster.Business.Messenger.Request
     /// </summary>
     public class UserNotificationPost : MessengerRequest
     {
-        //TODO: Usar Log.Information ou Error
-        
         /// <summary>
         ///     Construtor.
         /// </summary>

@@ -94,9 +94,7 @@ namespace Cabster
 
                 messageBus.Send(new DataLoadFromFile()).Wait();
 
-                messageBus.Send(new ApplicationInitialize());
-
-                var end = string.Empty;
+                messageBus.Send(new ApplicationInitialize()).Wait();
             } while (RestartWhenClose);
 
             if (IsDebug == true && mainWindowHandle != IntPtr.Zero) Console.ReadKey();

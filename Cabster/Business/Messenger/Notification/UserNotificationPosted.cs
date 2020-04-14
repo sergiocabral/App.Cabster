@@ -1,5 +1,7 @@
-﻿using Cabster.Business.Messenger.Request;
+﻿using System;
+using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;
+using Serilog;
 
 namespace Cabster.Business.Messenger.Notification
 {
@@ -14,6 +16,8 @@ namespace Cabster.Business.Messenger.Notification
         /// <param name="request">Comando.</param>
         public UserNotificationPosted(UserNotificationPost request) : base(request)
         {
+            var log = request.Message.Success ? (Action<string, string>) Log.Information : Log.Error;
+            log("User notification: {NotificationMessage}", request.Message.Text);
         }
     }
 }

@@ -242,7 +242,7 @@ namespace Cabster.Business
             {
                 {KeyUrl, "http://agilemanifesto.org/principles.html"},
                 {KeyTitle, "Agile Manifesto Principle"},
-                {KeyBody, "Simplicity--the art of maximizing the amount of work not done--is essential."},
+                {KeyBody, "Simplicity (the art of maximizing the amount of work not done) is essential."},
                 {KeyAuthor, "Agile Manifesto Signatories"}
             },
             new Dictionary<string, string>

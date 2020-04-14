@@ -59,22 +59,25 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<Unit> Handle(ApplicationChangeLanguage request, CancellationToken cancellationToken)
         {
             var fromLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-            var toLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-            Log.Information("Changing application language from {fromLanguage} to {toLanguage}.",
-                fromLanguage, toLanguage);
-
-            Program.RestartWhenClose = true;
-
+            var toLanguage = request.NewLanguage.TwoLetterISOLanguageName;
+            
             var data = Program.Data;
-            data.Application.Language = request.NewLanguage.TwoLetterISOLanguageName;
+            data.Application.Language = toLanguage;
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
             await _messageBus.Send(
                 new UserNotificationPost(
-                    new NotificationMessage(Resources.Text_Application_ChangeLanguage.QueryString(
+                    new NotificationMessage(Resources.Text_Application_LanguageChanged.QueryString(
                         fromLanguage, toLanguage))), cancellationToken);
 
+            Log.Information("Restarting application.");
+            
+            await _messageBus.Send(new UserNotificationPost(
+                new NotificationMessage(Resources.Text_Application_Restarting)), cancellationToken);
+            
+            Program.RestartWhenClose = true;
+            
             await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
             return Unit.Value;
@@ -88,10 +91,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
-            Log.Information("Application started.");
-            await _messageBus.Send(
-                new UserNotificationPost(
-                    new NotificationMessage(Resources.Text_Application_Started)), cancellationToken);
+            Log.Information("Application initialized.");
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
             return Unit.Value;
         }
@@ -104,11 +104,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(ApplicationFinalize request, CancellationToken cancellationToken)
         {
-            Log.Information("Application finalized.");
             await _messageBus.Publish(new ApplicationFinalized(request), cancellationToken);
-            await _messageBus.Send(
-                new UserNotificationPost(
-                    new NotificationMessage(Resources.Text_Application_Finalized)), cancellationToken);
+            Log.Information("Application finalized.");
             return Unit.Value;
         }
 
@@ -127,18 +124,19 @@ namespace Cabster.Business.Messenger.Handlers
                 try
                 {
                     var registered = _shortcut.Register(notification.Request.Data.Application.Shortcut);
-                    await _messageBus.Send(new UserNotificationPost(
-                        new NotificationMessage(
-                            registered
-                                ? Resources.Text_Application_ShortcutDefined.QueryString(shortcut)
-                                : notification.Request.Data.Application.Shortcut != Keys.None
-                                    ? Resources.Text_Application_ShortcutInvalid.QueryString(shortcut)
-                                    : Resources.Text_Application_ShortcutRemoved.QueryString(shortcut),
-                            registered || notification.Request.Data.Application.Shortcut == Keys.None),
-                        notification.Request), cancellationToken);
-
+                    
                     Log.Debug("Shortcut key \"{Shortcut}\" registered: {Registered}",
                         shortcut, registered);
+
+                    await _messageBus.Send(new UserNotificationPost(
+                        new NotificationMessage(
+                            (registered
+                                ? Resources.Text_Application_ShortcutDefined
+                                : notification.Request.Data.Application.Shortcut != Keys.None
+                                    ? Resources.Text_Application_ShortcutInvalid
+                                    : Resources.Text_Application_ShortcutRemoved).QueryString(shortcut),
+                            registered || notification.Request.Data.Application.Shortcut == Keys.None),
+                        notification.Request), cancellationToken);
                 }
                 catch (Exception exception)
                 {
@@ -147,7 +145,7 @@ namespace Cabster.Business.Messenger.Handlers
 
                     await _messageBus.Send(new UserNotificationPost(
                         new NotificationMessage(
-                            Resources.Exception_Application_ShortcutAlreadyUsed,
+                            Resources.Exception_Application_ShortcutAlreadyUsed.QueryString(shortcut),
                             false),
                         notification.Request), cancellationToken);
                 }

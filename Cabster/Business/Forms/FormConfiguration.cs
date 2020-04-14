@@ -97,8 +97,6 @@ namespace Cabster.Business.Forms
         /// <param name="args">Informações do evento.</param>
         private void buttonLanguage_Click(object sender, EventArgs args)
         {
-            Shortcut = Keys.D3 | Keys.Control | Keys.Shift;
-            
             var newLanguage = new CultureInfo(sender == buttonLanguagePortuguese ? "pt" : "en");
             var currentLanguage = CultureInfo.CurrentUICulture;
 

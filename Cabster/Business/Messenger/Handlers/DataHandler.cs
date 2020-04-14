@@ -189,9 +189,19 @@ namespace Cabster.Business.Messenger.Handlers
 
             if (CultureInfo.DefaultThreadCurrentCulture == null ||
                 CultureInfo.DefaultThreadCurrentCulture.TwoLetterISOLanguageName != request.Data.Application.Language)
+            {
+                var fromLanguage = CultureInfo.DefaultThreadCurrentUICulture != null
+                    ? CultureInfo.DefaultThreadCurrentUICulture.TwoLetterISOLanguageName
+                    : "default";
+                var toLanguage = request.Data.Application.Language;
+                
                 CultureInfo.DefaultThreadCurrentUICulture =
                     CultureInfo.DefaultThreadCurrentCulture =
-                        new CultureInfo(request.Data.Application.Language);
+                        new CultureInfo(toLanguage);
+                
+                Log.Information("Changed application language from {fromLanguage} to {toLanguage}.",
+                    fromLanguage, toLanguage);
+            }
 
             _programData.SetValue(null, request.Data);
 
