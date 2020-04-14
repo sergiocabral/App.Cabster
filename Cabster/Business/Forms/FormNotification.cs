@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
-using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Properties;

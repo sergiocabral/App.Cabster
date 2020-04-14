@@ -1,5 +1,5 @@
 ﻿using Cabster.Business.Entities;
-using Cabster.Business.Enums;
+using Cabster.Business.Values;
 using Cabster.Infrastructure;
 
 namespace Cabster.Business.Messenger.Request

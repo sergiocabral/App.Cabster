@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cabster.Business.Enums
+namespace Cabster.Business.Values
 {
     /// <summary>
     ///     Estados possíveis da aplicação.

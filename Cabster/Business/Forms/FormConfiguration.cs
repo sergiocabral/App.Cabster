@@ -4,8 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Request;
+using Cabster.Business.Values;
 using Cabster.Components;
 using Cabster.Properties;
 using Serilog;
@@ -97,7 +97,9 @@ namespace Cabster.Business.Forms
         /// <param name="args">Informações do evento.</param>
         private void buttonLanguage_Click(object sender, EventArgs args)
         {
-            var newLanguage = new CultureInfo(sender == buttonLanguagePortuguese ? "pt" : "en");
+            var newLanguage = new CultureInfo(sender == buttonLanguagePortuguese 
+                ? TwoLetterLanguage.Portuguese 
+                : TwoLetterLanguage.English);
             var currentLanguage = CultureInfo.CurrentUICulture;
 
             if (currentLanguage.TwoLetterISOLanguageName == newLanguage.TwoLetterISOLanguageName)

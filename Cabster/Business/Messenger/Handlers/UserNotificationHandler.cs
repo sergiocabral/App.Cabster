@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Cabster.Business.Entities;
-using Cabster.Business.Enums;
 using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Infrastructure;

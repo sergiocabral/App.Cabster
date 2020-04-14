@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using Cabster.Business.Values;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 
@@ -23,7 +24,7 @@ namespace Cabster.Business
         /// <summary>
         ///     Idioma padrão.
         /// </summary>
-        private const string DefaultLanguage = "en";
+        private const string DefaultLanguage = TwoLetterLanguage.English;
 
         /// <summary>
         ///     Chave: Url

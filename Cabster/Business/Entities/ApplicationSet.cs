@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows.Forms;
-using Cabster.Business.Enums;
+using Cabster.Business.Values;
 
 namespace Cabster.Business.Entities
 {
