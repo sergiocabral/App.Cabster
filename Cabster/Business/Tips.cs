@@ -9,10 +9,8 @@ namespace Cabster.Business
     /// <summary>
     ///     Texto de dicas aleatórias.
     /// </summary>
-    public static class Tips
+    public class Tips: ITips
     {
-        //TODO: Converter em serviço
-        
         /// <summary>
         ///     Idioma padrão.
         /// </summary>
@@ -260,13 +258,13 @@ namespace Cabster.Business
         /// <summary>
         ///     Última dica obtida.
         /// </summary>
-        private static int _index = new Random(DateTime.Now.Millisecond).Next(0, List.Count);
+        private int _index = new Random(DateTime.Now.Millisecond).Next(0, List.Count);
 
         /// <summary>
         ///     Obtem uma dica aleatória.
         /// </summary>
         /// <returns></returns>
-        public static async Task<string> Get()
+        public async Task<string> Get()
         {
             var tip = List[_index++ % List.Count];
 

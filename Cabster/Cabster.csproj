@@ -176,6 +176,7 @@
     <Compile Include="Business\IEntity.cs" />
     <Compile Include="Business\Enums\ApplicationState.cs" />
     <Compile Include="Business\IShortcut.cs" />
+    <Compile Include="Business\ITips.cs" />
     <Compile Include="Business\IUserNotification.cs" />
     <Compile Include="Business\Messenger\Handlers\UserNotificationHandler.cs" />
     <Compile Include="Business\Messenger\Notification\DataLoadedFromFile.cs" />

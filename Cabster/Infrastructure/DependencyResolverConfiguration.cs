@@ -24,6 +24,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
             dependencyResolver.Register<FormNotification, FormNotification>();
 
+            dependencyResolver.Register<ITips, Tips>();
             dependencyResolver.Register<IDataManipulation, DataManipulation>();
             dependencyResolver.Register<IShortcut, Shortcut>();
             dependencyResolver.Register<IUserNotification, UserNotification>();

@@ -325,6 +325,11 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        /// Texto de dicas aleatórias.
+        /// </summary>
+        private static ITips Tips => Program.DependencyResolver.GetInstanceRequired<ITips>();
+
+        /// <summary>
         ///     Carrega uma frase de dicas.
         /// </summary>
         private async void LoadTip()
