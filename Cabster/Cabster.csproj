@@ -404,8 +404,7 @@
     <None Include="Resources\buttonLanguagePortugueseEnter.png" />
     <None Include="Resources\buttonNotificationLeave.png" />
     <None Include="Resources\buttonNotificationEnter.png" />
-    <None Include="Resources\FormBlockBackground.jpg.png" />
-    <None Include="Resources\FormBlockBackground.png" />
+    <None Include="Resources\FormLockScreenBackground.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

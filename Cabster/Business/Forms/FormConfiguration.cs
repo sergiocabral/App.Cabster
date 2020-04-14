@@ -15,6 +15,11 @@ namespace Cabster.Business.Forms
     public partial class FormConfiguration : FormLayout, IFormContainerData
     {
         /// <summary>
+        ///     Última estado para bloqueio da tela.
+        /// </summary>
+        private bool _lastLockScreen;
+        
+        /// <summary>
         ///     Última tecla de atalho gravada.
         /// </summary>
         private Keys _lastShortcut;
@@ -38,6 +43,15 @@ namespace Cabster.Business.Forms
             InitializeComponent2();
         }
 
+        /// <summary>
+        /// Bloqueio da tela.
+        /// </summary>
+        private bool LockScreen
+        {
+            get => checkBoxLockScreenActive.Checked;
+            set => checkBoxLockScreenInactive.Checked = !(checkBoxLockScreenActive.Checked = value);
+        }
+        
         /// <summary>
         ///     Tecla de atalho.
         /// </summary>
@@ -87,6 +101,7 @@ namespace Cabster.Business.Forms
         {
             var data = Program.Data;
             _lastShortcut = Shortcut = data.Application.Shortcut;
+            _lastLockScreen = LockScreen = data.Application.LockScreen;
         }
 
         /// <summary>
@@ -168,6 +183,17 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Grava as informações da tecla de atalho.
+        /// </summary>
+        private void SaveLockScreen()
+        {
+            if (!_loaded) return;
+            timeToSaveLockScreen.Enabled = false;
+            timeToSaveLockScreen.Enabled = true;
+            _pendingToSave |= DataSection.ApplicationLockScreen;
+        }
+
+        /// <summary>
         ///     Evento para efetivar a gravação da tecla de atalho.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
@@ -183,6 +209,21 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Evento para efetivar a gravação da tecla de atalho.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void timeToSaveLockScreen_Tick(object sender, EventArgs args)
+        {
+            ((Timer) sender).Enabled = false;
+            if (LockScreen == _lastLockScreen) return;
+            var data = Program.Data;
+            data.Application.LockScreen = LockScreen;
+            MessageBus.Send(new DataUpdate(data, DataSection.ApplicationLockScreen));
+            _pendingToSave ^= DataSection.ApplicationLockScreen;
+        }
+
+        /// <summary>
         ///     Quando clica o botão de fechar a janela.
         /// </summary>
         private async void OnButtonCloseClick()
@@ -191,7 +232,22 @@ namespace Cabster.Business.Forms
             if (_pendingToSave == 0) return;
             var data = Program.Data;
             data.Application.Shortcut = Shortcut;
+            data.Application.LockScreen = LockScreen;
             await MessageBus.Send(new DataUpdate(data, _pendingToSave));
+        }
+
+        /// <summary>
+        /// Evento ao clicar em ativar ou desativar o LockScreen
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void checkBoxLockScreen_CheckedChanged(object sender, EventArgs args)
+        {
+            if (sender == checkBoxLockScreenActive)
+                checkBoxLockScreenInactive.Checked = !checkBoxLockScreenActive.Checked;
+            if (sender == checkBoxLockScreenInactive)
+                checkBoxLockScreenActive.Checked = !checkBoxLockScreenInactive.Checked;
+            SaveLockScreen();
         }
     }
 }

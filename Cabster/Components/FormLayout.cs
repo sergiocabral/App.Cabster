@@ -61,6 +61,12 @@ namespace Cabster.Components
         protected Button ButtonMinimize => buttonMinimize;
 
         /// <summary>
+        ///     Bloqueador de telas.
+        /// </summary>
+        private ILockScreen LockScreen =>
+            Program.DependencyResolver.GetInstanceRequired<ILockScreen>();
+
+        /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
         public bool ShowLogo
@@ -128,20 +134,22 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            if (!DesignMode) {
+            if (!Infrastructure.Environment.IsDesign)
+            {
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |
                     ControlStyles.DoubleBuffer,
                     true);
-
-                TopMost = Program.DependencyResolver.GetInstanceRequired<ILockScreen>().IsLocked;
-            }
                 
+                TopMost = LockScreen.IsLocked;
+            }
+
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
             HandleCreated += (sender, args) => toolTip.Translate();
+
             Load += (sender, args) =>
             {
                 labelTitle.Text = Text;

@@ -243,19 +243,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormBlockBackground {
+        public static System.Drawing.Bitmap FormLockScreenBackground {
             get {
-                object obj = ResourceManager.GetObject("FormBlockBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormLayoutBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                object obj = ResourceManager.GetObject("FormLockScreenBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -267,6 +257,16 @@ namespace Cabster.Properties {
             get {
                 object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormLayoutBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -484,6 +484,15 @@ namespace Cabster.Properties {
         public static string Window_Configuration_LanguageSelect {
             get {
                 return ResourceManager.GetString("Window.Configuration.LanguageSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background screen lock.
+        /// </summary>
+        public static string Window_Configuration_LockScreen {
+            get {
+                return ResourceManager.GetString("Window.Configuration.LockScreen", resourceCulture);
             }
         }
         

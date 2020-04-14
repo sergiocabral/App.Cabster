@@ -33,6 +33,12 @@ namespace Cabster.Business.Values
             0b_0000_0010,
 
         /// <summary>
+        ///     ApplicationSet: Bloqueio de tela
+        /// </summary>
+        ApplicationLockScreen =
+            0b_0000_0100,
+
+        /// <summary>
         ///     WorkGroupSet
         /// </summary>
         WorkGroup =

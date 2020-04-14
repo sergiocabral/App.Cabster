@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormGroupWork));
+                new System.ComponentModel.ComponentResourceManager(typeof(Cabster.Business.Forms.FormGroupWork));
             this.labelDurationOfEachRound_Part1 = new System.Windows.Forms.Label();
             this.numericUpDownDurationOfEachRound = new System.Windows.Forms.NumericUpDown();
             this.labelDurationOfEachRound_Part2 = new System.Windows.Forms.Label();
@@ -53,9 +53,6 @@
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDurationOfEachBreak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownBreakStartsAfterHowManyRounds)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelDurationOfEachRound_Part1
-            // 
             this.labelDurationOfEachRound_Part1.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -67,9 +64,6 @@
             this.labelDurationOfEachRound_Part1.TabIndex = 13;
             this.labelDurationOfEachRound_Part1.Text = "Window.GroupWork.DurationOfEachRound_Part1";
             this.labelDurationOfEachRound_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numericUpDownDurationOfEachRound
-            // 
             this.numericUpDownDurationOfEachRound.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -87,9 +81,6 @@
             this.numericUpDownDurationOfEachRound.Value = new decimal(new int[] {1, 0, 0, 0});
             this.numericUpDownDurationOfEachRound.ValueChanged +=
                 new System.EventHandler(this.numericUpDownTimes_Change);
-            // 
-            // labelDurationOfEachRound_Part2
-            // 
             this.labelDurationOfEachRound_Part2.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -101,9 +92,6 @@
             this.labelDurationOfEachRound_Part2.TabIndex = 15;
             this.labelDurationOfEachRound_Part2.Text = "Window.GroupWork.DurationOfEachRound_Part2";
             this.labelDurationOfEachRound_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelDurationOfEachBreak_Part2
-            // 
             this.labelDurationOfEachBreak_Part2.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -115,9 +103,6 @@
             this.labelDurationOfEachBreak_Part2.TabIndex = 18;
             this.labelDurationOfEachBreak_Part2.Text = "Window.GroupWork.DurationOfEachBreak_Part2";
             this.labelDurationOfEachBreak_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numericUpDownDurationOfEachBreak
-            // 
             this.numericUpDownDurationOfEachBreak.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -133,9 +118,6 @@
             this.numericUpDownDurationOfEachBreak.TabIndex = 17;
             this.numericUpDownDurationOfEachBreak.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDownDurationOfEachBreak.Value = new decimal(new int[] {1, 0, 0, 0});
-            // 
-            // labelDurationOfEachBreak_Part1
-            // 
             this.labelDurationOfEachBreak_Part1.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -147,9 +129,6 @@
             this.labelDurationOfEachBreak_Part1.TabIndex = 16;
             this.labelDurationOfEachBreak_Part1.Text = "Window.GroupWork.DurationOfEachBreak_Part1";
             this.labelDurationOfEachBreak_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelBreakStartsAfterHowManyRounds_Part2
-            // 
             this.labelBreakStartsAfterHowManyRounds_Part2.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -161,9 +140,6 @@
             this.labelBreakStartsAfterHowManyRounds_Part2.TabIndex = 21;
             this.labelBreakStartsAfterHowManyRounds_Part2.Text = "Window.GroupWork.BreakStartsAfterHowManyRounds_Part2";
             this.labelBreakStartsAfterHowManyRounds_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numericUpDownBreakStartsAfterHowManyRounds
-            // 
             this.numericUpDownBreakStartsAfterHowManyRounds.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -181,9 +157,6 @@
             this.numericUpDownBreakStartsAfterHowManyRounds.Value = new decimal(new int[] {1, 0, 0, 0});
             this.numericUpDownBreakStartsAfterHowManyRounds.ValueChanged +=
                 new System.EventHandler(this.numericUpDownTimes_Change);
-            // 
-            // labelBreakStartsAfterHowManyRounds_Part1
-            // 
             this.labelBreakStartsAfterHowManyRounds_Part1.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -195,9 +168,6 @@
             this.labelBreakStartsAfterHowManyRounds_Part1.TabIndex = 19;
             this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Window.GroupWork.BreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panelParticipants
-            // 
             this.panelParticipants.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top |
                                                          System.Windows.Forms.AnchorStyles.Bottom) |
@@ -208,9 +178,6 @@
             this.panelParticipants.Name = "panelParticipants";
             this.panelParticipants.Size = new System.Drawing.Size(676, 94);
             this.panelParticipants.TabIndex = 12;
-            // 
-            // textBoxAddParticipant
-            // 
             this.textBoxAddParticipant.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -224,9 +191,6 @@
             this.textBoxAddParticipant.TabIndex = 9;
             this.textBoxAddParticipant.KeyUp +=
                 new System.Windows.Forms.KeyEventHandler(this.textBoxAddParticipant_KeyUp);
-            // 
-            // buttonParticipantAdd
-            // 
             this.buttonParticipantAdd.AutoSize = true;
             this.buttonParticipantAdd.BackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantAdd.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -248,9 +212,6 @@
             this.buttonParticipantAdd.UseText = false;
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
             this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
-            // 
-            // buttonParticipantSort
-            // 
             this.buttonParticipantSort.AutoSize = true;
             this.buttonParticipantSort.BackColor = System.Drawing.Color.Transparent;
             this.buttonParticipantSort.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -272,9 +233,6 @@
             this.buttonParticipantSort.UseText = false;
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
             this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
-            // 
-            // buttonStart
-            // 
             this.buttonStart.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -301,9 +259,6 @@
             this.buttonStart.UseText = false;
             this.buttonStart.UseVisualStyleBackColor = false;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
-            // 
-            // labelTips
-            // 
             this.labelTips.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -321,9 +276,6 @@
             this.labelTips.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip.SetToolTip(this.labelTips, "Window.GroupWork.TipsHint");
             this.labelTips.Click += new System.EventHandler(this.labelTips_Click);
-            // 
-            // buttonConfiguration
-            // 
             this.buttonConfiguration.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
                                                        System.Windows.Forms.AnchorStyles.Right)));
@@ -352,19 +304,10 @@
             this.buttonConfiguration.UseText = false;
             this.buttonConfiguration.UseVisualStyleBackColor = false;
             this.buttonConfiguration.Click += new System.EventHandler(this.buttonConfiguration_Click);
-            // 
-            // timerToSaveParticipants
-            // 
             this.timerToSaveParticipants.Interval = 10000;
             this.timerToSaveParticipants.Tick += new System.EventHandler(this.timerToSaveParticipants_Tick);
-            // 
-            // timerToSaveTimes
-            // 
             this.timerToSaveTimes.Interval = 10000;
             this.timerToSaveTimes.Tick += new System.EventHandler(this.timerToSaveTimes_Tick);
-            // 
-            // FormGroupWork
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 400);

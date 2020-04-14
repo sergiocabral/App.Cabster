@@ -86,7 +86,7 @@ namespace Cabster.Components
 
                 _textUpdating = true;
 
-                if (!string.IsNullOrWhiteSpace(value) || DesignMode)
+                if (!string.IsNullOrWhiteSpace(value) || Environment.IsDesign)
                 {
                     base.Text = value;
                     base.ForeColor = ForeColor;

@@ -53,6 +53,7 @@ namespace Cabster
         [STAThread]
         public static void Main(params string[] args)
         {
+            Environment.Initialize();
             var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             WindowsApi.ShowWindow(mainWindowHandle, Environment.IsDebug);
             WindowsApi.FixCursorHand();
