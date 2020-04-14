@@ -76,6 +76,11 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Idioma atual.
+        /// </summary>
+        private static CultureInfo CurrentLanguage => CultureInfo.CurrentUICulture;
+
+        /// <summary>
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
         public void UpdateControls()
@@ -95,6 +100,11 @@ namespace Cabster.Business.Forms
                 UpdateControls();
                 _loaded = true;
             };
+
+            if (CurrentLanguage.TwoLetterISOLanguageName == TwoLetterLanguage.Portuguese)
+                buttonLanguagePortuguese.ForeColor = Color.Highlight;
+            if (CurrentLanguage.TwoLetterISOLanguageName == TwoLetterLanguage.English)
+                buttonLanguageEnglish.ForeColor = Color.Highlight;
         }
 
         /// <summary>
@@ -104,12 +114,11 @@ namespace Cabster.Business.Forms
         /// <param name="args">Informações do evento.</param>
         private void buttonLanguage_Click(object sender, EventArgs args)
         {
-            var newLanguage = new CultureInfo(sender == buttonLanguagePortuguese
+            var newLanguage = (sender == buttonLanguagePortuguese
                 ? TwoLetterLanguage.Portuguese
-                : TwoLetterLanguage.English);
-            var currentLanguage = CultureInfo.CurrentUICulture;
+                : TwoLetterLanguage.English).ToCultureInfo();
 
-            if (currentLanguage.TwoLetterISOLanguageName == newLanguage.TwoLetterISOLanguageName)
+            if (CurrentLanguage.TwoLetterISOLanguageName == newLanguage.TwoLetterISOLanguageName)
             {
                 SetStatusMessage(Resources.Window_Configuration_LanguageAlreadySelected);
                 return;

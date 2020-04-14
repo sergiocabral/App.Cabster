@@ -14,5 +14,10 @@
         ///     Cor para texto de notificação de erro.
         /// </summary>
         public static System.Drawing.Color NotificationError = System.Drawing.Color.Pink;
+
+        /// <summary>
+        ///     Cor de destaque da aplicação.
+        /// </summary>
+        public static System.Drawing.Color Highlight = System.Drawing.Color.FromArgb(250, 180, 20);
     }
 }
