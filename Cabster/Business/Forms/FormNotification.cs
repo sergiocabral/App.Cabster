@@ -47,6 +47,7 @@ namespace Cabster.Business.Forms
             {
                 panelMessages.Width = Width - (panelMessages.Left * 2);
                 panelMessages.Height = Height - (panelMessages.Top + panelMessages.Left);
+                foreach (Control control in panelMessages.Controls) AdjustSize(control);
             };
             Load += (sender, args) => UpdateControls();
         }
@@ -57,6 +58,11 @@ namespace Cabster.Business.Forms
         /// <param name="message">Mensagem.</param>
         private void AddMessage(NotificationMessage message)
         {
+            var panel = new Panel
+            {
+                Height = 10,
+                Dock = DockStyle.Top
+            };
             var label = new Label
             {
                 BackColor = Color.Transparent,
@@ -65,15 +71,21 @@ namespace Cabster.Business.Forms
                 Dock = DockStyle.Top,
                 AutoSize = true
             };
-            var panel = new Panel
-            {
-                Height = 10,
-                Dock = DockStyle.Top
-            };
-            panelMessages.Controls.Add(label);
             panelMessages.Controls.Add(panel);
-            label.SendToBack();
-            panel.SendToBack();
+            panelMessages.Controls.Add(label);
+            AdjustSize(panel).SendToBack();
+            AdjustSize(label).SendToBack();
+        }
+
+        /// <summary>
+        /// Ajusta otamanho dos controles.
+        /// </summary>
+        /// <param name="control">Controle</param>
+        /// <returns>Mesma instância de entrada.</returns>
+        private Control AdjustSize(Control control)
+        {
+            if (control is Label label) label.MaximumSize = new Size(label.Parent.Width, 0);
+            return control;
         }
 
         /// <summary>
@@ -87,7 +99,7 @@ namespace Cabster.Business.Forms
             foreach (var message in messages)
             {
                 AddMessage(message);
-                if (_lastFilter < message.Time) _lastFilter = message.Time.AddMilliseconds(1);
+                if (_lastFilter < message.Time) _lastFilter = message.Time;
             }
         }
     }

@@ -35,7 +35,7 @@ namespace Cabster.Business
             var messages = _messages.AsEnumerable();
 
             if (filter.HasValue)
-                messages = messages.Where(a => a.Time >= filter.Value);
+                messages = messages.Where(a => a.Time > filter.Value);
                 
             return messages;
         }
