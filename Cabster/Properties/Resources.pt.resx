@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Action.MinimizeWindow" xml:space="preserve">
+  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimizar janela.</value>
   </data>
-  <data name="Action.ResizeWindow" xml:space="preserve">
+  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
     <value>Redimensionar janela.</value>
   </data>
-  <data name="Action.TerminateApplication" xml:space="preserve">
+  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
     <value>Fechar a aplicação.</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
@@ -150,118 +150,118 @@
   <data name="Exception.Infrastructure.ConfigurationIsManagedInternally" xml:space="preserve">
     <value>A configuração {Configuration} é gerenciada internamente e não suporta algumas operações pelo escopo fora da aplicação de negócio.</value>
   </data>
-  <data name="Name.System" xml:space="preserve">
+  <data name="Name.Application" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Text.Application.LanguageChanged" xml:space="preserve">
+  <data name="Notification.LanguageChanged" xml:space="preserve">
     <value>O idioma do aplicativo foi alterado de {fromLanguage} para {toLanguage}.</value>
   </data>
-  <data name="Text.Application.Restarting" xml:space="preserve">
+  <data name="Notification.ApplicationRestarting" xml:space="preserve">
     <value>Reiniciando aplicação.</value>
   </data>
-  <data name="Text.Application.ShortcutDefined" xml:space="preserve">
+  <data name="Notification.ShortcutDefined" xml:space="preserve">
     <value>As teclas de atalho {Shortcut} foram registradas com sucesso.</value>
   </data>
-  <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
+  <data name="Notification.ShortcutInvalid" xml:space="preserve">
     <value>As teclas de atalho {Shortcut} não podem ser acionadas.</value>
   </data>
-  <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
+  <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
   </data>
-  <data name="Text.Common.Active" xml:space="preserve">
+  <data name="Name.Term.Active" xml:space="preserve">
     <value>Ativo</value>
   </data>
-  <data name="Text.Common.Inactive" xml:space="preserve">
+  <data name="Name.Term.Inactive" xml:space="preserve">
     <value>Inativo</value>
   </data>
-  <data name="Text.Configuration.LanguageAlreadySelected" xml:space="preserve">
+  <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>A aplicação já está no idioma selecionado.</value>
   </data>
-  <data name="Text.Configuration.LanguageChangeConfirm" xml:space="preserve">
+  <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>Para trocar o idioma a aplicação deve ser reiniciada.</value>
   </data>
-  <data name="Text.Configuration.LanguageEnglish" xml:space="preserve">
+  <data name="Name.Language.English" xml:space="preserve">
     <value>Inglês americano</value>
   </data>
-  <data name="Text.Configuration.LanguagePortuguese" xml:space="preserve">
+  <data name="Name.Language.Portuguese" xml:space="preserve">
     <value>Português brasileiro</value>
   </data>
-  <data name="Text.Configuration.LanguageSelect" xml:space="preserve">
+  <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
     <value>Selecione o idioma de exibição</value>
   </data>
-  <data name="Text.Configuration.Shortcut" xml:space="preserve">
+  <data name="Window.Configuration.Shortcut" xml:space="preserve">
     <value>Tecla de atalho para ações do aplicativo</value>
   </data>
-  <data name="Text.Configuration.WindowTitle" xml:space="preserve">
+  <data name="Window.Configuration.WindowTitle" xml:space="preserve">
     <value>Configurações</value>
   </data>
-  <data name="Text.DialogShow.ButtonCancel" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonCancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="Text.DialogShow.ButtonClose" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonClose" xml:space="preserve">
     <value>Fechar</value>
   </data>
-  <data name="Text.DialogShow.ButtonConfirm" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonConfirm" xml:space="preserve">
     <value>Confirmar</value>
   </data>
-  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>O intervalo inicia após:</value>
   </data>
-  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rodadas. A cada {minutes} minuto(s).</value>
   </data>
-  <data name="Text.GroupWork.ConfigurationHint" xml:space="preserve">
+  <data name="Window.GroupWork.ConfigurationHint" xml:space="preserve">
     <value>Abre as opções de configuração.</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duração de cada intervalo:</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
     <value>minuto(s).</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
     <value>Duração de cada rodada:</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minuto(s).</value>
   </data>
-  <data name="Text.GroupWork.ParticipantAdd" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantAdd" xml:space="preserve">
     <value>Digite o nome do participante.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantAddHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantAddHint" xml:space="preserve">
     <value>Clique aqui para adicionar um participante.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantNameEmpty" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantNameEmpty" xml:space="preserve">
     <value>Para adicionar um participante informe um nome.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantRemoveHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantRemoveHint" xml:space="preserve">
     <value>Participante: {Participant}
 
 Para ativar ou desativar: botão direito.
 Para remover: botão esquerdo.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantSortHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantSortHint" xml:space="preserve">
     <value>Ordenar aleatóriamente os participantes.</value>
   </data>
-  <data name="Text.GroupWork.Start" xml:space="preserve">
+  <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Começar Mob</value>
   </data>
-  <data name="Text.GroupWork.TipsHint" xml:space="preserve">
+  <data name="Window.GroupWork.TipsHint" xml:space="preserve">
     <value>Clique para carregar uma nova dica.</value>
   </data>
-  <data name="Text.GroupWork.TipsLoading" xml:space="preserve">
+  <data name="Window.GroupWork.TipsLoading" xml:space="preserve">
     <value>Carregando outra dica...</value>
   </data>
-  <data name="Text.GroupWork.WindowTitle" xml:space="preserve">
+  <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Trabalho em Grupo em MOB</value>
   </data>
-  <data name="Text.Layout.NotificationUser" xml:space="preserve">
+  <data name="Window.Layout.NotificationUser" xml:space="preserve">
     <value>Notificações gerais da aplicação.</value>
   </data>
-  <data name="Text.Notification.NoNotification" xml:space="preserve">
+  <data name="Window.Notification.NoNotification" xml:space="preserve">
     <value>Nenhuma notificação.</value>
   </data>
-  <data name="Text.Notification.WindowTitle" xml:space="preserve">
+  <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notificações</value>
   </data>
 </root>

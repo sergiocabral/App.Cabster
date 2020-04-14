@@ -57,7 +57,7 @@
             this.labelNoNotification.Name = "labelNoNotification";
             this.labelNoNotification.Size = new System.Drawing.Size(230, 19);
             this.labelNoNotification.TabIndex = 0;
-            this.labelNoNotification.Text = "Text.Notification.NoNotification";
+            this.labelNoNotification.Text = "Window.Notification.NoNotification";
             // 
             // FormNotification
             // 
@@ -67,7 +67,7 @@
             this.Controls.Add(this.panelMessages);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNotification";
-            this.Text = "Text.Notification.WindowTitle";
+            this.Text = "Window.Notification.WindowTitle";
             this.Controls.SetChildIndex(this.panelMessages, 0);
             this.panelMessages.ResumeLayout(false);
             this.panelMessages.PerformLayout();

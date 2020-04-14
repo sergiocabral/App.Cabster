@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Action.MinimizeWindow" xml:space="preserve">
+  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimize window.</value>
   </data>
-  <data name="Action.ResizeWindow" xml:space="preserve">
+  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
     <value>Resize window.</value>
   </data>
-  <data name="Action.TerminateApplication" xml:space="preserve">
+  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
     <value>Close application.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -175,46 +175,46 @@
   <data name="Exception.Infrastructure.ConfigurationIsManagedInternally" xml:space="preserve">
     <value>The {Configuration} configuration is managed internally and does not support some operations by the scope outside the business application.</value>
   </data>
-  <data name="Name.System" xml:space="preserve">
+  <data name="Name.Application" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>The interval starts after:</value>
   </data>
-  <data name="Text.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rounds. Every {minutes} minute(s).</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duration of each break:</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachBreak_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachRound_Part1" xml:space="preserve">
     <value>Duration of each round:</value>
   </data>
-  <data name="Text.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
+  <data name="Window.GroupWork.DurationOfEachRound_Part2" xml:space="preserve">
     <value>minute(s).</value>
   </data>
-  <data name="Text.GroupWork.ParticipantAdd" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantAdd" xml:space="preserve">
     <value>Enter the participant's name.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantRemoveHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantRemoveHint" xml:space="preserve">
     <value>Participant: {Participant}
 
 To activate or deactivate: right button.
 To remove: left button.</value>
   </data>
-  <data name="Text.Common.Active" xml:space="preserve">
+  <data name="Name.Term.Active" xml:space="preserve">
     <value>Active</value>
   </data>
-  <data name="Text.Common.Inactive" xml:space="preserve">
+  <data name="Name.Term.Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
-  <data name="Text.GroupWork.ParticipantNameEmpty" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantNameEmpty" xml:space="preserve">
     <value>To add a participant enter a name.</value>
   </data>
-  <data name="Text.GroupWork.ParticipantAddHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantAddHint" xml:space="preserve">
     <value>Click here to add a participant.</value>
   </data>
   <data name="buttonParticipantAddEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -229,22 +229,22 @@ To remove: left button.</value>
   <data name="buttonParticipantSortLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonParticipantSortLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.GroupWork.ParticipantSortHint" xml:space="preserve">
+  <data name="Window.GroupWork.ParticipantSortHint" xml:space="preserve">
     <value>Randomly sort the participants.</value>
   </data>
-  <data name="Text.GroupWork.Start" xml:space="preserve">
+  <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Start Mob</value>
   </data>
-  <data name="Text.GroupWork.TipsLoading" xml:space="preserve">
+  <data name="Window.GroupWork.TipsLoading" xml:space="preserve">
     <value>Loading another tip ...</value>
   </data>
-  <data name="Text.DialogShow.ButtonClose" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonClose" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="Text.DialogShow.ButtonCancel" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Text.DialogShow.ButtonConfirm" xml:space="preserve">
+  <data name="Window.DialogShow.ButtonConfirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
   <data name="buttonConfigurationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -253,13 +253,13 @@ To remove: left button.</value>
   <data name="buttonConfigurationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonConfigurationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.GroupWork.ConfigurationHint" xml:space="preserve">
+  <data name="Window.GroupWork.ConfigurationHint" xml:space="preserve">
     <value>Opens the configuration options.</value>
   </data>
-  <data name="Text.Configuration.WindowTitle" xml:space="preserve">
+  <data name="Window.Configuration.WindowTitle" xml:space="preserve">
     <value>Configuration</value>
   </data>
-  <data name="Text.GroupWork.WindowTitle" xml:space="preserve">
+  <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Group Work as MOB</value>
   </data>
   <data name="buttonLanguageEnglishEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -274,34 +274,34 @@ To remove: left button.</value>
   <data name="buttonLanguagePortugueseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonLanguagePortugueseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.Configuration.LanguageSelect" xml:space="preserve">
+  <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
     <value>Select the display language</value>
   </data>
-  <data name="Text.Configuration.LanguageEnglish" xml:space="preserve">
+  <data name="Name.Language.English" xml:space="preserve">
     <value>American english</value>
   </data>
-  <data name="Text.Configuration.LanguagePortuguese" xml:space="preserve">
+  <data name="Name.Language.Portuguese" xml:space="preserve">
     <value>Brazilian portuguese</value>
   </data>
-  <data name="Text.Configuration.LanguageChangeConfirm" xml:space="preserve">
+  <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>To change the language, the application must be restarted.</value>
   </data>
-  <data name="Text.Configuration.LanguageAlreadySelected" xml:space="preserve">
+  <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>The application is already in the selected language.</value>
   </data>
-  <data name="Text.GroupWork.TipsHint" xml:space="preserve">
+  <data name="Window.GroupWork.TipsHint" xml:space="preserve">
     <value>Click to load a new tip.</value>
   </data>
-  <data name="Text.Configuration.Shortcut" xml:space="preserve">
+  <data name="Window.Configuration.Shortcut" xml:space="preserve">
     <value>Shortcut key for application actions</value>
   </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
     <value>The {Shortcut} shortcut keys is already being used by another application.</value>
   </data>
-  <data name="Text.Application.ShortcutDefined" xml:space="preserve">
+  <data name="Notification.ShortcutDefined" xml:space="preserve">
     <value>The {Shortcut} shortcut keys has been successfully registered.</value>
   </data>
-  <data name="Text.Application.ShortcutRemoved" xml:space="preserve">
+  <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>No shortcut keys defined.</value>
   </data>
   <data name="buttonNotificationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -310,22 +310,22 @@ To remove: left button.</value>
   <data name="buttonNotificationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonNotificationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Text.Layout.NotificationUser" xml:space="preserve">
+  <data name="Window.Layout.NotificationUser" xml:space="preserve">
     <value>General application notifications.</value>
   </data>
-  <data name="Text.Notification.WindowTitle" xml:space="preserve">
+  <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notifications</value>
   </data>
-  <data name="Text.Notification.NoNotification" xml:space="preserve">
+  <data name="Window.Notification.NoNotification" xml:space="preserve">
     <value>No notification.</value>
   </data>
-  <data name="Text.Application.ShortcutInvalid" xml:space="preserve">
+  <data name="Notification.ShortcutInvalid" xml:space="preserve">
     <value>The {Shortcut} shortcut keys cannot be activated.</value>
   </data>
-  <data name="Text.Application.LanguageChanged" xml:space="preserve">
+  <data name="Notification.LanguageChanged" xml:space="preserve">
     <value>The application language has been changed from {fromLanguage} to {toLanguage}.</value>
   </data>
-  <data name="Text.Application.Restarting" xml:space="preserve">
+  <data name="Notification.ApplicationRestarting" xml:space="preserve">
     <value>Restarting application.</value>
   </data>
 </root>

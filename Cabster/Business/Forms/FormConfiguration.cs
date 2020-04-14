@@ -102,11 +102,11 @@ namespace Cabster.Business.Forms
 
             if (currentLanguage.TwoLetterISOLanguageName == newLanguage.TwoLetterISOLanguageName)
             {
-                SetStatusMessage(Resources.Text_Configuration_LanguageAlreadySelected);
+                SetStatusMessage(Resources.Window_Configuration_LanguageAlreadySelected);
                 return;
             }
 
-            if (!FormDialogConfirm.Show(Resources.Text_Configuration_LanguageChangeConfirm)) return;
+            if (!FormDialogConfirm.Show(Resources.Window_Configuration_LanguageChangeConfirm)) return;
 
             MessageBus.Send(new ApplicationChangeLanguage(newLanguage));
             

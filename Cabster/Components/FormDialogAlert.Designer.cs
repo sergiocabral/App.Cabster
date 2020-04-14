@@ -64,7 +64,7 @@
             this.buttonDialogClose.Name = "buttonDialogClose";
             this.buttonDialogClose.Size = new System.Drawing.Size(348, 47);
             this.buttonDialogClose.TabIndex = 5;
-            this.buttonDialogClose.Text = "Text.DialogShow.ButtonClose";
+            this.buttonDialogClose.Text = "Window.DialogShow.ButtonClose";
             this.buttonDialogClose.UseVisualStyleBackColor = false;
             this.buttonDialogClose.Click += new System.EventHandler(this.buttonDialogClose_Click);
             // 

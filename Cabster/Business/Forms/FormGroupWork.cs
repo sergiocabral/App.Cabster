@@ -263,7 +263,7 @@ namespace Cabster.Business.Forms
                 var participantName = textBoxAddParticipant.Text;
                 if (string.IsNullOrWhiteSpace(participantName))
                 {
-                    SetStatusMessage(Resources.Text_GroupWork_ParticipantNameEmpty, false);
+                    SetStatusMessage(Resources.Window_GroupWork_ParticipantNameEmpty, false);
                     return;
                 }
 
@@ -320,7 +320,7 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void labelTips_Click(object sender, EventArgs args)
         {
-            SetStatusMessage(Resources.Text_GroupWork_TipsLoading);
+            SetStatusMessage(Resources.Window_GroupWork_TipsLoading);
             LoadTip();
         }
 
@@ -450,11 +450,11 @@ namespace Cabster.Business.Forms
             {
                 _form.toolTip.SetToolTip(
                     _control,
-                    Resources.Text_GroupWork_ParticipantRemoveHint
+                    Resources.Window_GroupWork_ParticipantRemoveHint
                         .QueryString(
                             Active
-                                ? Resources.Text_Common_Active.ToUpper()
-                                : Resources.Text_Common_Inactive.ToUpper()));
+                                ? Resources.Name_Term_Active.ToUpper()
+                                : Resources.Name_Term_Inactive.ToUpper()));
             }
 
             /// <summary>

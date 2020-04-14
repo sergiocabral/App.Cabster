@@ -66,7 +66,7 @@
             this.buttonLanguageEnglish.NotTransparent = false;
             this.buttonLanguageEnglish.Size = new System.Drawing.Size(566, 50);
             this.buttonLanguageEnglish.TabIndex = 8;
-            this.buttonLanguageEnglish.Text = "           Text.Configuration.LanguageEnglish";
+            this.buttonLanguageEnglish.Text = "           Name.Language.English";
             this.buttonLanguageEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageEnglish.UseText = true;
             this.buttonLanguageEnglish.UseVisualStyleBackColor = false;
@@ -96,7 +96,7 @@
             this.buttonLanguagePortuguese.NotTransparent = false;
             this.buttonLanguagePortuguese.Size = new System.Drawing.Size(566, 50);
             this.buttonLanguagePortuguese.TabIndex = 7;
-            this.buttonLanguagePortuguese.Text = "           Text.Configuration.LanguagePortuguese";
+            this.buttonLanguagePortuguese.Text = "           Name.Language.Portuguese";
             this.buttonLanguagePortuguese.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguagePortuguese.UseText = true;
             this.buttonLanguagePortuguese.UseVisualStyleBackColor = false;
@@ -113,7 +113,7 @@
             this.labelLanguage.Name = "labelLanguage";
             this.labelLanguage.Size = new System.Drawing.Size(576, 21);
             this.labelLanguage.TabIndex = 6;
-            this.labelLanguage.Text = "Text.Configuration.LanguageSelect";
+            this.labelLanguage.Text = "Window.Configuration.LanguageSelect";
             // 
             // labelShortcut
             // 
@@ -126,7 +126,7 @@
             this.labelShortcut.Name = "labelShortcut";
             this.labelShortcut.Size = new System.Drawing.Size(576, 21);
             this.labelShortcut.TabIndex = 9;
-            this.labelShortcut.Text = "Text.Configuration.Shortcut";
+            this.labelShortcut.Text = "Window.Configuration.Shortcut";
             // 
             // checkBoxShortcutControl
             // 
@@ -257,7 +257,7 @@
             this.Controls.Add(this.labelLanguage);
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormConfiguration";
-            this.Text = "Text.Configuration.WindowTitle";
+            this.Text = "Window.Configuration.WindowTitle";
             this.Controls.SetChildIndex(this.labelLanguage, 0);
             this.Controls.SetChildIndex(this.buttonLanguagePortuguese, 0);
             this.Controls.SetChildIndex(this.buttonLanguageEnglish, 0);

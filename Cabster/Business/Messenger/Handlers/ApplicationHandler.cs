@@ -68,13 +68,13 @@ namespace Cabster.Business.Messenger.Handlers
 
             await _messageBus.Send(
                 new UserNotificationPost(
-                    new NotificationMessage(Resources.Text_Application_LanguageChanged.QueryString(
+                    new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
                         fromLanguage, toLanguage))), cancellationToken);
 
             Log.Information("Restarting application.");
             
             await _messageBus.Send(new UserNotificationPost(
-                new NotificationMessage(Resources.Text_Application_Restarting)), cancellationToken);
+                new NotificationMessage(Resources.Notification_ApplicationRestarting)), cancellationToken);
             
             Program.RestartWhenClose = true;
             
@@ -131,10 +131,10 @@ namespace Cabster.Business.Messenger.Handlers
                     await _messageBus.Send(new UserNotificationPost(
                         new NotificationMessage(
                             (registered
-                                ? Resources.Text_Application_ShortcutDefined
+                                ? Resources.Notification_ShortcutDefined
                                 : notification.Request.Data.Application.Shortcut != Keys.None
-                                    ? Resources.Text_Application_ShortcutInvalid
-                                    : Resources.Text_Application_ShortcutRemoved).QueryString(shortcut),
+                                    ? Resources.Notification_ShortcutInvalid
+                                    : Resources.Notification_ShortcutRemoved).QueryString(shortcut),
                             registered || notification.Request.Data.Application.Shortcut == Keys.None),
                         notification.Request), cancellationToken);
                 }

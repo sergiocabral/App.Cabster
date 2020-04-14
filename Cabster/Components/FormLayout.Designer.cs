@@ -93,7 +93,7 @@
             this.buttonMinimize.NotTransparent = false;
             this.buttonMinimize.Size = new System.Drawing.Size(50, 50);
             this.buttonMinimize.TabIndex = 4;
-            this.toolTip.SetToolTip(this.buttonMinimize, "Action.MinimizeWindow");
+            this.toolTip.SetToolTip(this.buttonMinimize, "Window.Layout.MinimizeWindow");
             this.buttonMinimize.UseText = false;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
@@ -115,7 +115,7 @@
             this.buttonClose.NotTransparent = false;
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
             this.buttonClose.TabIndex = 5;
-            this.toolTip.SetToolTip(this.buttonClose, "Action.TerminateApplication");
+            this.toolTip.SetToolTip(this.buttonClose, "Window.Layout.TerminateApplication");
             this.buttonClose.UseText = false;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -155,7 +155,7 @@
             this.buttonResize.NotTransparent = false;
             this.buttonResize.Size = new System.Drawing.Size(24, 24);
             this.buttonResize.TabIndex = 11;
-            this.toolTip.SetToolTip(this.buttonResize, "Action.ResizeWindow");
+            this.toolTip.SetToolTip(this.buttonResize, "Window.Layout.ResizeWindow");
             this.buttonResize.UseText = false;
             this.buttonResize.UseVisualStyleBackColor = false;
             // 
@@ -208,7 +208,7 @@
             this.buttonNotification.NotTransparent = false;
             this.buttonNotification.Size = new System.Drawing.Size(25, 25);
             this.buttonNotification.TabIndex = 9;
-            this.toolTip.SetToolTip(this.buttonNotification, "Text.Layout.NotificationUser");
+            this.toolTip.SetToolTip(this.buttonNotification, "Window.Layout.NotificationUser");
             this.buttonNotification.UseText = false;
             this.buttonNotification.UseVisualStyleBackColor = false;
             this.buttonNotification.Click += new System.EventHandler(this.buttonNotification_Click);

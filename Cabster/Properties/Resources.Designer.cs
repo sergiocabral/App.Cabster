@@ -63,9 +63,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonNotificationLeave {
+        public static System.Drawing.Bitmap buttonCloseEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonNotificationLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddEnter {
+        public static System.Drawing.Bitmap buttonCloseLeave {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,59 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonNotificationEnter {
+        public static System.Drawing.Bitmap buttonConfigurationEnter {
             get {
-                object obj = ResourceManager.GetObject("buttonNotificationEnter", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonConfigurationLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonConfigurationLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguageEnglishEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguageEnglishEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguageEnglishLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguageEnglishLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguagePortugueseEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguagePortugueseEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonLanguagePortugueseLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonLanguagePortugueseLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +163,66 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap buttonNotificationEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonNotificationEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonNotificationLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonNotificationLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonParticipantAddEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonParticipantAddEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonParticipantAddLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonParticipantSortEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonParticipantSortLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap buttonResizeEnter {
             get {
                 object obj = ResourceManager.GetObject("buttonResizeEnter", resourceCulture);
@@ -131,62 +241,12 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortLeave {
+        public static System.Drawing.Icon IconSapiensia {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantSortEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonParticipantSortEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonLanguagePortugueseLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonLanguagePortugueseLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonCloseEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonCloseEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonCloseLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonCloseLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -203,97 +263,10 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonParticipantAddLeave {
+        public static System.Drawing.Bitmap FormBackground {
             get {
-                object obj = ResourceManager.GetObject("buttonParticipantAddLeave", resourceCulture);
+                object obj = ResourceManager.GetObject("FormBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonLanguageEnglishLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonLanguageEnglishLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonLanguagePortugueseEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonLanguagePortugueseEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonLanguageEnglishEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonLanguageEnglishEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationEnter {
-            get {
-                object obj = ResourceManager.GetObject("buttonConfigurationEnter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap buttonConfigurationLeave {
-            get {
-                object obj = ResourceManager.GetObject("buttonConfigurationLeave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minimize window..
-        /// </summary>
-        public static string Action_MinimizeWindow {
-            get {
-                return ResourceManager.GetString("Action.MinimizeWindow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Resize window..
-        /// </summary>
-        public static string Action_ResizeWindow {
-            get {
-                return ResourceManager.GetString("Action.ResizeWindow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Close application..
-        /// </summary>
-        public static string Action_TerminateApplication {
-            get {
-                return ResourceManager.GetString("Action.TerminateApplication", resourceCulture);
             }
         }
         
@@ -372,252 +345,252 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cabster.
         /// </summary>
-        public static string Name_System {
+        public static string Name_Application {
             get {
-                return ResourceManager.GetString("Name.System", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The application language has been changed from {fromLanguage} to {toLanguage}..
-        /// </summary>
-        public static string Text_Application_LanguageChanged {
-            get {
-                return ResourceManager.GetString("Text.Application.LanguageChanged", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Restarting application..
-        /// </summary>
-        public static string Text_Application_Restarting {
-            get {
-                return ResourceManager.GetString("Text.Application.Restarting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut keys has been successfully registered..
-        /// </summary>
-        public static string Text_Application_ShortcutDefined {
-            get {
-                return ResourceManager.GetString("Text.Application.ShortcutDefined", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The {Shortcut} shortcut keys cannot be activated..
-        /// </summary>
-        public static string Text_Application_ShortcutInvalid {
-            get {
-                return ResourceManager.GetString("Text.Application.ShortcutInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No shortcut keys defined..
-        /// </summary>
-        public static string Text_Application_ShortcutRemoved {
-            get {
-                return ResourceManager.GetString("Text.Application.ShortcutRemoved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        public static string Text_Common_Active {
-            get {
-                return ResourceManager.GetString("Text.Common.Active", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inactive.
-        /// </summary>
-        public static string Text_Common_Inactive {
-            get {
-                return ResourceManager.GetString("Text.Common.Inactive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The application is already in the selected language..
-        /// </summary>
-        public static string Text_Configuration_LanguageAlreadySelected {
-            get {
-                return ResourceManager.GetString("Text.Configuration.LanguageAlreadySelected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To change the language, the application must be restarted..
-        /// </summary>
-        public static string Text_Configuration_LanguageChangeConfirm {
-            get {
-                return ResourceManager.GetString("Text.Configuration.LanguageChangeConfirm", resourceCulture);
+                return ResourceManager.GetString("Name.Application", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to American english.
         /// </summary>
-        public static string Text_Configuration_LanguageEnglish {
+        public static string Name_Language_English {
             get {
-                return ResourceManager.GetString("Text.Configuration.LanguageEnglish", resourceCulture);
+                return ResourceManager.GetString("Name.Language.English", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Brazilian portuguese.
         /// </summary>
-        public static string Text_Configuration_LanguagePortuguese {
+        public static string Name_Language_Portuguese {
             get {
-                return ResourceManager.GetString("Text.Configuration.LanguagePortuguese", resourceCulture);
+                return ResourceManager.GetString("Name.Language.Portuguese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Name_Term_Active {
+            get {
+                return ResourceManager.GetString("Name.Term.Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string Name_Term_Inactive {
+            get {
+                return ResourceManager.GetString("Name.Term.Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restarting application..
+        /// </summary>
+        public static string Notification_ApplicationRestarting {
+            get {
+                return ResourceManager.GetString("Notification.ApplicationRestarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The application language has been changed from {fromLanguage} to {toLanguage}..
+        /// </summary>
+        public static string Notification_LanguageChanged {
+            get {
+                return ResourceManager.GetString("Notification.LanguageChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {Shortcut} shortcut keys has been successfully registered..
+        /// </summary>
+        public static string Notification_ShortcutDefined {
+            get {
+                return ResourceManager.GetString("Notification.ShortcutDefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {Shortcut} shortcut keys cannot be activated..
+        /// </summary>
+        public static string Notification_ShortcutInvalid {
+            get {
+                return ResourceManager.GetString("Notification.ShortcutInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No shortcut keys defined..
+        /// </summary>
+        public static string Notification_ShortcutRemoved {
+            get {
+                return ResourceManager.GetString("Notification.ShortcutRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The application is already in the selected language..
+        /// </summary>
+        public static string Window_Configuration_LanguageAlreadySelected {
+            get {
+                return ResourceManager.GetString("Window.Configuration.LanguageAlreadySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To change the language, the application must be restarted..
+        /// </summary>
+        public static string Window_Configuration_LanguageChangeConfirm {
+            get {
+                return ResourceManager.GetString("Window.Configuration.LanguageChangeConfirm", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Select the display language.
         /// </summary>
-        public static string Text_Configuration_LanguageSelect {
+        public static string Window_Configuration_LanguageSelect {
             get {
-                return ResourceManager.GetString("Text.Configuration.LanguageSelect", resourceCulture);
+                return ResourceManager.GetString("Window.Configuration.LanguageSelect", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Shortcut key for application actions.
         /// </summary>
-        public static string Text_Configuration_Shortcut {
+        public static string Window_Configuration_Shortcut {
             get {
-                return ResourceManager.GetString("Text.Configuration.Shortcut", resourceCulture);
+                return ResourceManager.GetString("Window.Configuration.Shortcut", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Configuration.
         /// </summary>
-        public static string Text_Configuration_WindowTitle {
+        public static string Window_Configuration_WindowTitle {
             get {
-                return ResourceManager.GetString("Text.Configuration.WindowTitle", resourceCulture);
+                return ResourceManager.GetString("Window.Configuration.WindowTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string Text_DialogShow_ButtonCancel {
+        public static string Window_DialogShow_ButtonCancel {
             get {
-                return ResourceManager.GetString("Text.DialogShow.ButtonCancel", resourceCulture);
+                return ResourceManager.GetString("Window.DialogShow.ButtonCancel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
-        public static string Text_DialogShow_ButtonClose {
+        public static string Window_DialogShow_ButtonClose {
             get {
-                return ResourceManager.GetString("Text.DialogShow.ButtonClose", resourceCulture);
+                return ResourceManager.GetString("Window.DialogShow.ButtonClose", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
-        public static string Text_DialogShow_ButtonConfirm {
+        public static string Window_DialogShow_ButtonConfirm {
             get {
-                return ResourceManager.GetString("Text.DialogShow.ButtonConfirm", resourceCulture);
+                return ResourceManager.GetString("Window.DialogShow.ButtonConfirm", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The interval starts after:.
         /// </summary>
-        public static string Text_GroupWork_BreakStartsAfterHowManyRounds_Part1 {
+        public static string Window_GroupWork_BreakStartsAfterHowManyRounds_Part1 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.BreakStartsAfterHowManyRounds_Part1", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.BreakStartsAfterHowManyRounds_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to rounds. Every {minutes} minute(s)..
         /// </summary>
-        public static string Text_GroupWork_BreakStartsAfterHowManyRounds_Part2 {
+        public static string Window_GroupWork_BreakStartsAfterHowManyRounds_Part2 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.BreakStartsAfterHowManyRounds_Part2", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.BreakStartsAfterHowManyRounds_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Opens the configuration options..
         /// </summary>
-        public static string Text_GroupWork_ConfigurationHint {
+        public static string Window_GroupWork_ConfigurationHint {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ConfigurationHint", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ConfigurationHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Duration of each break:.
         /// </summary>
-        public static string Text_GroupWork_DurationOfEachBreak_Part1 {
+        public static string Window_GroupWork_DurationOfEachBreak_Part1 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.DurationOfEachBreak_Part1", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.DurationOfEachBreak_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to minute(s)..
         /// </summary>
-        public static string Text_GroupWork_DurationOfEachBreak_Part2 {
+        public static string Window_GroupWork_DurationOfEachBreak_Part2 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.DurationOfEachBreak_Part2", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.DurationOfEachBreak_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Duration of each round:.
         /// </summary>
-        public static string Text_GroupWork_DurationOfEachRound_Part1 {
+        public static string Window_GroupWork_DurationOfEachRound_Part1 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.DurationOfEachRound_Part1", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.DurationOfEachRound_Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to minute(s)..
         /// </summary>
-        public static string Text_GroupWork_DurationOfEachRound_Part2 {
+        public static string Window_GroupWork_DurationOfEachRound_Part2 {
             get {
-                return ResourceManager.GetString("Text.GroupWork.DurationOfEachRound_Part2", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.DurationOfEachRound_Part2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter the participant&apos;s name..
         /// </summary>
-        public static string Text_GroupWork_ParticipantAdd {
+        public static string Window_GroupWork_ParticipantAdd {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ParticipantAdd", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ParticipantAdd", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Click here to add a participant..
         /// </summary>
-        public static string Text_GroupWork_ParticipantAddHint {
+        public static string Window_GroupWork_ParticipantAddHint {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ParticipantAddHint", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ParticipantAddHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to To add a participant enter a name..
         /// </summary>
-        public static string Text_GroupWork_ParticipantNameEmpty {
+        public static string Window_GroupWork_ParticipantNameEmpty {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ParticipantNameEmpty", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ParticipantNameEmpty", resourceCulture);
             }
         }
         
@@ -627,81 +600,108 @@ namespace Cabster.Properties {
         ///To activate or deactivate: right button.
         ///To remove: left button..
         /// </summary>
-        public static string Text_GroupWork_ParticipantRemoveHint {
+        public static string Window_GroupWork_ParticipantRemoveHint {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ParticipantRemoveHint", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ParticipantRemoveHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Randomly sort the participants..
         /// </summary>
-        public static string Text_GroupWork_ParticipantSortHint {
+        public static string Window_GroupWork_ParticipantSortHint {
             get {
-                return ResourceManager.GetString("Text.GroupWork.ParticipantSortHint", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.ParticipantSortHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Start Mob.
         /// </summary>
-        public static string Text_GroupWork_Start {
+        public static string Window_GroupWork_Start {
             get {
-                return ResourceManager.GetString("Text.GroupWork.Start", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.Start", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Click to load a new tip..
         /// </summary>
-        public static string Text_GroupWork_TipsHint {
+        public static string Window_GroupWork_TipsHint {
             get {
-                return ResourceManager.GetString("Text.GroupWork.TipsHint", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.TipsHint", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Loading another tip ....
         /// </summary>
-        public static string Text_GroupWork_TipsLoading {
+        public static string Window_GroupWork_TipsLoading {
             get {
-                return ResourceManager.GetString("Text.GroupWork.TipsLoading", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.TipsLoading", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Group Work as MOB.
         /// </summary>
-        public static string Text_GroupWork_WindowTitle {
+        public static string Window_GroupWork_WindowTitle {
             get {
-                return ResourceManager.GetString("Text.GroupWork.WindowTitle", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWork.WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize window..
+        /// </summary>
+        public static string Window_Layout_MinimizeWindow {
+            get {
+                return ResourceManager.GetString("Window.Layout.MinimizeWindow", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to General application notifications..
         /// </summary>
-        public static string Text_Layout_NotificationUser {
+        public static string Window_Layout_NotificationUser {
             get {
-                return ResourceManager.GetString("Text.Layout.NotificationUser", resourceCulture);
+                return ResourceManager.GetString("Window.Layout.NotificationUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resize window..
+        /// </summary>
+        public static string Window_Layout_ResizeWindow {
+            get {
+                return ResourceManager.GetString("Window.Layout.ResizeWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close application..
+        /// </summary>
+        public static string Window_Layout_TerminateApplication {
+            get {
+                return ResourceManager.GetString("Window.Layout.TerminateApplication", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No notification..
         /// </summary>
-        public static string Text_Notification_NoNotification {
+        public static string Window_Notification_NoNotification {
             get {
-                return ResourceManager.GetString("Text.Notification.NoNotification", resourceCulture);
+                return ResourceManager.GetString("Window.Notification.NoNotification", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Notifications.
         /// </summary>
-        public static string Text_Notification_WindowTitle {
+        public static string Window_Notification_WindowTitle {
             get {
-                return ResourceManager.GetString("Text.Notification.WindowTitle", resourceCulture);
+                return ResourceManager.GetString("Window.Notification.WindowTitle", resourceCulture);
             }
         }
     }

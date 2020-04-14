@@ -37,7 +37,7 @@ namespace Cabster.Components
 
             // Assert, Then
 
-            título.Should().Be(Resources.Name_System);
+            título.Should().Be(Resources.Name_Application);
         }
 
         [Fact]

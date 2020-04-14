@@ -65,7 +65,7 @@
             this.labelDurationOfEachRound_Part1.Name = "labelDurationOfEachRound_Part1";
             this.labelDurationOfEachRound_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelDurationOfEachRound_Part1.TabIndex = 13;
-            this.labelDurationOfEachRound_Part1.Text = "Text.GroupWork.DurationOfEachRound_Part1";
+            this.labelDurationOfEachRound_Part1.Text = "Window.GroupWork.DurationOfEachRound_Part1";
             this.labelDurationOfEachRound_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numericUpDownDurationOfEachRound
@@ -99,7 +99,7 @@
             this.labelDurationOfEachRound_Part2.Name = "labelDurationOfEachRound_Part2";
             this.labelDurationOfEachRound_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachRound_Part2.TabIndex = 15;
-            this.labelDurationOfEachRound_Part2.Text = "Text.GroupWork.DurationOfEachRound_Part2";
+            this.labelDurationOfEachRound_Part2.Text = "Window.GroupWork.DurationOfEachRound_Part2";
             this.labelDurationOfEachRound_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelDurationOfEachBreak_Part2
@@ -113,7 +113,7 @@
             this.labelDurationOfEachBreak_Part2.Name = "labelDurationOfEachBreak_Part2";
             this.labelDurationOfEachBreak_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelDurationOfEachBreak_Part2.TabIndex = 18;
-            this.labelDurationOfEachBreak_Part2.Text = "Text.GroupWork.DurationOfEachBreak_Part2";
+            this.labelDurationOfEachBreak_Part2.Text = "Window.GroupWork.DurationOfEachBreak_Part2";
             this.labelDurationOfEachBreak_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericUpDownDurationOfEachBreak
@@ -145,7 +145,7 @@
             this.labelDurationOfEachBreak_Part1.Name = "labelDurationOfEachBreak_Part1";
             this.labelDurationOfEachBreak_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelDurationOfEachBreak_Part1.TabIndex = 16;
-            this.labelDurationOfEachBreak_Part1.Text = "Text.GroupWork.DurationOfEachBreak_Part1";
+            this.labelDurationOfEachBreak_Part1.Text = "Window.GroupWork.DurationOfEachBreak_Part1";
             this.labelDurationOfEachBreak_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelBreakStartsAfterHowManyRounds_Part2
@@ -159,7 +159,7 @@
             this.labelBreakStartsAfterHowManyRounds_Part2.Name = "labelBreakStartsAfterHowManyRounds_Part2";
             this.labelBreakStartsAfterHowManyRounds_Part2.Size = new System.Drawing.Size(271, 21);
             this.labelBreakStartsAfterHowManyRounds_Part2.TabIndex = 21;
-            this.labelBreakStartsAfterHowManyRounds_Part2.Text = "Text.GroupWork.BreakStartsAfterHowManyRounds_Part2";
+            this.labelBreakStartsAfterHowManyRounds_Part2.Text = "Window.GroupWork.BreakStartsAfterHowManyRounds_Part2";
             this.labelBreakStartsAfterHowManyRounds_Part2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericUpDownBreakStartsAfterHowManyRounds
@@ -193,7 +193,7 @@
             this.labelBreakStartsAfterHowManyRounds_Part1.Name = "labelBreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.Size = new System.Drawing.Size(214, 21);
             this.labelBreakStartsAfterHowManyRounds_Part1.TabIndex = 19;
-            this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Text.GroupWork.BreakStartsAfterHowManyRounds_Part1";
+            this.labelBreakStartsAfterHowManyRounds_Part1.Text = "Window.GroupWork.BreakStartsAfterHowManyRounds_Part1";
             this.labelBreakStartsAfterHowManyRounds_Part1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelParticipants
@@ -219,7 +219,7 @@
             this.textBoxAddParticipant.ForeColor = System.Drawing.Color.Black;
             this.textBoxAddParticipant.Location = new System.Drawing.Point(331, 116);
             this.textBoxAddParticipant.Name = "textBoxAddParticipant";
-            this.textBoxAddParticipant.Placeholder = "Text.GroupWork.ParticipantAdd";
+            this.textBoxAddParticipant.Placeholder = "Window.GroupWork.ParticipantAdd";
             this.textBoxAddParticipant.Size = new System.Drawing.Size(357, 27);
             this.textBoxAddParticipant.TabIndex = 9;
             this.textBoxAddParticipant.KeyUp +=
@@ -245,7 +245,7 @@
             this.buttonParticipantAdd.NotTransparent = false;
             this.buttonParticipantAdd.Size = new System.Drawing.Size(31, 31);
             this.buttonParticipantAdd.TabIndex = 10;
-            this.toolTip.SetToolTip(this.buttonParticipantAdd, "Text.GroupWork.ParticipantAddHint");
+            this.toolTip.SetToolTip(this.buttonParticipantAdd, "Window.GroupWork.ParticipantAddHint");
             this.buttonParticipantAdd.UseText = false;
             this.buttonParticipantAdd.UseVisualStyleBackColor = false;
             this.buttonParticipantAdd.Click += new System.EventHandler(this.buttonParticipantAdd_Click);
@@ -270,7 +270,7 @@
             this.buttonParticipantSort.NotTransparent = false;
             this.buttonParticipantSort.Size = new System.Drawing.Size(39, 31);
             this.buttonParticipantSort.TabIndex = 11;
-            this.toolTip.SetToolTip(this.buttonParticipantSort, "Text.GroupWork.ParticipantSortHint");
+            this.toolTip.SetToolTip(this.buttonParticipantSort, "Window.GroupWork.ParticipantSortHint");
             this.buttonParticipantSort.UseText = false;
             this.buttonParticipantSort.UseVisualStyleBackColor = false;
             this.buttonParticipantSort.Click += new System.EventHandler(this.buttonParticipantSort_Click);
@@ -299,7 +299,7 @@
             this.buttonStart.NotTransparent = false;
             this.buttonStart.Size = new System.Drawing.Size(171, 36);
             this.buttonStart.TabIndex = 22;
-            this.buttonStart.Text = "Text.GroupWork.Start";
+            this.buttonStart.Text = "Window.GroupWork.Start";
             this.buttonStart.UseText = false;
             this.buttonStart.UseVisualStyleBackColor = false;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -321,7 +321,7 @@
             this.labelTips.Size = new System.Drawing.Size(457, 59);
             this.labelTips.TabIndex = 17;
             this.labelTips.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip.SetToolTip(this.labelTips, "Text.GroupWork.TipsHint");
+            this.toolTip.SetToolTip(this.labelTips, "Window.GroupWork.TipsHint");
             this.labelTips.Click += new System.EventHandler(this.labelTips_Click);
             // 
             // buttonConfiguration
@@ -348,7 +348,7 @@
             this.buttonConfiguration.NotTransparent = true;
             this.buttonConfiguration.Size = new System.Drawing.Size(50, 50);
             this.buttonConfiguration.TabIndex = 23;
-            this.toolTip.SetToolTip(this.buttonConfiguration, "Text.GroupWork.ConfigurationHint");
+            this.toolTip.SetToolTip(this.buttonConfiguration, "Window.GroupWork.ConfigurationHint");
             this.buttonConfiguration.UseText = false;
             this.buttonConfiguration.UseVisualStyleBackColor = false;
             this.buttonConfiguration.Click += new System.EventHandler(this.buttonConfiguration_Click);
@@ -388,7 +388,7 @@
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "FormGroupWork";
             this.ShowLogo = true;
-            this.Text = "Text.GroupWork.WindowTitle";
+            this.Text = "Window.GroupWork.WindowTitle";
             this.Controls.SetChildIndex(this.labelDurationOfEachRound_Part1, 0);
             this.Controls.SetChildIndex(this.numericUpDownDurationOfEachRound, 0);
             this.Controls.SetChildIndex(this.labelDurationOfEachRound_Part2, 0);
