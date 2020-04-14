@@ -42,12 +42,17 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void InitializeComponent2()
         {
+            panelMessages
+                .GetType()
+                .GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)?
+                .SetValue(panelMessages, true);
+            
             HandleCreated += (sender, args) => HideStatusBar = true;
             Resize += (sender, args) =>
             {
                 panelMessages.Width = Width - (panelMessages.Left * 2);
                 panelMessages.Height = Height - (panelMessages.Top + panelMessages.Left);
-                foreach (Control control in panelMessages.Controls) AdjustSize(control);
+                foreach (Label label in panelMessages.Controls) AdjustLabelSize(label);
             };
             Load += (sender, args) => UpdateControls();
         }
@@ -58,34 +63,26 @@ namespace Cabster.Business.Forms
         /// <param name="message">Mensagem.</param>
         private void AddMessage(NotificationMessage message)
         {
-            var panel = new Panel
-            {
-                Height = 10,
-                Dock = DockStyle.Top
-            };
             var label = new Label
             {
-                BackColor = Color.Transparent,
                 ForeColor = message.Success ? Color.RoyalBlue : Color.Brown,
-                Text = message.ToString(),
-                Dock = DockStyle.Top,
-                AutoSize = true
+                Text = message + Environment.NewLine + ' ',
+                Dock = DockStyle.Top
             };
-            panelMessages.Controls.Add(panel);
             panelMessages.Controls.Add(label);
-            AdjustSize(panel).SendToBack();
-            AdjustSize(label).SendToBack();
+            AdjustLabelSize(label).SendToBack();
         }
 
         /// <summary>
-        /// Ajusta otamanho dos controles.
+        /// Ajusta o tamanho dos controles.
         /// </summary>
-        /// <param name="control">Controle</param>
+        /// <param name="label">Label</param>
         /// <returns>Mesma instância de entrada.</returns>
-        private Control AdjustSize(Control control)
+        private static Label AdjustLabelSize(Label label)
         {
-            if (control is Label label) label.MaximumSize = new Size(label.Parent.Width, 0);
-            return control;
+            label.AutoSize = true;
+            label.MaximumSize = new Size(label.Parent.Width, 0);
+            return label;
         }
 
         /// <summary>
