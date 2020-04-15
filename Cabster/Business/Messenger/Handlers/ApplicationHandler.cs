@@ -206,7 +206,7 @@ namespace Cabster.Business.Messenger.Handlers
                             new NotificationMessage(Resources.Notification_LanguageChanged.QueryString(
                                 fromLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower(),
                                 toLanguage.TwoLetterISOLanguageName.ToLanguageName().ToLower()
-                            ))), cancellationToken);
+                            )), request), cancellationToken);
                 }
             }
         }
@@ -236,7 +236,7 @@ namespace Cabster.Business.Messenger.Handlers
                             dataApplicationLockScreen
                                 ? Resources.Name_Term_Active
                                 : Resources.Name_Term_Inactive
-                        ))), cancellationToken);
+                        )), request), cancellationToken);
             }
         }
     }
