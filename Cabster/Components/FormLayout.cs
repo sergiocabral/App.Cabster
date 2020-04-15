@@ -170,6 +170,7 @@ namespace Cabster.Components
                 labelStatus.Left = buttonNotification.Right + padding / 2;
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
+            Shown += (sender, args) => BringToFront(); 
 
             _myHashCode = GetHashCode();
             Activated += OnActivatedUpdateZOrder;

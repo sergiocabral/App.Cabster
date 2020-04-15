@@ -53,20 +53,35 @@ namespace Cabster.Business
                 .ToArray();
 
             foreach (var form in formsLayout) form.TopMost = true;
-            foreach (var form in formsLayout) form.Deactivate += FormLayoutOnDeactivate;
+            SetFormEventHandlers(true);
 
             IsLocked = true;
         }
+
+        /// <summary>
+        /// Define os handlers para os eventos das janelas.
+        /// </summary>
+        /// <param name="mode">Ativar ou desativar</param>
+        private static void SetFormEventHandlers(bool mode)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                form.Activated -= FormLayoutOnDeactivate;
+                form.Deactivate -= FormLayoutOnDeactivate;
+                if (!mode) continue;
+                form.Activated += FormLayoutOnDeactivate;
+                form.Deactivate += FormLayoutOnDeactivate;
+            }
+        } 
 
         /// <summary>
         ///     Desbloqueia todas as telas.
         /// </summary>
         public void Unlock()
         {
+            SetFormEventHandlers(false);
             foreach (Form form in Application.OpenForms)
             {
-                form.Activated -= FormLayoutOnDeactivate;
-                form.Deactivate -= FormLayoutOnDeactivate;
                 form.TopMost = false;
                 if (form.Tag != MarkToFormLockScreen) continue;
                 form.Hide();
@@ -89,7 +104,6 @@ namespace Cabster.Business
             form.Width = screen.Bounds.Width;
             form.Height = screen.Bounds.Height;
             form.Show();
-            Application.DoEvents();
 
             Log.Debug(
                 "Lock screen created for area: Left: {Left}, Top: {Top}, Width: {Width}, Height: {Height}.",
@@ -114,8 +128,6 @@ namespace Cabster.Business
                 BackgroundImage = Resources.FormLockScreenBackground,
                 Opacity = 0.015
             };
-            form.Activated += FormLayoutOnDeactivate;
-            form.Deactivate += FormLayoutOnDeactivate;
             form.Closing += FormOnClosing;
             return form;
         }
@@ -130,6 +142,8 @@ namespace Cabster.Business
             if (_formsCalculating) return;
             _formsCalculating = true;
             Application.DoEvents();
+
+            SetFormEventHandlers(true);
 
             new Timer
             {
@@ -157,7 +171,7 @@ namespace Cabster.Business
                     Application.DoEvents();
                 }
 
-                formsLayout.Last().Activate();
+                formsLayout.LastOrDefault()?.Activate();
 
                 _formsCalculating = false;
             };
@@ -171,7 +185,7 @@ namespace Cabster.Business
         private static void FormOnClosing(object sender, CancelEventArgs args)
         {
             var form = (Form) sender;
-            args.Cancel = !form.Visible;
+            args.Cancel = form.Visible;
         }
     }
 }
