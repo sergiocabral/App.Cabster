@@ -9,6 +9,7 @@ using Cabster.Business.Values;
 using Cabster.Exceptions;
 using Cabster.Extensions;
 using Cabster.Properties;
+using Environment = Cabster.Infrastructure.Environment;
 
 namespace Cabster.Components
 {
@@ -63,8 +64,17 @@ namespace Cabster.Components
         /// <summary>
         ///     Bloqueador de telas.
         /// </summary>
-        private ILockScreen LockScreen =>
+        private static ILockScreen LockScreen =>
             Program.DependencyResolver.GetInstanceRequired<ILockScreen>();
+
+        /// <summary>
+        ///     Exibe o botão minimizar.
+        /// </summary>
+        public bool ShowButtonMinimize
+        {
+            get => buttonMinimize.Visible; 
+            set => buttonMinimize.Visible = value;
+        }
 
         /// <summary>
         ///     Exibe o logotipo.
@@ -134,22 +144,23 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            if (!Infrastructure.Environment.IsDesign)
+            if (!Environment.IsDesign)
             {
                 SetStyle(
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |
                     ControlStyles.DoubleBuffer,
                     true);
-                
+
                 TopMost = LockScreen.IsLocked;
+                
+                ShowButtonMinimize = false;
             }
 
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
             HandleCreated += (sender, args) => toolTip.Translate();
-
             Load += (sender, args) =>
             {
                 labelTitle.Text = Text;
@@ -170,7 +181,7 @@ namespace Cabster.Components
                 labelStatus.Left = buttonNotification.Right + padding / 2;
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
-            Shown += (sender, args) => BringToFront(); 
+            Shown += (sender, args) => BringToFront();
 
             _myHashCode = GetHashCode();
             Activated += OnActivatedUpdateZOrder;

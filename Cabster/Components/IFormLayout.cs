@@ -40,6 +40,11 @@ namespace Cabster.Components
         event Action? ButtonMinimizeClick;
 
         /// <summary>
+        ///     Exibe o botão minimizar.
+        /// </summary>
+        bool ShowButtonMinimize { get; set; }
+
+        /// <summary>
         ///     Define uma mensagem de status.
         /// </summary>
         /// <param name="message">Mensagem.</param>

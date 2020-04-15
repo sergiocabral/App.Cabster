@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -61,12 +62,21 @@ namespace Cabster.Business.Messenger.Handlers
         private readonly IMediator _messageBus;
 
         /// <summary>
+        /// Bloqueador de telas.
+        /// </summary>
+        private readonly ILockScreen _lockScreen;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="messageBus">Barramento de mensagens.</param>
-        public WindowHandler(IMediator messageBus)
+        /// <param name="lockScreen">Bloqueador de telas.</param>
+        public WindowHandler(
+            IMediator messageBus, 
+            ILockScreen lockScreen)
         {
             _messageBus = messageBus;
+            _lockScreen = lockScreen;
         }
 
         /// <summary>
@@ -119,6 +129,29 @@ namespace Cabster.Business.Messenger.Handlers
         {
             var form = await _messageBus.Send<Form>(new WindowOpenGroupWork(), cancellationToken);
             ((IFormLayout) form).NotUseEscToClose = true;
+            ((IFormLayout) form).ShowButtonMinimize = true;
+            
+            form.SizeChanged += (sender, args) =>
+            {
+                if (form.WindowState == FormWindowState.Minimized)
+                {
+                    foreach (var formLayout in Application
+                        .OpenForms
+                        .Cast<Form>()
+                        .Where(a => a != form && a is IFormLayout)
+                        .ToArray())
+                    {
+                        formLayout.Hide();
+                    }
+                    if (_lockScreen.IsLocked) _lockScreen.Unlock();
+                }
+                else
+                {
+                    var data = Program.Data;
+                    if (data.Application.LockScreen) _lockScreen.Lock();
+                }
+            };
+
         }
 
         /// <summary>

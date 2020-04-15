@@ -18,7 +18,7 @@ namespace Cabster.Business.Forms
         ///     Última estado para bloqueio da tela.
         /// </summary>
         private bool _lastLockScreen;
-        
+
         /// <summary>
         ///     Última tecla de atalho gravada.
         /// </summary>
@@ -35,6 +35,11 @@ namespace Cabster.Business.Forms
         private DataSection _pendingToSave;
 
         /// <summary>
+        ///     Sinaliza que o controle está em atualização de estado.
+        /// </summary>
+        private bool _updatingCheckBoxLockScreen;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormConfiguration()
@@ -44,14 +49,14 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Bloqueio da tela.
+        ///     Bloqueio da tela.
         /// </summary>
         private bool LockScreen
         {
             get => checkBoxLockScreenActive.Checked;
             set => checkBoxLockScreenInactive.Checked = !(checkBoxLockScreenActive.Checked = value);
         }
-        
+
         /// <summary>
         ///     Tecla de atalho.
         /// </summary>
@@ -237,17 +242,22 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Evento ao clicar em ativar ou desativar o LockScreen
+        ///     Evento ao clicar em ativar ou desativar o LockScreen
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
         private void checkBoxLockScreen_CheckedChanged(object sender, EventArgs args)
         {
+            if (_updatingCheckBoxLockScreen) return;
+            _updatingCheckBoxLockScreen = true;
+
             if (sender == checkBoxLockScreenActive)
                 checkBoxLockScreenInactive.Checked = !checkBoxLockScreenActive.Checked;
             if (sender == checkBoxLockScreenInactive)
                 checkBoxLockScreenActive.Checked = !checkBoxLockScreenInactive.Checked;
             SaveLockScreen();
+
+            _updatingCheckBoxLockScreen = false;
         }
     }
 }

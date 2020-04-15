@@ -346,18 +346,8 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonStart_Click(object sender, EventArgs args)
         {
-            var lockScreen = Program.DependencyResolver.GetInstanceRequired<ILockScreen>();
-            lockScreen.Lock();
-            new Timer
-            {
-                Interval = 10000,
-                Enabled = true
-            }.Tick += (o, eventArgs) =>
-            {
-                ((Timer) o).Enabled = false;
-                ((Timer) o).Dispose();
-                lockScreen.Unlock();
-            };
+            //TODO: Implementar começar o Mob.
+            Log.Information("Start MOB.");
         }
 
         /// <summary>

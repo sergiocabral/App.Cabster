@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace Cabster.Business
         private static bool _formsCalculating;
 
         /// <summary>
+        ///     Lista de forms configurados.
+        /// </summary>
+        private static readonly List<int> FormsConfigured = new List<int>();
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public LockScreen()
@@ -44,6 +50,8 @@ namespace Cabster.Business
         /// </summary>
         public void Lock()
         {
+            if (IsLocked) return;
+            
             foreach (var screen in Screen.AllScreens) CreateForm(screen);
 
             var formsLayout = Application
@@ -59,28 +67,14 @@ namespace Cabster.Business
         }
 
         /// <summary>
-        /// Define os handlers para os eventos das janelas.
-        /// </summary>
-        /// <param name="mode">Ativar ou desativar</param>
-        private static void SetFormEventHandlers(bool mode)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                form.Activated -= FormLayoutOnDeactivate;
-                form.Deactivate -= FormLayoutOnDeactivate;
-                if (!mode) continue;
-                form.Activated += FormLayoutOnDeactivate;
-                form.Deactivate += FormLayoutOnDeactivate;
-            }
-        } 
-
-        /// <summary>
         ///     Desbloqueia todas as telas.
         /// </summary>
         public void Unlock()
         {
+            if (!IsLocked) return;
+            
             SetFormEventHandlers(false);
-            foreach (Form form in Application.OpenForms)
+            foreach (var form in Application.OpenForms.Cast<Form>().ToArray())
             {
                 form.TopMost = false;
                 if (form.Tag != MarkToFormLockScreen) continue;
@@ -90,6 +84,37 @@ namespace Cabster.Business
             }
 
             IsLocked = false;
+        }
+
+        /// <summary>
+        ///     Define os handlers para os eventos das janelas.
+        /// </summary>
+        /// <param name="mode">Ativar ou desativar</param>
+        private static void SetFormEventHandlers(bool mode)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                var hash = form.GetHashCode();
+                if (mode && !FormsConfigured.Contains(hash))
+                {
+                    FormsConfigured.Add(hash);
+                    
+                    // TODO: Melhorar usabilidade
+                    
+                    form.Activated += FormLayoutOnDeactivate;
+                    form.Deactivate += FormLayoutOnDeactivate;
+                    form.GotFocus += FormLayoutOnDeactivate;
+                    form.LostFocus += FormLayoutOnDeactivate;
+                }
+                else if (!mode && FormsConfigured.Contains(hash))
+                {
+                    form.Activated -= FormLayoutOnDeactivate;
+                    form.Deactivate -= FormLayoutOnDeactivate;
+                    form.GotFocus -= FormLayoutOnDeactivate;
+                    form.LostFocus -= FormLayoutOnDeactivate;
+                    FormsConfigured.Remove(hash);
+                }
+            }
         }
 
         /// <summary>
@@ -126,7 +151,7 @@ namespace Cabster.Business
                 FormBorderStyle = FormBorderStyle.None,
                 BackColor = Color.Black,
                 BackgroundImage = Resources.FormLockScreenBackground,
-                Opacity = 0.015
+                Opacity = 0.02
             };
             form.Closing += FormOnClosing;
             return form;
