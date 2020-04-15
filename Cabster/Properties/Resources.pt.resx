@@ -273,4 +273,7 @@ Para remover: botão esquerdo.</value>
   <data name="Window.Configuration.LockScreen" xml:space="preserve">
     <value>Bloqueio da tela de fundo</value>
   </data>
+  <data name="Notification.LockScreenDefined" xml:space="preserve">
+    <value>Bloqueio da tela de fundo: {Mode}</value>
+  </data>
 </root>

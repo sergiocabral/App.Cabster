@@ -340,4 +340,7 @@ To remove: left button.</value>
   <data name="Window.Configuration.LockScreen" xml:space="preserve">
     <value>Background screen lock</value>
   </data>
+  <data name="Notification.LockScreenDefined" xml:space="preserve">
+    <value>Background screen lock: {Mode}</value>
+  </data>
 </root>

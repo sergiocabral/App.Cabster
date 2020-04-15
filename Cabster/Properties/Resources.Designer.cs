@@ -434,6 +434,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Background screen lock: {Mode}.
+        /// </summary>
+        public static string Notification_LockScreenDefined {
+            get {
+                return ResourceManager.GetString("Notification.LockScreenDefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {Shortcut} shortcut key has been successfully registered..
         /// </summary>
         public static string Notification_ShortcutDefined {

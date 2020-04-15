@@ -33,6 +33,11 @@ namespace Cabster.Business.Messenger.Handlers
         private static readonly object SignalForApplicationRestart = new object();
 
         /// <summary>
+        ///     Bloqueador de telas.
+        /// </summary>
+        private readonly ILockScreen _lockScreen;
+
+        /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
@@ -47,12 +52,15 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         /// <param name="messageBus">IMediator</param>
         /// <param name="shortcut">Configurações de teclas de atalho.</param>
+        /// <param name="lockScreen">Bloqueador de telas.</param>
         public ApplicationHandler(
             IMediator messageBus,
-            IShortcut shortcut)
+            IShortcut shortcut,
+            ILockScreen lockScreen)
         {
             _messageBus = messageBus;
             _shortcut = shortcut;
+            _lockScreen = lockScreen;
         }
 
         /// <summary>
@@ -65,10 +73,10 @@ namespace Cabster.Business.Messenger.Handlers
         {
             if (DataSection.ApplicationLanguage == (DataSection.ApplicationLanguage & notification.Request.Section))
                 await ApplyDataApplicationLanguage(notification, cancellationToken);
-            
+
             if (DataSection.ApplicationShortcut == (DataSection.ApplicationShortcut & notification.Request.Section))
                 await ApplyDataApplicationShortcut(notification, cancellationToken);
-            
+
             if (DataSection.ApplicationLockScreen == (DataSection.ApplicationLockScreen & notification.Request.Section))
                 await ApplyDataApplicationLockScreen(notification, cancellationToken);
         }
@@ -214,7 +222,22 @@ namespace Cabster.Business.Messenger.Handlers
         {
             var request = dataUpdatedNotification.Request;
             var dataApplicationLockScreen = request.Data.Application.LockScreen;
-            await Task.Delay(1, cancellationToken);
+
+            if (_lockScreen.IsLocked != dataApplicationLockScreen)
+            {
+                if (dataApplicationLockScreen) _lockScreen.Lock();
+                else _lockScreen.Unlock();
+
+                Log.Debug("Lock screen activated: {Mode}", dataApplicationLockScreen);
+
+                await _messageBus.Send(
+                    new UserNotificationPost(
+                        new NotificationMessage(Resources.Notification_LockScreenDefined.QueryString(
+                            dataApplicationLockScreen
+                                ? Resources.Name_Term_Active
+                                : Resources.Name_Term_Inactive
+                        ))), cancellationToken);
+            }
         }
     }
 }
