@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(FormLayout));
+                new System.ComponentModel.ComponentResourceManager(typeof(Cabster.Components.FormLayout));
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonMinimize = new Cabster.Components.MyButton(this.components);
@@ -48,9 +48,6 @@
             this.panelMarginBottom = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelTitle
-            // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))), ((int) (((byte) (32)))),
                 ((int) (((byte) (32)))));
             this.panelTitle.Controls.Add(this.labelTitle);
@@ -64,9 +61,6 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(831, 50);
             this.panelTitle.TabIndex = 0;
-            // 
-            // labelTitle
-            // 
             this.labelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold,
@@ -78,9 +72,6 @@
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "labelTitle";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonMinimize
-            // 
             this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMinimize.Dock = System.Windows.Forms.DockStyle.Right;
@@ -101,9 +92,6 @@
             this.buttonMinimize.UseText = false;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
-            // 
-            // buttonClose
-            // 
             this.buttonClose.BackColor = System.Drawing.Color.Transparent;
             this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Right;
@@ -124,27 +112,18 @@
             this.buttonClose.UseText = false;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // panelTitleMarginRight
-            // 
             this.panelTitleMarginRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelTitleMarginRight.Location = new System.Drawing.Point(816, 0);
             this.panelTitleMarginRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleMarginRight.Name = "panelTitleMarginRight";
             this.panelTitleMarginRight.Size = new System.Drawing.Size(15, 50);
             this.panelTitleMarginRight.TabIndex = 2;
-            // 
-            // panelTitleMarginLeft
-            // 
             this.panelTitleMarginLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTitleMarginLeft.Location = new System.Drawing.Point(0, 0);
             this.panelTitleMarginLeft.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleMarginLeft.Name = "panelTitleMarginLeft";
             this.panelTitleMarginLeft.Size = new System.Drawing.Size(15, 50);
             this.panelTitleMarginLeft.TabIndex = 1;
-            // 
-            // buttonResize
-            // 
             this.buttonResize.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Right)));
@@ -166,13 +145,7 @@
             this.toolTip.SetToolTip(this.buttonResize, "Window.Layout.ResizeWindow");
             this.buttonResize.UseText = false;
             this.buttonResize.UseVisualStyleBackColor = false;
-            // 
-            // toolTip
-            // 
             this.toolTip.IsBalloon = true;
-            // 
-            // buttonNotification
-            // 
             this.buttonNotification.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
                                                        System.Windows.Forms.AnchorStyles.Left)));
@@ -195,9 +168,6 @@
             this.buttonNotification.UseText = false;
             this.buttonNotification.UseVisualStyleBackColor = false;
             this.buttonNotification.Click += new System.EventHandler(this.buttonNotification_Click);
-            // 
-            // panelLogo
-            // 
             this.panelLogo.BackColor = System.Drawing.Color.Transparent;
             this.panelLogo.BackgroundImage = global::Cabster.Properties.Resources.FormHeaderSapiensia;
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -206,9 +176,6 @@
             this.panelLogo.Size = new System.Drawing.Size(5, 100);
             this.panelLogo.TabIndex = 6;
             this.panelLogo.Visible = false;
-            // 
-            // labelStatus
-            // 
             this.labelStatus.Anchor =
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom |
                                                         System.Windows.Forms.AnchorStyles.Left) |
@@ -221,14 +188,8 @@
             this.labelStatus.Size = new System.Drawing.Size(758, 25);
             this.labelStatus.TabIndex = 10;
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // timerStatus
-            // 
             this.timerStatus.Interval = 3000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
-            // 
-            // panelMarginLeft
-            // 
             this.panelMarginLeft.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
                 ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -236,9 +197,6 @@
             this.panelMarginLeft.Name = "panelMarginLeft";
             this.panelMarginLeft.Size = new System.Drawing.Size(1, 464);
             this.panelMarginLeft.TabIndex = 6;
-            // 
-            // panelMarginRight
-            // 
             this.panelMarginRight.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
                 ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -246,9 +204,6 @@
             this.panelMarginRight.Name = "panelMarginRight";
             this.panelMarginRight.Size = new System.Drawing.Size(1, 464);
             this.panelMarginRight.TabIndex = 7;
-            // 
-            // panelMarginBottom
-            // 
             this.panelMarginBottom.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))),
                 ((int) (((byte) (32)))), ((int) (((byte) (32)))));
             this.panelMarginBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -256,9 +211,6 @@
             this.panelMarginBottom.Name = "panelMarginBottom";
             this.panelMarginBottom.Size = new System.Drawing.Size(829, 1);
             this.panelMarginBottom.TabIndex = 8;
-            // 
-            // FormLayout
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))), ((int) (((byte) (64)))),

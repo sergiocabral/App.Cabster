@@ -61,7 +61,7 @@ namespace Cabster.Extensions
             /// <param name="enable">Ativa ou desativa.</param>
             public void SetRedraw(bool enable)
             {
-                WindowsApi.EnableRepaint(_controlHandleRef, enable);
+                _controlHandleRef.EnableRepaint(enable);
             }
         }
     }

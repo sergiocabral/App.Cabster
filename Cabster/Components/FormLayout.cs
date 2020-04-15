@@ -19,16 +19,6 @@ namespace Cabster.Components
     public partial class FormLayout : FormBase, IFormLayout
     {
         /// <summary>
-        ///     Lista de forms e suas posições do eixo Z.
-        /// </summary>
-        private static readonly ConcurrentDictionary<int, int> ZOrders = new ConcurrentDictionary<int, int>();
-
-        /// <summary>
-        ///     Identificador desta instância.
-        /// </summary>
-        private int _myHashCode;
-
-        /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
         private bool _showLogo;
@@ -132,14 +122,6 @@ namespace Cabster.Components
         }
 
         /// <summary>
-        ///     Ordem do eixo Z.
-        /// </summary>
-        public int ZOrder =>
-            ZOrders.ContainsKey(_myHashCode)
-                ? ZOrders[_myHashCode]
-                : throw new ThisWillNeverOccurException();
-
-        /// <summary>
         ///     Inicializa os componentes da janela.
         /// </summary>
         private void InitializeComponent2()
@@ -182,27 +164,6 @@ namespace Cabster.Components
                 labelStatus.Width = Width - buttonResize.Width - labelStatus.Left;
             };
             Shown += (sender, args) => BringToFront();
-
-            _myHashCode = GetHashCode();
-            Activated += OnActivatedUpdateZOrder;
-            OnActivatedUpdateZOrder(this, new EventArgs());
-        }
-
-        private void OnActivatedUpdateZOrder(object sender, EventArgs e)
-        {
-            var otherZOrders = ZOrders
-                .Where(a => a.Key != _myHashCode)
-                .ToArray();
-
-            var maxZOrder =
-                otherZOrders.Length > 0
-                    ? otherZOrders.Max(a => a.Value) + 1
-                    : 0;
-
-            ZOrders.AddOrUpdate(
-                _myHashCode,
-                maxZOrder,
-                (key, value) => maxZOrder);
         }
 
         /// <summary>

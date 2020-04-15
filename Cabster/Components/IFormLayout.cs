@@ -8,11 +8,6 @@ namespace Cabster.Components
     public interface IFormLayout
     {
         /// <summary>
-        /// Ordem do eixo Z. 
-        /// </summary>
-        int ZOrder { get; }
-        
-        /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
         bool ShowLogo { get; set; }

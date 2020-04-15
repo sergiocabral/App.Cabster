@@ -54,8 +54,7 @@ namespace Cabster
         public static void Main(params string[] args)
         {
             Environment.Initialize();
-            var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
-            WindowsApi.ShowWindow(mainWindowHandle, Environment.IsDebug);
+            Process.GetCurrentProcess().MainWindowHandle.ShowWindow(Environment.IsDebug);
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -92,7 +91,7 @@ namespace Cabster
                     new NotificationMessage(Resources.Notification_ApplicationRestarting))).Wait();
             }
 
-            if (Environment.IsDebug && mainWindowHandle != IntPtr.Zero) Console.ReadKey();
+            if (Environment.IsDebug && Process.GetCurrentProcess().MainWindowHandle != IntPtr.Zero) Console.ReadKey();
         }
     }
 }

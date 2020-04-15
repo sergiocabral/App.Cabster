@@ -59,7 +59,7 @@ namespace Cabster.Business
         {
             if (_registered)
             {
-                if (!WindowsApi.UnregisterHotKey(_nativeWindow.Handle, ShortcutId))
+                if (!_nativeWindow.Handle.UnregisterHotKey(ShortcutId))
                     throw new ThisWillNeverOccurException();
                 _registered = false;
             }
@@ -76,7 +76,7 @@ namespace Cabster.Business
             if (modifier == ModifierKeys.None ||
                 !Regex.IsMatch($"{key}", @"^([A-Z]|D[0-9])$")) return _registered;
 
-            if (!WindowsApi.RegisterHotKey(_nativeWindow.Handle, ShortcutId, (uint) modifier, (uint) key))
+            if (!_nativeWindow.Handle.RegisterHotKey(ShortcutId, (uint) modifier, (uint) key))
                 throw new WrongOperationException(Resources.Exception_Application_ShortcutAlreadyUsed);
 
             _registered = true;
