@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -15,15 +16,25 @@ namespace Cabster.Extensions
     public static class WindowsApiExtensions
     {
         /// <summary>
-        ///     Lista de ponteiros de mouse do sistema operacional.
+        ///     Lista de correspondência de ponteiros de mouse com o sistema operacional.
         /// </summary>
-        private static readonly Dictionary<Cursor, Cursor> OperatingSystemCursors =
-            new Dictionary<Cursor, Cursor>
+        private static readonly Dictionary<Cursor, WindowsApi.IDC_STANDARD_CURSORS> CursorsMatchingValues =
+            new Dictionary<Cursor, WindowsApi.IDC_STANDARD_CURSORS>
             {
-                {
-                    Cursors.Hand,
-                    new Cursor(WindowsApi.LoadCursor(IntPtr.Zero, 32649 /*IDC_HAND*/))
-                }
+                {Cursors.No, WindowsApi.IDC_STANDARD_CURSORS.IDC_NO},
+                {Cursors.Hand, WindowsApi.IDC_STANDARD_CURSORS.IDC_HAND},
+                {Cursors.Help, WindowsApi.IDC_STANDARD_CURSORS.IDC_HELP},
+                {Cursors.WaitCursor, WindowsApi.IDC_STANDARD_CURSORS.IDC_WAIT},
+                {Cursors.Arrow, WindowsApi.IDC_STANDARD_CURSORS.IDC_ARROW},
+                {Cursors.Cross, WindowsApi.IDC_STANDARD_CURSORS.IDC_CROSS},
+                {Cursors.IBeam, WindowsApi.IDC_STANDARD_CURSORS.IDC_IBEAM},
+                {Cursors.SizeNS, WindowsApi.IDC_STANDARD_CURSORS.IDC_SIZENS},
+                {Cursors.SizeWE, WindowsApi.IDC_STANDARD_CURSORS.IDC_SIZEWE},
+                {Cursors.SizeAll, WindowsApi.IDC_STANDARD_CURSORS.IDC_SIZEALL},
+                {Cursors.UpArrow, WindowsApi.IDC_STANDARD_CURSORS.IDC_UPARROW},
+                {Cursors.SizeNESW, WindowsApi.IDC_STANDARD_CURSORS.IDC_SIZENESW},
+                {Cursors.SizeNWSE, WindowsApi.IDC_STANDARD_CURSORS.IDC_SIZENWSE},
+                {Cursors.AppStarting, WindowsApi.IDC_STANDARD_CURSORS.IDC_APPSTARTING}
             };
 
         /// <summary>
@@ -32,18 +43,28 @@ namespace Cabster.Extensions
         /// <param name="cursor">Cursor.</param>
         public static void FixesForTheOperatingSystemCursor(this Cursor cursor)
         {
-            if (cursor != Cursors.Hand)
+            if (!CursorsMatchingValues.ContainsKey(cursor))
                 throw new WrongArgumentException(
                     nameof(WindowsApiExtensions),
                     nameof(FixesForTheOperatingSystemCursor),
                     nameof(cursor));
 
-            var fieldName = cursor.ToString();
-            fieldName = fieldName[0].ToString().ToLower() + fieldName.Substring(1);
+            var cursorsType = typeof(Cursors);
 
-            typeof(Cursors)
-                .GetField(fieldName, BindingFlags.Static | BindingFlags.NonPublic)?
-                .SetValue(null, OperatingSystemCursors[cursor]);
+            var cursorsProperty = cursorsType
+                .GetProperties(BindingFlags.Static | BindingFlags.Public)
+                .Single(a => a.GetValue(null).Equals(cursor));
+
+            var cursorsFieldName = cursorsProperty.Name[0].ToString().ToLower() + cursorsProperty.Name.Substring(1);
+
+            var cursorsField = cursorsType.GetField(cursorsFieldName, BindingFlags.Static | BindingFlags.NonPublic)
+                               ?? throw new ThisWillNeverOccurException();
+
+            var operatingSystemCursorName = CursorsMatchingValues[cursor];
+            var operatingSystemCursorHandle = WindowsApi.LoadCursor(IntPtr.Zero, operatingSystemCursorName);
+            var operatingSystemCursor = new Cursor(operatingSystemCursorHandle);
+
+            cursorsField.SetValue(null, operatingSystemCursor);
         }
 
         /// <summary>
