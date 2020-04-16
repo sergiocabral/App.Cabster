@@ -80,16 +80,29 @@ namespace Cabster.Business.Forms
             }
             set
             {
-                foreach (var myButton in panelParticipants.Controls.OfType<MyButton>())
+                var oldList = panelParticipants.Controls.OfType<MyButton>().ToArray();
+                var newList = value.ToArray();
+
+                if (newList.Length == oldList.Length &&
+                    !newList.Where((newParticipant, i) =>
+                    {
+                        var oldParticipant = ParticipantInfo.Get(oldList[i]);
+                        return newParticipant.Name != oldParticipant.Name ||
+                               newParticipant.Active != oldParticipant.Active;
+                    }).Any())
+                    return;
+
+                foreach (var myButton in oldList)
                 {
                     var participantInfo = (ParticipantInfo) myButton.Tag;
                     participantInfo.Remove();
                 }
 
-                foreach (var participantSet in value)
-                    panelParticipants.Controls.Add(
-                        ParticipantInfo.CreateControl(this, SaveParticipants, participantSet.Name,
-                            participantSet.Active));
+                foreach (var participantSet in newList)
+                    panelParticipants.Invoke((Action) (() =>
+                        panelParticipants.Controls.Add(
+                            ParticipantInfo.CreateControl(this, SaveParticipants, participantSet.Name,
+                                participantSet.Active))));
             }
         }
 
@@ -464,9 +477,12 @@ namespace Cabster.Business.Forms
             /// </summary>
             public void Remove()
             {
-                _control.Parent.Controls.Remove(_control);
-                _control.Tag = null;
-                _control.Dispose();
+                _control.Invoke((Action) (() =>
+                {
+                    _control.Parent.Controls.Remove(_control);
+                    _control.Tag = null;
+                    _control.Dispose();
+                }));
             }
 
             /// <summary>
@@ -526,6 +542,20 @@ namespace Cabster.Business.Forms
                 var currentPosition = new Point(_control.Left, _control.Top);
                 if (_lastPosition != currentPosition) return;
                 Active = !Active;
+            }
+
+            /// <summary>
+            ///     Cria um participante com base em um botão.
+            /// </summary>
+            /// <param name="control"></param>
+            /// <returns>Participante</returns>
+            public static GroupWorkParticipantSet Get(Control control)
+            {
+                return new GroupWorkParticipantSet
+                {
+                    Name = control.Text,
+                    Active = control.BackColor == ColorForActive
+                };
             }
         }
     }
