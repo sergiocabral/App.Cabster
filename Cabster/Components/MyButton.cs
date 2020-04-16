@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cabster.Extensions;
+using Cabster.Infrastructure;
 using Cabster.Properties;
 
 namespace Cabster.Components
@@ -41,19 +42,19 @@ namespace Cabster.Components
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public MyButton()
+        public MyButton() : this(null)
         {
-            InitializeComponent();
-            InitializeComponent2();
         }
 
         /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="container">Container</param>
-        public MyButton(IContainer container)
+        public MyButton(IContainer? container)
         {
-            container.Add(this);
+            this.LogClassInstantiate();
+            
+            container?.Add(this);
 
             InitializeComponent();
             InitializeComponent2();

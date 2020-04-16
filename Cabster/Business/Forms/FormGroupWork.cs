@@ -9,6 +9,7 @@ using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Components;
+using Cabster.Infrastructure;
 using Cabster.Properties;
 using Serilog;
 using Color = System.Drawing.Color;
@@ -219,6 +220,8 @@ namespace Cabster.Business.Forms
             data.GroupWork.Participants = Participants.ToList();
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
             _pendingToSave ^= DataSection.WorkGroupParticipants;
+            //TODO: Após essa gravação não deve atualizar a tela. Verificar algo parecido para os outros forms.
+            //TODO: gravar último dado como JSON para comparação.
         }
 
         /// <summary>
@@ -415,6 +418,8 @@ namespace Cabster.Business.Forms
             /// <param name="control">Controle.</param>
             private ParticipantInfo(FormGroupWork form, MyButton control)
             {
+                this.LogClassInstantiate();
+                
                 _form = form;
                 _control = control;
                 control.Click += ControlOnClick;

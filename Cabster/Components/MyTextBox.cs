@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using Cabster.Infrastructure;
 using Environment = Cabster.Infrastructure.Environment;
 
 namespace Cabster.Components
@@ -34,19 +35,19 @@ namespace Cabster.Components
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public MyTextBox()
+        public MyTextBox(): this(null)
         {
-            InitializeComponent();
-            InitializeComponent2();
         }
 
         /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="container">Container</param>
-        public MyTextBox(IContainer container)
+        public MyTextBox(IContainer? container)
         {
-            container.Add(this);
+            this.LogClassInstantiate();
+            
+            container?.Add(this);
 
             InitializeComponent();
             InitializeComponent2();

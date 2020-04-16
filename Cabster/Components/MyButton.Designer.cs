@@ -1,4 +1,6 @@
-﻿namespace Cabster.Components
+﻿using Cabster.Infrastructure;
+
+namespace Cabster.Components
 {
     partial class MyButton
     {
@@ -18,6 +20,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            
+            this.LogClassDispose();
         }
 
         #region Component Designer generated code

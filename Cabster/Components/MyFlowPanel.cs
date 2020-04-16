@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Cabster.Extensions;
+using Cabster.Infrastructure;
 
 namespace Cabster.Components
 {
@@ -20,19 +21,19 @@ namespace Cabster.Components
         /// <summary>
         ///     Construtor.
         /// </summary>
-        public MyFlowPanel()
+        public MyFlowPanel() : this(null)
         {
-            InitializeComponent();
-            InitializeComponent2();
         }
 
         /// <summary>
         ///     Construtor.
         /// </summary>
         /// <param name="container">Container</param>
-        public MyFlowPanel(IContainer container)
+        public MyFlowPanel(IContainer? container)
         {
-            container.Add(this);
+            this.LogClassInstantiate();
+            
+            container?.Add(this);
 
             InitializeComponent();
             InitializeComponent2();

@@ -333,6 +333,7 @@
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(350, 450);
             this.Name = "FormConfiguration";
+            this.ShowButtonMinimize = true;
             this.Text = "Window.Configuration.WindowTitle";
             this.Controls.SetChildIndex(this.labelLanguage, 0);
             this.Controls.SetChildIndex(this.buttonLanguagePortuguese, 0);

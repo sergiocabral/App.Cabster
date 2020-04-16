@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNotification));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(FormNotification));
             this.timerToSaveShortcut = new System.Windows.Forms.Timer(this.components);
             this.panelMessages = new System.Windows.Forms.Panel();
             this.labelNoNotification = new System.Windows.Forms.Label();
@@ -38,9 +39,11 @@
             // 
             // panelMessages
             // 
-            this.panelMessages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMessages.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top |
+                                                         System.Windows.Forms.AnchorStyles.Bottom) |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.panelMessages.AutoScroll = true;
             this.panelMessages.BackColor = System.Drawing.Color.Transparent;
             this.panelMessages.Controls.Add(this.labelNoNotification);
@@ -53,7 +56,8 @@
             // 
             this.labelNoNotification.AutoSize = true;
             this.labelNoNotification.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelNoNotification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelNoNotification.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (224)))),
+                ((int) (((byte) (224)))), ((int) (((byte) (224)))));
             this.labelNoNotification.Location = new System.Drawing.Point(0, 0);
             this.labelNoNotification.Name = "labelNoNotification";
             this.labelNoNotification.Size = new System.Drawing.Size(256, 19);
@@ -66,14 +70,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 300);
             this.Controls.Add(this.panelMessages);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormNotification";
+            this.ShowButtonMinimize = true;
             this.Text = "Window.Notification.WindowTitle";
             this.Controls.SetChildIndex(this.panelMessages, 0);
             this.panelMessages.ResumeLayout(false);
             this.panelMessages.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
