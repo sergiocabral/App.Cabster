@@ -119,13 +119,13 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
+        /// <returns>Retorna true se a aplicação precisar reiniciar.</returns>
         public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
             var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
             Application.Run(mainWindow);
-            return mainWindow.Tag != SignalForApplicationRestart;
+            return mainWindow.Tag == SignalForApplicationRestart;
         }
 
         /// <summary>

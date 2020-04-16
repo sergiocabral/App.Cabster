@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
@@ -51,10 +52,11 @@ namespace Cabster
         ///     Ponto de entrada do sistema operacional.
         /// </summary>
         [STAThread]
-        public static void Main(params string[] args)
+        public static async Task Main(params string[] args)
         {
             Environment.Initialize();
-            Process.GetCurrentProcess().MainWindowHandle.ShowWindow(Environment.IsDebug);
+            var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
+            mainWindowHandle.ShowWindow(Environment.IsDebug);
             WindowsApi.FixCursorHand();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -65,33 +67,41 @@ namespace Cabster
                 LogEventLevel.Information);
             Log.Logger = logger;
 
-            while (true)
+            while (await Run())
             {
-                using var dependencyResolver = DependencyResolverConfiguration.Initialize();
-                DependencyResolver = dependencyResolver;
-
-                var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
-
-                messageBus.Send(new UserNotificationPost(
-                    new NotificationMessage(Resources.Notification_ApplicationStarted))).Wait();
-
-                messageBus.Send(new DataLoadFromFile()).Wait();
-
-                var restart = messageBus.Send<bool>(new ApplicationInitialize());
-                
-                if (restart.Result)
-                {
-                    messageBus.Send(new UserNotificationPost(
-                        new NotificationMessage(Resources.Notification_ApplicationFinished))).Wait();
-                    
-                    break;
-                }
-
-                messageBus.Send(new UserNotificationPost(
-                    new NotificationMessage(Resources.Notification_ApplicationRestarting))).Wait();
             }
 
-            if (Environment.IsDebug && Process.GetCurrentProcess().MainWindowHandle != IntPtr.Zero) Console.ReadKey();
+            var pause = Environment.IsDebug && mainWindowHandle != IntPtr.Zero;
+            Log.Verbose("Application finished." + (pause ? " Press any key." : string.Empty));
+            if (pause) Console.ReadKey();
+        }
+
+        /// <summary>
+        ///     Execução da lógica da aplicação
+        /// </summary>
+        /// <returns>Se a aplicação precisar ser reiniciada retorna true.</returns>
+        private static async Task<bool> Run()
+        {
+            using var dependencyResolver = DependencyResolverConfiguration.Initialize();
+            DependencyResolver = dependencyResolver;
+
+            var messageBus = DependencyResolver.GetInstanceRequired<IMediator>();
+
+            await messageBus.Send(new UserNotificationPost(
+                new NotificationMessage(Resources.Notification_ApplicationStarted)));
+
+            await messageBus.Send(new DataLoadFromFile());
+
+            var restart = await messageBus.Send<bool>(new ApplicationInitialize());
+
+            if (restart)
+                await messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(Resources.Notification_ApplicationRestarting)));
+            else
+                await messageBus.Send(new UserNotificationPost(
+                    new NotificationMessage(Resources.Notification_ApplicationFinished)));
+
+            return restart;
         }
     }
 }

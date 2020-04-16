@@ -67,18 +67,13 @@ namespace Cabster.Business
         public void Lock()
         {
             if (IsLocked) return;
-
-            foreach (var screen in Screen.AllScreens) CreateForm(screen);
-
-            var formsLayout = Application
-                .OpenForms
-                .Cast<Form>()
-                .Where(a => a is IFormLayout)
-                .ToArray();
-
-            foreach (var form in formsLayout) form.TopMost = true;
-
             IsLocked = true;
+
+            foreach (var screen in Screen.AllScreens)
+                CreateForm(screen);
+
+            foreach (var form in Application.OpenForms.Cast<Form>().Where(a => a is IFormLayout))
+                form.TopMost = true;
         }
 
         /// <summary>
@@ -87,6 +82,7 @@ namespace Cabster.Business
         public void Unlock()
         {
             if (!IsLocked) return;
+            IsLocked = false;
 
             foreach (var form in Application.OpenForms.Cast<Form>().ToArray())
             {
@@ -96,8 +92,6 @@ namespace Cabster.Business
                 form.Close();
                 Application.DoEvents();
             }
-
-            IsLocked = false;
         }
 
         /// <summary>
@@ -105,7 +99,7 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações sobre o evento.</param>
-        private void TimerOnTick(object sender, EventArgs args)
+        private static void TimerOnTick(object sender, EventArgs args)
         {
             var timer = (Timer) sender;
             timer.Enabled = false;
@@ -115,15 +109,13 @@ namespace Cabster.Business
 
                 if (forms.Length == 0 || forms.Any(a => a.ContainsFocus)) return;
 
-                forms = forms.OrderBy(a => a.Handle.GetWindowZOrder()).ToArray();
-
-                foreach (var form in forms)
+                foreach (var form in forms.OrderBy(a => a.Handle.GetWindowZOrder()))
                 {
                     form.Activate();
                     form.BringToFront();
                 }
 
-                Log.Verbose("Ops");
+                Log.Verbose("Lock screen activated.");
             }
             finally
             {
