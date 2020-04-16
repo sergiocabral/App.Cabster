@@ -57,14 +57,14 @@ namespace Cabster.Business.Messenger.Handlers
         private static Form? _formNotification;
 
         /// <summary>
+        ///     Bloqueador de telas.
+        /// </summary>
+        private readonly ILockScreen _lockScreen;
+
+        /// <summary>
         ///     Barramento de mensagens.
         /// </summary>
         private readonly IMediator _messageBus;
-
-        /// <summary>
-        /// Bloqueador de telas.
-        /// </summary>
-        private readonly ILockScreen _lockScreen;
 
         /// <summary>
         ///     Construtor.
@@ -72,7 +72,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="messageBus">Barramento de mensagens.</param>
         /// <param name="lockScreen">Bloqueador de telas.</param>
         public WindowHandler(
-            IMediator messageBus, 
+            IMediator messageBus,
             ILockScreen lockScreen)
         {
             _messageBus = messageBus;
@@ -130,7 +130,8 @@ namespace Cabster.Business.Messenger.Handlers
             var form = await _messageBus.Send<Form>(new WindowOpenGroupWork(), cancellationToken);
             ((IFormLayout) form).NotUseEscToClose = true;
             ((IFormLayout) form).ShowButtonMinimize = true;
-            
+
+            var lockScreen = false;
             form.SizeChanged += (sender, args) =>
             {
                 if (form.WindowState == FormWindowState.Minimized)
@@ -140,18 +141,17 @@ namespace Cabster.Business.Messenger.Handlers
                         .Cast<Form>()
                         .Where(a => a != form && a is IFormLayout)
                         .ToArray())
-                    {
                         formLayout.Hide();
-                    }
-                    if (_lockScreen.IsLocked) _lockScreen.Unlock();
+
+                    lockScreen = _lockScreen.IsLocked;
+                    if (lockScreen) _lockScreen.Unlock();
                 }
-                else
+                else if (lockScreen)
                 {
-                    var data = Program.Data;
-                    if (data.Application.LockScreen) _lockScreen.Lock();
+                    _lockScreen.Lock();
+                    lockScreen = false;
                 }
             };
-
         }
 
         /// <summary>
