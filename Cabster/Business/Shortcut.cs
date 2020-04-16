@@ -135,7 +135,7 @@ namespace Cabster.Business
             {
                 base.WndProc(ref message);
 
-                if (message.Msg != 0x0312 /* WM_HOTKEY */) return;
+                if (message.Msg != (int) WindowsApi.WM.HOTKEY) return;
 
                 var key = (Keys) (((int) message.LParam >> 16) & 0xFFFF);
                 var modifier = (WindowsApi.KeyModifiers) ((int) message.LParam & 0xFFFF);

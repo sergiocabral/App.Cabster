@@ -8,7 +8,7 @@ namespace Cabster.Business.Messenger.Request
     public class WindowOpenNotification : WindowOpen
     {
         /// <summary>
-        /// Construtor.
+        ///     Construtor.
         /// </summary>
         /// <param name="parent">Form pai.</param>
         public WindowOpenNotification(Form? parent = null) : base(parent)

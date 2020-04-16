@@ -9,17 +9,17 @@ namespace Cabster.Business.Messenger.Request
     public abstract class WindowOpen : MessengerRequest<Form>
     {
         /// <summary>
-        /// Form pai.
-        /// </summary>
-        public Form? Parent { get; }
-
-        /// <summary>
-        /// Construtor.
+        ///     Construtor.
         /// </summary>
         /// <param name="parent">Form pai.</param>
         protected WindowOpen(Form? parent)
         {
             Parent = parent;
         }
+
+        /// <summary>
+        ///     Form pai.
+        /// </summary>
+        public Form? Parent { get; }
     }
 }

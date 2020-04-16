@@ -124,7 +124,7 @@ namespace Cabster.Components
         public void UpdateLayout()
         {
             _buttonIsIcon = Images.ContainsKey(Name);
-            FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); 
+            FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             if (_buttonIsIcon)
             {
                 var (bitmapLeave, bitmapEnter) = Images[Name];

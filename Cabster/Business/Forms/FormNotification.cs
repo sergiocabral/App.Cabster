@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
+using Color = Cabster.Business.Values.Color;
 
 namespace Cabster.Business.Forms
 {
@@ -71,7 +72,7 @@ namespace Cabster.Business.Forms
         {
             var label = new Label
             {
-                ForeColor = message.Success ? Values.Color.NotificationSuccess : Values.Color.NotificationError,
+                ForeColor = message.Success ? Color.NotificationSuccess : Color.NotificationError,
                 Text = message + Environment.NewLine + ' ',
                 Dock = DockStyle.Top
             };

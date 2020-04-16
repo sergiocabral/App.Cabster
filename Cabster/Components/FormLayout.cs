@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
-using Cabster.Exceptions;
 using Cabster.Extensions;
 using Cabster.Properties;
 using Environment = Cabster.Infrastructure.Environment;
@@ -62,7 +59,7 @@ namespace Cabster.Components
         /// </summary>
         public bool ShowButtonMinimize
         {
-            get => buttonMinimize.Visible; 
+            get => buttonMinimize.Visible;
             set => buttonMinimize.Visible = value;
         }
 
@@ -135,7 +132,7 @@ namespace Cabster.Components
                     true);
 
                 TopMost = LockScreen.IsLocked;
-                
+
                 ShowButtonMinimize = false;
             }
 

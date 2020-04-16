@@ -2,7 +2,6 @@
 using System.Reflection;
 using System.Text;
 using Cabster.Business.Entities;
-using Cabster.Exceptions;
 using Cabster.Infrastructure;
 
 namespace Cabster.Business

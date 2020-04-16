@@ -26,8 +26,8 @@ namespace Cabster.Business.Messenger.Notification
         /// <param name="request">Comando.</param>
         public UserNotificationPosted(UserNotificationPost request) : base(request)
         {
-            var log = request.Message.Success 
-                ? (Action<string, string>) Log.Information 
+            var log = request.Message.Success
+                ? (Action<string, string>) Log.Information
                 : Log.Warning;
             log(LogMessageTemplate, request.Message.Text);
         }

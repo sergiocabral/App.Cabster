@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Cabster.Extensions;
+using Cabster.Helpers;
 using Cabster.Infrastructure;
 using Cabster.Properties;
 using MediatR;
@@ -44,8 +45,8 @@ namespace Cabster.Components
             get
             {
                 var createParams = base.CreateParams;
-                if (!ShowInTaskbar) createParams.ExStyle |= 0x80 /* WS_EX_TOOLWINDOW */;
-                if (!Environment.IsDesign) createParams.ExStyle |= 0x02000000 /* WS_EX_COMPOSITED */;
+                if (!ShowInTaskbar) createParams.ExStyle |= (int) WindowsApi.WindowStylesEx.WS_EX_TOOLWINDOW;
+                if (!Environment.IsDesign) createParams.ExStyle |= (int) WindowsApi.WindowStylesEx.WS_EX_COMPOSITED;
                 return createParams;
             }
         }

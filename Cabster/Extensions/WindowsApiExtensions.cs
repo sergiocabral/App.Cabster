@@ -76,7 +76,7 @@ namespace Cabster.Extensions
         {
             WindowsApi.SendMessage(
                 handle,
-                0x000B /* WM_SETREDRAW */,
+                WindowsApi.WM.SETREDRAW,
                 new IntPtr(enable ? 1 : 0),
                 IntPtr.Zero);
         }
