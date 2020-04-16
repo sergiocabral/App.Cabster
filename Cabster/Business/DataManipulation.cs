@@ -30,12 +30,7 @@ namespace Cabster.Business
         ///     Arquivo onde os dados são salvos.
         /// </summary>
         public string Path { get; } =
-            new FileInfo((
-                             Assembly.GetEntryAssembly() ?? 
-                             Assembly.GetAssembly(typeof(Program)) ?? 
-                             throw new ThisWillNeverOccurException()).Location +
-                         ".data.json")
-                .FullName;
+            new FileInfo(Assembly.GetAssembly(typeof(Program)).Location + ".data.json").FullName;
 
         /// <summary>
         ///     Carrega do arquivo.

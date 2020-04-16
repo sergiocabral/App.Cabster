@@ -55,7 +55,6 @@ namespace Cabster
         [STAThread]
         public static async Task Main(params string[] args)
         {
-            Environment.Initialize();
             var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             mainWindowHandle.ShowWindow(Environment.IsDebug);
             Cursors.Hand.FixesForTheOperatingSystemCursor();

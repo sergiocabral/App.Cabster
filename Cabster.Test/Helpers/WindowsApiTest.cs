@@ -36,13 +36,13 @@ namespace Cabster.Helpers
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(7);
-            sut.AssertPublicMethodPresence("static Void FixCursorHand()");
-            sut.AssertPublicMethodPresence("static Void EnableRepaint(HandleRef, Boolean)");
-            sut.AssertPublicMethodPresence("static String GetWindowText(IntPtr)");
-            sut.AssertPublicMethodPresence("static Int32 GetWindowZOrder(IntPtr)");
-            sut.AssertPublicMethodPresence("static Boolean RegisterHotKey(IntPtr, Int32, UInt32, UInt32)");
+            sut.AssertPublicMethodPresence("static Boolean RegisterHotKey(IntPtr, Int32, WindowsApi+KeyModifiers, Keys)");
             sut.AssertPublicMethodPresence("static Boolean UnregisterHotKey(IntPtr, Int32)");
-            sut.AssertPublicMethodPresence("static Boolean ShowWindow(IntPtr, Boolean)");
+            sut.AssertPublicMethodPresence("static Boolean ShowWindow(IntPtr, WindowsApi+ShowWindowCommands)");
+            sut.AssertPublicMethodPresence("static IntPtr LoadCursor(IntPtr, WindowsApi+IDC_STANDARD_CURSORS)");
+            sut.AssertPublicMethodPresence("static IntPtr SendMessage(HandleRef, Int32, IntPtr, IntPtr)");
+            sut.AssertPublicMethodPresence("static Int32 GetWindowText(IntPtr, StringBuilder, Int32)");
+            sut.AssertPublicMethodPresence("static IntPtr GetWindow(IntPtr, WindowsApi+GetWindowType)");
 
             sut.IsClass.Should().BeTrue();
         }

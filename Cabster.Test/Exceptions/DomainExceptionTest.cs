@@ -33,7 +33,7 @@ namespace Cabster.Exceptions
         {
             // Arrange, Given
 
-            var mensagemEsperada = $"{Assembly.GetEntryAssembly()?.FullName} generic exception.";
+            var mensagemEsperada = $"{Assembly.GetAssembly(typeof(Program)).FullName} generic exception.";
 
             // Act, When
 

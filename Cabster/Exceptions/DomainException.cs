@@ -11,7 +11,7 @@ namespace Cabster.Exceptions
         /// <summary>
         ///     Nome da aplicação em execução.
         /// </summary>
-        private static readonly string ApplicationName = $"{Assembly.GetEntryAssembly()?.FullName}";
+        private static readonly string ApplicationName = $"{Assembly.GetAssembly(typeof(Program)).FullName}";
 
         /// <summary>
         ///     Mensagem padrão pata um exception de domínio.
