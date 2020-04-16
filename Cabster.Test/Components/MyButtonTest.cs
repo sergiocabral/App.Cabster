@@ -92,8 +92,13 @@ namespace Cabster.Components
             // Assert, Then
 
             sut.AssertMyOwnImplementations();
-            sut.AssertMyOwnPublicPropertiesCount(0);
-            sut.AssertMyOwnPublicMethodsCount(0);
+            sut.AssertMyOwnPublicPropertiesCount(4);
+            sut.AssertMyOwnPublicPropertiesCount(4);
+            sut.AssertPublicPropertyPresence("Boolean NotTransparent { get; set; }");
+            sut.AssertPublicPropertyPresence("Boolean UseText { get; set; }");
+            sut.AssertMyOwnPublicMethodsCount(2);
+            sut.AssertPublicMethodPresence("Void UpdateSizeToText()");
+            sut.AssertPublicMethodPresence("Void UpdateLayout()");
 
             sut.IsClass.Should().BeTrue();
         }

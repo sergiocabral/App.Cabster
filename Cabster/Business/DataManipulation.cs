@@ -31,7 +31,9 @@ namespace Cabster.Business
         /// </summary>
         public string Path { get; } =
             new FileInfo((
-                             Assembly.GetEntryAssembly() ?? throw new ThisWillNeverOccurException()).Location +
+                             Assembly.GetEntryAssembly() ?? 
+                             Assembly.GetAssembly(typeof(Program)) ?? 
+                             throw new ThisWillNeverOccurException()).Location +
                          ".data.json")
                 .FullName;
 

@@ -19,22 +19,14 @@ namespace Cabster
 
             // Act, When
 
-            var thread = new Thread(() =>
-            {
-                Task.Run(() =>
-                {
-                    Thread.Sleep((int) (esperarUmTempoAtéAAplicaçãoIniciar * 0.9));
-                    Program.DependencyResolver.GetInstanceRequired<IMediator>()
-                        .Send(new ApplicationFinalize());
-                });
-                Program.Main();
-            });
-            thread.Start();
+            var task = Task.Run(() => Program.Main());
+            Thread.Sleep(esperarUmTempoAtéAAplicaçãoIniciar);
+            Program.DependencyResolver.GetInstanceRequired<IMediator>().Send(new ApplicationFinalize());
             Thread.Sleep(esperarUmTempoAtéAAplicaçãoIniciar);
 
             // Assert, Then
 
-            thread.IsAlive.Should().BeFalse();
+            task.IsCompleted.Should().BeTrue();
         }
 
         [Fact]
@@ -49,10 +41,11 @@ namespace Cabster
 
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
-            sut.AssertMyOwnPublicPropertiesCount(1);
+            sut.AssertMyOwnPublicPropertiesCount(2);
             sut.AssertPublicPropertyPresence("static IDependencyResolver DependencyResolver { get; set; }");
+            sut.AssertPublicPropertyPresence("static ContainerData Data { get; }");
             sut.AssertMyOwnPublicMethodsCount(1);
-            sut.AssertPublicMethodPresence("static Void Main(String[])");
+            sut.AssertPublicMethodPresence("static Task Main(String[])");
 
             sut.IsClass.Should().BeTrue();
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Cabrones.Test;
 using Cabster.Components;
+using Cabster.Infrastructure;
 using FluentAssertions;
 using Xunit;
 
@@ -8,21 +9,6 @@ namespace Cabster.Business.Forms
 {
     public class FormGroupWorkTest
     {
-        [Fact]
-        public void deve_ser_possível_criar_uma_instância_sem_falhar()
-        {
-            // Arrange, Given
-            // Act, When
-
-            Action criar = () => new FormGroupWork()
-                .AbrirFecharDescartar()
-                .Descartar();
-
-            // Assert, Then
-
-            criar.Should().NotThrow();
-        }
-
         [Fact]
         public void verificações_declarativa()
         {
@@ -33,7 +19,9 @@ namespace Cabster.Business.Forms
 
             // Assert, Then
 
-            sut.AssertMyOwnImplementations(typeof(FormLayout));
+            sut.AssertMyOwnImplementations(
+                typeof(FormLayout),
+                typeof(IFormContainerData));
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(0);
 

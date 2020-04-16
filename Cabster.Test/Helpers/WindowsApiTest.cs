@@ -33,10 +33,14 @@ namespace Cabster.Helpers
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(0);
-            sut.AssertMyOwnPublicMethodsCount(3);
-            sut.AssertPublicMethodPresence("static Boolean ShowWindow(IntPtr, Boolean)");
+            sut.AssertMyOwnPublicMethodsCount(7);
             sut.AssertPublicMethodPresence("static Void FixCursorHand()");
             sut.AssertPublicMethodPresence("static Void EnableRepaint(HandleRef, Boolean)");
+            sut.AssertPublicMethodPresence("static String GetWindowText(IntPtr)");
+            sut.AssertPublicMethodPresence("static Int32 GetWindowZOrder(IntPtr)");
+            sut.AssertPublicMethodPresence("static Boolean RegisterHotKey(IntPtr, Int32, UInt32, UInt32)");
+            sut.AssertPublicMethodPresence("static Boolean UnregisterHotKey(IntPtr, Int32)");
+            sut.AssertPublicMethodPresence("static Boolean ShowWindow(IntPtr, Boolean)");
 
             sut.IsClass.Should().BeTrue();
         }

@@ -41,22 +41,5 @@ namespace Cabster
 
             return control;
         }
-
-        /// <summary>
-        ///     Verifica a leitura e escrita em todas as propriedades da classe.
-        /// </summary>
-        /// <param name="instance">Instância.</param>
-        public static void LerEEscreverEmTodasAsPropriedades(this object instance)
-        {
-            var properties = instance
-                .GetType()
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public);
-
-            foreach (var property in properties)
-            {
-                var value = property.GetValue(instance);
-                property.SetValue(instance, value);
-            }
-        }
     }
 }
