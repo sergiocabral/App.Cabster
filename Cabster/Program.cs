@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
+using Cabster.Extensions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
 using Cabster.Properties;
@@ -57,7 +58,7 @@ namespace Cabster
             Environment.Initialize();
             var mainWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             mainWindowHandle.ShowWindow(Environment.IsDebug);
-            WindowsApi.FixCursorHand();
+            Cursors.Hand.FixesForTheOperatingSystemCursor();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

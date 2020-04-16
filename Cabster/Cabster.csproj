@@ -285,6 +285,7 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\TranslateExtensions.cs" />
+    <Compile Include="Extensions\WindowsApiExtensions.cs" />
     <Compile Include="Helpers\WindowsApi.cs" />
     <Compile Include="Infrastructure\Environment.cs" />
     <Compile Include="Infrastructure\MessengerBase.cs" />

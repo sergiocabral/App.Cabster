@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Cabster.Components;
+using Cabster.Extensions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
 using Cabster.Properties;

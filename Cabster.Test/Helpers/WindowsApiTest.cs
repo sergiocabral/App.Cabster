@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 using Cabrones.Test;
+using Cabster.Extensions;
 using FluentAssertions;
 using Xunit;
 
@@ -13,7 +15,7 @@ namespace Cabster.Helpers
             // Arrange, Given
             // Act, When
 
-            Action corrigir = WindowsApi.FixCursorHand;
+            Action corrigir = () => Cursors.Hand.FixesForTheOperatingSystemCursor();
 
             // Assert, Then
 

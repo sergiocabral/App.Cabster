@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Cabster.Exceptions;
+using Cabster.Extensions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
 using Cabster.Properties;
@@ -66,17 +67,17 @@ namespace Cabster.Business
 
             if (shortcut == Keys.None) return _registered;
 
-            var modifier = ModifierKeys.None;
-            if ((shortcut & Keys.Alt) == Keys.Alt) modifier |= ModifierKeys.Alt;
-            if ((shortcut & Keys.Control) == Keys.Control) modifier |= ModifierKeys.Control;
-            if ((shortcut & Keys.Shift) == Keys.Shift) modifier |= ModifierKeys.Shift;
+            var modifier = WindowsApi.KeyModifiers.None;
+            if ((shortcut & Keys.Alt) == Keys.Alt) modifier |= WindowsApi.KeyModifiers.Alt;
+            if ((shortcut & Keys.Control) == Keys.Control) modifier |= WindowsApi.KeyModifiers.Control;
+            if ((shortcut & Keys.Shift) == Keys.Shift) modifier |= WindowsApi.KeyModifiers.Shift;
 
             var key = shortcut & ~Keys.Alt & ~Keys.Control & ~Keys.Shift;
 
-            if (modifier == ModifierKeys.None ||
+            if (modifier == WindowsApi.KeyModifiers.None ||
                 !Regex.IsMatch($"{key}", @"^([A-Z]|D[0-9])$")) return _registered;
 
-            if (!_nativeWindow.Handle.RegisterHotKey(ShortcutId, (uint) modifier, (uint) key))
+            if (!_nativeWindow.Handle.RegisterHotKey(ShortcutId, modifier, key))
                 throw new WrongOperationException(Resources.Exception_Application_ShortcutAlreadyUsed);
 
             _registered = true;
@@ -89,7 +90,7 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="modifiers">Teclas de acesso.</param>
         /// <param name="key">Tecla.</param>
-        private static void NativeWindowOnKeyPressed(ModifierKeys modifiers, Keys key)
+        private static void NativeWindowOnKeyPressed(WindowsApi.KeyModifiers modifiers, Keys key)
         {
             // TODO: Implementar tecla de atalho.
             Log.Information("Shortcut {Modifiers} + {Key}", modifiers, key);
@@ -137,7 +138,7 @@ namespace Cabster.Business
                 if (message.Msg != 0x0312 /* WM_HOTKEY */) return;
 
                 var key = (Keys) (((int) message.LParam >> 16) & 0xFFFF);
-                var modifier = (ModifierKeys) ((int) message.LParam & 0xFFFF);
+                var modifier = (WindowsApi.KeyModifiers) ((int) message.LParam & 0xFFFF);
 
                 KeyPressed?.Invoke(modifier, key);
             }
@@ -145,40 +146,7 @@ namespace Cabster.Business
             /// <summary>
             ///     Evento para quando a tecla é acionada.
             /// </summary>
-            public event Action<ModifierKeys, Keys>? KeyPressed;
-        }
-
-        /// <summary>
-        ///     Teclas de atalho de acesso.
-        /// </summary>
-        [Flags]
-        private enum ModifierKeys : uint
-        {
-            /// <summary>
-            ///     Nenhum
-            /// </summary>
-            None = 0,
-
-            /// <summary>
-            ///     Alt
-            /// </summary>
-            Alt = 1,
-
-            /// <summary>
-            ///     Control
-            /// </summary>
-            Control = 2,
-
-            /// <summary>
-            ///     Shift
-            /// </summary>
-            Shift = 4,
-
-            /// <summary>
-            ///     WinKey
-            /// </summary>
-            // ReSharper disable once UnusedMember.Local
-            Win = 8
+            public event Action<WindowsApi.KeyModifiers, Keys>? KeyPressed;
         }
     }
 }

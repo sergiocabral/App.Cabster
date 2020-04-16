@@ -1,135 +1,196 @@
 ﻿using System;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cabster.Helpers
 {
     /// <summary>
-    ///     Funcionalidades relacionadas a API do Windows.
+    ///     Referências para APIs do Windows.
+    ///     Consulte a documentação na internet em http://www.pinvoke.net/
     /// </summary>
     public static class WindowsApi
     {
         /// <summary>
-        ///     Curso original do sistema operacional para Hand.
+        ///     http://www.pinvoke.net/default.aspx/user32/GetWindow.html
         /// </summary>
-        private static readonly Cursor SystemHandCursor =
-            new Cursor(LoadCursor(IntPtr.Zero, 32649 /*IDC_HAND*/));
-
-        /// <summary>
-        ///     Corrige o problema do cursor do mouse de tipo Hand que não usa a imagem do sistema operacional.
-        /// </summary>
-        public static void FixCursorHand()
+        public enum GetWindowType : uint
         {
-            // Executa como Task para ignorar uma possível exception. Vai quê...
-            Task.Run(() => typeof(Cursors)
-                .GetField("hand", BindingFlags.Static | BindingFlags.NonPublic)?
-                .SetValue(null, SystemHandCursor));
+            /// <summary>
+            ///     The retrieved handle identifies the window of the same type that is highest in the Z order.
+            ///     If the specified window is a topmost window, the handle identifies a topmost window.
+            ///     If the specified window is a top-level window, the handle identifies a top-level window.
+            ///     If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDFIRST = 0,
+
+            /// <summary>
+            ///     The retrieved handle identifies the window of the same type that is lowest in the Z order.
+            ///     If the specified window is a topmost window, the handle identifies a topmost window.
+            ///     If the specified window is a top-level window, the handle identifies a top-level window.
+            ///     If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDLAST = 1,
+
+            /// <summary>
+            ///     The retrieved handle identifies the window below the specified window in the Z order.
+            ///     If the specified window is a topmost window, the handle identifies a topmost window.
+            ///     If the specified window is a top-level window, the handle identifies a top-level window.
+            ///     If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDNEXT = 2,
+
+            /// <summary>
+            ///     The retrieved handle identifies the window above the specified window in the Z order.
+            ///     If the specified window is a topmost window, the handle identifies a topmost window.
+            ///     If the specified window is a top-level window, the handle identifies a top-level window.
+            ///     If the specified window is a child window, the handle identifies a sibling window.
+            /// </summary>
+            GW_HWNDPREV = 3,
+
+            /// <summary>
+            ///     The retrieved handle identifies the specified window's owner window, if any.
+            /// </summary>
+            GW_OWNER = 4,
+
+            /// <summary>
+            ///     The retrieved handle identifies the child window at the top of the Z order,
+            ///     if the specified window is a parent window; otherwise, the retrieved handle is NULL.
+            ///     The function examines only child windows of the specified window. It does not examine descendant windows.
+            /// </summary>
+            GW_CHILD = 5,
+
+            /// <summary>
+            ///     The retrieved handle identifies the enabled popup window owned by the specified window (the
+            ///     search uses the first such window found using GW_HWNDNEXT); otherwise, if there are no enabled
+            ///     popup windows, the retrieved handle is that of the specified window.
+            /// </summary>
+            GW_ENABLEDPOPUP = 6
         }
 
         /// <summary>
-        ///     Ativa ou desativa o desenho do componente.
+        ///     http://www.pinvoke.net/default.aspx/user32/RegisterHotKey.html
         /// </summary>
-        /// <param name="handle">HandleRef</param>
-        /// <param name="enable">Ativa ou desativa.</param>
-        public static void EnableRepaint(this HandleRef handle, bool enable)
+        [Flags]
+        public enum KeyModifiers
         {
-            SendMessage(
-                handle, 0x000B /* WM_SETREDRAW */, new IntPtr(enable ? 1 : 0), IntPtr.Zero);
+            None = 0,
+            Alt = 1,
+            Control = 2,
+            Shift = 4,
+
+            // Either WINDOWS key was held down. These keys are labeled with the Windows logo.
+            // Keyboard shortcuts that involve the WINDOWS key are reserved for use by the
+            // operating system.
+            Windows = 8
         }
 
         /// <summary>
-        ///     Obtem o nome da janela.
+        ///     http://www.pinvoke.net/default.aspx/Enums/ShowWindowCommand.html
         /// </summary>
-        /// <param name="hWnd">Handle</param>
-        /// <returns>Texto.</returns>
-        public static string GetWindowText(this IntPtr hWnd)
+        public enum ShowWindowCommands : uint
         {
-            var text = new StringBuilder(255);
-            GetWindowText(hWnd, text, text.Capacity);
-            return text.ToString();
+            /// <summary>
+            ///     Hides the window and activates another window.
+            /// </summary>
+            Hide = 0,
+
+            /// <summary>
+            ///     Activates and displays a window. If the window is minimized or
+            ///     maximized, the system restores it to its original size and position.
+            ///     An application should specify this flag when displaying the window
+            ///     for the first time.
+            /// </summary>
+            Normal = 1,
+
+            /// <summary>
+            ///     Activates the window and displays it as a minimized window.
+            /// </summary>
+            ShowMinimized = 2,
+
+            /// <summary>
+            ///     Maximizes the specified window.
+            /// </summary>
+            Maximize = 3, // is this the right value?
+
+            /// <summary>
+            ///     Activates the window and displays it as a maximized window.
+            /// </summary>
+            ShowMaximized = 3,
+
+            /// <summary>
+            ///     Displays a window in its most recent size and position. This value
+            ///     is similar to <see cref="Win32.ShowWindowCommand.Normal" />, except
+            ///     the window is not activated.
+            /// </summary>
+            ShowNoActivate = 4,
+
+            /// <summary>
+            ///     Activates the window and displays it in its current size and position.
+            /// </summary>
+            Show = 5,
+
+            /// <summary>
+            ///     Minimizes the specified window and activates the next top-level
+            ///     window in the Z order.
+            /// </summary>
+            Minimize = 6,
+
+            /// <summary>
+            ///     Displays the window as a minimized window. This value is similar to
+            ///     <see cref="Win32.ShowWindowCommand.ShowMinimized" />, except the
+            ///     window is not activated.
+            /// </summary>
+            ShowMinNoActive = 7,
+
+            /// <summary>
+            ///     Displays the window in its current size and position. This value is
+            ///     similar to <see cref="Win32.ShowWindowCommand.Show" />, except the
+            ///     window is not activated.
+            /// </summary>
+            ShowNA = 8,
+
+            /// <summary>
+            ///     Activates and displays the window. If the window is minimized or
+            ///     maximized, the system restores it to its original size and position.
+            ///     An application should specify this flag when restoring a minimized window.
+            /// </summary>
+            Restore = 9,
+
+            /// <summary>
+            ///     Sets the show state based on the SW_* value specified in the
+            ///     STARTUPINFO structure passed to the CreateProcess function by the
+            ///     program that started the application.
+            /// </summary>
+            ShowDefault = 10,
+
+            /// <summary>
+            ///     <b>Windows 2000/XP:</b> Minimizes a window, even if the thread
+            ///     that owns the window is not responding. This flag should only be
+            ///     used when minimizing windows from a different thread.
+            /// </summary>
+            ForceMinimize = 11
         }
 
-        /// <summary>
-        ///     Obtem o Z-Order de uma janela.
-        /// </summary>
-        /// <param name="hWnd">Handle IntPtr</param>
-        /// <returns>Z-Order</returns>
-        public static int GetWindowZOrder(this IntPtr hWnd)
-        {
-            var zOrder = -1;
-            while ((hWnd = GetWindow(hWnd, 2 /* GW_HWNDNEXT */)) != IntPtr.Zero) zOrder++;
-            return zOrder;
-        }
-
-        /// <summary>
-        ///     Registra uma tecla de atalho.
-        /// </summary>
-        /// <param name="hWnd">IntPtr</param>
-        /// <param name="id">int</param>
-        /// <param name="fsModifiers">uint</param>
-        /// <param name="vk">uint</param>
-        /// <returns>bool</returns>
         [DllImport("user32.dll")]
-        public static extern bool RegisterHotKey(this IntPtr hWnd, int id, uint fsModifiers, uint vk);
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, KeyModifiers fsModifiers, Keys vk);
 
-        /// <summary>
-        ///     Remove o registro de uma tecla de atalho
-        /// </summary>
-        /// <param name="hWnd">IntPtr</param>
-        /// <param name="id">id</param>
-        /// <returns>bool</returns>
         [DllImport("user32.dll")]
-        public static extern bool UnregisterHotKey(this IntPtr hWnd, int id);
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
-        /// <summary>
-        ///     Exibe ou esconde uma janela.
-        /// </summary>
-        /// <param name="hWnd">IntPtr</param>
-        /// <param name="nCmdShow">bool</param>
-        /// <returns>bool</returns>
         [DllImport("user32.dll")]
-        public static extern bool ShowWindow(this IntPtr hWnd, bool nCmdShow);
+        public static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommands nCmdShow);
 
-        /// <summary>
-        ///     Carrega um curso de mouse do sistema operacional.
-        /// </summary>
-        /// <param name="hInstance">IntPtr</param>
-        /// <param name="lpCursorName">int</param>
-        /// <returns>IntPtr</returns>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr LoadCursor(this IntPtr hInstance, int lpCursorName);
+        public static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
 
-        /// <summary>
-        ///     Envia mensagens via API do Windows.
-        /// </summary>
-        /// <param name="hWnd">HandleRef</param>
-        /// <param name="msg">int</param>
-        /// <param name="wParam">IntPtr</param>
-        /// <param name="lParam">IntPtr</param>
-        /// <returns>IntPtr</returns>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        private static extern IntPtr SendMessage(this HandleRef hWnd, int msg, IntPtr wParam, IntPtr lParam);
+        public static extern IntPtr SendMessage(HandleRef hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
-        /// <summary>
-        ///     Obtem o nome da janela.
-        /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="lpString"></param>
-        /// <param name="nMaxCount"></param>
-        /// <returns></returns>
         [DllImport("user32.dll", CharSet = CharSet.None, SetLastError = true)]
-        private static extern int GetWindowText(this IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+        public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
-        /// <summary>
-        ///     Obtem uma janela parente de outra.
-        /// </summary>
-        /// <param name="hWnd">Handle IntPtr</param>
-        /// <param name="uCmd">Tipo de parentesco</param>
-        /// <returns>Handle IntPtr</returns>
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr GetWindow(this IntPtr hWnd, uint uCmd);
+        public static extern IntPtr GetWindow(IntPtr hWnd, GetWindowType uCmd);
     }
 }
