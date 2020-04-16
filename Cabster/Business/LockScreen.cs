@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Cabster.Business.Forms;
 using Cabster.Components;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
@@ -20,11 +17,6 @@ namespace Cabster.Business
     // ReSharper disable once ClassNeverInstantiated.Global
     public class LockScreen : ILockScreen, IDisposable
     {
-        /// <summary>
-        ///     Informações sobre as janelas da aplicação.
-        /// </summary>
-        private readonly FormsInfo _forms;
-
         /// <summary>
         ///     Marca para sinalizar que um form é um bloqueador de telas.
         /// </summary>
@@ -42,10 +34,9 @@ namespace Cabster.Business
         {
             this.LogClassInstantiate();
 
-            _forms = new FormsInfo(_markToFormLockScreen);
             _timer = new Timer
             {
-                Interval = 5000,
+                Interval = 1,
                 Enabled = false
             };
             _timer.Tick += TimerOnTick;
@@ -85,7 +76,7 @@ namespace Cabster.Business
                 .Where(a => a is IFormLayout)
                 .ToArray();
 
-            //foreach (var form in formsLayout) form.TopMost = true;
+            foreach (var form in formsLayout) form.TopMost = true;
 
             IsLocked = true;
         }
@@ -120,23 +111,18 @@ namespace Cabster.Business
             timer.Enabled = false;
             try
             {
-                var windowsInternal = _forms.Internal;
+                var forms = Application.OpenForms.Cast<Form>().ToArray();
 
-                if (windowsInternal.Any(a => a.ContainsFocus) || !windowsInternal.Any()) return;
+                if (forms.Length == 0 || forms.Any(a => a.ContainsFocus)) return;
 
-                var forms = _forms
-                    .LockScreen
-                    .Concat(_forms
-                        .Layout
-                        .OrderBy(a => a.Handle.GetWindowZOrder()))
-                    .ToArray();
+                forms = forms.OrderBy(a => a.Handle.GetWindowZOrder()).ToArray();
 
                 foreach (var form in forms)
                 {
                     form.Activate();
                     form.BringToFront();
                 }
-                
+
                 Log.Verbose("Ops");
             }
             finally
@@ -173,13 +159,13 @@ namespace Cabster.Business
             {
                 Tag = _markToFormLockScreen,
                 ShowInTaskbar = false,
-                //TopMost = true,
+                TopMost = false,
                 StartPosition = FormStartPosition.Manual,
                 Text = Resources.Name_Application,
                 FormBorderStyle = FormBorderStyle.None,
                 BackColor = Color.Black,
                 BackgroundImage = Resources.FormLockScreenBackground,
-                Opacity = 0.015
+                Opacity = 0.02
             };
             form.Closing += FormOnClosing;
             return form;
@@ -194,135 +180,6 @@ namespace Cabster.Business
         {
             var form = (Form) sender;
             args.Cancel = form.Visible;
-        }
-
-        /// <summary>
-        ///     Informações sobre as janelas da aplicação.
-        /// </summary>
-        private class FormsInfo
-        {
-            /// <summary>
-            ///     Lista de janelas.
-            /// </summary>
-            private readonly Dictionary<FormType, object> _forms = new Dictionary<FormType, object>();
-
-            /// <summary>
-            ///     Marca para sinalizar que um form é um bloqueador de telas.
-            /// </summary>
-            private readonly object _markToFormLockScreen;
-
-            /// <summary>
-            ///     Cronômetro.
-            /// </summary>
-            private readonly Stopwatch _stopwatch = new Stopwatch();
-
-            /// <summary>
-            ///     Última contagem de janelas.
-            /// </summary>
-            private int _lastApplicationFormCount;
-
-            /// <summary>
-            ///     Construtor
-            /// </summary>
-            /// <param name="markToFormLockScreen">Marca para sinalizar que um form é um bloqueador de telas.</param>
-            public FormsInfo(object markToFormLockScreen)
-            {
-                this.LogClassInstantiate();
-
-                _markToFormLockScreen = markToFormLockScreen;
-                _stopwatch.Start();
-            }
-
-            /// <summary>
-            ///     Todas as janelas.
-            /// </summary>
-            public Form[] Internal => (Form[]) GetFormList(FormType.Internal);
-
-            /// <summary>
-            ///     Janelas de bloqueio de tela.
-            /// </summary>
-            public Form[] LockScreen => (Form[]) GetFormList(FormType.LockScreen);
-
-            /// <summary>
-            ///     Janela da aplicação.
-            /// </summary>
-            public Form[] Layout => (Form[]) GetFormList(FormType.Layout);
-
-            /// <summary>
-            ///     Janela da aplicação.
-            /// </summary>
-            public Process[] External => (Process[]) GetFormList(FormType.External);
-
-            /// <summary>
-            ///     Obtem a lista de janela.
-            /// </summary>
-            /// <param name="type">Tipo da janela.</param>
-            /// <returns>Lista das janelas.</returns>
-            private object GetFormList(FormType type)
-            {
-                UpdateFormList();
-                UpdateExternalList();
-                return _forms[type];
-            }
-
-            /// <summary>
-            ///     Atualiza a lista de janelas.
-            /// </summary>
-            private void UpdateFormList()
-            {
-                if (_lastApplicationFormCount == Application.OpenForms.Count) return;
-                _lastApplicationFormCount = Application.OpenForms.Count;
-
-                var forms = Application.OpenForms.Cast<Form>().ToArray();
-                var lockScreen = forms.Where(a => a.Tag == _markToFormLockScreen).ToArray();
-                var layout = forms.Where(a => a is IFormLayout).ToArray();
-
-                _forms[FormType.Internal] = forms;
-                _forms[FormType.LockScreen] = lockScreen;
-                _forms[FormType.Layout] = layout;
-            }
-
-            /// <summary>
-            ///     Atualiza a lista de processos.
-            /// </summary>
-            private void UpdateExternalList()
-            {
-                const int intervalMilliseconds = 1000;
-                if (_stopwatch.ElapsedMilliseconds % intervalMilliseconds != 0 &&
-                    _forms.ContainsKey(FormType.External)) return;
-
-                _forms[FormType.External] = Process
-                    .GetProcesses()
-                    .Where(process => process.MainWindowHandle != IntPtr.Zero)
-                    .OrderBy(process => process.MainWindowHandle.GetWindowZOrder())
-                    .ToArray();
-            }
-
-            /// <summary>
-            ///     Tipos de janelas.
-            /// </summary>
-            private enum FormType
-            {
-                /// <summary>
-                /// Todas as janelas.
-                /// </summary>
-                Internal,
-                
-                /// <summary>
-                ///     Janela de bloqueio.
-                /// </summary>
-                LockScreen,
-
-                /// <summary>
-                ///     Janelas de layout.
-                /// </summary>
-                Layout,
-
-                /// <summary>
-                ///     Janelas externas.
-                /// </summary>
-                External
-            }
         }
     }
 }
