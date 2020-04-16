@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Extensions;
 using Serilog;
@@ -16,6 +15,11 @@ namespace Cabster.Components
         ///     Sinaliza que a aplicação foi inicializada.
         /// </summary>
         private bool _applicationInitialized;
+
+        /// <summary>
+        ///     Sinaliza que o clock está trabalhando.
+        /// </summary>
+        private bool _timerWorking;
 
         /// <summary>
         ///     Construtor.
@@ -47,8 +51,8 @@ namespace Cabster.Components
         private void OnTimerTick(object sender, EventArgs args)
         {
             if (!_applicationInitialized) return;
-
-            ((Timer) sender).Enabled = false;
+            if (_timerWorking) return;
+            _timerWorking = true;
 
             try
             {
@@ -62,7 +66,7 @@ namespace Cabster.Components
             }
             finally
             {
-                ((Timer) sender).Enabled = true;
+                _timerWorking = false;
             }
         }
     }

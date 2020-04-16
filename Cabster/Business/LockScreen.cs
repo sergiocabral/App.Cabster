@@ -28,6 +28,11 @@ namespace Cabster.Business
         private readonly Timer _timer;
 
         /// <summary>
+        ///     Sinaliza que o timer está trabalhando.
+        /// </summary>
+        private bool _timerWorking;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public LockScreen()
@@ -99,10 +104,10 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações sobre o evento.</param>
-        private static void TimerOnTick(object sender, EventArgs args)
+        private void TimerOnTick(object sender, EventArgs args)
         {
-            var timer = (Timer) sender;
-            timer.Enabled = false;
+            if (_timerWorking) return;
+            _timerWorking = true;
             try
             {
                 var forms = Application.OpenForms.Cast<Form>().ToArray();
@@ -119,7 +124,7 @@ namespace Cabster.Business
             }
             finally
             {
-                timer.Enabled = true;
+                _timerWorking = false;
             }
         }
 
