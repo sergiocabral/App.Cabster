@@ -154,7 +154,9 @@
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
     <Compile Include="Business\ILockScreen.cs" />
-    <Compile Include="Business\Messenger\Request\ApplicationUserPoke.cs" />
+    <Compile Include="Business\Messenger\Handlers\UserActionHandler.cs" />
+    <Compile Include="Business\Messenger\Request\UserActionGroupWorkStart.cs" />
+    <Compile Include="Business\Messenger\Request\UserActionPoke.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpen.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpenMain.cs" />
     <Compile Include="Business\LockScreen.cs" />

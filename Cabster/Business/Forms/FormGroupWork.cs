@@ -372,8 +372,7 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonStart_Click(object sender, EventArgs args)
         {
-            //TODO: Implementar começar o Mob.
-            Log.Information("Start MOB.");
+            MessageBus.Send(new UserActionGroupWorkStart());
         }
 
         /// <summary>

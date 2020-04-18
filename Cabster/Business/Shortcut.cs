@@ -128,7 +128,7 @@ namespace Cabster.Business
         /// <param name="key">Tecla.</param>
         private void NativeWindowOnKeyPressed(WindowsApi.KeyModifiers modifiers, Keys key)
         {
-            _messageBus.Send(new ApplicationUserPoke());
+            _messageBus.Send(new UserActionPoke());
         }
 
         /// <summary>

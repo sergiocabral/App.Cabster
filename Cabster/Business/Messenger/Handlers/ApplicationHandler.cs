@@ -25,7 +25,6 @@ namespace Cabster.Business.Messenger.Handlers
         IRequestHandler<ApplicationInitialize, bool>,
         IRequestHandler<ApplicationFinalize>,
         IRequestHandler<ApplicationChangeLanguage>,
-        IRequestHandler<ApplicationUserPoke>,
         INotificationHandler<DataUpdated>
     {
         /// <summary>
@@ -101,20 +100,6 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
             return Unit.Value;
-        }
-
-        /// <summary>
-        ///     Processa o comando: ApplicationUserAction
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Unit> Handle(ApplicationUserPoke request, CancellationToken cancellationToken)
-        {
-            //TODO: Implementar ApplicationUserAction
-            Log.Verbose(nameof(ApplicationUserPoke));
-
-            return Unit.Task;
         }
 
         /// <summary>

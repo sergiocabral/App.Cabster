@@ -78,7 +78,7 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void notifyIcon_DoubleClick(object sender, EventArgs args)
         {
-            MessageBus.Send(new ApplicationUserPoke());
+            MessageBus.Send(new UserActionPoke());
         }
     }
 }
