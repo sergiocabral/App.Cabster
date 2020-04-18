@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Extensions;
 using Cabster.Helpers;
 using Cabster.Infrastructure;
 using Cabster.Properties;
+using MediatR;
 using Serilog;
 
 namespace Cabster.Business
@@ -22,6 +24,11 @@ namespace Cabster.Business
         private const int ShortcutId = 0;
 
         /// <summary>
+        ///     Barramento de mensagens
+        /// </summary>
+        private readonly IMediator _messageBus;
+
+        /// <summary>
         ///     Janela do sistema operacional para registrar teclas de atalho.
         /// </summary>
         private readonly NativeWindow _nativeWindow;
@@ -32,12 +39,14 @@ namespace Cabster.Business
         private bool _registered;
 
         /// <summary>
-        ///     Construtor.
+        ///     Construtor
         /// </summary>
-        public Shortcut()
+        /// <param name="messageBus">Barramento de mensagens.</param>
+        public Shortcut(IMediator messageBus)
         {
             this.LogClassInstantiate();
 
+            _messageBus = messageBus;
             _nativeWindow = new NativeWindow();
             _nativeWindow.KeyPressed += NativeWindowOnKeyPressed;
         }
@@ -62,7 +71,7 @@ namespace Cabster.Business
             {
                 if (!_nativeWindow.Handle.UnregisterHotKey(ShortcutId))
                     throw new ThisWillNeverOccurException();
-                
+
                 _registered = false;
             }
 
@@ -117,10 +126,9 @@ namespace Cabster.Business
         /// </summary>
         /// <param name="modifiers">Teclas de acesso.</param>
         /// <param name="key">Tecla.</param>
-        private static void NativeWindowOnKeyPressed(WindowsApi.KeyModifiers modifiers, Keys key)
+        private void NativeWindowOnKeyPressed(WindowsApi.KeyModifiers modifiers, Keys key)
         {
-            // TODO: Implementar tecla de atalho.
-            Log.Information("Shortcut {Modifiers} + {Key}", modifiers, key);
+            _messageBus.Send(new ApplicationUserPoke());
         }
 
         /// <summary>
