@@ -163,10 +163,9 @@ namespace Cabster.Business.Messenger.Handlers
         public Task Handle(DataUpdated notification, CancellationToken cancellationToken)
         {
             if ((notification.Request.Section & DataSection.Application) != 0)
-                ((IFormContainerData?) _formConfiguration)?.UpdateControls();
+                ((IFormContainerData?) _formConfiguration)?.UpdateControls(notification.Request.Data);
             if ((notification.Request.Section & DataSection.WorkGroup) != 0)
-                ((IFormContainerData?) _formGroupWork)?
-                    .UpdateControls();
+                ((IFormContainerData?) _formGroupWork)?.UpdateControls(notification.Request.Data);
             return Unit.Task;
         }
 
@@ -184,7 +183,7 @@ namespace Cabster.Business.Messenger.Handlers
                 ((IFormLayout?) _formConfiguration)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
-            ((IFormContainerData?) _formNotification)?.UpdateControls();
+            ((IFormContainerData?) _formNotification)?.UpdateControls(null);
 
             return Unit.Task;
         }

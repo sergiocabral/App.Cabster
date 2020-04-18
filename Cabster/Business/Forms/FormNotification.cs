@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
+using Cabster.Exceptions;
 using Color = Cabster.Business.Values.Color;
 
 namespace Cabster.Business.Forms
@@ -32,8 +33,11 @@ namespace Cabster.Business.Forms
         /// <summary>
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
-        public async void UpdateControls()
+        /// <param name="data">Dados da aplicação.</param>
+        public async void UpdateControls(ContainerData? data = null)
         {
+            if (data != null) throw new ThisWillNeverOccurException();
+
             var messages = await MessageBus.Send<IEnumerable<NotificationMessage>>(
                 new UserNotificationRequestList(_lastFilter));
 

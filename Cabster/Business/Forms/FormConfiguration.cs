@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Components;
@@ -14,6 +15,11 @@ namespace Cabster.Business.Forms
     /// </summary>
     public partial class FormConfiguration : FormLayout, IFormContainerData
     {
+        /// <summary>
+        ///     Dados da aplicação consultados por último.
+        /// </summary>
+        private ContainerData? _data;
+
         /// <summary>
         ///     Última estado para bloqueio da tela.
         /// </summary>
@@ -100,11 +106,18 @@ namespace Cabster.Business.Forms
         private static CultureInfo CurrentLanguage => CultureInfo.CurrentUICulture;
 
         /// <summary>
+        ///     Dados da aplicação.
+        /// </summary>
+        private ContainerData Data => _data = Program.Data;
+
+        /// <summary>
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
-        public void UpdateControls()
+        /// <param name="data">Dados da aplicação.</param>
+        public void UpdateControls(ContainerData? data = null)
         {
-            var data = Program.Data;
+            if (data != null && data == _data) return;
+            data ??= Data;
             _lastShortcut = Shortcut = data.Application.Shortcut;
             _lastLockScreen = LockScreen = data.Application.LockScreen;
         }
@@ -207,7 +220,7 @@ namespace Cabster.Business.Forms
         {
             ((Timer) sender).Enabled = false;
             if (Shortcut == _lastShortcut) return;
-            var data = Program.Data;
+            var data = Data;
             data.Application.Shortcut = Shortcut;
             MessageBus.Send(new DataUpdate(data, DataSection.ApplicationShortcut));
             _pendingToSave ^= DataSection.ApplicationShortcut;
@@ -222,7 +235,7 @@ namespace Cabster.Business.Forms
         {
             ((Timer) sender).Enabled = false;
             if (LockScreen == _lastLockScreen) return;
-            var data = Program.Data;
+            var data = Data;
             data.Application.LockScreen = LockScreen;
             MessageBus.Send(new DataUpdate(data, DataSection.ApplicationLockScreen));
             _pendingToSave ^= DataSection.ApplicationLockScreen;
@@ -235,7 +248,7 @@ namespace Cabster.Business.Forms
         {
             Hide();
             if (_pendingToSave == 0) return;
-            var data = Program.Data;
+            var data = Data;
             data.Application.Shortcut = Shortcut;
             data.Application.LockScreen = LockScreen;
             await MessageBus.Send(new DataUpdate(data, _pendingToSave));

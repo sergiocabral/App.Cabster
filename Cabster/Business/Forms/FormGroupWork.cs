@@ -24,6 +24,11 @@ namespace Cabster.Business.Forms
     public partial class FormGroupWork : FormLayout, IFormContainerData
     {
         /// <summary>
+        ///     Dados da aplicação consultados por último.
+        /// </summary>
+        private ContainerData? _data;
+
+        /// <summary>
         ///     Sinaliza que a janela já foi carregada.
         /// </summary>
         private bool _loaded;
@@ -113,11 +118,18 @@ namespace Cabster.Business.Forms
         private static ITips Tips => Program.DependencyResolver.GetInstanceRequired<ITips>();
 
         /// <summary>
+        ///     Dados da aplicação.
+        /// </summary>
+        private ContainerData Data => _data = Program.Data;
+
+        /// <summary>
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
-        public void UpdateControls()
+        /// <param name="data">Dados da aplicação.</param>
+        public void UpdateControls(ContainerData? data = null)
         {
-            var data = Program.Data;
+            if (data != null && data == _data) return;
+            data ??= Data;
             Participants = data.GroupWork.Participants;
             Times = data.GroupWork.Times;
         }
@@ -216,12 +228,10 @@ namespace Cabster.Business.Forms
         private void timerToSaveParticipants_Tick(object sender, EventArgs args)
         {
             ((Timer) sender).Enabled = false;
-            var data = Program.Data;
+            var data = Data;
             data.GroupWork.Participants = Participants.ToList();
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupParticipants));
             _pendingToSave ^= DataSection.WorkGroupParticipants;
-            //TODO: Após essa gravação não deve atualizar a tela. Verificar algo parecido para os outros forms.
-            //TODO: gravar último dado como JSON para comparação.
         }
 
         /// <summary>
@@ -232,7 +242,7 @@ namespace Cabster.Business.Forms
         private void timerToSaveTimes_Tick(object sender, EventArgs args)
         {
             ((Timer) sender).Enabled = false;
-            var data = Program.Data;
+            var data = Data;
             data.GroupWork.Times = Times;
             MessageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimes));
             _pendingToSave ^= DataSection.WorkGroupTimes;
@@ -245,7 +255,7 @@ namespace Cabster.Business.Forms
         {
             if (_pendingToSave != 0)
             {
-                var data = Program.Data;
+                var data = Data;
                 data.GroupWork.Times = Times;
                 data.GroupWork.Participants = Participants.ToList();
                 await MessageBus.Send(new DataUpdate(data, _pendingToSave));
@@ -419,7 +429,7 @@ namespace Cabster.Business.Forms
             private ParticipantInfo(FormGroupWork form, MyButton control)
             {
                 this.LogClassInstantiate();
-                
+
                 _form = form;
                 _control = control;
                 control.Click += ControlOnClick;
