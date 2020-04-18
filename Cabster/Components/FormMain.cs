@@ -35,6 +35,7 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
+            notifyIcon.TranslateComponent();
             this.MakeInvisible();
             Task.Run(() =>
             {
@@ -68,6 +69,16 @@ namespace Cabster.Components
             {
                 _timerWorking = false;
             }
+        }
+
+        /// <summary>
+        /// Evento ao clicar duas vezes no ícone da aplicação.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void notifyIcon_DoubleClick(object sender, EventArgs args)
+        {
+            MessageBus.Send(new ApplicationUserPoke());
         }
     }
 }

@@ -139,7 +139,7 @@ namespace Cabster.Components
             AdjustLogo();
             labelTitle.MakeAbleToMoveForm();
             buttonResize.MakeAbleToResizeForm();
-            HandleCreated += (sender, args) => toolTip.Translate();
+            HandleCreated += (sender, args) => toolTip.TranslateToolTip();
             Load += (sender, args) =>
             {
                 labelTitle.Text = Text;

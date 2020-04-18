@@ -56,7 +56,7 @@ namespace Cabster.Components
         /// </summary>
         private void InitializeComponent2()
         {
-            HandleCreated += (sender, args) => this.Translate();
+            HandleCreated += (sender, args) => this.TranslateControl();
             Load += (sender, args) =>
             {
                 if (Text == GetType().Name ||
