@@ -62,20 +62,15 @@ namespace Cabster.Business
             {
                 if (!_nativeWindow.Handle.UnregisterHotKey(ShortcutId))
                     throw new ThisWillNeverOccurException();
+                
                 _registered = false;
             }
 
             if (shortcut == Keys.None) return _registered;
 
-            var modifier = WindowsApi.KeyModifiers.None;
-            if ((shortcut & Keys.Alt) == Keys.Alt) modifier |= WindowsApi.KeyModifiers.Alt;
-            if ((shortcut & Keys.Control) == Keys.Control) modifier |= WindowsApi.KeyModifiers.Control;
-            if ((shortcut & Keys.Shift) == Keys.Shift) modifier |= WindowsApi.KeyModifiers.Shift;
+            ExtractModifierAndKey(shortcut, out var modifier, out var key);
 
-            var key = shortcut & ~Keys.Alt & ~Keys.Control & ~Keys.Shift;
-
-            if (modifier == WindowsApi.KeyModifiers.None ||
-                !Regex.IsMatch($"{key}", @"^([A-Z]|D[0-9])$")) return _registered;
+            if (!IsValidModifierAndKey(modifier, key)) return _registered;
 
             if (!_nativeWindow.Handle.RegisterHotKey(ShortcutId, modifier, key))
                 throw new WrongOperationException(Resources.Exception_Application_ShortcutAlreadyUsed);
@@ -83,6 +78,38 @@ namespace Cabster.Business
             _registered = true;
 
             return _registered;
+        }
+
+        /// <summary>
+        ///     Verifica se uma tecla de atalho é válida.
+        /// </summary>
+        /// <param name="modifier">Tecla de acesso.</param>
+        /// <param name="key">Tecla comum.</param>
+        /// <returns>Resultado.</returns>
+        private static bool IsValidModifierAndKey(WindowsApi.KeyModifiers modifier, Keys key)
+        {
+            var isValid = true;
+
+            if (modifier == WindowsApi.KeyModifiers.None) isValid = false;
+            else if (!Regex.IsMatch($"{key}", @"^([A-Z]|D[0-9])$")) isValid = false;
+
+            return isValid;
+        }
+
+        /// <summary>
+        ///     Extrai os valores individuais para teclas de acesso e tecla comum.
+        /// </summary>
+        /// <param name="shortcut">Tecla de atalho.</param>
+        /// <param name="modifier">Tecla de acesso.</param>
+        /// <param name="key">Tecla comum.</param>
+        private static void ExtractModifierAndKey(Keys shortcut, out WindowsApi.KeyModifiers modifier, out Keys key)
+        {
+            modifier = WindowsApi.KeyModifiers.None;
+            if ((shortcut & Keys.Alt) == Keys.Alt) modifier |= WindowsApi.KeyModifiers.Alt;
+            if ((shortcut & Keys.Control) == Keys.Control) modifier |= WindowsApi.KeyModifiers.Control;
+            if ((shortcut & Keys.Shift) == Keys.Shift) modifier |= WindowsApi.KeyModifiers.Shift;
+
+            key = shortcut & ~Keys.Alt & ~Keys.Control & ~Keys.Shift;
         }
 
         /// <summary>
