@@ -307,7 +307,7 @@ namespace Cabster.Business.Messenger.Handlers
             if (!formPositioned) _formsPositioned.Add(formHash);
             if (Application.OpenForms.Count > 0 && !formPositioned)
             {
-                var mainForm = formParent ?? Application.OpenForms[0];
+                var mainForm = formParent ?? Form.ActiveForm ?? Application.OpenForms[0];
                 var center = new Point(mainForm.Left + mainForm.Width / 2, mainForm.Top + mainForm.Height / 2);
                 form.Left = center.X - form.Width / 2;
                 form.Top = center.Y - form.Height / 2;

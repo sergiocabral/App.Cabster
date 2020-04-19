@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Infrastructure;
@@ -56,7 +57,7 @@ namespace Cabster.Business.Messenger.Handlers
             //TODO: Implementar UserActionGroupWorkStart
             Log.Verbose(nameof(UserActionGroupWorkStart));
 
-            _messageBus.Send(new WindowOpen(Window.GroupWorkTimer), cancellationToken);
+            _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
 
             return Unit.Task;
         }
