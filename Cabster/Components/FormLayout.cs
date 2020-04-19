@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 using Cabster.Business;
@@ -245,7 +246,7 @@ namespace Cabster.Components
         /// <param name="args">Informações do evento.</param>
         private void buttonNotification_Click(object sender, EventArgs args)
         {
-            MessageBus.Send<Form>(new WindowOpenNotification(this));
+            MessageBus.Send<IDictionary<Window, Form>>(new WindowOpen(Window.Notification, this));
         }
 
         /// <summary>

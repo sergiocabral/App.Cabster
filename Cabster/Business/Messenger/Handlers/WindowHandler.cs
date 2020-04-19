@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -10,6 +11,7 @@ using Cabster.Business.Messenger.Notification;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Components;
+using Cabster.Exceptions;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 using MediatR;
@@ -22,10 +24,8 @@ namespace Cabster.Business.Messenger.Handlers
     // ReSharper disable once UnusedType.Global
     public class WindowHandler :
         MessengerHandler,
-        IRequestHandler<WindowOpenMain, Form>,
-        IRequestHandler<WindowOpenGroupWork, Form>,
-        IRequestHandler<WindowOpenConfiguration, Form>,
-        IRequestHandler<WindowOpenNotification, Form>,
+        IRequestHandler<WindowOpen, IDictionary<Window, Form>>,
+        IRequestHandler<WindowClose>,
         INotificationHandler<ApplicationInitialized>,
         INotificationHandler<ApplicationFinalized>,
         INotificationHandler<DataUpdated>,
@@ -39,7 +39,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         ///     Janela: FormMain
         /// </summary>
-        private static Form? _formMainWindow;
+        private static Form? _formMain;
 
         /// <summary>
         ///     Janela: FormGroupWork
@@ -55,6 +55,16 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Janela: FormNotification
         /// </summary>
         private static Form? _formNotification;
+
+        /// <summary>
+        ///     Lista de tipos de janelas.
+        /// </summary>
+        private static readonly Window[] _windowsType =
+            Enum
+                .GetNames(typeof(Window))
+                .Select(a =>
+                    (Window) Enum.Parse(typeof(Window), a))
+                .ToArray();
 
         /// <summary>
         ///     Bloqueador de telas.
@@ -83,7 +93,7 @@ namespace Cabster.Business.Messenger.Handlers
         ///     Janela: FormMain
         /// </summary>
         private static Form FormMain =>
-            _formMainWindow ??= Program.DependencyResolver.GetInstanceRequired<FormMain>();
+            _formMain ??= Program.DependencyResolver.GetInstanceRequired<FormMain>();
 
         /// <summary>
         ///     Janela: FormGroupWork
@@ -127,7 +137,11 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task Handle(ApplicationInitialized notification, CancellationToken cancellationToken)
         {
-            var form = await _messageBus.Send<Form>(new WindowOpenGroupWork(), cancellationToken);
+            const Window formType = Window.GroupWork;
+            var forms = await _messageBus.Send<IDictionary<Window, Form>>(
+                new WindowOpen(formType), cancellationToken);
+            var form = forms[formType];
+
             ((IFormLayout) form).NotUseEscToClose = true;
             ((IFormLayout) form).ShowButtonMinimize = true;
 
@@ -189,47 +203,77 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
+        ///     Processa o comando: WindowClose
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public Task<Unit> Handle(WindowClose request, CancellationToken cancellationToken)
+        {
+            var windowTypes = GetWindowsTypeOrdered(request.Window, request.OrderBy);
+            foreach (var windowType in windowTypes)
+            {
+                var form = GetInstance(windowType).Item1;
+                form?.Hide();
+            }
+
+            return Unit.Task;
+        }
+
+        /// <summary>
         ///     Processa o comando: WindowOpenConfiguration
         /// </summary>
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Form> Handle(WindowOpenConfiguration request, CancellationToken cancellationToken)
+        public Task<IDictionary<Window, Form>> Handle(WindowOpen request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(OpenWindow(FormConfiguration, request.Parent));
+            var windowTypes = GetWindowsTypeOrdered(request.Window, request.OrderBy);
+            var result = (IDictionary<Window, Form>) windowTypes
+                .ToDictionary(
+                    windowType => windowType,
+                    windowType => OpenWindow(GetInstance(windowType).Item2(), request.Parent));
+            return Task.FromResult(result);
         }
 
         /// <summary>
-        ///     Processa o comando: OpenFormGroupWork
+        ///     Monta uma lista de tipos de janela na ordem em que devem ser acessadas.
         /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Form> Handle(WindowOpenGroupWork request, CancellationToken cancellationToken)
+        /// <param name="selected">Tipos selecionados.</param>
+        /// <param name="orderBy">Ordem de acesso aos tipos.</param>
+        /// <returns>Lista filtrada e na ordem esperada.</returns>
+        private static IEnumerable<Window> GetWindowsTypeOrdered(Window selected, IReadOnlyCollection<Window> orderBy)
         {
-            return Task.FromResult(OpenWindow(FormGroupWork, request.Parent));
+            var windowsType = _windowsType.Where(a => (a & selected) != 0);
+
+            if (orderBy == null || orderBy.Count <= 0) return windowsType;
+
+            var orderByList = orderBy.ToList();
+            windowsType = windowsType
+                .OrderBy(windowType =>
+                {
+                    var indexOf = orderByList.IndexOf(windowType);
+                    return indexOf < 0 ? int.MaxValue : indexOf;
+                });
+
+            return windowsType;
         }
 
         /// <summary>
-        ///     Processa o comando: WindowOpenMain
+        ///     Retorna uma instância de janela para um tipo.
         /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Form> Handle(WindowOpenMain request, CancellationToken cancellationToken)
+        /// <param name="window">Tipo de janela.</param>
+        /// <returns>Instância do Form.</returns>
+        private static (Form, Func<Form>) GetInstance(Window window)
         {
-            return Task.FromResult(FormMain);
-        }
-
-        /// <summary>
-        ///     Processa o comando: WindowOpenNotification
-        /// </summary>
-        /// <param name="request">Comando</param>
-        /// <param name="cancellationToken">CancellationToken</param>
-        /// <returns>Task</returns>
-        public Task<Form> Handle(WindowOpenNotification request, CancellationToken cancellationToken)
-        {
-            return Task.FromResult(OpenWindow(FormNotification, request.Parent));
+            return window switch
+            {
+                Window.Main => (_formMain, () => FormMain),
+                Window.GroupWork => (_formGroupWork, () => FormGroupWork),
+                Window.Configuration => (_formConfiguration, () => FormConfiguration),
+                Window.Notification => (_formNotification, () => FormNotification),
+                _ => throw new ThisWillNeverOccurException()
+            };
         }
 
         /// <summary>
@@ -240,6 +284,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Mesma instância de entrada.</returns>
         private static Form OpenWindow(Form form, Form? formParent)
         {
+            if (form == FormMain) return form;
+
             form.WindowState = FormWindowState.Normal;
             form.Show();
 

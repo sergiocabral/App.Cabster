@@ -382,7 +382,7 @@ namespace Cabster.Business.Forms
         /// <param name="args">Dados do evento.</param>
         private void buttonConfiguration_Click(object sender, EventArgs args)
         {
-            MessageBus.Send<Form>(new WindowOpenConfiguration(this));
+            MessageBus.Send<IDictionary<Window, Form>>(new WindowOpen(Window.Configuration, this));
         }
 
         /// <summary>

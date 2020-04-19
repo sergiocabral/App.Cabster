@@ -157,8 +157,8 @@
     <Compile Include="Business\Messenger\Handlers\UserActionHandler.cs" />
     <Compile Include="Business\Messenger\Request\UserActionGroupWorkStart.cs" />
     <Compile Include="Business\Messenger\Request\UserActionPoke.cs" />
+    <Compile Include="Business\Messenger\Request\WindowClose.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpen.cs" />
-    <Compile Include="Business\Messenger\Request\WindowOpenMain.cs" />
     <Compile Include="Business\LockScreen.cs" />
     <Compile Include="Business\Values\Color.cs" />
     <Compile Include="Business\Values\DataSection.cs" />
@@ -204,16 +204,14 @@
     <Compile Include="Business\Messenger\Request\DataSaveToFile.cs" />
     <Compile Include="Business\Messenger\Request\DataUpdate.cs" />
     <Compile Include="Business\Messenger\Request\UserNotificationRequestList.cs" />
-    <Compile Include="Business\Messenger\Request\WindowOpenConfiguration.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />
-    <Compile Include="Business\Messenger\Request\WindowOpenGroupWork.cs" />
     <Compile Include="Business\Messenger\Request\ClockSinalize.cs" />
     <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
-    <Compile Include="Business\Messenger\Request\WindowOpenNotification.cs" />
     <Compile Include="Business\Shortcut.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Business\UserNotification.cs" />
     <Compile Include="Business\Values\TwoLetterLanguage.cs" />
+    <Compile Include="Business\Values\Window.cs" />
     <Compile Include="Components\FormDialogConfirm.cs">
       <SubType>Form</SubType>
     </Compile>

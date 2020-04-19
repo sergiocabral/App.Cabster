@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -94,8 +95,12 @@ namespace Cabster.Business.Messenger.Handlers
 
             await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLanguage), cancellationToken);
 
-            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
-            mainWindow.Tag = SignalForApplicationRestart;
+            const Window formType = Window.Main;
+            var forms = await _messageBus.Send<IDictionary<Window, Form>>(
+                new WindowOpen(formType), cancellationToken);
+            var form = forms[formType];
+            
+            form.Tag = SignalForApplicationRestart;
 
             await _messageBus.Send(new ApplicationFinalize(), cancellationToken);
 
@@ -123,9 +128,14 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
-            var mainWindow = await _messageBus.Send<Form>(new WindowOpenMain(), cancellationToken);
-            Application.Run(mainWindow);
-            return mainWindow.Tag == SignalForApplicationRestart;
+            
+            const Window formType = Window.Main;
+            var forms = await _messageBus.Send<IDictionary<Window, Form>>(
+                new WindowOpen(formType), cancellationToken);
+            var form = forms[formType];
+            
+            Application.Run(form);
+            return form.Tag == SignalForApplicationRestart;
         }
 
         /// <summary>
