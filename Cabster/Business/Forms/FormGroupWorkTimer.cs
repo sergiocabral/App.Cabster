@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Cabster.Components;
+using Cabster.Extensions;
+using Serilog;
 
 namespace Cabster.Business.Forms
 {
@@ -42,7 +44,8 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void InitializeComponent2()
         {
-            UpdatePosition();
+            Shown += UpdatePosition;
+            foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
         }
 
         /// <summary>

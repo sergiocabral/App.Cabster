@@ -21,15 +21,21 @@ namespace Cabster.Business.Values
             0b_0000_0010,
 
         /// <summary>
+        ///     Janela com temporizador para trabalho em grupo.
+        /// </summary>
+        GroupWorkTimer =
+            0b_0000_0100,
+
+        /// <summary>
         ///     Janela de configuração.
         /// </summary>
         Configuration =
-            0b_0000_0100,
+            0b_0000_1000,
 
         /// <summary>
         ///     Janela de notificação.
         /// </summary>
         Notification =
-            0b_0000_1000
+            0b_0001_0000
     }
 }

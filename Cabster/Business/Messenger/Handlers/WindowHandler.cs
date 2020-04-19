@@ -47,6 +47,11 @@ namespace Cabster.Business.Messenger.Handlers
         private static Form? _formGroupWork;
 
         /// <summary>
+        ///     Janela: FormGroupWorkTimer
+        /// </summary>
+        private static Form? _formGroupWorkTimer;
+
+        /// <summary>
         ///     Janela: FormConfiguration
         /// </summary>
         private static Form? _formConfiguration;
@@ -100,6 +105,12 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         private static Form FormGroupWork =>
             _formGroupWork ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWork>();
+
+        /// <summary>
+        ///     Janela: FormGroupWork
+        /// </summary>
+        private static Form FormGroupWorkTimer =>
+            _formGroupWorkTimer ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWorkTimer>();
 
         /// <summary>
         ///     Janela: FormConfiguration
@@ -270,6 +281,7 @@ namespace Cabster.Business.Messenger.Handlers
             {
                 Window.Main => (_formMain, () => FormMain),
                 Window.GroupWork => (_formGroupWork, () => FormGroupWork),
+                Window.GroupWorkTimer => (_formGroupWorkTimer, () => FormGroupWorkTimer),
                 Window.Configuration => (_formConfiguration, () => FormConfiguration),
                 Window.Notification => (_formNotification, () => FormNotification),
                 _ => throw new ThisWillNeverOccurException()

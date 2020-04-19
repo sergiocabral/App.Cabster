@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -45,6 +46,30 @@ namespace Cabster.Extensions
             control.Invalidate();
             foreach (Control child in control.Controls) InvalidadeAll(child);
             return control;
+        }
+
+        /// <summary>
+        /// Retorna todos os controls filhos. 
+        /// </summary>
+        /// <param name="target">Controle.</param>
+        /// <typeparam name="T">Control</typeparam>
+        /// <returns>Lista de controles</returns>
+        public static IEnumerable<Control> AllControls<T>(this T target) where T : Control
+        {
+            var controls = new List<Control>();
+
+            void Collect(Control control)
+            {
+                controls.Add(control);
+                foreach (Control child in control.Controls)
+                {
+                    Collect(child);
+                }
+            }
+            
+            Collect(target);
+
+            return controls;
         }
 
         /// <summary>
