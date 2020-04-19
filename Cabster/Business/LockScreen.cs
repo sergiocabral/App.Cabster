@@ -77,7 +77,7 @@ namespace Cabster.Business
             foreach (var screen in Screen.AllScreens)
                 CreateForm(screen);
 
-            foreach (var form in Application.OpenForms.Cast<Form>().Where(a => a is IFormLayout))
+            foreach (var form in Application.OpenForms.Cast<Form>().Where(a => a is IFormApplication))
                 form.TopMost = true;
         }
 

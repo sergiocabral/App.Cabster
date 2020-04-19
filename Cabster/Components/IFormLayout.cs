@@ -5,7 +5,7 @@ namespace Cabster.Components
     /// <summary>
     ///     Janela padrão usada na UI do aplicativo.
     /// </summary>
-    public interface IFormLayout
+    public interface IFormLayout : IFormApplication
     {
         /// <summary>
         ///     Exibe o logotipo.
