@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Cabster.Business.Entities;
 using Cabster.Components;
 using Cabster.Extensions;
-using Serilog;
 
 namespace Cabster.Business.Forms
 {
     /// <summary>
     ///     Janela para exibir o tempo do trabalho.
     /// </summary>
-    public partial class FormGroupWorkTimer : FormBase, IFormApplication
+    public partial class FormGroupWorkTimer : FormBase, IFormContainerData
     {
+        /// <summary>
+        ///     Cronômetro para evitar atualização da posição freneticamente.
+        /// </summary>
+        private readonly Stopwatch _stopwatchUpdatePosition = new Stopwatch();
+
         /// <summary>
         ///     Construtor.
         /// </summary>
@@ -24,7 +29,7 @@ namespace Cabster.Business.Forms
         /// <summary>
         ///     Nome do driver.
         /// </summary>
-        public string Driver
+        private string Driver
         {
             get => labelDriver.Text;
             set => labelDriver.Text = value;
@@ -33,10 +38,21 @@ namespace Cabster.Business.Forms
         /// <summary>
         ///     Nome do navegador.
         /// </summary>
-        public string Navigator
+        private string Navigator
         {
             get => labelNavigator.Text;
             set => labelNavigator.Text = value;
+        }
+
+        /// <summary>
+        ///     Notifica a atualização dos controles da tela.
+        /// </summary>
+        /// <param name="data">Dados da aplicação.</param>
+        public void UpdateControls(ContainerData? data = null)
+        {
+            data ??= Program.Data;
+            Driver = data.GroupWork.Current.Driver;
+            Navigator = data.GroupWork.Current.Navigator;
         }
 
         /// <summary>
@@ -46,13 +62,9 @@ namespace Cabster.Business.Forms
         {
             Shown += UpdatePosition;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
+            VisibleChanged += UpdatePosition;
         }
 
-        /// <summary>
-        /// Cronômetro para evitar atualização da posição freneticamente.
-        /// </summary>
-        private readonly Stopwatch _stopwatchUpdatePosition = new Stopwatch();
-        
         /// <summary>
         ///     Atualiza a posição da janela.
         /// </summary>
@@ -60,7 +72,7 @@ namespace Cabster.Business.Forms
         {
             if (_stopwatchUpdatePosition.IsRunning && _stopwatchUpdatePosition.ElapsedMilliseconds < 100) return;
             _stopwatchUpdatePosition.Restart();
-            
+
             var screen = Screen.FromControl(this);
             var cursor = Cursor.Position;
             var isRight = cursor.X < screen.Bounds.Left + screen.Bounds.Width / 2;
@@ -79,6 +91,16 @@ namespace Cabster.Business.Forms
         private void UpdatePosition(object sender, EventArgs args)
         {
             UpdatePosition();
+        }
+
+        /// <summary>
+        ///     Atualiza os dados da tela.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void UpdateControls(object sender, EventArgs args)
+        {
+            UpdateControls();
         }
     }
 }
