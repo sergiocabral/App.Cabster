@@ -153,6 +153,12 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
+    <Compile Include="Business\Forms\FormGroupWorkTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Forms\FormGroupWorkTimer.Designer.cs">
+      <DependentUpon>FormGroupWorkTimer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\ILockScreen.cs" />
     <Compile Include="Business\Messenger\Handlers\UserActionHandler.cs" />
     <Compile Include="Business\Messenger\Request\UserActionGroupWorkStart.cs" />
@@ -301,6 +307,9 @@
     <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\Forms\FormGroupWorkTimer.resx">
+      <DependentUpon>FormGroupWorkTimer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\Forms\FormNotification.resx">
       <DependentUpon>FormNotification.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +417,8 @@
     <None Include="Resources\buttonNotificationLeave.png" />
     <None Include="Resources\buttonNotificationEnter.png" />
     <None Include="Resources\FormLockScreenBackground.png" />
+    <None Include="Resources\iconParticipantDriver.png" />
+    <None Include="Resources\iconParticipantNavigator.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>
