@@ -191,6 +191,8 @@ namespace Cabster.Business.Messenger.Handlers
                 ((IFormContainerData?) _formConfiguration)?.UpdateControls(notification.Request.Data);
             if ((notification.Request.Section & DataSection.WorkGroup) != 0)
                 ((IFormContainerData?) _formGroupWork)?.UpdateControls(notification.Request.Data);
+            if ((notification.Request.Section & DataSection.WorkGroupTimer) != 0)
+                ((IFormContainerData?) _formGroupWorkTimer)?.UpdateControls(notification.Request.Data);
             return Unit.Task;
         }
 

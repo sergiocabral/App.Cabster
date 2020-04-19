@@ -18,8 +18,8 @@ namespace Cabster.Business.Entities
         public IList<GroupWorkParticipantSet> Participants { get; set; } = new List<GroupWorkParticipantSet>();
         
         /// <summary>
-        ///     Informações do trabalho corrente.
+        ///     Temporizador do trabalho corrente.
         /// </summary>
-        public GroupWorkCurrentSet Current { get; set; } = new GroupWorkCurrentSet();
+        public GroupWorkTimerSet Timer { get; set; } = new GroupWorkTimerSet();
     }
 }

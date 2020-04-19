@@ -1,9 +1,11 @@
-﻿namespace Cabster.Business.Entities
+﻿using System;
+
+namespace Cabster.Business.Entities
 {
     /// <summary>
-    ///     Informações do trabalho corrente.
+    ///     Temporizador do trabalho corrente.
     /// </summary>
-    public class GroupWorkCurrentSet : EntityBase
+    public class GroupWorkTimerSet : EntityBase
     {
         /// <summary>
         ///     Nome do Driver.
@@ -14,5 +16,10 @@
         ///     Nome do Navegador.
         /// </summary>
         public string Navigator { get; set; } = string.Empty;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTimeOffset Limit { get; set; }
     }
 }

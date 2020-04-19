@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
@@ -52,14 +53,19 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public Task<Unit> Handle(UserActionGroupWorkStart request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UserActionGroupWorkStart request, CancellationToken cancellationToken)
         {
             //TODO: Implementar UserActionGroupWorkStart
-            Log.Verbose(nameof(UserActionGroupWorkStart));
+            //TODO: Cross Thread + DataUpdated
 
-            _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
+            var data = Program.Data;
+            data.GroupWork.Timer.Driver = data.GroupWork.Participants.First(a => a.Active).Name;
+            data.GroupWork.Timer.Navigator = data.GroupWork.Participants.Where(a => a.Active).Skip(1).First().Name;
+            await _messageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimer), cancellationToken);
 
-            return Unit.Task;
+            await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
+
+            return Unit.Value;
         }
     }
 }

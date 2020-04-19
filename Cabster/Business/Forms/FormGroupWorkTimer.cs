@@ -51,8 +51,8 @@ namespace Cabster.Business.Forms
         public void UpdateControls(ContainerData? data = null)
         {
             data ??= Program.Data;
-            Driver = data.GroupWork.Current.Driver;
-            Navigator = data.GroupWork.Current.Navigator;
+            Driver = data.GroupWork.Timer.Driver;
+            Navigator = data.GroupWork.Timer.Navigator;
         }
 
         /// <summary>
@@ -70,6 +70,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void UpdatePosition()
         {
+            if (!Visible) return;
             if (_stopwatchUpdatePosition.IsRunning && _stopwatchUpdatePosition.ElapsedMilliseconds < 100) return;
             _stopwatchUpdatePosition.Restart();
 
