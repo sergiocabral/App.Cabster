@@ -150,6 +150,8 @@ namespace Cabster.Business.Messenger.Handlers
             
             if (data.Application.LockScreen) _lockScreen.Lock();
             
+            Log.Verbose("Elapsed: {elapsed}", request.Time);
+            
             return Unit.Value;
         }
     }

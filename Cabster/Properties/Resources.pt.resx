@@ -268,7 +268,7 @@ Para remover: botão esquerdo.</value>
     <value>Trabalho em Grupo em MOB</value>
   </data>
   <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
-    <value>Cronômetro parado. Você vai finalizar esta rodada?</value>
+    <value>Cronômetro parado. Você quer finalizar essa rodada?</value>
   </data>
   <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimizar janela.</value>

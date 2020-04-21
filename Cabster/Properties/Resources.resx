@@ -347,7 +347,7 @@ To remove: left button.</value>
     <value>Group Work as MOB</value>
   </data>
   <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
-    <value>Stopwatch stopped. Will you finish this round?</value>
+    <value>Stopwatch stopped. Do you want to end this round?</value>
   </data>
   <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimize window.</value>

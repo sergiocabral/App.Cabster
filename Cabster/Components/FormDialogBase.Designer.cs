@@ -95,7 +95,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormDialogBase";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDialogShow";
             this.TopMost = true;
             this.ResumeLayout(false);

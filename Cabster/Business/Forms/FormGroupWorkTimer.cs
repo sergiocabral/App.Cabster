@@ -31,6 +31,16 @@ namespace Cabster.Business.Forms
         private readonly Stopwatch _stopwatchUpdatePosition = new Stopwatch();
 
         /// <summary>
+        ///     Tempo que deve ser descontado do total.
+        /// </summary>
+        private TimeSpan _timeDiscarded;
+
+        /// <summary>
+        ///     Tempo total decorrido.
+        /// </summary>
+        private DateTimeOffset _timeStarted;
+
+        /// <summary>
         ///     Construtor.
         /// </summary>
         public FormGroupWorkTimer()
@@ -45,6 +55,12 @@ namespace Cabster.Business.Forms
         private DateTimeOffset Limit { get; set; }
 
         /// <summary>
+        ///     Tempo decorrido incluindo descontos.
+        /// </summary>
+        private TimeSpan TimeElapsed =>
+            DateTimeOffset.Now - _timeStarted - _timeDiscarded;
+
+        /// <summary>
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
         /// <param name="data">Dados da aplicação.</param>
@@ -53,7 +69,8 @@ namespace Cabster.Business.Forms
             Invoke((Action) (() =>
             {
                 data ??= Program.Data;
-                _elapsedTime = TimeSpan.Zero;
+                _timeStarted = DateTimeOffset.Now;
+                _timeDiscarded = TimeSpan.Zero;
                 labelDriver.Text = data.GroupWork.Timer.Driver;
                 labelNavigator.Text = data.GroupWork.Timer.Navigator;
                 Limit = data.GroupWork.Timer.Limit;
@@ -110,11 +127,6 @@ namespace Cabster.Business.Forms
         {
             UpdateControls();
         }
-        
-        /// <summary>
-        /// Tempo decorrido.
-        /// </summary>
-        private TimeSpan _elapsedTime;
 
         /// <summary>
         ///     Atualiza a exibição do temporizador.
@@ -131,7 +143,7 @@ namespace Cabster.Business.Forms
             {
                 if (!timer.Enabled) return;
                 timer.Enabled = false;
-                MessageBus.Send(new UserActionGroupWorkTimerEnd(_elapsedTime));
+                MessageBus.Send(new UserActionGroupWorkTimerEnd(TimeElapsed));
                 labelTimer.Text = TimerReset;
             }
         }
@@ -148,7 +160,7 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        /// Pausa o temporizador.
+        ///     Pausa o temporizador.
         /// </summary>
         public void Pause()
         {
@@ -160,12 +172,11 @@ namespace Cabster.Business.Forms
                 Resources.Name_Term_No,
                 Resources.Name_Term_Yes);
             stopwatch.Stop();
+            _timeDiscarded += stopwatch.Elapsed;
 
-            _elapsedTime -= stopwatch.Elapsed;
-            
             if (cancel)
             {
-                MessageBus.Send(new UserActionGroupWorkTimerEnd(_elapsedTime, false));
+                MessageBus.Send(new UserActionGroupWorkTimerEnd(TimeElapsed, false));
             }
             else
             {
