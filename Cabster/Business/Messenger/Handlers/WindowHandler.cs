@@ -328,6 +328,7 @@ namespace Cabster.Business.Messenger.Handlers
             }
 
             form.BringToFront();
+            form.Activate();
             Application.DoEvents();
             form.InvalidadeAll();
 

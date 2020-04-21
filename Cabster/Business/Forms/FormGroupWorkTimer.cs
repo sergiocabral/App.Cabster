@@ -39,6 +39,15 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Valor no temporizador
+        /// </summary>
+        private string Timer
+        {
+            get => labelTimer.Text;
+            set => labelTimer.Invoke((Action) (() => labelTimer.Text = value));
+        }
+
+        /// <summary>
         ///     Nome do driver.
         /// </summary>
         private string Driver
@@ -131,14 +140,14 @@ namespace Cabster.Business.Forms
         private void UpdateTimer()
         {
             var timeLeft = Limit - DateTimeOffset.Now;
-            if (timeLeft.Ticks < 0)
+            if (timeLeft.Ticks <= 0)
             {
                 MessageBus.Send(new UserActionGroupWorkTimerEnd());
-                labelTimer.Text = TimerReset;
+                Timer = TimerReset;
             }
             else
             {
-                labelTimer.Text = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
+                Timer = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
             }
         }
 
