@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Cabster.Business;
+using Cabster.Business.Entities;
 using Cabster.Exceptions;
 using Cabster.Properties;
 using Serilog;
@@ -23,7 +24,7 @@ namespace Cabster.Infrastructure
         ///     Nível mínimo para captura do log.
         /// </summary>
         public static LogEventLevel MinimumLevel;
-
+        
         /// <summary>
         ///     Registra um log nível Verbose para sinalizar que uma instância foi criada.
         /// </summary>
@@ -31,6 +32,10 @@ namespace Cabster.Infrastructure
         public static void LogClassInstantiate<T>(this T instance) where T : notnull
         {
             var typeOfInstance = instance.GetType();
+            
+            if (MinimumLevel > LogEventLevel.Verbose) return;
+
+            if (instance is EntityBase && typeOfInstance != typeof(ContainerData)) return;
 
             const string messageTemplate = "New instance of {Context}: {Type}";
             var typeOfContext = new[]
@@ -57,6 +62,8 @@ namespace Cabster.Infrastructure
         /// <param name="instance">Instância.</param>
         public static void LogClassDispose<T>(this T instance) where T : notnull
         {
+            if (MinimumLevel > LogEventLevel.Verbose) return;
+            
             var type = instance.GetType();
 
             if (!typeof(IDisposable).IsAssignableFrom(type))

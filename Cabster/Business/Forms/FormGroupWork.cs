@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabrones.Utils.Text;
 using Cabster.Business.Entities;
@@ -253,15 +254,20 @@ namespace Cabster.Business.Forms
         /// </summary>
         private async void OnButtonCloseClick()
         {
-            if (_pendingToSave != 0)
-            {
-                var data = Data;
-                data.GroupWork.Times = Times;
-                data.GroupWork.Participants = Participants.ToList();
-                await MessageBus.Send(new DataUpdate(data, _pendingToSave));
-            }
-
+            await SaveAllImmediately();
             await MessageBus.Send(new ApplicationFinalize());
+        }
+
+        /// <summary>
+        ///     Grava todos os dados imediatamente.
+        /// </summary>
+        private async Task SaveAllImmediately()
+        {
+            if (_pendingToSave == 0) return;
+            var data = Data;
+            data.GroupWork.Times = Times;
+            data.GroupWork.Participants = Participants.ToList();
+            await MessageBus.Send(new DataUpdate(data, _pendingToSave));
         }
 
         /// <summary>
@@ -370,9 +376,10 @@ namespace Cabster.Business.Forms
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Dados do evento.</param>
-        private void buttonStart_Click(object sender, EventArgs args)
+        private async void buttonStart_Click(object sender, EventArgs args)
         {
-            MessageBus.Send(new UserActionGroupWorkStart());
+            await SaveAllImmediately();
+            await MessageBus.Send(new UserActionGroupWorkStart());
         }
 
         /// <summary>

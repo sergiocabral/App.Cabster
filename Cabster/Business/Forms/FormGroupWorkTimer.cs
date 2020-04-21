@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Components;
 using Cabster.Extensions;
+using Serilog;
 
 namespace Cabster.Business.Forms
 {
@@ -32,7 +33,7 @@ namespace Cabster.Business.Forms
         private string Driver
         {
             get => labelDriver.Text;
-            set => labelDriver.Text = value;
+            set => labelDriver.Invoke((Action)(() => labelDriver.Text = value));
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace Cabster.Business.Forms
         private string Navigator
         {
             get => labelNavigator.Text;
-            set => labelNavigator.Text = value;
+            set => labelNavigator.Invoke((Action)(() => labelNavigator.Text = value));
         }
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace Cabster.Business.Forms
             data ??= Program.Data;
             Driver = data.GroupWork.Timer.Driver;
             Navigator = data.GroupWork.Timer.Navigator;
+            Log.Verbose("Driver: {Diver}, Navigator: {Navigator}", Driver, Navigator);
         }
 
         /// <summary>
@@ -61,6 +63,7 @@ namespace Cabster.Business.Forms
         private void InitializeComponent2()
         {
             Shown += UpdatePosition;
+            Shown += UpdateControls;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
             VisibleChanged += UpdatePosition;
         }

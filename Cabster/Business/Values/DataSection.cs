@@ -57,9 +57,9 @@ namespace Cabster.Business.Values
             0b_0000_0010_0000,
 
         /// <summary>
-        ///     GroupWorkTimerSet
+        ///     WorkGroupSet: Temporizador
         /// </summary>
         WorkGroupTimer =
-            0b_1111_0000_0000
+            0b_0000_0100_0000
     }
 }

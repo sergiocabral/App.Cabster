@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
+using Cabster.Exceptions;
 using Cabster.Infrastructure;
 using MediatR;
 using Serilog;
@@ -55,13 +57,38 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(UserActionGroupWorkStart request, CancellationToken cancellationToken)
         {
-            //TODO: Implementar UserActionGroupWorkStart
-            //TODO: Cross Thread + DataUpdated
-
             var data = Program.Data;
-            data.GroupWork.Timer.Driver = data.GroupWork.Participants.First(a => a.Active).Name;
-            data.GroupWork.Timer.Navigator = data.GroupWork.Participants.Where(a => a.Active).Skip(1).First().Name;
-            await _messageBus.Send(new DataUpdate(data, DataSection.WorkGroupTimer), cancellationToken);
+
+            var workers = data
+                .GroupWork
+                .Participants
+                .Where(a => a.Active)
+                .Take(2)
+                .ToArray();
+            
+            if (workers.Length != 2) throw new ThisWillNeverOccurException();
+            
+            var driver = workers[0];
+            var navigator = workers[1];
+
+            data.GroupWork.Participants.Remove(driver);
+            data.GroupWork.Participants.Remove(navigator);
+            data.GroupWork.Participants.Add(driver);
+            data.GroupWork.Participants.Add(navigator);
+            while (!data.GroupWork.Participants[0].Active)
+            {
+                var goToEndOfList = data.GroupWork.Participants[0];
+                data.GroupWork.Participants.Remove(goToEndOfList);
+                data.GroupWork.Participants.Add(goToEndOfList);
+            }
+
+            data.GroupWork.Timer.Running = true;
+            data.GroupWork.Timer.Driver = driver.Name;
+            data.GroupWork.Timer.Navigator = navigator.Name;
+            data.GroupWork.Timer.Limit = DateTimeOffset.Now.AddMinutes(data.GroupWork.Times.TimeToWork);
+            await _messageBus.Send(
+                new DataUpdate(data, 
+                    DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), cancellationToken);
 
             await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
 
