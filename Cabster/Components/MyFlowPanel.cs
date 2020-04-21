@@ -32,7 +32,7 @@ namespace Cabster.Components
         public MyFlowPanel(IContainer? container)
         {
             this.LogClassInstantiate();
-            
+
             container?.Add(this);
 
             InitializeComponent();
@@ -99,6 +99,14 @@ namespace Cabster.Components
         /// <param name="sender">Origem do evento.</param>
         /// <param name="args">Informações do evento.</param>
         private void OnResize(object sender, EventArgs? args)
+        {
+            UpdateLayout();
+        }
+
+        /// <summary>
+        ///     Atualiza a exibição do controle.
+        /// </summary>
+        public void UpdateLayout()
         {
             if (_positions.Count == 0) return;
             this.MakeChildrenOrganized(control => _positions[control]);

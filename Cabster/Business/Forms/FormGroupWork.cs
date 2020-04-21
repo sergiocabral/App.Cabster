@@ -10,9 +10,9 @@ using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Components;
+using Cabster.Extensions;
 using Cabster.Infrastructure;
 using Cabster.Properties;
-using Serilog;
 using Color = System.Drawing.Color;
 
 #pragma warning disable 109
@@ -173,6 +173,7 @@ namespace Cabster.Business.Forms
         private void PanelParticipantsOnOrderChanged()
         {
             SaveParticipants();
+            UpdateIcons();
         }
 
         /// <summary>
@@ -186,6 +187,27 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Atualiza o ícone dos botões.
+        /// </summary>
+        private void UpdateIcons()
+        {
+            var index = -1;
+            foreach (var control in panelParticipants.ControlsSorted.Cast<MyButton>())
+            {
+                var participant = (ParticipantInfo) control.Tag;
+                if (participant.Active) index++;
+                control.Image =
+                    participant.Active && index == 0 ? Resources.iconParticipantDriver :
+                    participant.Active && index == 1 ? Resources.iconParticipantNavigator :
+                    null;
+                var text = control.Text.Trim();
+                if (control.Image != null) control.Text = new string(' ', 5) + text;
+                else if (control.Text != text) control.Text = text;
+            }
+            panelParticipants.UpdateLayout();
+        }
+
+        /// <summary>
         ///     Evento ao atualizar controles dos participantes.
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
@@ -194,6 +216,7 @@ namespace Cabster.Business.Forms
         {
             buttonParticipantSort.Visible = panelParticipants.Controls.Count > 1;
             SaveParticipants();
+            UpdateIcons();
         }
 
         /// <summary>
@@ -518,7 +541,8 @@ namespace Cabster.Business.Forms
                     Text = name.Trim(),
                     ForeColor = Color.Black,
                     BackColor = ColorForActive,
-                    AutoSize = true
+                    AutoSize = true,
+                    ImageAlign = ContentAlignment.MiddleLeft
                 };
                 control.Font = new Font(control.Font.FontFamily, 20);
                 var info = new ParticipantInfo(form, control) {Active = active};
