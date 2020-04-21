@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
+using Cabster.Business.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Exceptions;
@@ -53,9 +54,21 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task<Unit> Handle(UserActionPoke request, CancellationToken cancellationToken)
         {
-            //TODO: Implementar UserActionPoke
-            Log.Verbose(nameof(UserActionPoke));
-
+            var data = Program.Data;
+            switch (data.Application.State)
+            {
+                case ApplicationState.Idle:
+                    var formGroupWork = Program.DependencyResolver.GetInstanceRequired<FormGroupWork>();
+                    formGroupWork.WindowState =
+                        formGroupWork.WindowState == FormWindowState.Minimized
+                            ? FormWindowState.Normal
+                            : FormWindowState.Minimized;
+                    break;
+                case ApplicationState.GroupWorkRunning:
+                    var formGroupWorkTimer = Program.DependencyResolver.GetInstanceRequired<FormGroupWorkTimer>();
+                    formGroupWorkTimer.Pause();
+                    break;
+            }
             return Unit.Task;
         }
         

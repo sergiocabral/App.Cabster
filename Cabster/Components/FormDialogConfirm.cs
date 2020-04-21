@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Cabster.Properties;
 
 namespace Cabster.Components
 {
@@ -20,13 +21,23 @@ namespace Cabster.Components
         ///     Exibir caixa de dialogo.
         /// </summary>
         /// <param name="message">Texto.</param>
-        public static bool Show(string message)
+        /// <param name="textForCancel">Texto para "Cancelar"</param>
+        /// <param name="textForConfirm">Texto para "Confirmar"</param>
+        public static bool Show(string message, string? textForCancel = null, string? textForConfirm = null)
         {
             using var form = new FormDialogConfirm
             {
                 labelText =
                 {
                     Text = message
+                },
+                buttonDialogCancel =
+                {
+                    Text = textForCancel ?? Resources.Name_Term_Cancel
+                },
+                buttonDialogConfirm = 
+                {
+                    Text = textForConfirm ?? Resources.Name_Term_Confirm
                 }
             };
             return form.ShowDialog() != DialogResult.Cancel;

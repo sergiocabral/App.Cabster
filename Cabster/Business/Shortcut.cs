@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Cabrones.Utils.Text;
 using Cabster.Business.Messenger.Request;
 using Cabster.Exceptions;
 using Cabster.Extensions;
@@ -82,7 +83,9 @@ namespace Cabster.Business
             if (!IsValidModifierAndKey(modifier, key)) return _registered;
 
             if (!_nativeWindow.Handle.RegisterHotKey(ShortcutId, modifier, key))
-                throw new WrongOperationException(Resources.Exception_Application_ShortcutAlreadyUsed);
+                throw new WrongOperationException(
+                    Resources.Exception_Application_ShortcutAlreadyUsed
+                        .QueryString(shortcut.ToShortcutDescription()));
 
             _registered = true;
 

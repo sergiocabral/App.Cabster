@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -303,9 +303,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap iconParticipantNavigatorDark {
+        public static System.Drawing.Bitmap iconParticipantNavigatorLight {
             get {
-                object obj = ResourceManager.GetObject("iconParticipantNavigatorDark", resourceCulture);
+                object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap iconParticipantNavigatorLight {
+        public static System.Drawing.Bitmap iconParticipantNavigatorDark {
             get {
-                object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
+                object obj = ResourceManager.GetObject("iconParticipantNavigatorDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -438,11 +438,56 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Name_Term_Cancel {
+            get {
+                return ResourceManager.GetString("Name.Term.Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Name_Term_Close {
+            get {
+                return ResourceManager.GetString("Name.Term.Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Name_Term_Confirm {
+            get {
+                return ResourceManager.GetString("Name.Term.Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inactive.
         /// </summary>
         public static string Name_Term_Inactive {
             get {
                 return ResourceManager.GetString("Name.Term.Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string Name_Term_No {
+            get {
+                return ResourceManager.GetString("Name.Term.No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Name_Term_Yes {
+            get {
+                return ResourceManager.GetString("Name.Term.Yes", resourceCulture);
             }
         }
         
@@ -569,33 +614,6 @@ namespace Cabster.Properties {
         public static string Window_Configuration_WindowTitle {
             get {
                 return ResourceManager.GetString("Window.Configuration.WindowTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        public static string Window_DialogShow_ButtonCancel {
-            get {
-                return ResourceManager.GetString("Window.DialogShow.ButtonCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Close.
-        /// </summary>
-        public static string Window_DialogShow_ButtonClose {
-            get {
-                return ResourceManager.GetString("Window.DialogShow.ButtonClose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Confirm.
-        /// </summary>
-        public static string Window_DialogShow_ButtonConfirm {
-            get {
-                return ResourceManager.GetString("Window.DialogShow.ButtonConfirm", resourceCulture);
             }
         }
         
@@ -743,6 +761,15 @@ namespace Cabster.Properties {
         public static string Window_GroupWork_WindowTitle {
             get {
                 return ResourceManager.GetString("Window.GroupWork.WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stopwatch stopped. Will you finish this round?.
+        /// </summary>
+        public static string Window_GroupWorkTimer_StopwatchStopped {
+            get {
+                return ResourceManager.GetString("Window.GroupWorkTimer.StopwatchStopped", resourceCulture);
             }
         }
         

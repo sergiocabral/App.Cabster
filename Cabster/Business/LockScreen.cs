@@ -122,9 +122,9 @@ namespace Cabster.Business
             {
                 var forms = Application.OpenForms.Cast<Form>().ToArray();
 
-                var formsLayout = forms.Where(a => a.Tag != _markToFormLockScreen);
+                var formsLayout = forms.Where(a => a.Tag != _markToFormLockScreen).ToArray();
 
-                if (forms.Length == 0 || formsLayout.Any(a => a.ContainsFocus)) return;
+                if (formsLayout.Length == 0 || formsLayout.Any(a => a.ContainsFocus)) return;
 
                 var formsOrdered = forms.OrderBy(a =>
                     a.Tag == _markToFormLockScreen

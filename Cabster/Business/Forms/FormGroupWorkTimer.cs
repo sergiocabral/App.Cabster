@@ -5,6 +5,7 @@ using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Extensions;
+using Cabster.Properties;
 
 namespace Cabster.Business.Forms
 {
@@ -52,6 +53,7 @@ namespace Cabster.Business.Forms
             Invoke((Action) (() =>
             {
                 data ??= Program.Data;
+                _elapsedTime = TimeSpan.Zero;
                 labelDriver.Text = data.GroupWork.Timer.Driver;
                 labelNavigator.Text = data.GroupWork.Timer.Navigator;
                 Limit = data.GroupWork.Timer.Limit;
@@ -108,6 +110,11 @@ namespace Cabster.Business.Forms
         {
             UpdateControls();
         }
+        
+        /// <summary>
+        /// Tempo decorrido.
+        /// </summary>
+        private TimeSpan _elapsedTime;
 
         /// <summary>
         ///     Atualiza a exibição do temporizador.
@@ -124,7 +131,7 @@ namespace Cabster.Business.Forms
             {
                 if (!timer.Enabled) return;
                 timer.Enabled = false;
-                MessageBus.Send(new UserActionGroupWorkTimerEnd());
+                MessageBus.Send(new UserActionGroupWorkTimerEnd(_elapsedTime));
                 labelTimer.Text = TimerReset;
             }
         }
@@ -138,6 +145,33 @@ namespace Cabster.Business.Forms
         {
             UpdateTimer();
             if (Screen.FromPoint(Cursor.Position).Bounds != Screen.FromControl(this).Bounds) UpdatePosition();
+        }
+
+        /// <summary>
+        /// Pausa o temporizador.
+        /// </summary>
+        public void Pause()
+        {
+            timer.Enabled = false;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            var cancel = FormDialogConfirm.Show(
+                Resources.Window_GroupWorkTimer_StopwatchStopped,
+                Resources.Name_Term_No,
+                Resources.Name_Term_Yes);
+            stopwatch.Stop();
+
+            _elapsedTime -= stopwatch.Elapsed;
+            
+            if (cancel)
+            {
+                MessageBus.Send(new UserActionGroupWorkTimerEnd(_elapsedTime, false));
+            }
+            else
+            {
+                Limit = Limit.Add(stopwatch.Elapsed);
+                timer.Enabled = true;
+            }
         }
     }
 }

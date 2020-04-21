@@ -156,8 +156,23 @@
   <data name="Name.Term.Active" xml:space="preserve">
     <value>Ativo</value>
   </data>
+  <data name="Name.Term.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Name.Term.Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="Name.Term.Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
   <data name="Name.Term.Inactive" xml:space="preserve">
     <value>Inativo</value>
+  </data>
+  <data name="Name.Term.No" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="Name.Term.Yes" xml:space="preserve">
+    <value>Sim</value>
   </data>
   <data name="Notification.ApplicationFinished" xml:space="preserve">
     <value>Aplicação finalizada.</value>
@@ -200,15 +215,6 @@
   </data>
   <data name="Window.Configuration.WindowTitle" xml:space="preserve">
     <value>Configurações</value>
-  </data>
-  <data name="Window.DialogShow.ButtonCancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="Window.DialogShow.ButtonClose" xml:space="preserve">
-    <value>Fechar</value>
-  </data>
-  <data name="Window.DialogShow.ButtonConfirm" xml:space="preserve">
-    <value>Confirmar</value>
   </data>
   <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>O intervalo inicia após:</value>
@@ -260,6 +266,9 @@ Para remover: botão esquerdo.</value>
   </data>
   <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Trabalho em Grupo em MOB</value>
+  </data>
+  <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
+    <value>Cronômetro parado. Você vai finalizar esta rodada?</value>
   </data>
   <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimizar janela.</value>

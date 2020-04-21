@@ -79,7 +79,7 @@
             this.buttonDialogClose.NotTransparent = false;
             this.buttonDialogClose.Size = new System.Drawing.Size(348, 47);
             this.buttonDialogClose.TabIndex = 5;
-            this.buttonDialogClose.Text = "Window.DialogShow.ButtonClose";
+            this.buttonDialogClose.Text = "Name.Term.Close";
             this.buttonDialogClose.UseText = false;
             this.buttonDialogClose.UseVisualStyleBackColor = false;
             this.buttonDialogClose.Click += new System.EventHandler(this.buttonDialogClose_Click);

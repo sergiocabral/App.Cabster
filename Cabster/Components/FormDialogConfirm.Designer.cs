@@ -81,7 +81,7 @@
             this.buttonDialogConfirm.NotTransparent = false;
             this.buttonDialogConfirm.Size = new System.Drawing.Size(169, 47);
             this.buttonDialogConfirm.TabIndex = 5;
-            this.buttonDialogConfirm.Text = "Window.DialogShow.ButtonConfirm";
+            this.buttonDialogConfirm.Text = "Name.Term.Confirm";
             this.buttonDialogConfirm.UseText = false;
             this.buttonDialogConfirm.UseVisualStyleBackColor = false;
             this.buttonDialogConfirm.Click += new System.EventHandler(this.buttonDialog_Click);
@@ -116,7 +116,7 @@
             this.buttonDialogCancel.NotTransparent = false;
             this.buttonDialogCancel.Size = new System.Drawing.Size(169, 47);
             this.buttonDialogCancel.TabIndex = 4;
-            this.buttonDialogCancel.Text = "Window.DialogShow.ButtonCancel";
+            this.buttonDialogCancel.Text = "Name.Term.Cancel";
             this.buttonDialogCancel.UseText = false;
             this.buttonDialogCancel.UseVisualStyleBackColor = false;
             this.buttonDialogCancel.Click += new System.EventHandler(this.buttonDialog_Click);
