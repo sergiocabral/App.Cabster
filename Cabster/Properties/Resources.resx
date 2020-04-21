@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
-    <value>Minimize window.</value>
-  </data>
-  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
-    <value>Resize window.</value>
-  </data>
-  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
-    <value>Close application.</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonCloseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonCloseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,11 +124,47 @@
   <data name="buttonCloseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonCloseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buttonConfigurationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonConfigurationEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonConfigurationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonConfigurationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonLanguageEnglishEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonLanguageEnglishEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonLanguageEnglishLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonLanguageEnglishLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonLanguagePortugueseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonLanguagePortugueseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonLanguagePortugueseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonLanguagePortugueseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="buttonMinimizeEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonMinimizeEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="buttonMinimizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonMinimizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonNotificationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonNotificationEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonNotificationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonNotificationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonParticipantAddEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonParticipantAddEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonParticipantAddLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonParticipantAddLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonParticipantSortEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonParticipantSortEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonParticipantSortLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonParticipantSortLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="buttonResizeEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonResizeEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,14 +172,8 @@
   <data name="buttonResizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonResizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FormLayoutBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormLayoutBackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FormHeaderSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormHeaderSapiensia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
+    <value>The {Shortcut} shortcut key is already being used by another application.</value>
   </data>
   <data name="Exception.Common.ExpectedSingleOperation" xml:space="preserve">
     <value>A single operation was expected for: {Operation}</value>
@@ -175,14 +196,98 @@
   <data name="Exception.Infrastructure.ConfigurationIsManagedInternally" xml:space="preserve">
     <value>The {Configuration} configuration is managed internally and does not support some operations by the scope outside the business application.</value>
   </data>
+  <data name="FormHeaderSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormHeaderSapiensia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FormLayoutBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormLayoutBackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FormLockScreenBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormLockScreenBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconParticipantDriver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantDriver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconParticipantNavigator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantNavigator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Name.Application" xml:space="preserve">
     <value>Cabster</value>
+  </data>
+  <data name="Name.Language.English" xml:space="preserve">
+    <value>American English</value>
+  </data>
+  <data name="Name.Language.Portuguese" xml:space="preserve">
+    <value>Português Brasileiro</value>
+  </data>
+  <data name="Name.Term.Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Name.Term.Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Notification.ApplicationFinished" xml:space="preserve">
+    <value>Application finished.</value>
+  </data>
+  <data name="Notification.ApplicationRestarting" xml:space="preserve">
+    <value>Restarting application.</value>
+  </data>
+  <data name="Notification.ApplicationStarted" xml:space="preserve">
+    <value>Application started.</value>
+  </data>
+  <data name="Notification.LanguageChanged" xml:space="preserve">
+    <value>The application language has been changed from {fromLanguage} to {toLanguage}.</value>
+  </data>
+  <data name="Notification.LockScreenDefined" xml:space="preserve">
+    <value>Background screen lock: {Mode}</value>
+  </data>
+  <data name="Notification.ShortcutDefined" xml:space="preserve">
+    <value>The {Shortcut} shortcut key has been successfully registered.</value>
+  </data>
+  <data name="Notification.ShortcutInvalid" xml:space="preserve">
+    <value>The {Shortcut} shortcut key cannot be activated.</value>
+  </data>
+  <data name="Notification.ShortcutRemoved" xml:space="preserve">
+    <value>No shortcut key defined.</value>
+  </data>
+  <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
+    <value>The application is already in the selected language.</value>
+  </data>
+  <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
+    <value>To change the language, the application must be restarted.</value>
+  </data>
+  <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
+    <value>Select the display language</value>
+  </data>
+  <data name="Window.Configuration.LockScreen" xml:space="preserve">
+    <value>Background screen lock</value>
+  </data>
+  <data name="Window.Configuration.Shortcut" xml:space="preserve">
+    <value>Shortcut key for application actions</value>
+  </data>
+  <data name="Window.Configuration.WindowTitle" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Window.DialogShow.ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Window.DialogShow.ButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Window.DialogShow.ButtonConfirm" xml:space="preserve">
+    <value>Confirm</value>
   </data>
   <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part1" xml:space="preserve">
     <value>The interval starts after:</value>
   </data>
   <data name="Window.GroupWork.BreakStartsAfterHowManyRounds_Part2" xml:space="preserve">
     <value>rounds. Every {minutes} minute(s).</value>
+  </data>
+  <data name="Window.GroupWork.ConfigurationHint" xml:space="preserve">
+    <value>Opens the configuration options.</value>
   </data>
   <data name="Window.GroupWork.DurationOfEachBreak_Part1" xml:space="preserve">
     <value>Duration of each break:</value>
@@ -199,35 +304,17 @@
   <data name="Window.GroupWork.ParticipantAdd" xml:space="preserve">
     <value>Enter the participant's name.</value>
   </data>
+  <data name="Window.GroupWork.ParticipantAddHint" xml:space="preserve">
+    <value>Click here to add a participant.</value>
+  </data>
+  <data name="Window.GroupWork.ParticipantNameEmpty" xml:space="preserve">
+    <value>To add a participant enter a name.</value>
+  </data>
   <data name="Window.GroupWork.ParticipantRemoveHint" xml:space="preserve">
     <value>Participant: {Participant}
 
 To activate or deactivate: right button.
 To remove: left button.</value>
-  </data>
-  <data name="Name.Term.Active" xml:space="preserve">
-    <value>Active</value>
-  </data>
-  <data name="Name.Term.Inactive" xml:space="preserve">
-    <value>Inactive</value>
-  </data>
-  <data name="Window.GroupWork.ParticipantNameEmpty" xml:space="preserve">
-    <value>To add a participant enter a name.</value>
-  </data>
-  <data name="Window.GroupWork.ParticipantAddHint" xml:space="preserve">
-    <value>Click here to add a participant.</value>
-  </data>
-  <data name="buttonParticipantAddEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonParticipantAddEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonParticipantAddLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonParticipantAddLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonParticipantSortEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonParticipantSortEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonParticipantSortLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonParticipantSortLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Window.GroupWork.ParticipantSortHint" xml:space="preserve">
     <value>Randomly sort the participants.</value>
@@ -235,118 +322,31 @@ To remove: left button.</value>
   <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Start Mob</value>
   </data>
+  <data name="Window.GroupWork.TipsHint" xml:space="preserve">
+    <value>Click to load a new tip.</value>
+  </data>
   <data name="Window.GroupWork.TipsLoading" xml:space="preserve">
     <value>Loading another tip ...</value>
-  </data>
-  <data name="Window.DialogShow.ButtonClose" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="Window.DialogShow.ButtonCancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="Window.DialogShow.ButtonConfirm" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
-  <data name="buttonConfigurationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonConfigurationEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonConfigurationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonConfigurationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Window.GroupWork.ConfigurationHint" xml:space="preserve">
-    <value>Opens the configuration options.</value>
-  </data>
-  <data name="Window.Configuration.WindowTitle" xml:space="preserve">
-    <value>Configuration</value>
   </data>
   <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Group Work as MOB</value>
   </data>
-  <data name="buttonLanguageEnglishEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonLanguageEnglishEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonLanguageEnglishLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonLanguageEnglishLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonLanguagePortugueseEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonLanguagePortugueseEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonLanguagePortugueseLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonLanguagePortugueseLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
-    <value>Select the display language</value>
-  </data>
-  <data name="Name.Language.English" xml:space="preserve">
-    <value>American English</value>
-  </data>
-  <data name="Name.Language.Portuguese" xml:space="preserve">
-    <value>Português Brasileiro</value>
-  </data>
-  <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
-    <value>To change the language, the application must be restarted.</value>
-  </data>
-  <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
-    <value>The application is already in the selected language.</value>
-  </data>
-  <data name="Window.GroupWork.TipsHint" xml:space="preserve">
-    <value>Click to load a new tip.</value>
-  </data>
-  <data name="Window.Configuration.Shortcut" xml:space="preserve">
-    <value>Shortcut key for application actions</value>
-  </data>
-  <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
-    <value>The {Shortcut} shortcut key is already being used by another application.</value>
-  </data>
-  <data name="Notification.ShortcutDefined" xml:space="preserve">
-    <value>The {Shortcut} shortcut key has been successfully registered.</value>
-  </data>
-  <data name="Notification.ShortcutRemoved" xml:space="preserve">
-    <value>No shortcut key defined.</value>
-  </data>
-  <data name="buttonNotificationEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonNotificationEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonNotificationLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonNotificationLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
+    <value>Minimize window.</value>
   </data>
   <data name="Window.Layout.NotificationUser" xml:space="preserve">
     <value>General application notifications.</value>
   </data>
-  <data name="Window.Notification.WindowTitle" xml:space="preserve">
-    <value>Notifications</value>
+  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
+    <value>Resize window.</value>
+  </data>
+  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
+    <value>Close application.</value>
   </data>
   <data name="Window.Notification.NoNotification" xml:space="preserve">
     <value>No notification.</value>
   </data>
-  <data name="Notification.ShortcutInvalid" xml:space="preserve">
-    <value>The {Shortcut} shortcut key cannot be activated.</value>
-  </data>
-  <data name="Notification.LanguageChanged" xml:space="preserve">
-    <value>The application language has been changed from {fromLanguage} to {toLanguage}.</value>
-  </data>
-  <data name="Notification.ApplicationRestarting" xml:space="preserve">
-    <value>Restarting application.</value>
-  </data>
-  <data name="Notification.ApplicationStarted" xml:space="preserve">
-    <value>Application started.</value>
-  </data>
-  <data name="Notification.ApplicationFinished" xml:space="preserve">
-    <value>Application finished.</value>
-  </data>
-  <data name="FormLockScreenBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FormLockScreenBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Window.Configuration.LockScreen" xml:space="preserve">
-    <value>Background screen lock</value>
-  </data>
-  <data name="Notification.LockScreenDefined" xml:space="preserve">
-    <value>Background screen lock: {Mode}</value>
-  </data>
-  <data name="iconParticipantDriver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconParticipantDriver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconParticipantNavigator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconParticipantNavigator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Window.Notification.WindowTitle" xml:space="preserve">
+    <value>Notifications</value>
   </data>
 </root>

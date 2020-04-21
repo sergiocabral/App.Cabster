@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
-    <value>Minimizar janela.</value>
-  </data>
-  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
-    <value>Redimensionar janela.</value>
-  </data>
-  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
-    <value>Fechar a aplicação.</value>
-  </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
     <value>A tecla de atalho {Shortcut} já está sendo utilizada por outro aplicativo.</value>
   </data>
@@ -153,11 +144,32 @@
   <data name="Name.Application" xml:space="preserve">
     <value>Cabster</value>
   </data>
-  <data name="Notification.LanguageChanged" xml:space="preserve">
-    <value>O idioma do aplicativo foi alterado de {fromLanguage} para {toLanguage}.</value>
+  <data name="Name.Language.English" xml:space="preserve">
+    <value>American English</value>
+  </data>
+  <data name="Name.Language.Portuguese" xml:space="preserve">
+    <value>Português Brasileiro</value>
+  </data>
+  <data name="Name.Term.Active" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
+  <data name="Name.Term.Inactive" xml:space="preserve">
+    <value>Inativo</value>
+  </data>
+  <data name="Notification.ApplicationFinished" xml:space="preserve">
+    <value>Aplicação finalizada.</value>
   </data>
   <data name="Notification.ApplicationRestarting" xml:space="preserve">
     <value>Aplicação sendo reiniciada.</value>
+  </data>
+  <data name="Notification.ApplicationStarted" xml:space="preserve">
+    <value>Aplicação iniciada.</value>
+  </data>
+  <data name="Notification.LanguageChanged" xml:space="preserve">
+    <value>O idioma do aplicativo foi alterado de {fromLanguage} para {toLanguage}.</value>
+  </data>
+  <data name="Notification.LockScreenDefined" xml:space="preserve">
+    <value>Bloqueio da tela de fundo: {Mode}</value>
   </data>
   <data name="Notification.ShortcutDefined" xml:space="preserve">
     <value>A tecla de atalho {Shortcut} foi registrada com sucesso.</value>
@@ -168,26 +180,17 @@
   <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
   </data>
-  <data name="Name.Term.Active" xml:space="preserve">
-    <value>Ativo</value>
-  </data>
-  <data name="Name.Term.Inactive" xml:space="preserve">
-    <value>Inativo</value>
-  </data>
   <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>A aplicação já está no idioma selecionado.</value>
   </data>
   <data name="Window.Configuration.LanguageChangeConfirm" xml:space="preserve">
     <value>Para trocar o idioma a aplicação deve ser reiniciada.</value>
   </data>
-  <data name="Name.Language.English" xml:space="preserve">
-    <value>American English</value>
-  </data>
-  <data name="Name.Language.Portuguese" xml:space="preserve">
-    <value>Português Brasileiro</value>
-  </data>
   <data name="Window.Configuration.LanguageSelect" xml:space="preserve">
     <value>Selecione o idioma de exibição</value>
+  </data>
+  <data name="Window.Configuration.LockScreen" xml:space="preserve">
+    <value>Bloqueio da tela de fundo</value>
   </data>
   <data name="Window.Configuration.Shortcut" xml:space="preserve">
     <value>Tecla de atalho para ações do aplicativo</value>
@@ -255,25 +258,22 @@ Para remover: botão esquerdo.</value>
   <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Trabalho em Grupo em MOB</value>
   </data>
+  <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
+    <value>Minimizar janela.</value>
+  </data>
   <data name="Window.Layout.NotificationUser" xml:space="preserve">
     <value>Notificações gerais da aplicação.</value>
+  </data>
+  <data name="Window.Layout.ResizeWindow" xml:space="preserve">
+    <value>Redimensionar janela.</value>
+  </data>
+  <data name="Window.Layout.TerminateApplication" xml:space="preserve">
+    <value>Fechar a aplicação.</value>
   </data>
   <data name="Window.Notification.NoNotification" xml:space="preserve">
     <value>Nenhuma notificação.</value>
   </data>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notificações</value>
-  </data>
-  <data name="Notification.ApplicationStarted" xml:space="preserve">
-    <value>Aplicação iniciada.</value>
-  </data>
-  <data name="Notification.ApplicationFinished" xml:space="preserve">
-    <value>Aplicação finalizada.</value>
-  </data>
-  <data name="Window.Configuration.LockScreen" xml:space="preserve">
-    <value>Bloqueio da tela de fundo</value>
-  </data>
-  <data name="Notification.LockScreenDefined" xml:space="preserve">
-    <value>Bloqueio da tela de fundo: {Mode}</value>
   </data>
 </root>
