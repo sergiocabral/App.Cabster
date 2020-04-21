@@ -39,7 +39,7 @@
             // 
             // labelDriverIcon
             // 
-            this.labelDriverIcon.Image = global::Cabster.Properties.Resources.iconParticipantDriver;
+            this.labelDriverIcon.Image = global::Cabster.Properties.Resources.iconParticipantDriverLight;
             this.labelDriverIcon.Location = new System.Drawing.Point(4, 40);
             this.labelDriverIcon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDriverIcon.Name = "labelDriverIcon";
@@ -48,7 +48,7 @@
             // 
             // labelNavigatorIcon
             // 
-            this.labelNavigatorIcon.Image = global::Cabster.Properties.Resources.iconParticipantNavigator;
+            this.labelNavigatorIcon.Image = global::Cabster.Properties.Resources.iconParticipantNavigatorLight;
             this.labelNavigatorIcon.Location = new System.Drawing.Point(4, 81);
             this.labelNavigatorIcon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNavigatorIcon.Name = "labelNavigatorIcon";

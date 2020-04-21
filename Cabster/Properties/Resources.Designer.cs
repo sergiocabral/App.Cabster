@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -253,9 +253,9 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormLayoutBackground {
+        public static System.Drawing.Bitmap iconParticipantDriverDark {
             get {
-                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                object obj = ResourceManager.GetObject("iconParticipantDriverDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,19 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap iconParticipantDriver {
+        public static System.Drawing.Bitmap FormLayoutBackground {
             get {
-                object obj = ResourceManager.GetObject("iconParticipantDriver", resourceCulture);
+                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap iconParticipantDriverLight {
+            get {
+                object obj = ResourceManager.GetObject("iconParticipantDriverLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +303,19 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap iconParticipantNavigator {
+        public static System.Drawing.Bitmap iconParticipantNavigatorDark {
             get {
-                object obj = ResourceManager.GetObject("iconParticipantNavigator", resourceCulture);
+                object obj = ResourceManager.GetObject("iconParticipantNavigatorDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap iconParticipantNavigatorLight {
+            get {
+                object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

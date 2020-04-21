@@ -197,8 +197,8 @@ namespace Cabster.Business.Forms
                 var participant = (ParticipantInfo) control.Tag;
                 if (participant.Active) index++;
                 control.Image =
-                    participant.Active && index == 0 ? Resources.iconParticipantDriver :
-                    participant.Active && index == 1 ? Resources.iconParticipantNavigator :
+                    participant.Active && index == 0 ? Resources.iconParticipantDriverDark :
+                    participant.Active && index == 1 ? Resources.iconParticipantNavigatorDark :
                     null;
                 var text = control.Text.Trim();
                 if (control.Image != null) control.Text = new string(' ', 5) + text;

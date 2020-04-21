@@ -421,6 +421,10 @@
     <None Include="Resources\FormLockScreenBackground.png" />
     <None Include="Resources\iconParticipantDriver.png" />
     <None Include="Resources\iconParticipantNavigator.png" />
+    <None Include="Resources\iconParticipantDriverDark.png" />
+    <None Include="Resources\iconParticipantDriverLight.png" />
+    <None Include="Resources\iconParticipantNavigatorDark.png" />
+    <None Include="Resources\iconParticipantNavigatorLight.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

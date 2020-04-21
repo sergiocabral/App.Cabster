@@ -208,11 +208,17 @@
   <data name="FormLockScreenBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FormLockScreenBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconParticipantDriver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconParticipantDriver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconParticipantDriverDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantDriverDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconParticipantNavigator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconParticipantNavigator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconParticipantDriverLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantDriverLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconParticipantNavigatorDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantNavigatorDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconParticipantNavigatorLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconParticipantNavigatorLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
