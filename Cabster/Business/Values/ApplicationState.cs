@@ -9,8 +9,13 @@ namespace Cabster.Business.Values
     public enum ApplicationState
     {
         /// <summary>
-        ///     A aplicação acabou de abrir.
+        ///     Aplicação parada.
         /// </summary>
-        ApplicationStarted = 0
+        Idle = 0,
+
+        /// <summary>
+        ///     Trabalho em grupo MOB rodando.
+        /// </summary>
+        GroupWorkRunning = 1
     }
 }

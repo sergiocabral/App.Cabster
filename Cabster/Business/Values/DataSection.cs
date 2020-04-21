@@ -21,22 +21,28 @@ namespace Cabster.Business.Values
             0b_0000_0000_1111,
 
         /// <summary>
+        ///     ApplicationSet: State
+        /// </summary>
+        ApplicationState =
+            0b_0000_0000_0001,
+
+        /// <summary>
         ///     ApplicationSet: Idioma
         /// </summary>
         ApplicationLanguage =
-            0b_0000_0000_0001,
+            0b_0000_0000_0010,
 
         /// <summary>
         ///     ApplicationSet: Tecla de atalho
         /// </summary>
         ApplicationShortcut =
-            0b_0000_0000_0010,
+            0b_0000_0000_0100,
 
         /// <summary>
         ///     ApplicationSet: Bloqueio de tela
         /// </summary>
         ApplicationLockScreen =
-            0b_0000_0000_0100,
+            0b_0000_0000_1000,
 
         /// <summary>
         ///     WorkGroupSet

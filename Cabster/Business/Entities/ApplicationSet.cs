@@ -12,7 +12,7 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Estado da aplicação
         /// </summary>
-        public ApplicationState State { get; set; } = ApplicationState.ApplicationStarted;
+        public ApplicationState State { get; set; } = ApplicationState.Idle;
 
         /// <summary>
         ///     Tecla de atalho.

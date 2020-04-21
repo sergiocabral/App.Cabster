@@ -140,14 +140,17 @@ namespace Cabster.Business.Forms
         private void UpdateTimer()
         {
             var timeLeft = Limit - DateTimeOffset.Now;
-            if (timeLeft.Ticks <= 0)
+            if (timeLeft.Ticks > 0)
             {
-                MessageBus.Send(new UserActionGroupWorkTimerEnd());
-                Timer = TimerReset;
+                if (!timer.Enabled) timer.Enabled = true;
+                Timer = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
             }
             else
             {
-                Timer = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
+                if (!timer.Enabled) return;
+                timer.Enabled = false;
+                MessageBus.Send(new UserActionGroupWorkTimerEnd());
+                Timer = TimerReset;
             }
         }
 

@@ -68,7 +68,9 @@ namespace Cabster.Business.Messenger.Handlers
                 .Where(a => a.Active)
                 .Take(2)
                 .ToArray();
-            
+
+            data.Application.State = ApplicationState.GroupWorkRunning;
+
             if (workers.Length != 2)
             {
                 await _messageBus.Send(
@@ -91,13 +93,13 @@ namespace Cabster.Business.Messenger.Handlers
                 data.GroupWork.Participants.Add(inactiveGoToEndOfTheList);
             }
 
-            data.GroupWork.Timer.Running = true;
             data.GroupWork.Timer.Driver = driver.Name;
             data.GroupWork.Timer.Navigator = navigator.Name;
-            data.GroupWork.Timer.Limit = DateTimeOffset.Now.AddMinutes(data.GroupWork.Times.TimeToWork);
-            await _messageBus.Send(
-                new DataUpdate(data, 
-                    DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), cancellationToken);
+            data.GroupWork.Timer.Limit = DateTimeOffset.UtcNow.AddMinutes(data.GroupWork.Times.TimeToWork);
+            
+            await _messageBus.Send(new DataUpdate(data,
+                DataSection.ApplicationState | DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), 
+                cancellationToken);
 
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
             
@@ -114,8 +116,14 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(UserActionGroupWorkTimerEnd request, CancellationToken cancellationToken)
         {
-            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+            var data = Program.Data;
             
+            data.Application.State = ApplicationState.Idle;
+            
+            await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationState), cancellationToken);
+            
+            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+
             await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
 
             return Unit.Value;

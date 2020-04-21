@@ -8,11 +8,6 @@ namespace Cabster.Business.Entities
     public class GroupWorkTimerSet : EntityBase
     {
         /// <summary>
-        ///     Sinaliza que o temporizador está em execução.
-        /// </summary>
-        public bool Running { get; set; }
-
-        /// <summary>
         ///     Nome do Driver.
         /// </summary>
         public string Driver { get; set; } = string.Empty;
