@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelDriverIcon = new System.Windows.Forms.Label();
             this.labelNavigatorIcon = new System.Windows.Forms.Label();
             this.labelDriver = new System.Windows.Forms.Label();
             this.labelNavigator = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // labelDriverIcon
@@ -101,6 +103,11 @@
             this.labelTimer.Text = "00:00";
             this.labelTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer
+            // 
+            this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // FormGroupWorkTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -131,5 +138,6 @@
         private System.Windows.Forms.Label labelDriver;
         private System.Windows.Forms.Label labelNavigator;
         private System.Windows.Forms.Label labelTimer;
+        private System.Windows.Forms.Timer timer;
     }
 }

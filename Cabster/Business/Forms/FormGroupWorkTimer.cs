@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
+using Cabster.Business.Messenger.Request;
 using Cabster.Components;
 using Cabster.Extensions;
-using Serilog;
 
 namespace Cabster.Business.Forms
 {
@@ -13,6 +13,17 @@ namespace Cabster.Business.Forms
     /// </summary>
     public partial class FormGroupWorkTimer : FormBase, IFormContainerData
     {
+        /// <summary>
+        ///     Formato de exibição do temporizador.
+        /// </summary>
+        private const string TimerFormat = "mm:ss";
+
+        /// <summary>
+        ///     Texto para quando o temporizador está zerado.
+        /// </summary>
+        private static readonly string TimerReset =
+            new DateTime().ToString(TimerFormat);
+
         /// <summary>
         ///     Cronômetro para evitar atualização da posição freneticamente.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Cabster.Business.Forms
         private string Driver
         {
             get => labelDriver.Text;
-            set => labelDriver.Invoke((Action)(() => labelDriver.Text = value));
+            set => labelDriver.Invoke((Action) (() => labelDriver.Text = value));
         }
 
         /// <summary>
@@ -42,8 +53,13 @@ namespace Cabster.Business.Forms
         private string Navigator
         {
             get => labelNavigator.Text;
-            set => labelNavigator.Invoke((Action)(() => labelNavigator.Text = value));
+            set => labelNavigator.Invoke((Action) (() => labelNavigator.Text = value));
         }
+
+        /// <summary>
+        ///     Tempo limite da exibição da janela.
+        /// </summary>
+        private DateTimeOffset Limit { get; set; }
 
         /// <summary>
         ///     Notifica a atualização dos controles da tela.
@@ -54,7 +70,8 @@ namespace Cabster.Business.Forms
             data ??= Program.Data;
             Driver = data.GroupWork.Timer.Driver;
             Navigator = data.GroupWork.Timer.Navigator;
-            Log.Verbose("Driver: {Diver}, Navigator: {Navigator}", Driver, Navigator);
+            Limit = data.GroupWork.Timer.Limit;
+            UpdateTimer();
         }
 
         /// <summary>
@@ -66,6 +83,7 @@ namespace Cabster.Business.Forms
             Shown += UpdateControls;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
             VisibleChanged += UpdatePosition;
+            VisibleChanged += (sender, args) => timer.Enabled = Visible;
         }
 
         /// <summary>
@@ -105,6 +123,33 @@ namespace Cabster.Business.Forms
         private void UpdateControls(object sender, EventArgs args)
         {
             UpdateControls();
+        }
+
+        /// <summary>
+        ///     Atualiza a exibição do temporizador.
+        /// </summary>
+        private void UpdateTimer()
+        {
+            var timeLeft = Limit - DateTimeOffset.Now;
+            if (timeLeft.Ticks < 0)
+            {
+                MessageBus.Send(new UserActionGroupWorkTimerEnd());
+                labelTimer.Text = TimerReset;
+            }
+            else
+            {
+                labelTimer.Text = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
+            }
+        }
+
+        /// <summary>
+        ///     Timer para atualizar os controles da tela.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            UpdateTimer();
         }
     }
 }

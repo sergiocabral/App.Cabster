@@ -21,7 +21,8 @@ namespace Cabster.Business.Messenger.Handlers
     public class UserActionHandler :
         MessengerHandler,
         IRequestHandler<UserActionPoke>,
-        IRequestHandler<UserActionGroupWorkStart>
+        IRequestHandler<UserActionGroupWorkStart>,
+        IRequestHandler<UserActionGroupWorkTimerEnd>
     {
         /// <summary>
         /// Barramento de mensagens.
@@ -101,6 +102,21 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
             
             await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
+
+            return Unit.Value;
+        }
+        
+        /// <summary>
+        ///     Processa o comando: UserActionGroupWorkTimerEnd
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(UserActionGroupWorkTimerEnd request, CancellationToken cancellationToken)
+        {
+            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+            
+            await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
 
             return Unit.Value;
         }
