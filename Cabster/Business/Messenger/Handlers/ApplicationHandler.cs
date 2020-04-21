@@ -127,13 +127,6 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Retorna true se a aplicação precisar reiniciar.</returns>
         public async Task<bool> Handle(ApplicationInitialize request, CancellationToken cancellationToken)
         {
-            var data = Program.Data;
-            if (data.Application.State != ApplicationState.Idle)
-            {
-                data.Application.State = ApplicationState.Idle;
-                await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationState), cancellationToken);
-            }
-
             await _messageBus.Publish(new ApplicationInitialized(request), cancellationToken);
             
             const Window formType = Window.Main;

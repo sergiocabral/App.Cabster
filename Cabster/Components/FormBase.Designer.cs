@@ -41,6 +41,7 @@ namespace Cabster.Components
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Name = "FormBase";
             this.Text = "Name.Application";
+            this.TopMost = true;
             this.ResumeLayout(false);
         }
 

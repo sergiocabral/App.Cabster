@@ -30,12 +30,19 @@ namespace Cabster.Business.Messenger.Handlers
         private readonly IMediator _messageBus;
 
         /// <summary>
+        /// Bloqueador de telas.
+        /// </summary>
+        private readonly ILockScreen _lockScreen;
+
+        /// <summary>
         /// Construtor.
         /// </summary>
         /// <param name="messageBus">Barramento de mensagens.</param>
-        public UserActionHandler(IMediator messageBus)
+        /// <param name="lockScreen">Bloqueador de telas.</param>
+        public UserActionHandler(IMediator messageBus, ILockScreen lockScreen)
         {
             _messageBus = messageBus;
+            _lockScreen = lockScreen;
         }
         
         /// <summary>
@@ -105,6 +112,8 @@ namespace Cabster.Business.Messenger.Handlers
             
             await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
 
+            if (data.Application.LockScreen) _lockScreen.Unlock();
+                
             return Unit.Value;
         }
         
@@ -125,7 +134,9 @@ namespace Cabster.Business.Messenger.Handlers
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
 
             await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
-
+            
+            if (data.Application.LockScreen) _lockScreen.Lock();
+            
             return Unit.Value;
         }
     }

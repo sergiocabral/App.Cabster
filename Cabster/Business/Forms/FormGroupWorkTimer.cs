@@ -11,7 +11,7 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela para exibir o tempo do trabalho.
     /// </summary>
-    public partial class FormGroupWorkTimer : FormBase, IFormContainerData
+    public partial class FormGroupWorkTimer : FormBase, IFormContainerData, IFormTopMost
     {
         /// <summary>
         ///     Formato de exibição do temporizador.
@@ -92,7 +92,9 @@ namespace Cabster.Business.Forms
             Shown += UpdateControls;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
             VisibleChanged += UpdatePosition;
-            VisibleChanged += (sender, args) => timer.Enabled = Visible;
+            
+            //TODO: No segundo reinicio não iniciar o timer.
+            VisibleChanged += (sender, args) => timer.Enabled = true;
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace Cabster.Business.Forms
             if (_stopwatchUpdatePosition.IsRunning && _stopwatchUpdatePosition.ElapsedMilliseconds < 100) return;
             _stopwatchUpdatePosition.Restart();
 
-            var screen = Screen.FromControl(this);
+            var screen = Screen.FromPoint(Cursor.Position);
             var cursor = Cursor.Position;
             var isRight = cursor.X < screen.Bounds.Left + screen.Bounds.Width / 2;
             Top = screen.WorkingArea.Top + screen.WorkingArea.Height - Height;
@@ -159,9 +161,10 @@ namespace Cabster.Business.Forms
         /// </summary>
         /// <param name="sender">Fonte do evento.</param>
         /// <param name="args">Informações do evento.</param>
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs args)
         {
             UpdateTimer();
+            if (Screen.FromPoint(Cursor.Position).Bounds != Screen.FromControl(this).Bounds) UpdatePosition();
         }
     }
 }

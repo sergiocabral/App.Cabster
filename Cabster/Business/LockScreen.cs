@@ -79,6 +79,8 @@ namespace Cabster.Business
 
             foreach (var form in Application.OpenForms.Cast<Form>().Where(a => a is IFormApplication))
                 form.TopMost = true;
+            
+            TimerOnTick();
         }
 
         /// <summary>
@@ -91,7 +93,7 @@ namespace Cabster.Business
 
             foreach (var form in Application.OpenForms.Cast<Form>().ToArray())
             {
-                form.TopMost = false;
+                form.TopMost = form is IFormTopMost;
                 if (form.Tag != _markToFormLockScreen) continue;
                 form.Hide();
                 form.Close();
@@ -106,15 +108,30 @@ namespace Cabster.Business
         /// <param name="args">Informações sobre o evento.</param>
         private void TimerOnTick(object sender, EventArgs args)
         {
+            TimerOnTick();
+        }
+
+        /// <summary>
+        ///     Temporizador para manter as janelas no topo.
+        /// </summary>
+        private void TimerOnTick()
+        {
             if (_timerWorking) return;
             _timerWorking = true;
             try
             {
                 var forms = Application.OpenForms.Cast<Form>().ToArray();
 
-                if (forms.Length == 0 || forms.Any(a => a.ContainsFocus)) return;
+                var formsLayout = forms.Where(a => a.Tag != _markToFormLockScreen);
 
-                foreach (var form in forms.OrderBy(a => a.Handle.GetWindowZOrder()))
+                if (forms.Length == 0 || formsLayout.Any(a => a.ContainsFocus)) return;
+
+                var formsOrdered = forms.OrderBy(a =>
+                    a.Tag == _markToFormLockScreen
+                        ? int.MinValue
+                        : a.Handle.GetWindowZOrder());
+
+                foreach (var form in formsOrdered)
                 {
                     form.Activate();
                     form.BringToFront();
