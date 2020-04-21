@@ -469,7 +469,7 @@ namespace Cabster.Business.Forms
             /// </summary>
             public string Name
             {
-                get => _control.Text;
+                get => _control.Text.Trim();
                 set
                 {
                     _control.Text = value.Trim();
