@@ -39,33 +39,6 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
-        ///     Valor no temporizador
-        /// </summary>
-        private string Timer
-        {
-            get => labelTimer.Text;
-            set => labelTimer.Invoke((Action) (() => labelTimer.Text = value));
-        }
-
-        /// <summary>
-        ///     Nome do driver.
-        /// </summary>
-        private string Driver
-        {
-            get => labelDriver.Text;
-            set => labelDriver.Invoke((Action) (() => labelDriver.Text = value));
-        }
-
-        /// <summary>
-        ///     Nome do navegador.
-        /// </summary>
-        private string Navigator
-        {
-            get => labelNavigator.Text;
-            set => labelNavigator.Invoke((Action) (() => labelNavigator.Text = value));
-        }
-
-        /// <summary>
         ///     Tempo limite da exibição da janela.
         /// </summary>
         private DateTimeOffset Limit { get; set; }
@@ -76,11 +49,14 @@ namespace Cabster.Business.Forms
         /// <param name="data">Dados da aplicação.</param>
         public void UpdateControls(ContainerData? data = null)
         {
-            data ??= Program.Data;
-            Driver = data.GroupWork.Timer.Driver;
-            Navigator = data.GroupWork.Timer.Navigator;
-            Limit = data.GroupWork.Timer.Limit;
-            UpdateTimer();
+            Invoke((Action) (() =>
+            {
+                data ??= Program.Data;
+                labelDriver.Text = data.GroupWork.Timer.Driver;
+                labelNavigator.Text = data.GroupWork.Timer.Navigator;
+                Limit = data.GroupWork.Timer.Limit;
+                UpdateTimer();
+            }));
         }
 
         /// <summary>
@@ -92,9 +68,6 @@ namespace Cabster.Business.Forms
             Shown += UpdateControls;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;
             VisibleChanged += UpdatePosition;
-            
-            //TODO: No segundo reinicio não iniciar o timer.
-            VisibleChanged += (sender, args) => timer.Enabled = true;
         }
 
         /// <summary>
@@ -145,14 +118,14 @@ namespace Cabster.Business.Forms
             if (timeLeft.Ticks > 0)
             {
                 if (!timer.Enabled) timer.Enabled = true;
-                Timer = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
+                labelTimer.Text = new DateTime(timeLeft.Ticks).ToString(TimerFormat);
             }
             else
             {
                 if (!timer.Enabled) return;
                 timer.Enabled = false;
                 MessageBus.Send(new UserActionGroupWorkTimerEnd());
-                Timer = TimerReset;
+                labelTimer.Text = TimerReset;
             }
         }
 
