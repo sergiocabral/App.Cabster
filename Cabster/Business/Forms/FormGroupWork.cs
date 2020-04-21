@@ -74,15 +74,12 @@ namespace Cabster.Business.Forms
         {
             get
             {
-                var index = 0;
                 return panelParticipants
                     .ControlsSorted
                     .Select(myButton => new GroupWorkParticipantSet
                     {
                         Name = ((ParticipantInfo) myButton.Tag).Name,
-                        Active = ((ParticipantInfo) myButton.Tag).Active,
-                        IsDriver = ++index == 1,
-                        IsNavigator = index == 2
+                        Active = ((ParticipantInfo) myButton.Tag).Active
                     });
             }
             set
