@@ -134,7 +134,9 @@ namespace Cabster.Business.Messenger.Handlers
         {
             FormMain.Close();
 
-            var fields = GetType().GetFields(BindingFlags.Static | BindingFlags.NonPublic);
+            var fields = GetType()
+                .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
+                .Where(a => !a.IsInitOnly);
             foreach (var field in fields) field.SetValue(null, null);
 
             return Unit.Task;
