@@ -205,10 +205,15 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public Task Handle(UserNotificationPosted notification, CancellationToken cancellationToken)
         {
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (notification.Request.SourceRequest is DataUpdate dataUpdate &&
                 ((dataUpdate.Section & DataSection.ApplicationShortcut) != 0 ||
                  (dataUpdate.Section & DataSection.ApplicationLockScreen) != 0))
                 ((IFormLayout?) _formConfiguration)?
+                    .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
+
+            if (notification.Request.SourceRequest is UserActionGroupWorkStart)
+                ((IFormLayout?) _formGroupWork)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
             ((IFormContainerData?) _formNotification)?.UpdateControls(null);

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Exceptions;
@@ -66,20 +67,26 @@ namespace Cabster.Business.Messenger.Handlers
                 .Take(2)
                 .ToArray();
             
-            if (workers.Length != 2) throw new ThisWillNeverOccurException();
+            if (workers.Length != 2)
+            {
+                await _messageBus.Send(
+                    new UserNotificationPost(
+                        new NotificationMessage(
+                            "É necessário pelo menos dois participantes.", false), 
+                        request), cancellationToken);
+                return Unit.Value;
+            }
             
             var driver = workers[0];
             var navigator = workers[1];
 
             data.GroupWork.Participants.Remove(driver);
-            data.GroupWork.Participants.Remove(navigator);
             data.GroupWork.Participants.Add(driver);
-            data.GroupWork.Participants.Add(navigator);
             while (!data.GroupWork.Participants[0].Active)
             {
-                var goToEndOfList = data.GroupWork.Participants[0];
-                data.GroupWork.Participants.Remove(goToEndOfList);
-                data.GroupWork.Participants.Add(goToEndOfList);
+                var inactiveGoToEndOfTheList = data.GroupWork.Participants[0];
+                data.GroupWork.Participants.Remove(inactiveGoToEndOfTheList);
+                data.GroupWork.Participants.Add(inactiveGoToEndOfTheList);
             }
 
             data.GroupWork.Timer.Running = true;
