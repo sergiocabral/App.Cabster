@@ -241,6 +241,66 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormLockScreenBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormLockScreenBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormLayoutBackground {
+            get {
+                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap iconParticipantDriver {
+            get {
+                object obj = ResourceManager.GetObject("iconParticipantDriver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon IconSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap iconParticipantNavigator {
+            get {
+                object obj = ResourceManager.GetObject("iconParticipantNavigator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {Shortcut} shortcut key is already being used by another application..
         /// </summary>
         public static string Exception_Application_ShortcutAlreadyUsed {
@@ -295,6 +355,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to At least two participants are required..
+        /// </summary>
+        public static string Exception_GroupWork_TwoParticipantsAreRequired {
+            get {
+                return ResourceManager.GetString("Exception.GroupWork.TwoParticipantsAreRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {Configuration} configuration is managed externally and does not support some operations by the business application..
         /// </summary>
         public static string Exception_Infrastructure_ConfigurationIsManagedExternally {
@@ -309,66 +378,6 @@ namespace Cabster.Properties {
         public static string Exception_Infrastructure_ConfigurationIsManagedInternally {
             get {
                 return ResourceManager.GetString("Exception.Infrastructure.ConfigurationIsManagedInternally", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormLayoutBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormLockScreenBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormLockScreenBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap iconParticipantDriver {
-            get {
-                object obj = ResourceManager.GetObject("iconParticipantDriver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap iconParticipantNavigator {
-            get {
-                object obj = ResourceManager.GetObject("iconParticipantNavigator", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         

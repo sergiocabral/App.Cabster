@@ -190,6 +190,9 @@
   <data name="Exception.Common.WrongArgument" xml:space="preserve">
     <value>For the operation {Class}.{Method} one or more arguments are not valid: {Argument}</value>
   </data>
+  <data name="Exception.GroupWork.TwoParticipantsAreRequired" xml:space="preserve">
+    <value>At least two participants are required.</value>
+  </data>
   <data name="Exception.Infrastructure.ConfigurationIsManagedExternally" xml:space="preserve">
     <value>The {Configuration} configuration is managed externally and does not support some operations by the business application.</value>
   </data>

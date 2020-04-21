@@ -8,6 +8,7 @@ using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
 using Cabster.Exceptions;
 using Cabster.Infrastructure;
+using Cabster.Properties;
 using MediatR;
 using Serilog;
 
@@ -72,7 +73,7 @@ namespace Cabster.Business.Messenger.Handlers
                 await _messageBus.Send(
                     new UserNotificationPost(
                         new NotificationMessage(
-                            "É necessário pelo menos dois participantes.", false), 
+                            Resources.Exception_GroupWork_TwoParticipantsAreRequired, false), 
                         request), cancellationToken);
                 return Unit.Value;
             }

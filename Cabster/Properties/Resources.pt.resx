@@ -135,6 +135,9 @@
   <data name="Exception.Common.WrongArgument" xml:space="preserve">
     <value>Para a operação {Class}.{Method} um ou mais argumentos não são válidos: {Argument}</value>
   </data>
+  <data name="Exception.GroupWork.TwoParticipantsAreRequired" xml:space="preserve">
+    <value>É necessário pelo menos dois participantes.</value>
+  </data>
   <data name="Exception.Infrastructure.ConfigurationIsManagedExternally" xml:space="preserve">
     <value>A configuração {Configuration} é gerenciada externamente e não suporta algumas operações pela aplicação de negócio.</value>
   </data>
