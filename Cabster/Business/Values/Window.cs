@@ -9,6 +9,12 @@ namespace Cabster.Business.Values
     public enum Window
     {
         /// <summary>
+        ///     Todas as janelas.
+        /// </summary>
+        All =
+            0b_1111_1111,
+
+        /// <summary>
         ///     Janela principal do sistema.
         /// </summary>
         Main =

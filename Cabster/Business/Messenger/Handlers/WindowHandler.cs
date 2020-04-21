@@ -67,6 +67,7 @@ namespace Cabster.Business.Messenger.Handlers
         private static readonly Window[] _windowsType =
             Enum
                 .GetNames(typeof(Window))
+                .Where(a => a != Window.All.ToString())
                 .Select(a =>
                     (Window) Enum.Parse(typeof(Window), a))
                 .ToArray();
@@ -233,10 +234,8 @@ namespace Cabster.Business.Messenger.Handlers
         {
             var windowTypes = GetWindowsTypeOrdered(request.Window, request.OrderBy);
             foreach (var windowType in windowTypes)
-            {
-                var form = GetInstance(windowType).Item1;
-                form?.Hide();
-            }
+            foreach (var formFactory in GetInstances(windowType)) 
+                formFactory.Item1?.Hide();
 
             return Unit.Task;
         }
@@ -253,7 +252,7 @@ namespace Cabster.Business.Messenger.Handlers
             var result = (IDictionary<Window, Form>) windowTypes
                 .ToDictionary(
                     windowType => windowType,
-                    windowType => OpenWindow(GetInstance(windowType).Item2(), request.Parent));
+                    windowType => OpenWindow(GetInstances(windowType)[0].Item2(), request.Parent));
             return Task.FromResult(result);
         }
 
@@ -285,17 +284,16 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         /// <param name="window">Tipo de janela.</param>
         /// <returns>Instância do Form.</returns>
-        private static (Form, Func<Form>) GetInstance(Window window)
+        private static (Form?, Func<Form>)[] GetInstances(Window window)
         {
-            return window switch
-            {
-                Window.Main => (_formMain, () => FormMain),
-                Window.GroupWork => (_formGroupWork, () => FormGroupWork),
-                Window.GroupWorkTimer => (_formGroupWorkTimer, () => FormGroupWorkTimer),
-                Window.Configuration => (_formConfiguration, () => FormConfiguration),
-                Window.Notification => (_formNotification, () => FormNotification),
-                _ => throw new ThisWillNeverOccurException()
-            };
+            var result = new List<(Form?, Func<Form>)>();
+            if ((window & Window.Main) != 0) result.Add((_formMain, () => FormMain));
+            if ((window & Window.GroupWork) != 0) result.Add((_formGroupWork, () => FormGroupWork));
+            if ((window & Window.GroupWorkTimer) != 0) result.Add((_formGroupWorkTimer, () => FormGroupWorkTimer));
+            if ((window & Window.Configuration) != 0) result.Add((_formConfiguration, () => FormConfiguration));
+            if ((window & Window.Notification) != 0) result.Add((_formNotification, () => FormNotification));
+            if (result.Count == 0) throw new ThisWillNeverOccurException();
+            return result.ToArray();
         }
 
         /// <summary>

@@ -98,6 +98,8 @@ namespace Cabster.Business.Messenger.Handlers
                 new DataUpdate(data, 
                     DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), cancellationToken);
 
+            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+            
             await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
 
             return Unit.Value;
