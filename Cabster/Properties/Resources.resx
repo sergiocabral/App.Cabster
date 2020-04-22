@@ -349,14 +349,17 @@ To remove: left button.</value>
   <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Group Work as MOB</value>
   </data>
-  <data name="Window.GroupWorkBreak.Accept" xml:space="preserve">
+  <data name="Window.GroupWorkAskBreak.Accept" xml:space="preserve">
     <value>Stop for a Break</value>
   </data>
-  <data name="Window.GroupWorkBreak.Description" xml:space="preserve">
+  <data name="Window.GroupWorkAskBreak.Description" xml:space="preserve">
     <value>The time has come for a break. What are you going to do?</value>
   </data>
-  <data name="Window.GroupWorkBreak.Skip" xml:space="preserve">
+  <data name="Window.GroupWorkAskBreak.Skip" xml:space="preserve">
     <value>Skip this Break</value>
+  </data>
+  <data name="Window.GroupWorkAskBreak.WindowTitle" xml:space="preserve">
+    <value>Have a Break?</value>
   </data>
   <data name="Window.GroupWorkTimer.Break" xml:space="preserve">
     <value>In the break</value>
