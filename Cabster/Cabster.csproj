@@ -202,7 +202,6 @@
     <Compile Include="Business\Messenger\Notification\DataSavedToFile.cs" />
     <Compile Include="Business\Messenger\Notification\DataUpdated.cs" />
     <Compile Include="Business\Messenger\Handlers\ApplicationHandler.cs" />
-    <Compile Include="Business\Messenger\Handlers\ClockHandler.cs" />
     <Compile Include="Business\Messenger\Handlers\DataHandler.cs" />
     <Compile Include="Business\Messenger\Handlers\WindowHandler.cs" />
     <Compile Include="Business\Messenger\Notification\UserNotificationPosted.cs" />
@@ -214,8 +213,6 @@
     <Compile Include="Business\Messenger\Request\DataUpdate.cs" />
     <Compile Include="Business\Messenger\Request\UserNotificationRequestList.cs" />
     <Compile Include="Business\Messenger\Request\ApplicationInitialize.cs" />
-    <Compile Include="Business\Messenger\Request\ClockSinalize.cs" />
-    <Compile Include="Business\Messenger\Notification\ClockSignaled.cs" />
     <Compile Include="Business\Shortcut.cs" />
     <Compile Include="Business\Tips.cs" />
     <Compile Include="Business\UserNotification.cs" />
