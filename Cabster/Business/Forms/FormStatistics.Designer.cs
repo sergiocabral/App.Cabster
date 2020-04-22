@@ -119,55 +119,65 @@
             // 
             // labelStartValue
             // 
+            this.labelStartValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStartValue.BackColor = System.Drawing.Color.Transparent;
             this.labelStartValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelStartValue.Location = new System.Drawing.Point(253, 70);
             this.labelStartValue.Name = "labelStartValue";
-            this.labelStartValue.Size = new System.Drawing.Size(85, 19);
+            this.labelStartValue.Size = new System.Drawing.Size(185, 19);
             this.labelStartValue.TabIndex = 18;
             this.labelStartValue.Text = "???";
             this.labelStartValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelRoundWorkValue
             // 
+            this.labelRoundWorkValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRoundWorkValue.BackColor = System.Drawing.Color.Transparent;
             this.labelRoundWorkValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelRoundWorkValue.Location = new System.Drawing.Point(253, 100);
             this.labelRoundWorkValue.Name = "labelRoundWorkValue";
-            this.labelRoundWorkValue.Size = new System.Drawing.Size(85, 19);
+            this.labelRoundWorkValue.Size = new System.Drawing.Size(185, 19);
             this.labelRoundWorkValue.TabIndex = 19;
             this.labelRoundWorkValue.Text = "???";
             this.labelRoundWorkValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelTimeWorkValue
             // 
+            this.labelTimeWorkValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTimeWorkValue.BackColor = System.Drawing.Color.Transparent;
             this.labelTimeWorkValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelTimeWorkValue.Location = new System.Drawing.Point(253, 130);
             this.labelTimeWorkValue.Name = "labelTimeWorkValue";
-            this.labelTimeWorkValue.Size = new System.Drawing.Size(85, 19);
+            this.labelTimeWorkValue.Size = new System.Drawing.Size(185, 19);
             this.labelTimeWorkValue.TabIndex = 20;
             this.labelTimeWorkValue.Text = "???";
             this.labelTimeWorkValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelRoundBreakValue
             // 
+            this.labelRoundBreakValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRoundBreakValue.BackColor = System.Drawing.Color.Transparent;
             this.labelRoundBreakValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelRoundBreakValue.Location = new System.Drawing.Point(253, 160);
             this.labelRoundBreakValue.Name = "labelRoundBreakValue";
-            this.labelRoundBreakValue.Size = new System.Drawing.Size(85, 19);
+            this.labelRoundBreakValue.Size = new System.Drawing.Size(185, 19);
             this.labelRoundBreakValue.TabIndex = 21;
             this.labelRoundBreakValue.Text = "???";
             this.labelRoundBreakValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelTimeBreakValue
             // 
+            this.labelTimeBreakValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTimeBreakValue.BackColor = System.Drawing.Color.Transparent;
             this.labelTimeBreakValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.labelTimeBreakValue.Location = new System.Drawing.Point(253, 190);
             this.labelTimeBreakValue.Name = "labelTimeBreakValue";
-            this.labelTimeBreakValue.Size = new System.Drawing.Size(85, 19);
+            this.labelTimeBreakValue.Size = new System.Drawing.Size(185, 19);
             this.labelTimeBreakValue.TabIndex = 22;
             this.labelTimeBreakValue.Text = "???";
             this.labelTimeBreakValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 330);
+            this.ClientSize = new System.Drawing.Size(450, 330);
             this.Controls.Add(this.labelTimeBreakValue);
             this.Controls.Add(this.labelRoundBreakValue);
             this.Controls.Add(this.labelTimeWorkValue);
@@ -189,7 +199,7 @@
             this.Controls.Add(this.labelRoundWork);
             this.Controls.Add(this.labelStart);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(350, 330);
+            this.MinimumSize = new System.Drawing.Size(370, 330);
             this.Name = "FormStatistics";
             this.ShowButtonClose = true;
             this.ShowButtonMinimize = true;
@@ -216,11 +226,11 @@
         private System.Windows.Forms.Label labelTimeWork;
         private System.Windows.Forms.Label labelRoundBreak;
         private System.Windows.Forms.Label labelTimeBreak;
-        private Components.MyButton buttonReset;
         private System.Windows.Forms.Label labelStartValue;
         private System.Windows.Forms.Label labelRoundWorkValue;
         private System.Windows.Forms.Label labelTimeWorkValue;
         private System.Windows.Forms.Label labelRoundBreakValue;
         private System.Windows.Forms.Label labelTimeBreakValue;
+        private Cabster.Components.MyButton buttonReset;
     }
 }
