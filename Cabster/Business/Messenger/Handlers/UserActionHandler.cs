@@ -7,7 +7,6 @@ using Cabster.Business.Entities;
 using Cabster.Business.Forms;
 using Cabster.Business.Messenger.Request;
 using Cabster.Business.Values;
-using Cabster.Exceptions;
 using Cabster.Infrastructure;
 using Cabster.Properties;
 using MediatR;
@@ -140,7 +139,7 @@ namespace Cabster.Business.Messenger.Handlers
                 Driver = driver.Name,
                 Navigator = navigator.Name
             };
-            data.GroupWork.History.Add(current);
+            data.GroupWork.History.Insert(0, current);
             
             Log.Debug(
                 "User start group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}. Driver: {Driver}. Navigator: {Navigator}.",
@@ -181,7 +180,7 @@ namespace Cabster.Business.Messenger.Handlers
                 Driver = null,
                 Navigator = null
             };
-            data.GroupWork.History.Add(current);
+            data.GroupWork.History.Insert(0, current);
             
             Log.Debug(
                 "User start group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}.",
@@ -210,18 +209,19 @@ namespace Cabster.Business.Messenger.Handlers
         {
             var data = Program.Data;
 
-            var current = data.GroupWork.History.Last();
+            var current = data.GroupWork.History[0];
             current.TimeElapsed = request.Elapsed;
             current.TimeConcluded = request.Concluded;
 
             var roundsUpToBreak = data.GroupWork.Times.RoundsUpToBreak;
             var roundsOfWork = 0;
-            for (var i = data.GroupWork.History.Count - 1; i >= 0; i--)
-            {
-                var history = data.GroupWork.History[i];
-                if (history.IsBreak || roundsOfWork == roundsUpToBreak) break;
+            foreach (var _ in data
+                .GroupWork
+                .History
+                .TakeWhile(history => history.Started.ToLocalTime().Date == DateTimeOffset.Now.Date &&
+                                      !history.IsBreak && 
+                                      roundsOfWork != roundsUpToBreak)) 
                 roundsOfWork++;
-            }
 
             data.Application.State =
                 roundsOfWork >= roundsUpToBreak

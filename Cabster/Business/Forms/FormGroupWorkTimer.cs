@@ -71,7 +71,7 @@ namespace Cabster.Business.Forms
             {
                 data ??= Program.Data;
                 
-                var current = data.GroupWork.History.Last();
+                var current = data.GroupWork.History[0];
 
                 _timeDiscarded = TimeSpan.Zero;
                 _timeStarted = current.Started;
