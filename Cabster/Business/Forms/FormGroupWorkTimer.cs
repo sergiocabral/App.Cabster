@@ -167,10 +167,24 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        /// Sinaliza pausa.
+        /// </summary>
+        private bool _paused;
+        
+        /// <summary>
         ///     Pausa o temporizador.
         /// </summary>
         public void Pause()
         {
+            if (_paused)
+            {
+                FormDialogBase.HideAll();
+                _paused = false;
+                return;
+            }
+            
+            _paused = true;
+            
             timer.Enabled = false;
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -192,6 +206,8 @@ namespace Cabster.Business.Forms
                 Limit = Limit.Add(stopwatch.Elapsed);
                 timer.Enabled = true;
             }
+
+            _paused = false;
         }
     }
 }

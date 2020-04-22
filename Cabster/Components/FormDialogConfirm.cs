@@ -40,7 +40,7 @@ namespace Cabster.Components
                     Text = textForConfirm ?? Resources.Name_Term_Confirm
                 }
             };
-            return form.ShowDialog() != DialogResult.Cancel;
+            return form.ShowDialog() == DialogResult.OK;
         }
 
         /// <summary>

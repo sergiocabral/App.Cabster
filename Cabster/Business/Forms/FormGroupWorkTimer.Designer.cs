@@ -123,7 +123,7 @@
             this.labelBreak.Name = "labelBreak";
             this.labelBreak.Size = new System.Drawing.Size(125, 92);
             this.labelBreak.TabIndex = 11;
-            this.labelBreak.Text = "In the break";
+            this.labelBreak.Text = "Window.GroupWorkTimer.Break";
             this.labelBreak.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormGroupWorkTimer
