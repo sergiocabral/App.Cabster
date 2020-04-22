@@ -13,7 +13,7 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela para exibir o tempo do trabalho.
     /// </summary>
-    public partial class FormGroupWorkTimer : FormBase, IFormContainerData, IFormTopMost
+    public partial class FormGroupWorkTimer : FormBase, IFormContainerData
     {
         /// <summary>
         ///     Formato de exibição do temporizador.

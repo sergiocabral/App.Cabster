@@ -12,7 +12,7 @@ namespace Cabster.Components
     /// <summary>
     ///     Form base do sistema.
     /// </summary>
-    public partial class FormBase : Form, IFormApplication, IFormTopMost
+    public partial class FormBase : Form, IFormApplication
     {
         /// <summary>
         ///     Barramento de mensagens.
