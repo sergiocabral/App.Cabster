@@ -113,6 +113,7 @@ namespace Cabster.Business.Messenger.Handlers
                 data.GroupWork.Participants.Add(inactiveGoToEndOfTheList);
             }
 
+            data.GroupWork.Timer.IsBreak = false;
             data.GroupWork.Timer.Driver = driver.Name;
             data.GroupWork.Timer.Navigator = navigator.Name;
             data.GroupWork.Timer.Limit = DateTimeOffset.UtcNow.AddMinutes(data.GroupWork.Times.TimeToWork);

@@ -35,6 +35,7 @@
             this.labelNavigator = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.labelBreak = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelDriverIcon
@@ -57,10 +58,8 @@
             // 
             // labelDriver
             // 
-            this.labelDriver.Anchor =
-                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
-                                                        System.Windows.Forms.AnchorStyles.Left) |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDriver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDriver.AutoEllipsis = true;
             this.labelDriver.Font = new System.Drawing.Font("Calibri", 13F);
             this.labelDriver.Location = new System.Drawing.Point(41, 47);
@@ -73,10 +72,8 @@
             // 
             // labelNavigator
             // 
-            this.labelNavigator.Anchor =
-                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
-                                                        System.Windows.Forms.AnchorStyles.Left) |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNavigator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNavigator.AutoEllipsis = true;
             this.labelNavigator.Font = new System.Drawing.Font("Calibri", 13F);
             this.labelNavigator.Location = new System.Drawing.Point(41, 88);
@@ -89,10 +86,8 @@
             // 
             // labelTimer
             // 
-            this.labelTimer.Anchor =
-                ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
-                                                        System.Windows.Forms.AnchorStyles.Left) |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTimer.AutoEllipsis = true;
             this.labelTimer.Font = new System.Drawing.Font("Lucida Console", 20F);
             this.labelTimer.Location = new System.Drawing.Point(-1, 0);
@@ -107,6 +102,22 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // labelBreak
+            // 
+            this.labelBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBreak.Font = new System.Drawing.Font("Calibri", 12F);
+            this.labelBreak.Image = global::Cabster.Properties.Resources.iconTimeToBreak;
+            this.labelBreak.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.labelBreak.Location = new System.Drawing.Point(0, 33);
+            this.labelBreak.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBreak.Name = "labelBreak";
+            this.labelBreak.Size = new System.Drawing.Size(125, 92);
+            this.labelBreak.TabIndex = 11;
+            this.labelBreak.Text = "Window.GroupWorkTimer.Break";
+            this.labelBreak.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormGroupWorkTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -118,8 +129,8 @@
             this.Controls.Add(this.labelDriver);
             this.Controls.Add(this.labelNavigatorIcon);
             this.Controls.Add(this.labelDriverIcon);
-            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.Controls.Add(this.labelBreak);
+            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGroupWorkTimer";
@@ -128,6 +139,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FormGroupWorkTimer";
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Label labelNavigator;
         private System.Windows.Forms.Label labelTimer;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label labelBreak;
     }
 }

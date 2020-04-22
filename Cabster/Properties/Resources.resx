@@ -223,6 +223,9 @@
   <data name="IconSapiensia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSapiensia.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iconTimeToBreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconTimeToBreak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Name.Application" xml:space="preserve">
     <value>Cabster</value>
   </data>
@@ -345,6 +348,9 @@ To remove: left button.</value>
   </data>
   <data name="Window.GroupWork.WindowTitle" xml:space="preserve">
     <value>Group Work as MOB</value>
+  </data>
+  <data name="Window.GroupWorkTimer.Break" xml:space="preserve">
+    <value>In the break</value>
   </data>
   <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
     <value>Stopwatch stopped. Do you want to end this round?</value>

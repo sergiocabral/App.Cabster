@@ -8,6 +8,11 @@ namespace Cabster.Business.Entities
     public class GroupWorkTimerSet : EntityBase
     {
         /// <summary>
+        ///     Sinaliza se é um intervalo.
+        /// </summary>
+        public bool IsBreak { get; set; }
+
+        /// <summary>
         ///     Nome do Driver.
         /// </summary>
         public string Driver { get; set; } = string.Empty;

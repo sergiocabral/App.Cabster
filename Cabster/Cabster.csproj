@@ -403,6 +403,7 @@
     <None Include="Resources\buttonMinimizeLeave.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\iconTimeToBreak.png" />
     <None Include="Resources\buttonResizeEnter.png" />
     <None Include="Resources\buttonResizeLeave.png" />
     <None Include="Resources\buttonParticipantAddEnter.png" />
@@ -420,8 +421,6 @@
     <None Include="Resources\buttonNotificationLeave.png" />
     <None Include="Resources\buttonNotificationEnter.png" />
     <None Include="Resources\FormLockScreenBackground.png" />
-    <None Include="Resources\iconParticipantDriver.png" />
-    <None Include="Resources\iconParticipantNavigator.png" />
     <None Include="Resources\iconParticipantDriverDark.png" />
     <None Include="Resources\iconParticipantDriverLight.png" />
     <None Include="Resources\iconParticipantNavigatorDark.png" />

@@ -69,11 +69,18 @@ namespace Cabster.Business.Forms
             Invoke((Action) (() =>
             {
                 data ??= Program.Data;
+                
                 _timeStarted = DateTimeOffset.Now;
                 _timeDiscarded = TimeSpan.Zero;
+
+                labelBreak.Visible = data.GroupWork.Timer.IsBreak;
+                labelBreak.BringToFront();
+                
                 labelDriver.Text = data.GroupWork.Timer.Driver;
                 labelNavigator.Text = data.GroupWork.Timer.Navigator;
+                
                 Limit = data.GroupWork.Timer.Limit;
+                
                 UpdateTimer();
             }));
         }
