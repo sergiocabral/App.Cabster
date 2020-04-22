@@ -71,11 +71,10 @@ namespace Cabster.Business.Forms
             {
                 data ??= Program.Data;
                 
-                _timeStarted = DateTimeOffset.Now;
-                _timeDiscarded = TimeSpan.Zero;
-
                 var current = data.GroupWork.History.Last();
 
+                _timeDiscarded = TimeSpan.Zero;
+                _timeStarted = current.Started;
                 labelBreak.Visible = current.IsBreak;
                 labelDriver.Text = current.Driver;
                 labelNavigator.Text = current.Navigator;
