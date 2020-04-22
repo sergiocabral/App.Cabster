@@ -22,7 +22,8 @@ namespace Cabster.Business.Messenger.Handlers
     public class UserActionHandler :
         MessengerHandler,
         IRequestHandler<UserActionPoke>,
-        IRequestHandler<UserActionGroupWorkStart>,
+        IRequestHandler<UserActionGroupWorkStartWork>,
+        IRequestHandler<UserActionGroupWorkStartBreak>,
         IRequestHandler<UserActionGroupWorkTimerEnd>
     {
         /// <summary>
@@ -64,7 +65,8 @@ namespace Cabster.Business.Messenger.Handlers
                             ? FormWindowState.Normal
                             : FormWindowState.Minimized;
                     break;
-                case ApplicationState.GroupWorkRunning:
+                case ApplicationState.GroupWorkTimerForWork:
+                case ApplicationState.GroupWorkTimerForBreak:
                     var formGroupWorkTimer = Program.DependencyResolver.GetInstanceRequired<FormGroupWorkTimer>();
                     formGroupWorkTimer.Pause();
                     break;
@@ -78,7 +80,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public async Task<Unit> Handle(UserActionGroupWorkStart request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UserActionGroupWorkStartWork request, CancellationToken cancellationToken)
         {
             var data = Program.Data;
 
@@ -89,7 +91,7 @@ namespace Cabster.Business.Messenger.Handlers
                 .Take(2)
                 .ToArray();
 
-            data.Application.State = ApplicationState.GroupWorkRunning;
+            data.Application.State = ApplicationState.GroupWorkTimerForWork;
 
             if (workers.Length != 2)
             {
@@ -120,6 +122,36 @@ namespace Cabster.Business.Messenger.Handlers
             
             await _messageBus.Send(new DataUpdate(data,
                 DataSection.ApplicationState | DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), 
+                cancellationToken);
+
+            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+            
+            await _messageBus.Send(new WindowOpen(Window.GroupWorkTimer, Form.ActiveForm), cancellationToken);
+
+            if (data.Application.LockScreen) _lockScreen.Unlock();
+                
+            return Unit.Value;
+        }
+        
+        /// <summary>
+        ///     Processa o comando: UserActionGroupWorkStartBreak
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(UserActionGroupWorkStartBreak request, CancellationToken cancellationToken)
+        {
+            var data = Program.Data;
+
+            data.Application.State = ApplicationState.GroupWorkTimerForBreak;
+
+            data.GroupWork.Timer.IsBreak = true;
+            data.GroupWork.Timer.Driver = string.Empty;
+            data.GroupWork.Timer.Navigator = string.Empty;
+            data.GroupWork.Timer.Limit = DateTimeOffset.UtcNow.AddMinutes(data.GroupWork.Times.TimeToBreak);
+            
+            await _messageBus.Send(new DataUpdate(data,
+                DataSection.ApplicationState | DataSection.WorkGroupTimer), 
                 cancellationToken);
 
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);

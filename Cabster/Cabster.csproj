@@ -162,7 +162,8 @@
     </Compile>
     <Compile Include="Business\ILockScreen.cs" />
     <Compile Include="Business\Messenger\Handlers\UserActionHandler.cs" />
-    <Compile Include="Business\Messenger\Request\UserActionGroupWorkStart.cs" />
+    <Compile Include="Business\Messenger\Request\UserActionGroupWorkStartBreak.cs" />
+    <Compile Include="Business\Messenger\Request\UserActionGroupWorkStartWork.cs" />
     <Compile Include="Business\Messenger\Request\UserActionGroupWorkTimerEnd.cs" />
     <Compile Include="Business\Messenger\Request\UserActionPoke.cs" />
     <Compile Include="Business\Messenger\Request\WindowClose.cs" />

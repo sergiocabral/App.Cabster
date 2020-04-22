@@ -215,7 +215,8 @@ namespace Cabster.Business.Messenger.Handlers
                 ((IFormLayout?) _formConfiguration)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
-            if (notification.Request.SourceRequest is UserActionGroupWorkStart)
+            if (notification.Request.SourceRequest is UserActionGroupWorkStartWork ||
+                notification.Request.SourceRequest is UserActionGroupWorkStartBreak)
                 ((IFormLayout?) _formGroupWork)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 

@@ -5,17 +5,21 @@ namespace Cabster.Business.Values
     /// <summary>
     ///     Estados possíveis da aplicação.
     /// </summary>
-    [Flags]
     public enum ApplicationState
     {
         /// <summary>
         ///     Aplicação parada.
         /// </summary>
-        Idle = 0,
+        Idle,
 
         /// <summary>
-        ///     Trabalho em grupo MOB rodando.
+        ///     Trabalho em grupo MOB rodando em tempo de trabalho.
         /// </summary>
-        GroupWorkRunning = 1
+        GroupWorkTimerForWork,
+
+        /// <summary>
+        ///     Trabalho em grupo MOB rodando em tempo de intervalo.
+        /// </summary>
+        GroupWorkTimerForBreak
     }
 }
