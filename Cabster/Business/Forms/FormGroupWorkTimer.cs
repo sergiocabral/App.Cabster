@@ -175,7 +175,9 @@ namespace Cabster.Business.Forms
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             var cancel = FormDialogConfirm.Show(
-                Resources.Window_GroupWorkTimer_StopwatchStopped,
+                labelBreak.Visible
+                    ? Resources.Window_GroupWorkTimer_StopwatchStoppedForBreak
+                    : Resources.Window_GroupWorkTimer_StopwatchStoppedForWork,
                 Resources.Name_Term_No,
                 Resources.Name_Term_Yes);
             stopwatch.Stop();

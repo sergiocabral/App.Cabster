@@ -399,7 +399,7 @@ namespace Cabster.Business.Forms
         private async void buttonStart_Click(object sender, EventArgs args)
         {
             await SaveAllImmediately();
-            await MessageBus.Send(new UserActionGroupWorkStartBreak());
+            await MessageBus.Send(new UserActionGroupWorkTimerWorkStart());
         }
 
         /// <summary>

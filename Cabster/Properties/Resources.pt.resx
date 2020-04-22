@@ -270,8 +270,11 @@ Para remover: botão esquerdo.</value>
   <data name="Window.GroupWorkTimer.Break" xml:space="preserve">
     <value>Intervalo</value>
   </data>
-  <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
-    <value>Cronômetro parado. Você quer finalizar essa rodada?</value>
+  <data name="Window.GroupWorkTimer.StopwatchStoppedForBreak" xml:space="preserve">
+    <value>Cronômetro parado. Você quer finalizar esse intervalo?</value>
+  </data>
+  <data name="Window.GroupWorkTimer.StopwatchStoppedForWork" xml:space="preserve">
+    <value>Cronômetro parado. Você quer finalizar essa rodada de trabalho?</value>
   </data>
   <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimizar janela.</value>

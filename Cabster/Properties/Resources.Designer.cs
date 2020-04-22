@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -291,26 +291,6 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap iconTimeToBreak {
-            get {
-                object obj = ResourceManager.GetObject("iconTimeToBreak", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap iconParticipantNavigatorLight {
-            get {
-                object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon IconSapiensia {
@@ -323,9 +303,29 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap iconTimeToBreak {
+            get {
+                object obj = ResourceManager.GetObject("iconTimeToBreak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap iconParticipantNavigatorDark {
             get {
                 object obj = ResourceManager.GetObject("iconParticipantNavigatorDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap iconParticipantNavigatorLight {
+            get {
+                object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -784,11 +784,20 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stopwatch stopped. Do you want to end this round?.
+        ///   Looks up a localized string similar to Stopwatch stopped. Do you want to end this break?.
         /// </summary>
-        public static string Window_GroupWorkTimer_StopwatchStopped {
+        public static string Window_GroupWorkTimer_StopwatchStoppedForBreak {
             get {
-                return ResourceManager.GetString("Window.GroupWorkTimer.StopwatchStopped", resourceCulture);
+                return ResourceManager.GetString("Window.GroupWorkTimer.StopwatchStoppedForBreak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stopwatch stopped. Do you want to finish this round of work?.
+        /// </summary>
+        public static string Window_GroupWorkTimer_StopwatchStoppedForWork {
+            get {
+                return ResourceManager.GetString("Window.GroupWorkTimer.StopwatchStoppedForWork", resourceCulture);
             }
         }
         

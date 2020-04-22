@@ -352,8 +352,11 @@ To remove: left button.</value>
   <data name="Window.GroupWorkTimer.Break" xml:space="preserve">
     <value>In the break</value>
   </data>
-  <data name="Window.GroupWorkTimer.StopwatchStopped" xml:space="preserve">
-    <value>Stopwatch stopped. Do you want to end this round?</value>
+  <data name="Window.GroupWorkTimer.StopwatchStoppedForBreak" xml:space="preserve">
+    <value>Stopwatch stopped. Do you want to end this break?</value>
+  </data>
+  <data name="Window.GroupWorkTimer.StopwatchStoppedForWork" xml:space="preserve">
+    <value>Stopwatch stopped. Do you want to finish this round of work?</value>
   </data>
   <data name="Window.Layout.MinimizeWindow" xml:space="preserve">
     <value>Minimize window.</value>

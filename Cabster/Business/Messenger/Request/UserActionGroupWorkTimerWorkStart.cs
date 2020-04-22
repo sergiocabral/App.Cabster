@@ -3,9 +3,9 @@
 namespace Cabster.Business.Messenger.Request
 {
     /// <summary>
-    /// Começa o intervalo em grupo MOB. 
+    /// Começa o trabalho em grupo MOB. 
     /// </summary>
-    public class UserActionGroupWorkStartBreak: MessengerRequest
+    public class UserActionGroupWorkTimerWorkStart: MessengerRequest
     {
     }
 }

@@ -22,8 +22,8 @@ namespace Cabster.Business.Messenger.Handlers
     public class UserActionHandler :
         MessengerHandler,
         IRequestHandler<UserActionPoke>,
-        IRequestHandler<UserActionGroupWorkStartWork>,
-        IRequestHandler<UserActionGroupWorkStartBreak>,
+        IRequestHandler<UserActionGroupWorkTimerWorkStart>,
+        IRequestHandler<UserActionGroupWorkTimerBreakStart>,
         IRequestHandler<UserActionGroupWorkTimerEnd>
     {
         /// <summary>
@@ -80,7 +80,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public async Task<Unit> Handle(UserActionGroupWorkStartWork request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UserActionGroupWorkTimerWorkStart request, CancellationToken cancellationToken)
         {
             var data = Program.Data;
 
@@ -139,7 +139,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <param name="request">Comando</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns>Task</returns>
-        public async Task<Unit> Handle(UserActionGroupWorkStartBreak request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UserActionGroupWorkTimerBreakStart request, CancellationToken cancellationToken)
         {
             var data = Program.Data;
 
