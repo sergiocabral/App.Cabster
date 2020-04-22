@@ -401,6 +401,9 @@ What are you going to do?</value>
   <data name="Window.Statistics.ButtonReset" xml:space="preserve">
     <value>Reset statistics</value>
   </data>
+  <data name="Window.Statistics.ButtonResetConfirm" xml:space="preserve">
+    <value>Delete all statistical data?</value>
+  </data>
   <data name="Window.Statistics.ButtonResetHint" xml:space="preserve">
     <value>Clear all statistical data.</value>
   </data>

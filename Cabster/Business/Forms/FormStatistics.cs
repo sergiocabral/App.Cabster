@@ -47,8 +47,8 @@ namespace Cabster.Business.Forms
                     var minutes = totalMinutes % 60;
                     return $"{hour:00}:{minutes:00}";
                 }
-                
-                labelStartValue.Text = history.Last().Started.ToLocalTime().ToString("g");
+
+                labelStartValue.Text = history.Count == 0 ? "—" : $"{history.Last().Started.ToLocalTime():g}";
                 labelRoundWorkValue.Text = roundsWork.Length.ToString();
                 labelTimeWorkValue.Text = FormatTime(timeWork);
                 labelRoundBreakValue.Text = roundsBreak.Length.ToString();
@@ -65,6 +65,17 @@ namespace Cabster.Business.Forms
             {
                 UpdateControls();
             };
+        }
+
+        /// <summary>
+        /// Evento ao clicar no botão de limpar estatísticas.
+        /// </summary>
+        /// <param name="sender">Origem do evento.</param>
+        /// <param name="args">Informações do evento.</param>
+        private void buttonReset_Click(object sender, EventArgs args)
+        {
+            if (FormDialogConfirm.Show(Resources.Window_Statistics_ButtonResetConfirm))
+                MessageBus.Send(new UserActionStatisticsClear());
         }
     }
 }

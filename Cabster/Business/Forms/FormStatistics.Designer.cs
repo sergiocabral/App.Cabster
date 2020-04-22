@@ -116,6 +116,7 @@
             this.toolTip.SetToolTip(this.buttonReset, "Window.Statistics.ButtonResetHint");
             this.buttonReset.UseText = false;
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // labelStartValue
             // 

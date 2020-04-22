@@ -20,6 +20,7 @@ namespace Cabster.Business.Messenger.Handlers
     // ReSharper disable once UnusedType.Global
     public class UserActionHandler :
         MessengerHandler,
+        IRequestHandler<UserActionStatisticsClear>,
         IRequestHandler<UserActionPoke>,
         IRequestHandler<UserActionGroupWorkTimerWorkStart>,
         IRequestHandler<UserActionGroupWorkTimerBreakStart>,
@@ -45,6 +46,28 @@ namespace Cabster.Business.Messenger.Handlers
         {
             _messageBus = messageBus;
             _lockScreen = lockScreen;
+        }
+        
+        /// <summary>
+        ///     Processa o comando: UserActionStatisticsClear
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(UserActionStatisticsClear request, CancellationToken cancellationToken)
+        {
+            var data = Program.Data;
+
+            Log.Debug("Clearing statistics data. History count: {HistoryCount}", data.GroupWork.History.Count);
+
+            if (data.Application.State == ApplicationState.Idle)
+                data.GroupWork.History.Clear();
+            else
+                data.GroupWork.History.RemoveRange(1, data.GroupWork.History.Count - 1);
+            
+            await _messageBus.Send(new DataUpdate(data, DataSection.WorkGroupHistory), cancellationToken);
+            
+            return Unit.Value;
         }
         
         /// <summary>

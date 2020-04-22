@@ -931,6 +931,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete all statistical data?.
+        /// </summary>
+        public static string Window_Statistics_ButtonResetConfirm {
+            get {
+                return ResourceManager.GetString("Window.Statistics.ButtonResetConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear all statistical data..
         /// </summary>
         public static string Window_Statistics_ButtonResetHint {

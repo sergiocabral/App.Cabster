@@ -179,6 +179,7 @@
     <Compile Include="Business\Messenger\Request\UserActionGroupWorkTimerWorkStart.cs" />
     <Compile Include="Business\Messenger\Request\UserActionGroupWorkTimerEnd.cs" />
     <Compile Include="Business\Messenger\Request\UserActionPoke.cs" />
+    <Compile Include="Business\Messenger\Request\UserActionStatisticsClear.cs" />
     <Compile Include="Business\Messenger\Request\WindowClose.cs" />
     <Compile Include="Business\Messenger\Request\WindowOpen.cs" />
     <Compile Include="Business\LockScreen.cs" />

@@ -313,6 +313,9 @@ O que vão fazer?</value>
   <data name="Window.Statistics.ButtonReset" xml:space="preserve">
     <value>Reiniciar estatísticas</value>
   </data>
+  <data name="Window.Statistics.ButtonResetConfirm" xml:space="preserve">
+    <value>Excluir todos os dados estatísticos?</value>
+  </data>
   <data name="Window.Statistics.ButtonResetHint" xml:space="preserve">
     <value>Apaga todos os dados estatísticos.</value>
   </data>
