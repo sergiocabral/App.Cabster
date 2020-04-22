@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
+using Cabster.Business.Values;
 using Cabster.Components;
 using Cabster.Extensions;
 using Cabster.Properties;
@@ -69,8 +71,13 @@ namespace Cabster.Business.Forms
             Invoke((Action) (() =>
             {
                 data ??= Program.Data;
+
+                if (data.Application.State != ApplicationState.GroupWorkTimerForWork &&
+                    data.Application.State != ApplicationState.GroupWorkTimerForBreak)
+                    return;
                 
-                var current = data.GroupWork.History[0];
+                var current = data.GroupWork.History.FirstOrDefault();
+                if (current == null) return;
 
                 _timeDiscarded = TimeSpan.Zero;
                 _timeStarted = current.Started;

@@ -252,7 +252,7 @@ namespace Cabster.Business.Messenger.Handlers
                     : ApplicationState.Idle;
             
             Log.Debug(
-                "User end group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}. TimeElapsed: {TimeElapsed}. TimeConcluded: {TimeConcluded}. Application state sett for: {State}.",
+                "User end group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}. TimeElapsed: {TimeElapsed}. TimeConcluded: {TimeConcluded}. Application state set for: {State}.",
                 current.IsBreak, current.TimeExpected, current.TimeElapsed, current.TimeConcluded, data.Application.State);
            
             await _messageBus.Send(new DataUpdate(data, 
