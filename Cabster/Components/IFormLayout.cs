@@ -28,6 +28,11 @@ namespace Cabster.Components
         bool ShowButtonMinimize { get; set; }
 
         /// <summary>
+        ///     Exibe o botão fechar.
+        /// </summary>
+        bool ShowButtonClose { get; set; }
+
+        /// <summary>
         ///     Quando clica no botão fechar.
         ///     Retorna false para cancelar o fechamento.
         /// </summary>

@@ -16,6 +16,16 @@ namespace Cabster.Business.Forms
         public FormGroupWorkAskBreak()
         {
             InitializeComponent();
+            InitializeComponent2();
+        }
+
+        /// <summary>
+        /// Inicializa os controles.
+        /// </summary>
+        private void InitializeComponent2()
+        {
+            ShowButtonMinimize = false;
+            ShowButtonClose = false;
         }
 
         /// <summary>

@@ -41,7 +41,13 @@ namespace Cabster.Business
 
             _timer = new Timer
             {
-                Interval = 1,
+                Interval =
+#if DEBUG                    
+                    1000
+#else
+                    1
+#endif
+                ,
                 Enabled = false
             };
             _timer.Tick += TimerOnTick;

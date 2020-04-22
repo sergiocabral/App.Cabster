@@ -322,10 +322,22 @@ namespace Cabster.Business.Messenger.Handlers
             form.WindowState = FormWindowState.Normal;
             form.Show();
 
+            if (form.WindowState == FormWindowState.Minimized)
+                form.WindowState = FormWindowState.Normal;
+
             if (form is IFormLayout)
             {
                 var formHash = form.GetHashCode();
                 if (_formsPositioned == null) _formsPositioned = new List<int>();
+
+                var formIsOutOfScreen = form.Left + form.Width < 0 && form.Top + form.Height < 0;
+                if (formIsOutOfScreen)
+                {
+                    if (form.Width < form.MinimumSize.Width) form.Width = form.MinimumSize.Width;
+                    if (form.Height < form.MinimumSize.Height) form.Height = form.MinimumSize.Height;
+                    _formsPositioned.Remove(formHash);
+                }
+
                 var formPositioned = _formsPositioned.Contains(formHash);
                 if (!formPositioned) _formsPositioned.Add(formHash);
                 if (Application.OpenForms.Count > 0 && !formPositioned)
@@ -340,8 +352,8 @@ namespace Cabster.Business.Messenger.Handlers
                 }
             }
 
-            form.BringToFront();
             form.Activate();
+            form.BringToFront();
             Application.DoEvents();
             form.InvalidadeAll();
 

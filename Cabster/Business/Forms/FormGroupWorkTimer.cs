@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
@@ -13,7 +12,7 @@ namespace Cabster.Business.Forms
     /// <summary>
     ///     Janela para exibir o tempo do trabalho.
     /// </summary>
-    public partial class FormGroupWorkTimer : FormBase, IFormContainerData
+    public partial class FormGroupWorkTimer : FormBase, IFormContainerData, IFormTopMost
     {
         /// <summary>
         ///     Formato de exibição do temporizador.

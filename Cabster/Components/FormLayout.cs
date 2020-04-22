@@ -65,6 +65,15 @@ namespace Cabster.Components
         }
 
         /// <summary>
+        ///     Exibe o botão fechar.
+        /// </summary>
+        public bool ShowButtonClose
+        {
+            get => buttonClose.Visible;
+            set => buttonClose.Visible = value;
+        }
+
+        /// <summary>
         ///     Exibe o logotipo.
         /// </summary>
         public bool ShowLogo
