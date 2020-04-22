@@ -198,6 +198,9 @@
   <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>Nenhuma tecla de atalho definida.</value>
   </data>
+  <data name="Notification.StatisticsReset" xml:space="preserve">
+    <value>Os dados estatísticos foram apagados.</value>
+  </data>
   <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>A aplicação já está no idioma selecionado.</value>
   </data>

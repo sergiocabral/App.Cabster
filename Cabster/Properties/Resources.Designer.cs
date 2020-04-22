@@ -594,6 +594,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The statistical data has been erased..
+        /// </summary>
+        public static string Notification_StatisticsReset {
+            get {
+                return ResourceManager.GetString("Notification.StatisticsReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The application is already in the selected language..
         /// </summary>
         public static string Window_Configuration_LanguageAlreadySelected {

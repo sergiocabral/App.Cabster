@@ -244,6 +244,10 @@ namespace Cabster.Business.Messenger.Handlers
                 ((IFormLayout?) _formGroupWork)?
                     .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
 
+            if (notification.Request.SourceRequest is UserActionStatisticsClear)
+                ((IFormLayout?) _formStatistics)?
+                    .SetStatusMessage(notification.Request.Message.Text, notification.Request.Message.Success);
+
             ((IFormContainerData?) _formNotification)?.UpdateControls(null);
 
             return Unit.Task;

@@ -66,6 +66,9 @@ namespace Cabster.Business.Messenger.Handlers
                 data.GroupWork.History.RemoveRange(1, data.GroupWork.History.Count - 1);
             
             await _messageBus.Send(new DataUpdate(data, DataSection.WorkGroupHistory), cancellationToken);
+
+            await _messageBus.Send(new UserNotificationPost(
+                new NotificationMessage(Resources.Notification_StatisticsReset), request), cancellationToken);
             
             return Unit.Value;
         }

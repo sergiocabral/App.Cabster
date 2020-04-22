@@ -286,6 +286,9 @@
   <data name="Notification.ShortcutRemoved" xml:space="preserve">
     <value>No shortcut key defined.</value>
   </data>
+  <data name="Notification.StatisticsReset" xml:space="preserve">
+    <value>The statistical data has been erased.</value>
+  </data>
   <data name="Window.Configuration.LanguageAlreadySelected" xml:space="preserve">
     <value>The application is already in the selected language.</value>
   </data>
