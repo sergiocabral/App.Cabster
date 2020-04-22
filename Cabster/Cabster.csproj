@@ -148,7 +148,7 @@
     <Compile Include="Business\DataManipulation.cs" />
     <Compile Include="Business\Entities\ApplicationSet.cs" />
     <Compile Include="Business\Entities\ContainerData.cs" />
-    <Compile Include="Business\Entities\GroupWorkTimerSet.cs" />
+    <Compile Include="Business\Entities\GroupWorkHistorySet.cs" />
     <Compile Include="Business\Entities\GroupWorkParticipantSet.cs" />
     <Compile Include="Business\Entities\GroupWorkSet.cs" />
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />

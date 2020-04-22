@@ -15,11 +15,11 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Participantes.
         /// </summary>
-        public IList<GroupWorkParticipantSet> Participants { get; set; } = new List<GroupWorkParticipantSet>();
-        
+        public List<GroupWorkParticipantSet> Participants { get; set; } = new List<GroupWorkParticipantSet>();
+
         /// <summary>
-        ///     Temporizador do trabalho corrente.
+        ///     Histórico de trabalhos e intervalos.
         /// </summary>
-        public GroupWorkTimerSet Timer { get; set; } = new GroupWorkTimerSet();
+        public List<GroupWorkHistorySet> History { get; set; } = new List<GroupWorkHistorySet>();
     }
 }

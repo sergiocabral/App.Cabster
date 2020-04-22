@@ -115,13 +115,19 @@ namespace Cabster.Business.Messenger.Handlers
                 data.GroupWork.Participants.Add(inactiveGoToEndOfTheList);
             }
 
-            data.GroupWork.Timer.IsBreak = false;
-            data.GroupWork.Timer.Driver = driver.Name;
-            data.GroupWork.Timer.Navigator = navigator.Name;
-            data.GroupWork.Timer.Limit = DateTimeOffset.UtcNow.AddMinutes(data.GroupWork.Times.TimeToWork);
+            data.GroupWork.History.Add(new GroupWorkHistorySet
+            {
+                Started = DateTimeOffset.UtcNow,
+                TimeExpected = TimeSpan.FromMinutes(data.GroupWork.Times.TimeToWork),
+                TimeElapsed = TimeSpan.Zero,
+                TimeConcluded = false,
+                IsBreak = false,
+                Driver = driver.Name,
+                Navigator = navigator.Name
+            });
             
             await _messageBus.Send(new DataUpdate(data,
-                DataSection.ApplicationState | DataSection.WorkGroupParticipants | DataSection.WorkGroupTimer), 
+                DataSection.ApplicationState | DataSection.WorkGroupParticipants | DataSection.WorkGroupHistory), 
                 cancellationToken);
 
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
@@ -145,13 +151,19 @@ namespace Cabster.Business.Messenger.Handlers
 
             data.Application.State = ApplicationState.GroupWorkTimerForBreak;
 
-            data.GroupWork.Timer.IsBreak = true;
-            data.GroupWork.Timer.Driver = string.Empty;
-            data.GroupWork.Timer.Navigator = string.Empty;
-            data.GroupWork.Timer.Limit = DateTimeOffset.UtcNow.AddMinutes(data.GroupWork.Times.TimeToBreak);
+            data.GroupWork.History.Add(new GroupWorkHistorySet
+            {
+                Started = DateTimeOffset.UtcNow,
+                TimeExpected = TimeSpan.FromMinutes(data.GroupWork.Times.TimeToWork),
+                TimeElapsed = TimeSpan.Zero,
+                TimeConcluded = false,
+                IsBreak = true,
+                Driver = null, 
+                Navigator = null
+            });
             
             await _messageBus.Send(new DataUpdate(data,
-                DataSection.ApplicationState | DataSection.WorkGroupTimer), 
+                DataSection.ApplicationState | DataSection.WorkGroupHistory), 
                 cancellationToken);
 
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
@@ -172,10 +184,15 @@ namespace Cabster.Business.Messenger.Handlers
         public async Task<Unit> Handle(UserActionGroupWorkTimerEnd request, CancellationToken cancellationToken)
         {
             var data = Program.Data;
-            
+
+            var current = data.GroupWork.History.Last();
+            current.TimeElapsed = request.Elapsed;
+            current.TimeConcluded = request.Concluded;
+
             data.Application.State = ApplicationState.Idle;
             
-            await _messageBus.Send(new DataUpdate(data, DataSection.ApplicationState), cancellationToken);
+            await _messageBus.Send(new DataUpdate(data, 
+                DataSection.ApplicationState | DataSection.WorkGroupHistory), cancellationToken);
             
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
 
@@ -183,7 +200,7 @@ namespace Cabster.Business.Messenger.Handlers
             
             if (data.Application.LockScreen) _lockScreen.Lock();
             
-            Log.Verbose("Elapsed: {elapsed}", request.Time);
+            Log.Verbose("Elapsed: {elapsed}", request.Elapsed);
             
             return Unit.Value;
         }

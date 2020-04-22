@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Cabster.Business.Entities;
 using Cabster.Business.Messenger.Request;
@@ -73,13 +74,13 @@ namespace Cabster.Business.Forms
                 _timeStarted = DateTimeOffset.Now;
                 _timeDiscarded = TimeSpan.Zero;
 
-                labelBreak.Visible = data.GroupWork.Timer.IsBreak;
-                labelBreak.BringToFront();
-                
-                labelDriver.Text = data.GroupWork.Timer.Driver;
-                labelNavigator.Text = data.GroupWork.Timer.Navigator;
-                
-                Limit = data.GroupWork.Timer.Limit;
+                var current = data.GroupWork.History.Last();
+
+                labelBreak.Visible = current.IsBreak;
+                labelDriver.Text = current.Driver;
+                labelNavigator.Text = current.Navigator;
+
+                Limit = current.Started.Add(current.TimeExpected).ToLocalTime();
                 
                 UpdateTimer();
             }));
@@ -90,6 +91,7 @@ namespace Cabster.Business.Forms
         /// </summary>
         private void InitializeComponent2()
         {
+            labelBreak.BringToFront();
             Shown += UpdatePosition;
             Shown += UpdateControls;
             foreach (var control in this.AllControls()) control.MouseEnter += UpdatePosition;

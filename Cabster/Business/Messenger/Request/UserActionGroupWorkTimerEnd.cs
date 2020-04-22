@@ -11,18 +11,18 @@ namespace Cabster.Business.Messenger.Request
         /// <summary>
         ///     Construtor.
         /// </summary>
-        /// <param name="time">Tempo decorrido.</param>
+        /// <param name="elapsed">Tempo decorrido.</param>
         /// <param name="concluded">Ação de cancelamento.</param>
-        public UserActionGroupWorkTimerEnd(TimeSpan time, bool concluded = true)
+        public UserActionGroupWorkTimerEnd(TimeSpan elapsed, bool concluded = true)
         {
-            Time = time;
+            Elapsed = elapsed;
             Concluded = concluded;
         }
 
         /// <summary>
         ///     Tempo decorrido.
         /// </summary>
-        public TimeSpan Time { get; }
+        public TimeSpan Elapsed { get; }
 
         /// <summary>
         ///     Ação de cancelamento.

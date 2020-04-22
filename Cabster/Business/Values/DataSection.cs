@@ -63,9 +63,9 @@ namespace Cabster.Business.Values
             0b_0000_0010_0000,
 
         /// <summary>
-        ///     WorkGroupSet: Temporizador
+        ///     WorkGroupSet: Histórico
         /// </summary>
-        WorkGroupTimer =
+        WorkGroupHistory =
             0b_0000_0100_0000
     }
 }
