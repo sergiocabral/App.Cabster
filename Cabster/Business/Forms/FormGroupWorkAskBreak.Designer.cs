@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGroupWorkAskBreak));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(FormGroupWorkAskBreak));
             this.timerToSaveParticipants = new System.Windows.Forms.Timer(this.components);
             this.timerToSaveTimes = new System.Windows.Forms.Timer(this.components);
             this.labelDescription = new System.Windows.Forms.Label();
@@ -47,11 +48,14 @@
             // 
             // labelDescription
             // 
-            this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDescription.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top |
+                                                         System.Windows.Forms.AnchorStyles.Bottom) |
+                                                        System.Windows.Forms.AnchorStyles.Left) |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
-            this.labelDescription.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelDescription.Location = new System.Drawing.Point(12, 153);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(676, 152);
@@ -63,11 +67,15 @@
             // 
             this.buttonSkip.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSkip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSkip.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonSkip.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (140)))),
+                ((int) (((byte) (140)))), ((int) (((byte) (140)))));
             this.buttonSkip.FlatAppearance.BorderSize = 3;
-            this.buttonSkip.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.buttonSkip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.buttonSkip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.buttonSkip.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (29)))),
+                ((int) (((byte) (29)))), ((int) (((byte) (29)))));
+            this.buttonSkip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (29)))),
+                ((int) (((byte) (29)))), ((int) (((byte) (29)))));
+            this.buttonSkip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (34)))),
+                ((int) (((byte) (34)))), ((int) (((byte) (34)))));
             this.buttonSkip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSkip.Location = new System.Drawing.Point(12, 308);
             this.buttonSkip.Name = "buttonSkip";
@@ -82,13 +90,20 @@
             // buttonAccept
             // 
             this.buttonAccept.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(20)))));
+            this.buttonAccept.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (250)))),
+                ((int) (((byte) (180)))), ((int) (((byte) (20)))));
             this.buttonAccept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAccept.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(210)))), ((int)(((byte)(114)))));
+            this.buttonAccept.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (252)))),
+                ((int) (((byte) (210)))), ((int) (((byte) (114)))));
             this.buttonAccept.FlatAppearance.BorderSize = 3;
-            this.buttonAccept.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(87)))), ((int)(((byte)(2)))));
-            this.buttonAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(87)))), ((int)(((byte)(2)))));
-            this.buttonAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(100)))), ((int)(((byte)(3)))));
+            this.buttonAccept.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int) (((byte) (123)))),
+                ((int) (((byte) (87)))), ((int) (((byte) (2)))));
+            this.buttonAccept.FlatAppearance.MouseDownBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (123)))), ((int) (((byte) (87)))),
+                    ((int) (((byte) (2)))));
+            this.buttonAccept.FlatAppearance.MouseOverBackColor =
+                System.Drawing.Color.FromArgb(((int) (((byte) (141)))), ((int) (((byte) (100)))),
+                    ((int) (((byte) (3)))));
             this.buttonAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAccept.Location = new System.Drawing.Point(358, 308);
             this.buttonAccept.Name = "buttonAccept";
@@ -108,7 +123,7 @@
             this.Controls.Add(this.buttonAccept);
             this.Controls.Add(this.buttonSkip);
             this.Controls.Add(this.labelDescription);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "FormGroupWorkAskBreak";
             this.ShowButtonMinimize = true;
@@ -118,14 +133,13 @@
             this.Controls.SetChildIndex(this.buttonSkip, 0);
             this.Controls.SetChildIndex(this.buttonAccept, 0);
             this.ResumeLayout(false);
-
         }
 
         #endregion
         private System.Windows.Forms.Timer timerToSaveParticipants;
         private System.Windows.Forms.Timer timerToSaveTimes;
         private System.Windows.Forms.Label labelDescription;
-        private Components.MyButton buttonSkip;
-        private Components.MyButton buttonAccept;
+        private Cabster.Components.MyButton buttonAccept;
+        private Cabster.Components.MyButton buttonSkip;
     }
 }

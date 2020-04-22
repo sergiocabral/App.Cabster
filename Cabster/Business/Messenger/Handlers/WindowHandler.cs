@@ -331,24 +331,27 @@ namespace Cabster.Business.Messenger.Handlers
                 if (_formsPositioned == null) _formsPositioned = new List<int>();
 
                 var formIsOutOfScreen = form.Left + form.Width < 0 && form.Top + form.Height < 0;
-                if (formIsOutOfScreen)
-                {
-                    if (form.Width < form.MinimumSize.Width) form.Width = form.MinimumSize.Width;
-                    if (form.Height < form.MinimumSize.Height) form.Height = form.MinimumSize.Height;
+
+                if (form.Width < form.MinimumSize.Width) form.Width = form.MinimumSize.Width;
+                if (form.Height < form.MinimumSize.Height) form.Height = form.MinimumSize.Height;
+                
+                if (formIsOutOfScreen ||
+                    form is FormGroupWork ||
+                    form is FormGroupWorkAskBreak)
                     _formsPositioned.Remove(formHash);
-                }
 
                 var formPositioned = _formsPositioned.Contains(formHash);
                 if (!formPositioned) _formsPositioned.Add(formHash);
                 if (Application.OpenForms.Count > 0 && !formPositioned)
                 {
-                    var mainForm = formParent ?? Form.ActiveForm ?? Application.OpenForms[0];
-                    if (form != mainForm)
-                    {
-                        var center = new Point(mainForm.Left + mainForm.Width / 2, mainForm.Top + mainForm.Height / 2);
-                        form.Left = center.X - form.Width / 2;
-                        form.Top = center.Y - form.Height / 2;
-                    }
+                    var bounds = 
+                        formParent?.Bounds ?? 
+                        Screen.FromPoint(Cursor.Position).Bounds;
+                    
+                    var center = new Point(bounds.Left + bounds.Width / 2, bounds.Top + bounds.Height / 2);
+                    
+                    form.Left = center.X - form.Width / 2;
+                    form.Top = center.Y - form.Height / 2;
                 }
             }
 
