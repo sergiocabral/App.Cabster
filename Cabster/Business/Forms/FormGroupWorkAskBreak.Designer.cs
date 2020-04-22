@@ -52,9 +52,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
             this.labelDescription.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(12, 62);
+            this.labelDescription.Location = new System.Drawing.Point(12, 153);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(676, 243);
+            this.labelDescription.Size = new System.Drawing.Size(676, 152);
             this.labelDescription.TabIndex = 12;
             this.labelDescription.Text = "Window.GroupWorkAskBreak.Description";
             this.labelDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -95,7 +95,7 @@
             this.buttonAccept.NotTransparent = false;
             this.buttonAccept.Size = new System.Drawing.Size(330, 51);
             this.buttonAccept.TabIndex = 14;
-            this.buttonAccept.Text = "Window.GroupWorkTimer.Break";
+            this.buttonAccept.Text = "Window.GroupWorkAskBreak.Accept";
             this.buttonAccept.UseText = false;
             this.buttonAccept.UseVisualStyleBackColor = false;
             this.buttonAccept.Click += new System.EventHandler(this.buttonAccept_Click);

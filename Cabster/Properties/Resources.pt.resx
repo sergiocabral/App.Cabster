@@ -268,10 +268,11 @@ Para remover: botão esquerdo.</value>
     <value>Trabalho em Grupo em MOB</value>
   </data>
   <data name="Window.GroupWorkAskBreak.Accept" xml:space="preserve">
-    <value>Parar para um Intervalo</value>
+    <value>Fazer Intervalo</value>
   </data>
   <data name="Window.GroupWorkAskBreak.Description" xml:space="preserve">
-    <value>Chegou o momento de um intervalo. O vão fazer?</value>
+    <value>Chegou o momento de um intervalo.
+O que vão fazer?</value>
   </data>
   <data name="Window.GroupWorkAskBreak.Skip" xml:space="preserve">
     <value>Pular esse Intervalo</value>

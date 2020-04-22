@@ -775,7 +775,7 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stop for a Break.
+        ///   Looks up a localized string similar to Have a Break.
         /// </summary>
         public static string Window_GroupWorkAskBreak_Accept {
             get {
@@ -784,7 +784,8 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The time has come for a break. What are you going to do?.
+        ///   Looks up a localized string similar to The time has come for a break.
+        ///What are you going to do?.
         /// </summary>
         public static string Window_GroupWorkAskBreak_Description {
             get {

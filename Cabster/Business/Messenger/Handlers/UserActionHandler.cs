@@ -77,6 +77,17 @@ namespace Cabster.Business.Messenger.Handlers
             }
             return Unit.Task;
         }
+
+        /// <summary>
+        /// Método que calcula o tempo
+        /// </summary>
+        private static readonly Func<double, TimeSpan> TimeSpanFrom =
+#if DEBUG
+            TimeSpan.FromSeconds
+#else
+            TimeSpan.FromMinutes
+#endif
+            ;
         
         /// <summary>
         ///     Processa o comando: UserActionGroupWorkStart
@@ -122,7 +133,7 @@ namespace Cabster.Business.Messenger.Handlers
             var current = new GroupWorkHistorySet
             {
                 Started = DateTimeOffset.UtcNow,
-                TimeExpected = TimeSpan.FromMinutes(data.GroupWork.Times.TimeToWork),
+                TimeExpected = TimeSpanFrom(data.GroupWork.Times.TimeToWork),
                 TimeElapsed = TimeSpan.Zero,
                 TimeConcluded = false,
                 IsBreak = false,
@@ -163,7 +174,7 @@ namespace Cabster.Business.Messenger.Handlers
             var current = new GroupWorkHistorySet
             {
                 Started = DateTimeOffset.UtcNow,
-                TimeExpected = TimeSpan.FromMinutes(data.GroupWork.Times.TimeToWork),
+                TimeExpected = TimeSpanFrom(data.GroupWork.Times.TimeToBreak),
                 TimeElapsed = TimeSpan.Zero,
                 TimeConcluded = false,
                 IsBreak = true,
@@ -248,11 +259,11 @@ namespace Cabster.Business.Messenger.Handlers
 
             if (request.AcceptBreak)
             {
-                await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
+                await _messageBus.Send(new UserActionGroupWorkTimerBreakStart(), cancellationToken);
             }
             else
             {
-                await _messageBus.Send(new UserActionGroupWorkTimerBreakStart(), cancellationToken);
+                await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
             }
             
             return Unit.Value;
