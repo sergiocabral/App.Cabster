@@ -22,6 +22,7 @@ namespace Cabster.Infrastructure
             dependencyResolver.Register<FormMain, FormMain>();
             dependencyResolver.Register<FormGroupWork, FormGroupWork>();
             dependencyResolver.Register<FormGroupWorkTimer, FormGroupWorkTimer>();
+            dependencyResolver.Register<FormGroupWorkBreak, FormGroupWorkBreak>();
             dependencyResolver.Register<FormConfiguration, FormConfiguration>();
             dependencyResolver.Register<FormNotification, FormNotification>();
 
