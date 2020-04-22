@@ -54,7 +54,7 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         ///     Janela: FormGroupWorkBreak
         /// </summary>
-        private static Form? _formGroupWorkBreak;
+        private static Form? _formGroupWorkAskBreak;
 
         /// <summary>
         ///     Janela: FormConfiguration
@@ -121,8 +121,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <summary>
         ///     Janela: FormGroupWorkBreak
         /// </summary>
-        private static Form FormGroupWorkBreak =>
-            _formGroupWorkBreak ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWorkBreak>();
+        private static Form FormGroupWorkAskBreak =>
+            _formGroupWorkAskBreak ??= Program.DependencyResolver.GetInstanceRequired<FormGroupWorkAskBreak>();
 
         /// <summary>
         ///     Janela: FormConfiguration
@@ -302,7 +302,7 @@ namespace Cabster.Business.Messenger.Handlers
             if ((window & Window.Main) != 0) result.Add((_formMain, () => FormMain));
             if ((window & Window.GroupWork) != 0) result.Add((_formGroupWork, () => FormGroupWork));
             if ((window & Window.GroupWorkTimer) != 0) result.Add((_formGroupWorkTimer, () => FormGroupWorkTimer));
-            if ((window & Window.GroupWorkBreak) != 0) result.Add((_formGroupWorkBreak, () => FormGroupWorkBreak));
+            if ((window & Window.GroupWorkAskBreak) != 0) result.Add((_formGroupWorkAskBreak, () => FormGroupWorkAskBreak));
             if ((window & Window.Configuration) != 0) result.Add((_formConfiguration, () => FormConfiguration));
             if ((window & Window.Notification) != 0) result.Add((_formNotification, () => FormNotification));
             if (result.Count == 0) throw new ThisWillNeverOccurException();

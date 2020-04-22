@@ -24,7 +24,8 @@ namespace Cabster.Business.Messenger.Handlers
         IRequestHandler<UserActionPoke>,
         IRequestHandler<UserActionGroupWorkTimerWorkStart>,
         IRequestHandler<UserActionGroupWorkTimerBreakStart>,
-        IRequestHandler<UserActionGroupWorkTimerEnd>
+        IRequestHandler<UserActionGroupWorkTimerEnd>,
+        IRequestHandler<UserActionGroupWorkBreakResponse>
     {
         /// <summary>
         /// Barramento de mensagens.
@@ -202,20 +203,57 @@ namespace Cabster.Business.Messenger.Handlers
             current.TimeElapsed = request.Elapsed;
             current.TimeConcluded = request.Concluded;
 
-            data.Application.State = ApplicationState.Idle;
+            var roundsUpToBreak = data.GroupWork.Times.RoundsUpToBreak;
+            var roundsOfWork = 0;
+            for (var i = data.GroupWork.History.Count - 1; i >= 0; i--)
+            {
+                var history = data.GroupWork.History[i];
+                if (history.IsBreak || roundsOfWork == roundsUpToBreak) break;
+                roundsOfWork++;
+            }
+
+            data.Application.State =
+                roundsOfWork >= roundsUpToBreak
+                    ? ApplicationState.GroupWorkAskForBreak
+                    : ApplicationState.Idle;
             
             Log.Debug(
-                "User end group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}. TimeElapsed: {TimeElapsed}. TimeConcluded: {TimeConcluded}.",
-                current.IsBreak, current.TimeExpected, current.TimeElapsed, current.TimeConcluded);
+                "User end group work time. IsBreak: {IsBreak}. TimeExpected: {TimeExpected}. TimeElapsed: {TimeElapsed}. TimeConcluded: {TimeConcluded}. Application state sett for: {State}.",
+                current.IsBreak, current.TimeExpected, current.TimeElapsed, current.TimeConcluded, data.Application.State);
            
             await _messageBus.Send(new DataUpdate(data, 
                 DataSection.ApplicationState | DataSection.WorkGroupHistory), cancellationToken);
             
             await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
 
-            await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
+            if (data.Application.State == ApplicationState.GroupWorkAskForBreak)
+                await _messageBus.Send(new WindowOpen(Window.GroupWorkAskBreak), cancellationToken);
+            else
+                await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
             
             if (data.Application.LockScreen) _lockScreen.Lock();
+            
+            return Unit.Value;
+        }
+        
+        /// <summary>
+        ///     Processa o comando: UserActionGroupWorkBreakResponse
+        /// </summary>
+        /// <param name="request">Comando</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>Task</returns>
+        public async Task<Unit> Handle(UserActionGroupWorkBreakResponse request, CancellationToken cancellationToken)
+        {
+            await _messageBus.Send(new WindowClose(Window.All), cancellationToken);
+
+            if (request.AcceptBreak)
+            {
+                await _messageBus.Send(new WindowOpen(Window.GroupWork), cancellationToken);
+            }
+            else
+            {
+                await _messageBus.Send(new UserActionGroupWorkTimerBreakStart(), cancellationToken);
+            }
             
             return Unit.Value;
         }

@@ -775,6 +775,33 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stop for a Break.
+        /// </summary>
+        public static string Window_GroupWorkBreak_Accept {
+            get {
+                return ResourceManager.GetString("Window.GroupWorkBreak.Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The time has come for a break. What are you going to do?.
+        /// </summary>
+        public static string Window_GroupWorkBreak_Description {
+            get {
+                return ResourceManager.GetString("Window.GroupWorkBreak.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip this Break.
+        /// </summary>
+        public static string Window_GroupWorkBreak_Skip {
+            get {
+                return ResourceManager.GetString("Window.GroupWorkBreak.Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In the break.
         /// </summary>
         public static string Window_GroupWorkTimer_Break {

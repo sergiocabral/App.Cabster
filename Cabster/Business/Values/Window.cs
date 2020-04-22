@@ -35,7 +35,7 @@ namespace Cabster.Business.Values
         /// <summary>
         ///     Janela de intervalo do MOB
         /// </summary>
-        GroupWorkBreak =
+        GroupWorkAskBreak =
             0b_0000_1000,
 
         /// <summary>

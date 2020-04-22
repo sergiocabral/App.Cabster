@@ -20,6 +20,11 @@ namespace Cabster.Business.Values
         /// <summary>
         ///     Trabalho em grupo MOB rodando em tempo de intervalo.
         /// </summary>
-        GroupWorkTimerForBreak
+        GroupWorkTimerForBreak,
+
+        /// <summary>
+        ///     Trabalho em grupo MOB perguntando pelo intervalo
+        /// </summary>
+        GroupWorkAskForBreak
     }
 }

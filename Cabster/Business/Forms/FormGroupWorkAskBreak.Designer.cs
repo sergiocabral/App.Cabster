@@ -1,6 +1,6 @@
 ﻿namespace Cabster.Business.Forms
 {
-    partial class FormGroupWorkBreak
+    partial class FormGroupWorkAskBreak
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGroupWorkBreak));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(FormGroupWorkAskBreak));
             this.timerToSaveParticipants = new System.Windows.Forms.Timer(this.components);
             this.timerToSaveTimes = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -47,14 +48,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 400);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "FormGroupWorkBreak";
             this.ShowButtonMinimize = true;
             this.ShowLogo = true;
             this.Text = "Window.GroupWork.WindowTitle";
             this.ResumeLayout(false);
-
         }
 
         #endregion
