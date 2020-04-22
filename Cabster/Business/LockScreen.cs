@@ -1,13 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Cabster.Business.Messenger.Request;
+using Cabster.Business.Values;
 using Cabster.Components;
 using Cabster.Extensions;
 using Cabster.Infrastructure;
 using Cabster.Properties;
+using MediatR;
 using Serilog;
+using Color = System.Drawing.Color;
 
 namespace Cabster.Business
 {
@@ -17,6 +20,11 @@ namespace Cabster.Business
     // ReSharper disable once ClassNeverInstantiated.Global
     public class LockScreen : ILockScreen, IDisposable
     {
+        /// <summary>
+        /// Barramento de mensagens.
+        /// </summary>
+        private readonly IMediator _messageBus;
+
         /// <summary>
         ///     Marca para sinalizar que um form é um bloqueador de telas.
         /// </summary>
@@ -33,21 +41,17 @@ namespace Cabster.Business
         private bool _timerWorking;
 
         /// <summary>
-        ///     Construtor.
+        /// Construtor.
         /// </summary>
-        public LockScreen()
+        /// <param name="messageBus">Barramento de mensagens.</param>
+        public LockScreen(IMediator messageBus)
         {
             this.LogClassInstantiate();
 
+            _messageBus = messageBus;
             _timer = new Timer
             {
-                Interval =
-#if DEBUG                    
-                    1000
-#else
-                    1
-#endif
-                ,
+                Interval = 1,
                 Enabled = false
             };
             _timer.Tick += TimerOnTick;
@@ -162,11 +166,25 @@ namespace Cabster.Business
             form.Top = screen.Bounds.Y;
             form.Width = screen.Bounds.Width;
             form.Height = screen.Bounds.Height;
+            form.MouseDown += FormOnMouseDown;
             form.Show();
-
+            
             Log.Debug(
                 "Lock screen created for area: Left: {Left}, Top: {Top}, Width: {Width}, Height: {Height}.",
                 form.Left, form.Top, form.Width, form.Height);
+        }
+
+        /// <summary>
+        /// Evento para cancelar o bloqueio de tela.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Origem do evento.</param>
+        private void FormOnMouseDown(object sender, MouseEventArgs args)
+        {
+            if (args.Button != MouseButtons.Middle) return;
+            var data = Program.Data;
+            data.Application.LockScreen = false;
+            _messageBus.Send(new DataUpdate(data, DataSection.ApplicationLockScreen));
         }
 
         /// <summary>

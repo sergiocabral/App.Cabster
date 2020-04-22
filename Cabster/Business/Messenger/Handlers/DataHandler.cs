@@ -165,6 +165,20 @@ namespace Cabster.Business.Messenger.Handlers
         }
 
         /// <summary>
+        /// Descarta dados antigos.
+        /// </summary>
+        /// <param name="data">ContainerData</param>
+        private static void DiscardOldData(ContainerData data)
+        {
+            var dateLimit = DateTimeOffset.UtcNow.AddDays(-7);
+            data.GroupWork.History = data
+                .GroupWork
+                .History
+                .Where(a => a.Started >= dateLimit)
+                .ToList();
+        }
+
+        /// <summary>
         ///     Processa o comando: DataUpdate
         /// </summary>
         /// <param name="request">Comando</param>
@@ -172,6 +186,8 @@ namespace Cabster.Business.Messenger.Handlers
         /// <returns>Task</returns>
         public async Task<Unit> Handle(DataUpdate request, CancellationToken cancellationToken)
         {
+            DiscardOldData(request.Data);
+
             if (_programData == null)
                 _programData = typeof(Program)
                     .GetFields(BindingFlags.Static | BindingFlags.NonPublic)
