@@ -63,6 +63,7 @@ namespace Cabster
             using var logger = LoggerConfiguration.Initialize(
                 Environment.IsDebug || args.Contains("-vv") ? LogEventLevel.Verbose :
                 args.Contains("-v") ? LogEventLevel.Debug :
+                args.Contains("-silent") ? LogEventLevel.Fatal + 1 :
                 LogEventLevel.Information);
             Log.Logger = logger;
 
