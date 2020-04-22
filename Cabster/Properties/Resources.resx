@@ -398,6 +398,27 @@ What are you going to do?</value>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notifications</value>
   </data>
+  <data name="Window.Statistics.ButtonReset" xml:space="preserve">
+    <value>Reset statistics</value>
+  </data>
+  <data name="Window.Statistics.ButtonResetHint" xml:space="preserve">
+    <value>Clear all statistical data.</value>
+  </data>
+  <data name="Window.Statistics.LabelRoundBreak" xml:space="preserve">
+    <value>Break rounds:</value>
+  </data>
+  <data name="Window.Statistics.LabelRoundWork" xml:space="preserve">
+    <value>Work rounds:</value>
+  </data>
+  <data name="Window.Statistics.LabelStart" xml:space="preserve">
+    <value>Start of period:</value>
+  </data>
+  <data name="Window.Statistics.LabelTimeBreak" xml:space="preserve">
+    <value>Time in breaks:</value>
+  </data>
+  <data name="Window.Statistics.LabelTimeWork" xml:space="preserve">
+    <value>Time worked:</value>
+  </data>
   <data name="Window.Statistics.WindowTitle" xml:space="preserve">
     <value>Statistics</value>
   </data>

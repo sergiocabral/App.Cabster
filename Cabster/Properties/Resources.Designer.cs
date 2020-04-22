@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -283,26 +283,6 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap FormLockScreenBackground {
-            get {
-                object obj = ResourceManager.GetObject("FormLockScreenBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FormHeaderSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap FormLayoutBackground {
             get {
                 object obj = ResourceManager.GetObject("FormLayoutBackground", resourceCulture);
@@ -311,21 +291,11 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconSapiensia {
-            get {
-                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap iconTimeToBreak {
+        public static System.Drawing.Bitmap FormLockScreenBackground {
             get {
-                object obj = ResourceManager.GetObject("iconTimeToBreak", resourceCulture);
+                object obj = ResourceManager.GetObject("FormLockScreenBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,10 +313,40 @@ namespace Cabster.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap iconTimeToBreak {
+            get {
+                object obj = ResourceManager.GetObject("iconTimeToBreak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FormHeaderSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("FormHeaderSapiensia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap iconParticipantNavigatorLight {
             get {
                 object obj = ResourceManager.GetObject("iconParticipantNavigatorLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon IconSapiensia {
+            get {
+                object obj = ResourceManager.GetObject("IconSapiensia", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -918,6 +918,69 @@ namespace Cabster.Properties {
         public static string Window_Notification_WindowTitle {
             get {
                 return ResourceManager.GetString("Window.Notification.WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset statistics.
+        /// </summary>
+        public static string Window_Statistics_ButtonReset {
+            get {
+                return ResourceManager.GetString("Window.Statistics.ButtonReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear all statistical data..
+        /// </summary>
+        public static string Window_Statistics_ButtonResetHint {
+            get {
+                return ResourceManager.GetString("Window.Statistics.ButtonResetHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break rounds:.
+        /// </summary>
+        public static string Window_Statistics_LabelRoundBreak {
+            get {
+                return ResourceManager.GetString("Window.Statistics.LabelRoundBreak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work rounds:.
+        /// </summary>
+        public static string Window_Statistics_LabelRoundWork {
+            get {
+                return ResourceManager.GetString("Window.Statistics.LabelRoundWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start of period:.
+        /// </summary>
+        public static string Window_Statistics_LabelStart {
+            get {
+                return ResourceManager.GetString("Window.Statistics.LabelStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time in breaks:.
+        /// </summary>
+        public static string Window_Statistics_LabelTimeBreak {
+            get {
+                return ResourceManager.GetString("Window.Statistics.LabelTimeBreak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time worked:.
+        /// </summary>
+        public static string Window_Statistics_LabelTimeWork {
+            get {
+                return ResourceManager.GetString("Window.Statistics.LabelTimeWork", resourceCulture);
             }
         }
         

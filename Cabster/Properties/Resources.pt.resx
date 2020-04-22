@@ -310,6 +310,27 @@ O que vão fazer?</value>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notificações</value>
   </data>
+  <data name="Window.Statistics.ButtonReset" xml:space="preserve">
+    <value>Reiniciar estatísticas</value>
+  </data>
+  <data name="Window.Statistics.ButtonResetHint" xml:space="preserve">
+    <value>Apaga todos os dados estatísticos.</value>
+  </data>
+  <data name="Window.Statistics.LabelRoundBreak" xml:space="preserve">
+    <value>Rodadas de intervalo:</value>
+  </data>
+  <data name="Window.Statistics.LabelRoundWork" xml:space="preserve">
+    <value>Rodadas de trabalho:</value>
+  </data>
+  <data name="Window.Statistics.LabelStart" xml:space="preserve">
+    <value>Início do período:</value>
+  </data>
+  <data name="Window.Statistics.LabelTimeBreak" xml:space="preserve">
+    <value>Tempo em intervalos:</value>
+  </data>
+  <data name="Window.Statistics.LabelTimeWork" xml:space="preserve">
+    <value>Tempo trabalhado:</value>
+  </data>
   <data name="Window.Statistics.WindowTitle" xml:space="preserve">
     <value>Estatísticas</value>
   </data>
