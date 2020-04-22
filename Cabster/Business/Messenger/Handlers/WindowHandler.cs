@@ -67,6 +67,11 @@ namespace Cabster.Business.Messenger.Handlers
         private static Form? _formNotification;
 
         /// <summary>
+        ///     Janela: FormStatistics
+        /// </summary>
+        private static Form? _formStatistics;
+
+        /// <summary>
         ///     Lista de tipos de janelas.
         /// </summary>
         private static readonly Window[] _windowsType =
@@ -135,6 +140,12 @@ namespace Cabster.Business.Messenger.Handlers
         /// </summary>
         private static Form FormNotification =>
             _formNotification ??= Program.DependencyResolver.GetInstanceRequired<FormNotification>();
+
+        /// <summary>
+        ///     Janela: Statistics
+        /// </summary>
+        private static Form FormStatistics =>
+            _formStatistics ??= Program.DependencyResolver.GetInstanceRequired<FormStatistics>();
 
         /// <summary>
         ///     Evento: ApplicationFinalized
@@ -305,6 +316,7 @@ namespace Cabster.Business.Messenger.Handlers
             if ((window & Window.GroupWorkAskBreak) != 0) result.Add((_formGroupWorkAskBreak, () => FormGroupWorkAskBreak));
             if ((window & Window.Configuration) != 0) result.Add((_formConfiguration, () => FormConfiguration));
             if ((window & Window.Notification) != 0) result.Add((_formNotification, () => FormNotification));
+            if ((window & Window.Statistics) != 0) result.Add((_formStatistics, () => FormStatistics));
             if (result.Count == 0) throw new ThisWillNeverOccurException();
             return result.ToArray();
         }

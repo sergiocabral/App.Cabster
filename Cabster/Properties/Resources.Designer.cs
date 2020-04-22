@@ -19,7 +19,7 @@ namespace Cabster.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -236,6 +236,26 @@ namespace Cabster.Properties {
         public static System.Drawing.Bitmap buttonResizeLeave {
             get {
                 object obj = ResourceManager.GetObject("buttonResizeLeave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonStatisticsEnter {
+            get {
+                object obj = ResourceManager.GetObject("buttonStatisticsEnter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonStatisticsLeave {
+            get {
+                object obj = ResourceManager.GetObject("buttonStatisticsLeave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -748,6 +768,15 @@ namespace Cabster.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string Window_GroupWork_StatisticsHint {
+            get {
+                return ResourceManager.GetString("Window.GroupWork.StatisticsHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click to load a new tip..
         /// </summary>
         public static string Window_GroupWork_TipsHint {
@@ -889,6 +918,15 @@ namespace Cabster.Properties {
         public static string Window_Notification_WindowTitle {
             get {
                 return ResourceManager.GetString("Window.Notification.WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string Window_Statistics_WindowTitle {
+            get {
+                return ResourceManager.GetString("Window.Statistics.WindowTitle", resourceCulture);
             }
         }
     }

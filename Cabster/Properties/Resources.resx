@@ -172,6 +172,12 @@
   <data name="buttonResizeLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonResizeLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buttonStatisticsEnter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonStatisticsEnter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonStatisticsLeave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonStatisticsLeave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Exception.Application.ShortcutAlreadyUsed" xml:space="preserve">
     <value>The {Shortcut} shortcut key is already being used by another application.</value>
   </data>
@@ -340,6 +346,9 @@ To remove: left button.</value>
   <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Start Mob</value>
   </data>
+  <data name="Window.GroupWork.StatisticsHint" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
   <data name="Window.GroupWork.TipsHint" xml:space="preserve">
     <value>Click to load a new tip.</value>
   </data>
@@ -388,5 +397,8 @@ What are you going to do?</value>
   </data>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notifications</value>
+  </data>
+  <data name="Window.Statistics.WindowTitle" xml:space="preserve">
+    <value>Statistics</value>
   </data>
 </root>

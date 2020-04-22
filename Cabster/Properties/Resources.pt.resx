@@ -258,6 +258,9 @@ Para remover: botão esquerdo.</value>
   <data name="Window.GroupWork.Start" xml:space="preserve">
     <value>Começar Mob</value>
   </data>
+  <data name="Window.GroupWork.StatisticsHint" xml:space="preserve">
+    <value>Estatísticas</value>
+  </data>
   <data name="Window.GroupWork.TipsHint" xml:space="preserve">
     <value>Clique para carregar uma nova dica.</value>
   </data>
@@ -306,5 +309,8 @@ O que vão fazer?</value>
   </data>
   <data name="Window.Notification.WindowTitle" xml:space="preserve">
     <value>Notificações</value>
+  </data>
+  <data name="Window.Statistics.WindowTitle" xml:space="preserve">
+    <value>Estatísticas</value>
   </data>
 </root>

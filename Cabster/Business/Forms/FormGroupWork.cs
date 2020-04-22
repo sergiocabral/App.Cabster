@@ -416,6 +416,16 @@ namespace Cabster.Business.Forms
         }
 
         /// <summary>
+        ///     Evento: botão configurações.
+        /// </summary>
+        /// <param name="sender">Fonte do evento.</param>
+        /// <param name="args">Dados do evento.</param>
+        private void buttonStatistics_Click(object sender, EventArgs args)
+        {
+            MessageBus.Send<IDictionary<Window, Form>>(new WindowOpen(Window.Statistics, this));
+        }
+
+        /// <summary>
         ///     Informações sobre o participant.
         /// </summary>
         private class ParticipantInfo

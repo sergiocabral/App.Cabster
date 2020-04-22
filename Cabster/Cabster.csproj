@@ -154,6 +154,12 @@
     <Compile Include="Business\Entities\GroupWorkTimesSet.cs" />
     <Compile Include="Business\Entities\NotificationMessage.cs" />
     <Compile Include="Business\EntityBase.cs" />
+    <Compile Include="Business\Forms\FormStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Forms\FormStatistics.Designer.cs">
+      <DependentUpon>FormStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\Forms\FormGroupWorkAskBreak.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     <Compile Include="Infrastructure\MessengerNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\Forms\FormStatistics.resx">
+      <DependentUpon>FormStatistics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\Forms\FormGroupWorkAskBreak.resx">
       <DependentUpon>FormGroupWorkAskBreak.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,6 +442,8 @@
     <None Include="Resources\iconParticipantDriverLight.png" />
     <None Include="Resources\iconParticipantNavigatorDark.png" />
     <None Include="Resources\iconParticipantNavigatorLight.png" />
+    <None Include="Resources\buttonStatisticsLeave.png" />
+    <None Include="Resources\buttonStatisticsEnter.png" />
     <Content Include="Resources\IconSapiensia.ico" />
     <Content Include="IconSapiensia.ico" />
   </ItemGroup>

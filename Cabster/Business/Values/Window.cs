@@ -48,6 +48,12 @@ namespace Cabster.Business.Values
         ///     Janela de notificação.
         /// </summary>
         Notification =
-            0b_0010_0000
+            0b_0010_0000,
+
+        /// <summary>
+        ///     Janela de estatísticas.
+        /// </summary>
+        Statistics =
+            0b_0100_0000
     }
 }
