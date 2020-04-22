@@ -116,15 +116,19 @@ namespace Cabster.Business.Forms
         /// <param name="data">Dados da aplicação.</param>
         public void UpdateControls(ContainerData? data = null)
         {
-            if (data != null)
+            Invoke((Action) (() =>
             {
-                _lastShortcut = data.Application.Shortcut;
-                _lastLockScreen = data.Application.LockScreen;
-                if (data == _data) return;
-            }
-            data ??= Data;
-            _lastShortcut = Shortcut = data.Application.Shortcut;
-            _lastLockScreen = LockScreen = data.Application.LockScreen;
+                if (data != null)
+                {
+                    _lastShortcut = data.Application.Shortcut;
+                    _lastLockScreen = data.Application.LockScreen;
+                    if (data == _data) return;
+                }
+
+                data ??= Data;
+                _lastShortcut = Shortcut = data.Application.Shortcut;
+                _lastLockScreen = LockScreen = data.Application.LockScreen;
+            }));
         }
 
         /// <summary>

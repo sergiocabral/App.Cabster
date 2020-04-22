@@ -34,18 +34,21 @@ namespace Cabster.Business.Forms
         ///     Notifica a atualização dos controles da tela.
         /// </summary>
         /// <param name="data">Dados da aplicação.</param>
-        public async void UpdateControls(ContainerData? data = null)
+        public void UpdateControls(ContainerData? data = null)
         {
-            if (data != null) throw new ThisWillNeverOccurException();
-
-            var messages = await MessageBus.Send<IEnumerable<NotificationMessage>>(
-                new UserNotificationRequestList(_lastFilter));
-
-            foreach (var message in messages)
+            Invoke((Action) (async () =>
             {
-                AddMessage(message);
-                if (_lastFilter < message.Time) _lastFilter = message.Time;
-            }
+                if (data != null) throw new ThisWillNeverOccurException();
+
+                var messages = await MessageBus.Send<IEnumerable<NotificationMessage>>(
+                    new UserNotificationRequestList(_lastFilter));
+
+                foreach (var message in messages)
+                {
+                    AddMessage(message);
+                    if (_lastFilter < message.Time) _lastFilter = message.Time;
+                }
+            }));
         }
 
         /// <summary>

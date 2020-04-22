@@ -126,10 +126,13 @@ namespace Cabster.Business.Forms
         /// <param name="data">Dados da aplicação.</param>
         public void UpdateControls(ContainerData? data = null)
         {
-            if (data != null && data == _data) return;
-            data ??= Data;
-            Participants = data.GroupWork.Participants;
-            Times = data.GroupWork.Times;
+            Invoke((Action) (() =>
+            {
+                if (data != null && data == _data) return;
+                data ??= Data;
+                Participants = data.GroupWork.Participants;
+                Times = data.GroupWork.Times;
+            }));
         }
 
         /// <summary>
