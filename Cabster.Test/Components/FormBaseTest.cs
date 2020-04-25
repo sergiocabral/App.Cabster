@@ -50,7 +50,8 @@ namespace Cabster.Components
 
             // Assert, Then
 
-            sut.AssertMyOwnImplementations();
+            sut.AssertMyOwnImplementations(
+                typeof(IFormApplication));
             sut.AssertMyOwnPublicPropertiesCount(0);
             sut.AssertMyOwnPublicMethodsCount(0);
 

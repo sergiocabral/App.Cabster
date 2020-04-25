@@ -42,7 +42,7 @@ namespace Cabster
             sut.AssertMyImplementations();
             sut.AssertMyOwnImplementations();
             sut.AssertMyOwnPublicPropertiesCount(2);
-            sut.AssertPublicPropertyPresence("static IDependencyResolver DependencyResolver { get; set; }");
+            sut.AssertPublicPropertyPresence("static IDependencyResolver DependencyResolver { get; }");
             sut.AssertPublicPropertyPresence("static ContainerData Data { get; }");
             sut.AssertMyOwnPublicMethodsCount(1);
             sut.AssertPublicMethodPresence("static Task Main(String[])");
