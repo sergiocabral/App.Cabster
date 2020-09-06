@@ -27,6 +27,6 @@ namespace Cabster.Business.Entities
         /// <summary>
         ///     Bloqueio de tela.
         /// </summary>
-        public bool LockScreen { get; set; } = true;
+        public bool LockScreen { get; set; } = false;
     }
 }
